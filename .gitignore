@@ -1,0 +1,35 @@
+# Gradle
+.gradle/
+build/
+local.properties
+gen/
+build-cache/
+
+# IDEA/Android Studio ignores
+*iml
+.idea/*
+
+# IDEA/Android Studio includes
+!.idea/vcs.xml
+!.idea/fileTemplates/
+!.idea/inspectionProfiles/
+!.idea/scopes/
+!.idea/codeStyles/
+!.idea/encoding.xml
+!.idea/copyright/
+!.idea/externalDependencies.xml
+
+# Android
+# see app-android/.gitignore
+
+# Swift & Xcode
+# see app-ios/.gitignore
+
+# Others
+captures/
+
+## Asciidoctor
+.asciidoctor/
+
+## OS X Finder
+.DS_Store
