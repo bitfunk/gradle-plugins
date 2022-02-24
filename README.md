@@ -58,11 +58,11 @@ We use [Semantic Versioning](http://semver.org/) as a guideline for our versioni
 ## Contributing
 
 You want to help or share a proposal? You have a specific problem? You want to fix or change code? 
-Read the [contributing guide](docs/contributing.md).
+Read the [contributing guide](docs/src/develop/contributing.md).
 
 ## Releasing
 
-See [releasing](docs/releasing.md)
+See [releasing](docs/src/develop/releasing.md)
 
 ## Copyright and license
 

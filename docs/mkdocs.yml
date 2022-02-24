@@ -1,0 +1,110 @@
+site_name: Bitfunk Gradle Plugins
+site_description: Collection of Gradle plugins used across multiple projects.
+site_author: Wolf-Martell Montwé
+site_url: https://bitfunk.github.io/gradle-plugins/
+
+repo_name: bitfunk/gradle-plugins
+repo_url: https://github.com/bitfunk/gradle-plugins
+edit_uri: edit/main/docs/src/
+
+copyright: Copyright &copy; 2022 Wolf-Martell Montwé;
+
+docs_dir: src
+
+extra_css:
+  - assets/css/extra.css
+
+# Meterial theme
+theme:
+  name: 'material'
+  language: en
+  logo: assets/images/logo.svg
+  favicon: assets/images/logo.svg
+  custom_dir: theme
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  social:
+    - type: 'github'
+      link: 'https://github.com/bitfunk/gradle-plugins'
+  features:
+    #- navigation.tabs
+    #- navigation.tabs.sticky
+    #- navigation.instant
+    - navigation.tracking
+    - navigation.top
+
+plugins:
+  - search
+  - redirects
+  - kroki
+  - include-markdown
+  - markdownextradata
+
+extra:
+#  palette:
+#    primary: 'indigo'
+#    accent: 'indigo'
+
+  version:
+    provider: mike
+
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bitfunk
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Dev server binding
+#dev_addr: 127.0.0.1:3001
+
+nav:
+  - Home: index.md
+  - Changelog: changelog.md
+  - Plugins:
+      - Overview: plugins/index.md
+  - Develop:
+      - Contributing: develop/contributing.md
+      - Releasing: develop/releasing.md
+      - Badges: develop/badges.md
+  - License: license.md

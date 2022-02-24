@@ -1,0 +1,5 @@
+[versions]
+mkdocs = "2.2.0"
+
+[plugins]
+mkdocs = { id = "ru.vyarus.mkdocs", version.ref = "mkdocs" }

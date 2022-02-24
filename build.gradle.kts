@@ -28,7 +28,6 @@ buildscript {
 plugins {
 }
 
-
 tasks.register("dependencyUpdatesAll") {
     dependsOn("dependencyUpdates")
     dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })

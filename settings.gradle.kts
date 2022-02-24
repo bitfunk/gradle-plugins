@@ -25,6 +25,8 @@ pluginManagement {
 
 }
 
+include("docs")
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "GradlePlugins"

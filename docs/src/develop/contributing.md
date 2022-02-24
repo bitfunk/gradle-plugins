@@ -23,6 +23,8 @@ Ideally, that includes a description or small example how to reproduce the probl
 
 Create a branch according to the following rules, work on your changes and create a pull-request.
 
+`main` must be always in releasable state.
+
 #### Branch
 
 Every change has to branch of from `main` and use this branch naming convention:
@@ -32,13 +34,13 @@ Every change has to branch of from `main` and use this branch naming convention:
 
 ##### Type of change
 
-* *added* for new features or functionality
-* *changed* for changes in existing features or functionality
-* *deprecated* for soon-to-be removed features
-* *removed* | for removed features or functionality
-* *fixed* for any bug fixes
-* *security* in case of vulnerabilities
-* *bumped* for dependency updates
+* _**added**_ for new features or functionality
+* _**changed**_ for changes in existing features or functionality
+* _**deprecated**_ for soon-to-be removed features
+* _**removed**_ for removed features or functionality
+* _**fixed**_ for any bug fixes
+* _**security**_ in case of vulnerabilities
+* _**bumped**_ for dependency updates
 
 Examples:
 
@@ -79,17 +81,15 @@ Pull requests must fill the provided template. Put N/A when a paragraph cannot b
 
 We will review your contribution and check following criteria:
 
-* [ ] Functional and fitting in the project
-* [ ] Code style and naming conventions followed
-* [ ] Test written and passing
-* [ ] Continuous Integration build passing
-* [ ] Cross platform testing done for all supported platforms
-* [ ] Documentation updated
-* [ ] Changelog updated
+* [x] Functional and fitting the project
+* [x] Code style and naming conventions followed
+* [x] Test written and passing
+* [x] Continuous Integration build passing
+* [x] Cross platform testing done for all supported platforms
+* [x] Documentation updated
+* [x] Changelog updated
 
-`main` must be always in releasable state.
-
-### Components using other licenses
+### Dependencies using other licenses
 
 Contributing code and introducing dependencies into the repository from other projects that use one
 of the following licenses is allowed.
