@@ -31,4 +31,3 @@ curl "https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square" 
 ## License
 
 Shields is licensed under *Creative Commons Zero v1.0 Universal* (as of 2022-02-23)
-

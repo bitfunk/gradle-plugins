@@ -37,7 +37,7 @@ TODO
 Use this space to show useful examples of how a project can be used. Additional screenshots, code
 examples and demos work well in this space. You may also link to more resources.
 
-For more examples, please refer to the [documentation][webpage]
+For more examples, please refer to the [documentation][webpage].
 
 ## Roadmap
 
@@ -49,7 +49,7 @@ improvements and known issues.
 
 ## Changelog
 
-See [changelog](CHANGELOG.md)
+All notable changes to this project will be documented in the [changelog](CHANGELOG.md).
 
 ## Versioning
 
@@ -57,15 +57,12 @@ We use [Semantic Versioning](http://semver.org/) as a guideline for our versioni
 
 ## Contributing
 
-You want to help or share a proposal? You have a specific problem? Read the following:
-
-* [Contributing](docs/Contributing.adoc) for details about how to report bugs and propose features.
-* [Developing](docs/Developing.adoc) for details about our development process and how to build and
-  test the project.
+You want to help or share a proposal? You have a specific problem? You want to fix or change code? 
+Read the [contributing guide](docs/contributing.md).
 
 ## Releasing
 
-See [releasing](docs/Releasing.adoc)
+See [releasing](docs/releasing.md)
 
 ## Copyright and license
 
