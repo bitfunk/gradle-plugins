@@ -17,6 +17,7 @@ extra_css:
 # Meterial theme
 theme:
   name: 'material'
+  font: false
   language: en
   logo: assets/images/logo.svg
   favicon: assets/images/logo.svg
