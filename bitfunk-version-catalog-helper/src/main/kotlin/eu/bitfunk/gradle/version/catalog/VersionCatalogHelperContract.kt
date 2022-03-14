@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.version.catalog
 
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import java.io.InputStream
 
 interface VersionCatalogHelperContract {
@@ -27,6 +28,10 @@ interface VersionCatalogHelperContract {
 
     interface Parser {
         fun parse(inputStream: InputStream): Catalog
+    }
+
+    interface Mapper {
+        fun map(items: List<String>): List<Node>
     }
 
 }
