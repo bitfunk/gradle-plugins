@@ -16,17 +16,11 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog
+package eu.bitfunk.gradle.version.catalog.intern.model
 
-import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
-import java.io.InputStream
-
-interface VersionCatalogHelperContract {
-
-    interface Plugin
-
-    interface Parser {
-        fun parse(inputStream: InputStream): Catalog
-    }
-
-}
+data class Catalog(
+    val versions: List<String>,
+    val libraries: List<String>,
+    val bundles: List<String>,
+    val plugins: List<String>
+)

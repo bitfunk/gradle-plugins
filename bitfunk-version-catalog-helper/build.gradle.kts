@@ -46,6 +46,8 @@ java {
 }
 
 dependencies {
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
+
     testImplementation(gradleTestKit())
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("io.mockk:mockk:1.12.3")
