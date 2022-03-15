@@ -25,9 +25,9 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.version.catalog.helper.BaseVersionCatalogHelper
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Group
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.GroupLeaf
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Leaf
+import eu.bitfunk.gradle.version.catalog.helper.Dependency.Group
+import eu.bitfunk.gradle.version.catalog.helper.Dependency.GroupLeaf
+import eu.bitfunk.gradle.version.catalog.helper.Dependency.Leaf
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles

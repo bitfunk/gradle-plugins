@@ -16,26 +16,16 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog
+package eu.bitfunk.gradle.version.catalog.helper
 
-import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
-import eu.bitfunk.gradle.version.catalog.intern.model.Node
-import java.io.InputStream
+interface Dependency {
+    interface Group : Dependency
 
-interface VersionCatalogHelperContract {
-
-    interface Plugin
-
-    interface Generator {
-        fun generate(catalog: Catalog): String
+    interface GroupLeaf : Dependency {
+        fun get(): String
     }
 
-    interface Parser {
-        fun parse(inputStream: InputStream): Catalog
+    interface Leaf : Dependency {
+        fun get(): String
     }
-
-    interface Mapper {
-        fun map(items: List<String>): List<Node>
-    }
-
 }
