@@ -16,12 +16,11 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog.intern
+package eu.bitfunk.gradle.version.catalog
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
-import org.gradle.kotlin.dsl.getByType
 
 abstract class BaseVersionCatalogHelper(
     project: Project,
@@ -66,7 +65,7 @@ abstract class BaseVersionCatalogHelper(
         const val DEFAULT_CATALOG_NAME = "libs"
 
         fun Project.loadVersionCatalog(name: String): VersionCatalog {
-            return extensions.getByType(VersionCatalogsExtension::class).named(name)
+            return extensions.getByType(VersionCatalogsExtension::class.java).named(name)
         }
     }
 }
