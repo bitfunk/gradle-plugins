@@ -61,3 +61,7 @@ tasks.register<Exec>("gitDisableSigning") {
 tasks.named("gitPublishReset") {
     dependsOn("gitDisableSigning")
 }
+
+tasks.register<Delete>("clean") {
+    delete("build")
+}
