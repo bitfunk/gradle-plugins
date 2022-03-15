@@ -26,6 +26,23 @@ interface VersionCatalogHelperContract {
 
     interface Plugin
 
+    interface Dependency {
+
+        interface Group : Dependency
+
+        interface GroupLeaf : Dependency {
+            fun get(): String
+        }
+
+        interface Leaf : Dependency {
+            fun get(): String
+        }
+    }
+
+    interface Generator {
+        fun generate(catalog: Catalog): String
+    }
+
     interface Parser {
         fun parse(inputStream: InputStream): Catalog
     }
