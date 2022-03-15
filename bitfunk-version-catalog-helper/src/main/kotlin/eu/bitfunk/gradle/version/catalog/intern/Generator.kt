@@ -29,8 +29,13 @@ import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Leaf
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import org.gradle.api.Project
+import java.lang.UnsupportedOperationException
 import kotlin.reflect.KClass
 
 class Generator(
@@ -66,19 +71,19 @@ class Generator(
             .addProperty(generateRootProperty(PROPERTY_NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(PROPERTY_NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(PROPERTY_NAME_PLUGINS, catalog.plugins))
-            .addProperties(generateProperties(libraryNodes))
+            .addProperties(generateProperties(catalog.libraries::class, libraryNodes))
             .build()
     }
 
     private fun generateRootProperty(name: String, catalogEntry: CatalogEntry): PropertySpec {
         return PropertySpec.builder(name, Group::class)
-            .initializer("%L", generateRootImplementation(Group::class, catalogEntry.items))
+            .initializer("%L", generateRootImplementation(Group::class, catalogEntry))
             .build()
     }
 
-    private fun generateRootImplementation(className: KClass<*>, items: List<String>): TypeSpec {
-        val nodes = mapper.map(items)
-        val properties = generateProperties(nodes)
+    private fun generateRootImplementation(className: KClass<*>, catalogEntry: CatalogEntry): TypeSpec {
+        val nodes = mapper.map(catalogEntry.items)
+        val properties = generateProperties(catalogEntry::class, nodes)
 
         return TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
@@ -86,16 +91,16 @@ class Generator(
             .build()
     }
 
-    private fun generateProperties(nodes: List<Node>): Iterable<PropertySpec> {
+    private fun generateProperties(catalogType: KClass<*>, nodes: List<Node>): Iterable<PropertySpec> {
         val properties = mutableListOf<PropertySpec>()
 
         for (node in nodes) {
             val property = if (node.isGroup() && node.isLeaf()) {
-                generateNodeProperty(node, GroupLeaf::class)
+                generateNodeProperty(catalogType, node, GroupLeaf::class)
             } else if (node.isLeaf()) {
-                generateNodeProperty(node, Leaf::class)
+                generateNodeProperty(catalogType, node, Leaf::class)
             } else {
-                generateNodeProperty(node, Group::class)
+                generateNodeProperty(catalogType, node, Group::class)
             }
 
             properties.add(property)
@@ -104,34 +109,42 @@ class Generator(
         return properties
     }
 
-    private fun generateNodeProperty(node: Node, className: KClass<*>): PropertySpec {
+    private fun generateNodeProperty(catalogType: KClass<*>, node: Node, className: KClass<*>): PropertySpec {
         return PropertySpec.builder(node.name, className)
-            .initializer("%L", generateNodeImplementation(node, className))
+            .initializer("%L", generateNodeImplementation(catalogType, node, className))
             .build()
     }
 
-    private fun generateNodeImplementation(node: Node, className: KClass<*>): TypeSpec {
+    private fun generateNodeImplementation(catalogType: KClass<*>, node: Node, className: KClass<*>): TypeSpec {
         val nodeImplementation = TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
 
         if (className == Leaf::class || className == GroupLeaf::class) {
-            val function = generateFunction(node.path)
+            val function = generateFunction(catalogType, node.path)
             nodeImplementation.addFunction(function)
         }
 
         if (node.children.isNotEmpty()) {
-            val properties = generateProperties(node.children)
+            val properties = generateProperties(catalogType, node.children)
             nodeImplementation.addProperties(properties)
         }
 
         return nodeImplementation.build()
     }
 
-    private fun generateFunction(path: String): FunSpec {
+    private fun generateFunction(catalogType: KClass<*>, path: String): FunSpec {
+        val functionName: String = when (catalogType) {
+            Versions::class -> "findVersion"
+            Libraries::class -> "findLibrary"
+            Bundles::class -> "findBundle"
+            Plugins::class -> "findPlugin"
+            else -> throw UnsupportedOperationException("$catalogType is not supported")
+        }
+
         return FunSpec.builder(FUNCTION_NAME_GET)
             .addModifiers(OVERRIDE)
             .returns(String::class)
-            .addStatement("return findVersion(\"$path\")")
+            .addStatement("return $functionName(\"$path\")")
             .build()
     }
 

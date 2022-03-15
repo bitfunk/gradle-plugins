@@ -83,6 +83,27 @@ class GeneratorTest {
         Assertions.assertEquals(expected, result)
     }
 
+    @Test
+    fun `GIVEN catalog with libraries WHEN generate() THEN return helper with libraries`() {
+        // GIVEN
+        val baseName = "WithLibraries"
+        val catalog = Catalog(
+            Versions(emptyList()),
+            Libraries(TEST_ITEMS),
+            Bundles(emptyList()),
+            Plugins(emptyList()),
+        )
+        val generator = Generator(PACKAGE_NAME, baseName, mapper)
+        every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST
+
+        // WHEN
+        val result = generator.generate(catalog)
+
+        // THEN
+        val expected = FileHelper.loadAsString("fixture/WithLibrariesVersionCatalogHelper.kt")
+        Assertions.assertEquals(expected, result)
+    }
+
     companion object {
         const val PACKAGE_NAME = "com.example.catalog"
 
