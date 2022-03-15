@@ -23,7 +23,7 @@ import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier.OVERRIDE
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
-import eu.bitfunk.gradle.version.catalog.BaseVersionCatalogHelper
+import eu.bitfunk.gradle.version.catalog.helper.BaseVersionCatalogHelper
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Group
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.GroupLeaf

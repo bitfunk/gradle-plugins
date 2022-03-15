@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog
+package eu.bitfunk.gradle.version.catalog.helper
 
 import io.mockk.every
 import io.mockk.mockk

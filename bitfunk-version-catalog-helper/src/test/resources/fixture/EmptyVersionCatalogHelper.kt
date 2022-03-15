@@ -1,7 +1,7 @@
 package com.example.catalog
 
-import eu.bitfunk.gradle.version.catalog.BaseVersionCatalogHelper
 import eu.bitfunk.gradle.version.catalog.Dependency
+import eu.bitfunk.gradle.version.catalog.helper.BaseVersionCatalogHelper
 import kotlin.String
 import org.gradle.api.Project
 
