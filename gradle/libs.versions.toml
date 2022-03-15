@@ -1,5 +1,5 @@
 [versions]
-bitfunkVersionCatalogHelper = "1.0.0"
+bitfunkVersionCatalogHelper = "0.1.0"
 mkdocs = "2.2.0"
 
 
