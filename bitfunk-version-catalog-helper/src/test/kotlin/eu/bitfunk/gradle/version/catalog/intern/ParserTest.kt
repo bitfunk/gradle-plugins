@@ -19,6 +19,10 @@
 package eu.bitfunk.gradle.version.catalog.intern
 
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -53,12 +57,13 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
+        Assertions.assertInstanceOf(Versions::class.java, result.versions)
         Assertions.assertEquals(
             listOf(
                 "version",
                 "group-version"
             ),
-            result.versions
+            result.versions.items
         )
     }
 
@@ -76,13 +81,14 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
+        Assertions.assertInstanceOf(Libraries::class.java, result.libraries)
         Assertions.assertEquals(
             listOf(
                 "library",
                 "group-library",
                 "library-complex"
             ),
-            result.libraries
+            result.libraries.items
         )
     }
 
@@ -98,11 +104,12 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
+        Assertions.assertInstanceOf(Bundles::class.java, result.bundles)
         Assertions.assertEquals(
             listOf(
                 "bundle"
             ),
-            result.bundles
+            result.bundles.items
         )
     }
 
@@ -119,12 +126,13 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
+        Assertions.assertInstanceOf(Plugins::class.java, result.plugins)
         Assertions.assertEquals(
             listOf(
                 "plugin",
                 "pluginComplex"
             ),
-            result.plugins
+            result.plugins.items
         )
     }
 }

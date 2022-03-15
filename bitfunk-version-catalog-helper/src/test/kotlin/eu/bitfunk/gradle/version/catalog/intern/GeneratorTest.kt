@@ -20,6 +20,10 @@ package eu.bitfunk.gradle.version.catalog.intern
 
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Mapper
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import eu.bitfunk.gradle.version.catalog.intern.test.FileHelper
 import io.mockk.every
@@ -43,10 +47,10 @@ class GeneratorTest {
         // GIVEN
         val baseName = "Empty"
         val catalog = Catalog(
-            emptyList(),
-            emptyList(),
-            emptyList(),
-            emptyList()
+            Versions(emptyList()),
+            Libraries(emptyList()),
+            Bundles(emptyList()),
+            Plugins(emptyList()),
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
 
@@ -63,10 +67,10 @@ class GeneratorTest {
         // GIVEN
         val baseName = "WithVersions"
         val catalog = Catalog(
-            TEST_ITEMS,
-            emptyList(),
-            emptyList(),
-            emptyList()
+            Versions(TEST_ITEMS),
+            Libraries(emptyList()),
+            Bundles(emptyList()),
+            Plugins(emptyList()),
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
         every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST

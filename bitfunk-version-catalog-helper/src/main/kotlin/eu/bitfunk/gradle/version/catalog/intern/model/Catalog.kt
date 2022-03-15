@@ -18,9 +18,23 @@
 
 package eu.bitfunk.gradle.version.catalog.intern.model
 
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
+
 data class Catalog(
-    val versions: List<String>,
-    val libraries: List<String>,
-    val bundles: List<String>,
-    val plugins: List<String>
+    val versions: Versions,
+    val libraries: Libraries,
+    val bundles: Bundles,
+    val plugins: Plugins,
 )
+
+sealed class CatalogEntry(
+    val items: List<String>
+) {
+    class Versions(items: List<String>) : CatalogEntry(items)
+    class Libraries(items: List<String>) : CatalogEntry(items)
+    class Bundles(items: List<String>) : CatalogEntry(items)
+    class Plugins(items: List<String>) : CatalogEntry(items)
+}

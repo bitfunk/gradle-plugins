@@ -28,6 +28,7 @@ import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.GroupLeaf
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Leaf
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import org.gradle.api.Project
 import kotlin.reflect.KClass
@@ -50,7 +51,7 @@ class Generator(
     }
 
     private fun generateHelperClass(catalog: Catalog): TypeSpec {
-        val libraryNodes = mapper.map(catalog.libraries)
+        val libraryNodes = mapper.map(catalog.libraries.items)
 
         return TypeSpec.classBuilder(baseName + CLASS_NAME_HELPER)
             .primaryConstructor(
@@ -69,9 +70,9 @@ class Generator(
             .build()
     }
 
-    private fun generateRootProperty(name: String, items: List<String>): PropertySpec {
+    private fun generateRootProperty(name: String, catalogEntry: CatalogEntry): PropertySpec {
         return PropertySpec.builder(name, Group::class)
-            .initializer("%L", generateRootImplementation(Group::class, items))
+            .initializer("%L", generateRootImplementation(Group::class, catalogEntry.items))
             .build()
     }
 
