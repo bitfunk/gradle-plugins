@@ -25,8 +25,10 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Group
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.GroupLeaf
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Dependency.Leaf
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import org.gradle.api.Project
 import kotlin.reflect.KClass
 
@@ -48,6 +50,8 @@ class Generator(
     }
 
     private fun generateHelperClass(catalog: Catalog): TypeSpec {
+        val libraryNodes = mapper.map(catalog.libraries)
+
         return TypeSpec.classBuilder(baseName + CLASS_NAME_HELPER)
             .primaryConstructor(
                 FunSpec.constructorBuilder()
@@ -61,18 +65,72 @@ class Generator(
             .addProperty(generateRootProperty(PROPERTY_NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(PROPERTY_NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(PROPERTY_NAME_PLUGINS, catalog.plugins))
+            .addProperties(generateProperties(libraryNodes))
             .build()
     }
 
     private fun generateRootProperty(name: String, items: List<String>): PropertySpec {
         return PropertySpec.builder(name, Group::class)
-            .initializer("%L", generateAnonymousImplementation(Group::class, items))
+            .initializer("%L", generateRootImplementation(Group::class, items))
             .build()
     }
 
-    private fun generateAnonymousImplementation(className: KClass<*>, items: List<String>): TypeSpec {
+    private fun generateRootImplementation(className: KClass<*>, items: List<String>): TypeSpec {
+        val nodes = mapper.map(items)
+        val properties = generateProperties(nodes)
+
         return TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
+            .addProperties(properties)
+            .build()
+    }
+
+    private fun generateProperties(nodes: List<Node>): Iterable<PropertySpec> {
+        val properties = mutableListOf<PropertySpec>()
+
+        for (node in nodes) {
+            val property = if (node.isGroup() && node.isLeaf()) {
+                generateNodeProperty(node, GroupLeaf::class)
+            } else if (node.isLeaf()) {
+                generateNodeProperty(node, Leaf::class)
+            } else {
+                generateNodeProperty(node, Group::class)
+            }
+
+            properties.add(property)
+        }
+
+        return properties
+    }
+
+    private fun generateNodeProperty(node: Node, className: KClass<*>): PropertySpec {
+        return PropertySpec.builder(node.name, className)
+            .initializer("%L", generateNodeImplementation(node, className))
+            .build()
+    }
+
+    private fun generateNodeImplementation(node: Node, className: KClass<*>): TypeSpec {
+        val nodeImplementation = TypeSpec.anonymousClassBuilder()
+            .addSuperinterface(className)
+
+        if (className == Leaf::class || className == GroupLeaf::class) {
+            val function = generateFunction(node.path)
+            nodeImplementation.addFunction(function)
+        }
+
+        if (node.children.isNotEmpty()) {
+            val properties = generateProperties(node.children)
+            nodeImplementation.addProperties(properties)
+        }
+
+        return nodeImplementation.build()
+    }
+
+    private fun generateFunction(path: String): FunSpec {
+        return FunSpec.builder(FUNCTION_NAME_GET)
+            .addModifiers(OVERRIDE)
+            .returns(String::class)
+            .addStatement("return findVersion(\"$path\")")
             .build()
     }
 
@@ -85,5 +143,7 @@ class Generator(
 
         const val HELPER_PROPERTY_NAME_PROJECT = "project"
         const val HELPER_PROPERTY_NAME_CATALOG_NAME = "catalogName"
+
+        const val FUNCTION_NAME_GET = "get"
     }
 }
