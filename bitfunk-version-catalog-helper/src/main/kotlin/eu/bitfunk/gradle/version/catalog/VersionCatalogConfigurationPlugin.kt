@@ -18,12 +18,24 @@
 
 package eu.bitfunk.gradle.version.catalog
 
+import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.util.GradleVersion
 
 class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
 
     override fun apply(target: Project) {
-        // TODO
+        if (GradleVersion.current() < GradleVersion.version("7.2")) {
+            throw GradleException("This plugin requires Gradle 7.2 or later")
+        }
+
+        if (target != target.rootProject) {
+            throw GradleException("This plugin should be applied to root project only")
+        }
+
+        if (!target.pluginManager.hasPlugin("java-gradle-plugin")) {
+            throw GradleException("The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work.")
+        }
     }
 }
