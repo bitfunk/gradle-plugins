@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Mapper
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
@@ -40,6 +41,16 @@ class GeneratorTest {
     fun setup() {
         mapper = mockk()
         every { mapper.map(emptyList()) } returns emptyList()
+    }
+
+    @Test
+    fun `generator implements contract`() {
+        val generator = Generator(PACKAGE_NAME, "", mapper)
+
+        Assertions.assertInstanceOf(
+            VersionCatalogHelperContract.Generator::class.java,
+            generator
+        )
     }
 
     @Test
