@@ -16,29 +16,22 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog
+package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
-import eu.bitfunk.gradle.version.catalog.intern.model.Node
-import java.io.InputStream
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-interface VersionCatalogHelperContract {
+object ResourceLoader : VersionCatalogHelperContract.ResourceLoader {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
 
-    interface Plugin
-
-    interface Generator {
-        fun generate(catalog: Catalog): String
-    }
-
-    interface Parser {
-        fun parse(inputStream: InputStream): Catalog
-    }
-
-    interface Mapper {
-        fun map(items: List<String>): List<Node>
-    }
-
-    interface ResourceLoader {
-        fun loadAsString(filePath: String): String
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @Throws(IOException::class)
+    override fun loadAsString(filePath: String): String {
+        try {
+            return this::class.java.classLoader.getResource(filePath).readText(FILE_ENCODING)
+        } catch (error: Throwable) {
+            throw NullPointerException("$filePath does not exist")
+        }
     }
 }
