@@ -57,6 +57,15 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
+tasks.register<Copy>("copySources") {
+    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/helper")
+    into ("src/main/resources/sources")
+}
+
+tasks.named("assemble") {
+    dependsOn("copySources")
+}
+
 tasks.named<Wrapper>("wrapper") {
     gradleVersion = "7.4"
     distributionType = Wrapper.DistributionType.ALL
