@@ -54,6 +54,14 @@ interface VersionCatalogHelperContract {
         val catalogNames: ListProperty<String>
     }
 
+    interface Task {
+        interface Generator {
+            interface Intern {
+                fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
+            }
+        }
+    }
+
     interface Generator {
         fun generate(catalog: Catalog): String
     }
