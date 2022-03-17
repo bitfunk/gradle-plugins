@@ -37,5 +37,24 @@ class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperC
         if (!target.pluginManager.hasPlugin("java-gradle-plugin")) {
             throw GradleException("The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work.")
         }
+
+        addExtension(target)
+    }
+
+    override fun addExtension(project: Project) {
+        project.extensions.create(
+            EXTENSION_NAME,
+            VersionCatalogConfigurationPluginExtension::class.java
+        )
+
+        project.configure<VersionCatalogConfigurationPluginExtension> {
+            catalogSourceFolder.set("gradle/")
+            catalogNames.set(listOf("libs"))
+            packageName.set("")
+        }
+    }
+
+    companion object {
+        private const val EXTENSION_NAME = "versionCatalogHelper"
     }
 }

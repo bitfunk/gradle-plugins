@@ -21,9 +21,13 @@ package eu.bitfunk.gradle.version.catalog
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import io.mockk.verify
 import org.gradle.api.GradleException
 import org.gradle.api.Project
+import org.gradle.api.plugins.Convention
+import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
+import org.gradle.kotlin.dsl.typeOf
 import org.gradle.util.GradleVersion
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
@@ -92,5 +96,29 @@ class VersionCatalogConfigurationPluginTest {
             { plugin.apply(project) },
             "The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work."
         )
+    }
+
+    @Test
+    fun `GIVEN extension WHEN apply() THEN extension is added to project with defaults`() {
+        // GIVEN
+        every { project.rootProject } returns project
+        val pluginManager: PluginManager = mockk()
+        every { project.pluginManager } returns pluginManager
+        every { pluginManager.hasPlugin("java-gradle-plugin") } returns true
+        val extensions: ExtensionContainer = mockk(relaxed = true)
+        every { project.extensions } returns extensions
+        val convention: Convention = mockk(relaxed = true)
+        every { project.convention } returns convention
+        val extension: VersionCatalogConfigurationPluginExtension = mockk(relaxed = true)
+        every { convention.findByType(typeOf<VersionCatalogConfigurationPluginExtension>()) } returns extension
+
+        // WHEN
+        plugin.apply(project)
+
+        // THEN
+        verify { extensions.create("versionCatalogHelper", VersionCatalogConfigurationPluginExtension::class.java) }
+        verify { extension.catalogSourceFolder.set("gradle/") }
+        verify { extension.catalogNames.set(listOf("libs")) }
+        verify { extension.packageName.set("") }
     }
 }

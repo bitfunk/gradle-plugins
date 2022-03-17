@@ -20,11 +20,39 @@ package eu.bitfunk.gradle.version.catalog
 
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
+import org.gradle.api.Project
+import org.gradle.api.provider.ListProperty
+import org.gradle.api.provider.Property
 import java.io.InputStream
 
 interface VersionCatalogHelperContract {
 
-    interface Plugin
+    interface Plugin {
+        fun addExtension(project: Project)
+    }
+
+    interface Extension {
+        /**
+         * Folder the version catalog files are stored in. Relative to project root.
+         *
+         * Default: gradle/
+         */
+        val catalogSourceFolder: Property<String>
+
+        /**
+         * Package name the generated VersionCatalogHelper is added to.
+         *
+         * Default: empty
+         */
+        val packageName: Property<String>
+
+        /**
+         * Names of the catalog file a VersionCatalogHelper should be generated for.
+         *
+         * Default: ["libs"]
+         */
+        val catalogNames: ListProperty<String>
+    }
 
     interface Generator {
         fun generate(catalog: Catalog): String
