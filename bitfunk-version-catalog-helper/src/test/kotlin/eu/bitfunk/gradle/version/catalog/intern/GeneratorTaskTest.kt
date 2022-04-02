@@ -19,7 +19,6 @@
 package eu.bitfunk.gradle.version.catalog.intern
 
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
-import eu.bitfunk.gradle.version.catalog.intern.GeneratorTest.Companion
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries

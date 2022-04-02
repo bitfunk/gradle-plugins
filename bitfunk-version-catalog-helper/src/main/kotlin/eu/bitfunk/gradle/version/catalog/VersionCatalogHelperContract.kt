@@ -56,6 +56,8 @@ interface VersionCatalogHelperContract {
 
     interface Task {
         interface Generator {
+            fun generate()
+
             interface Intern {
                 fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
             }
