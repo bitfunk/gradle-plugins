@@ -18,10 +18,9 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
 
-class Mapper : VersionCatalogHelperContract.Mapper {
+internal class Mapper : InternalContract.Mapper {
 
     override fun map(items: List<String>): List<Node> {
         val nodes = mutableListOf<Node>()

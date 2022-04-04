@@ -18,7 +18,7 @@
 
 package eu.bitfunk.gradle.version.catalog.intern.model
 
-data class Node(
+internal data class Node(
     val name: String,
     var path: String = "",
     val children: MutableList<Node> = mutableListOf()

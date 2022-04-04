@@ -25,9 +25,9 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.version.catalog.helper.BaseVersionCatalogHelper
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
-import eu.bitfunk.gradle.version.catalog.helper.Dependency.Group
-import eu.bitfunk.gradle.version.catalog.helper.Dependency.GroupLeaf
-import eu.bitfunk.gradle.version.catalog.helper.Dependency.Leaf
+import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.Group
+import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.GroupLeaf
+import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.Leaf
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
@@ -39,11 +39,11 @@ import org.gradle.api.Project
 import java.lang.UnsupportedOperationException
 import kotlin.reflect.KClass
 
-class Generator(
+internal class Generator(
     private val packageName: String = "",
     private val baseName: String = "",
-    private val mapper: VersionCatalogHelperContract.Mapper
-) : VersionCatalogHelperContract.Generator {
+    private val mapper: InternalContract.Mapper
+) : InternalContract.Generator {
 
     override fun generate(catalog: Catalog): String {
         val helperClass = generateHelperClass(catalog)

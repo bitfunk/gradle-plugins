@@ -43,6 +43,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+kotlin {
+    explicitApi()
+}
+
 dependencies {
     implementation("com.squareup:kotlinpoet:1.10.2")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
@@ -59,7 +63,7 @@ tasks.withType<Test>().configureEach {
 
 tasks.register<Copy>("copySources") {
     from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/helper")
-    into ("src/main/resources/sources")
+    into("src/main/resources/sources")
 }
 
 tasks.named("assemble") {

@@ -18,14 +18,14 @@
 
 package eu.bitfunk.gradle.version.catalog.helper
 
-interface Dependency {
-    interface Group : Dependency
+public interface VersionCatalogDependency {
+    public interface Group : VersionCatalogDependency
 
-    interface GroupLeaf : Dependency {
-        fun get(): String
+    public interface GroupLeaf : VersionCatalogDependency {
+        public fun get(): String
     }
 
-    interface Leaf : Dependency {
-        fun get(): String
+    public interface Leaf : VersionCatalogDependency {
+        public fun get(): String
     }
 }

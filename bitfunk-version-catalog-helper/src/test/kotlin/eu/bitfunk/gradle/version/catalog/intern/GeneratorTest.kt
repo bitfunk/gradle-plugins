@@ -18,8 +18,6 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Mapper
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
@@ -33,28 +31,28 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class GeneratorTest {
+public class GeneratorTest {
 
-    lateinit var mapper: Mapper
+    private lateinit var mapper: Mapper
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         mapper = mockk()
         every { mapper.map(emptyList()) } returns emptyList()
     }
 
     @Test
-    fun `generator implements contract`() {
+    public fun `generator implements contract`() {
         val generator = Generator(PACKAGE_NAME, "", mapper)
 
         Assertions.assertInstanceOf(
-            VersionCatalogHelperContract.Generator::class.java,
+            InternalContract.Generator::class.java,
             generator
         )
     }
 
     @Test
-    fun `GIVEN empty catalog WHEN generate() THEN return empty helper`() {
+    public fun `GIVEN empty catalog WHEN generate() THEN return empty helper`() {
         // GIVEN
         val baseName = "Empty"
         val catalog = Catalog(
@@ -74,7 +72,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun `GIVEN catalog with versions WHEN generate() THEN return helper with versions`() {
+    public fun `GIVEN catalog with versions WHEN generate() THEN return helper with versions`() {
         // GIVEN
         val baseName = "WithVersions"
         val catalog = Catalog(
@@ -95,7 +93,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun `GIVEN catalog with libraries WHEN generate() THEN return helper with libraries`() {
+    public fun `GIVEN catalog with libraries WHEN generate() THEN return helper with libraries`() {
         // GIVEN
         val baseName = "WithLibraries"
         val catalog = Catalog(
@@ -116,7 +114,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun `GIVEN catalog with bundles WHEN generate() THEN return helper with bundles`() {
+    public fun `GIVEN catalog with bundles WHEN generate() THEN return helper with bundles`() {
         // GIVEN
         val baseName = "WithBundles"
         val catalog = Catalog(
@@ -137,7 +135,7 @@ class GeneratorTest {
     }
 
     @Test
-    fun `GIVEN catalog with plugins WHEN generate() THEN return helper with plugins`() {
+    public fun `GIVEN catalog with plugins WHEN generate() THEN return helper with plugins`() {
         // GIVEN
         val baseName = "WithPlugins"
         val catalog = Catalog(
@@ -157,7 +155,7 @@ class GeneratorTest {
         Assertions.assertEquals(expected, result)
     }
 
-    companion object {
+    private companion object {
         const val PACKAGE_NAME = "com.example.catalog"
 
         val TEST_ITEMS = listOf(

@@ -19,7 +19,6 @@
 package eu.bitfunk.gradle.version.catalog.intern
 
 import com.fasterxml.jackson.dataformat.toml.TomlMapper
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
@@ -27,7 +26,7 @@ import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
 import java.io.InputStream
 
-class Parser : VersionCatalogHelperContract.Parser {
+internal class Parser : InternalContract.Parser {
 
     override fun parse(inputStream: InputStream): Catalog {
         val mapper = TomlMapper()

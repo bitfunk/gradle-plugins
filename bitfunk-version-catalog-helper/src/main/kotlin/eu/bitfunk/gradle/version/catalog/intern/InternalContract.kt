@@ -16,6 +16,31 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.version.catalog
+package eu.bitfunk.gradle.version.catalog.intern
 
-public interface VersionCatalogConfigurationPluginExtension : VersionCatalogHelperContract.Extension
+import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.Node
+import java.io.InputStream
+
+internal interface InternalContract {
+
+    interface GeneratorTask {
+        fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
+    }
+
+    interface Generator {
+        fun generate(catalog: Catalog): String
+    }
+
+    interface Parser {
+        fun parse(inputStream: InputStream): Catalog
+    }
+
+    interface Mapper {
+        fun map(items: List<String>): List<Node>
+    }
+
+    interface ResourceLoader {
+        fun loadAsString(filePath: String): String
+    }
+}

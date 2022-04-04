@@ -25,18 +25,18 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
-abstract class VersionCatalogHelperGeneratorTask : DefaultTask(), VersionCatalogHelperContract.Task.Generator {
+public abstract class VersionCatalogHelperGeneratorTask : DefaultTask(), VersionCatalogHelperContract.Task.Generator {
 
     private val generatorTask = GeneratorTask(project.rootDir, project.buildDir)
 
     @get:Input
-    abstract val catalogSourceFolder: Property<String>
+    public abstract val catalogSourceFolder: Property<String>
 
     @get:Input
-    abstract val packageName: Property<String>
+    public abstract val packageName: Property<String>
 
     @get:Input
-    abstract val catalogNames: ListProperty<String>
+    public abstract val catalogNames: ListProperty<String>
 
     @TaskAction
     override fun generate() {

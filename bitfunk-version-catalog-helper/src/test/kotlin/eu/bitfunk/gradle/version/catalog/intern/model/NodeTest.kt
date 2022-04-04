@@ -21,10 +21,10 @@ package eu.bitfunk.gradle.version.catalog.intern.model
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class NodeTest {
+public class NodeTest {
 
     @Test
-    fun `GIVEN name WHEN initialized THEN defaults set`() {
+    public fun `GIVEN name WHEN initialized THEN defaults set`() {
         // GIVEN
         val name = "Name"
 
@@ -38,7 +38,7 @@ class NodeTest {
     }
 
     @Test
-    fun `GIVEN name, path and children WHEN initialized THEN all values present`() {
+    public fun `GIVEN name, path and children WHEN initialized THEN all values present`() {
         // GIVEN
         val name = "Name"
         val path = "Path"
@@ -54,7 +54,7 @@ class NodeTest {
     }
 
     @Test
-    fun `GIVEN name and children WHEN initialized THEN is group`() {
+    public fun `GIVEN name and children WHEN initialized THEN is group`() {
         // GIVEN
         val name = "Name"
         val children = mutableListOf(Node("Child"))
@@ -67,7 +67,7 @@ class NodeTest {
     }
 
     @Test
-    fun `GIVEN name WHEN child added THEN is group`() {
+    public fun `GIVEN name WHEN child added THEN is group`() {
         // GIVEN
         val node = Node(name = "Name")
         val child = Node(name = "Child")
@@ -84,7 +84,7 @@ class NodeTest {
     }
 
     @Test
-    fun `GIVEN name and path WHEN initialized THEN is leaf`() {
+    public fun `GIVEN name and path WHEN initialized THEN is leaf`() {
         // GIVEN
         val name = "Name"
         val path = "Path"
@@ -95,10 +95,11 @@ class NodeTest {
 
         // THEN
         Assertions.assertTrue(result.isLeaf())
+        Assertions.assertEquals(node, result)
     }
 
     @Test
-    fun `GIVEN name WHEN path and child added THEN isLeaf is correct`() {
+    public fun `GIVEN name WHEN path and child added THEN isLeaf is correct`() {
         // GIVEN
         val node = Node(name = "Name")
         val path = "Path"
@@ -120,7 +121,7 @@ class NodeTest {
     }
 
     @Test
-    fun `GIVEN name, path and children WHEN initialized THEN is lead and group`() {
+    public fun `GIVEN name, path and children WHEN initialized THEN is lead and group`() {
         // GIVEN
         val name = "Name"
         val path = "Path"

@@ -23,7 +23,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.util.GradleVersion
 
-class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
+public class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
 
     override fun apply(target: Project) {
         if (GradleVersion.current() < GradleVersion.version("7.2")) {
@@ -54,7 +54,7 @@ class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperC
         }
     }
 
-    companion object {
+    private companion object {
         private const val EXTENSION_NAME = "versionCatalogHelper"
     }
 }

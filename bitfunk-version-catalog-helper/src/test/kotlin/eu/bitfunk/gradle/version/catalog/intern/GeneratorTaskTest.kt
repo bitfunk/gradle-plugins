@@ -18,7 +18,6 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
@@ -35,21 +34,21 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-class GeneratorTaskTest {
+public class GeneratorTaskTest {
 
     @TempDir
-    lateinit var projectRootDir: File
+    private lateinit var projectRootDir: File
 
     @TempDir
-    lateinit var projectBuildDir: File
+    private lateinit var projectBuildDir: File
 
-    lateinit var mapper: VersionCatalogHelperContract.Mapper
-    lateinit var parser: VersionCatalogHelperContract.Parser
+    private lateinit var mapper: InternalContract.Mapper
+    private lateinit var parser: InternalContract.Parser
 
-    lateinit var generatorTask: GeneratorTask
+    private lateinit var generatorTask: GeneratorTask
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         mapper = mockk()
         parser = mockk()
 
@@ -62,15 +61,15 @@ class GeneratorTaskTest {
     }
 
     @Test
-    fun `generatorTask implements contract`() {
+    public fun `generatorTask implements contract`() {
         Assertions.assertInstanceOf(
-            VersionCatalogHelperContract.Task.Generator.Intern::class.java,
+            InternalContract.GeneratorTask::class.java,
             generatorTask
         )
     }
 
     @Test
-    fun `GIVEN empty catalogNames WHEN generate() THEN do nothing`() {
+    public fun `GIVEN empty catalogNames WHEN generate() THEN do nothing`() {
         // GIVEN
         val catalogSourceFolder = ""
         val packageName = ""
@@ -84,7 +83,7 @@ class GeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN catalogNames WHEN generate() THEN helper present in output folder`() {
+    public fun `GIVEN catalogNames WHEN generate() THEN helper present in output folder`() {
         // GIVEN
         val catalogSourceFolder = ""
         val packageName = ""
@@ -117,7 +116,7 @@ class GeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN catalogNames and sourceFolder WHEN generate() THEN helper present in output folder`() {
+    public fun `GIVEN catalogNames and sourceFolder WHEN generate() THEN helper present in output folder`() {
         // GIVEN
         val catalogSourceFolder = "catalogs"
         val packageName = ""
@@ -152,7 +151,7 @@ class GeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output`() {
+    public fun `GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output`() {
         // GIVEN
         val catalogSourceFolder = "catalogs"
         val packageName = "com.example"
@@ -188,8 +187,8 @@ class GeneratorTaskTest {
         Assertions.assertTrue(depsHelperFile.readText().contains(packageName))
     }
 
-    companion object {
-        private val CATALOG = Catalog(
+    private companion object {
+        val CATALOG = Catalog(
             Versions(emptyList()),
             Libraries(emptyList()),
             Bundles(emptyList()),

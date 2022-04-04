@@ -18,32 +18,31 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import org.junit.jupiter.api.Assertions
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class MapperTest {
+public class MapperTest {
 
-    private lateinit var mapper: VersionCatalogHelperContract.Mapper
+    private lateinit var mapper: InternalContract.Mapper
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         mapper = Mapper()
     }
 
     @Test
-    fun `mapper implements contract`() {
+    public fun `mapper implements contract`() {
         Assertions.assertInstanceOf(
-            VersionCatalogHelperContract.Mapper::class.java,
+            InternalContract.Mapper::class.java,
             mapper
         )
     }
 
     @Test
-    fun `GIVEN empty list WHEN map() THEN return empty list`() {
+    public fun `GIVEN empty list WHEN map() THEN return empty list`() {
         // GIVEN
         val input = emptyList<String>()
 
@@ -58,7 +57,7 @@ class MapperTest {
     }
 
     @Test
-    fun `GIVEN list with top level item WHEN map() THEN return top level list`() {
+    public fun `GIVEN list with top level item WHEN map() THEN return top level list`() {
         // GIVEN
         val input = listOf("example")
 
@@ -73,7 +72,7 @@ class MapperTest {
     }
 
     @Test
-    fun `GIVEN list with group item WHEN map() THEN return list with nested items`() {
+    public fun `GIVEN list with group item WHEN map() THEN return list with nested items`() {
         // GIVEN
         val input = listOf("group-example")
 
@@ -94,7 +93,7 @@ class MapperTest {
     }
 
     @Test
-    fun `GIVEN list with multiple group items WHEN map() THEN return list with all nested items`() {
+    public fun `GIVEN list with multiple group items WHEN map() THEN return list with all nested items`() {
         // GIVEN
         val input = listOf("group-example-one", "group-example-two")
 
@@ -120,7 +119,7 @@ class MapperTest {
     }
 
     @Test
-    fun `GIVEN list with mixed items WHEN map() THEN return list with all nested items`() {
+    public fun `GIVEN list with mixed items WHEN map() THEN return list with all nested items`() {
         // GIVEN
         val input = listOf("group", "group-example", "group-example-one", "group-example-two")
 

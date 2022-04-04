@@ -22,7 +22,7 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 
-abstract class BaseVersionCatalogHelper(
+public abstract class BaseVersionCatalogHelper(
     project: Project,
     catalogName: String = DEFAULT_CATALOG_NAME
 ) {
@@ -61,7 +61,7 @@ abstract class BaseVersionCatalogHelper(
         }
     }
 
-    companion object {
+    private companion object {
         const val DEFAULT_CATALOG_NAME = "libs"
 
         fun Project.loadVersionCatalog(name: String): VersionCatalog {

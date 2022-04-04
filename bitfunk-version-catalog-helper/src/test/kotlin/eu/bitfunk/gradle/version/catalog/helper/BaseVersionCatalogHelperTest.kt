@@ -36,14 +36,14 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.Optional
 
-class BaseVersionCatalogHelperTest {
+public class BaseVersionCatalogHelperTest {
 
-    lateinit var versionCatalog: VersionCatalog
+    private lateinit var versionCatalog: VersionCatalog
 
-    lateinit var helper: TestVersionCatalogHelper
+    private lateinit var helper: TestVersionCatalogHelper
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         val project: Project = mockk()
         val extensionContainer: ExtensionContainer = mockk()
         val versionCatalogsExtension: VersionCatalogsExtension = mockk()
@@ -57,7 +57,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN versionCatalogName WHEN initialized THEN use provided catalog name`() {
+    public fun `GIVEN versionCatalogName WHEN initialized THEN use provided catalog name`() {
         // GIVEN
         val versionCatalogName = "versionCatalogName"
         val project: Project = mockk()
@@ -69,14 +69,14 @@ class BaseVersionCatalogHelperTest {
         every { versionCatalogsExtension.named(versionCatalogName) } returns versionCatalog
 
         // WHEN
-        val helper = TestVersionCatalogHelper(project, versionCatalogName)
+        TestVersionCatalogHelper(project, versionCatalogName)
 
         // THEN
         verify { versionCatalogsExtension.named("versionCatalogName") }
     }
 
     @Test
-    fun `GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException`() {
+    public fun `GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException`() {
         // GIVEN
         val version = "invalid_version"
 
@@ -87,7 +87,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN versionName WHEN findVersion() THEN return version`() {
+    public fun `GIVEN versionName WHEN findVersion() THEN return version`() {
         // GIVEN
         val versionName = "versionName"
 
@@ -108,7 +108,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException`() {
+    public fun `GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException`() {
         // GIVEN
         val library = "invalid_library"
 
@@ -119,7 +119,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN libraryName WHEN findLibrary() THEN return library`() {
+    public fun `GIVEN libraryName WHEN findLibrary() THEN return library`() {
         // GIVEN
         val libraryName = "libraryName"
 
@@ -142,7 +142,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException`() {
+    public fun `GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException`() {
         // GIVEN
         val bundle = "invalid_bundle"
 
@@ -153,7 +153,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN bundleName WHEN findBundle() THEN return bundle`() {
+    public fun `GIVEN bundleName WHEN findBundle() THEN return bundle`() {
         // GIVEN
         val bundleName = "bundleName"
 
@@ -176,7 +176,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException`() {
+    public fun `GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException`() {
         // GIVEN
         val plugin = "invalid_plugin"
 
@@ -187,7 +187,7 @@ class BaseVersionCatalogHelperTest {
     }
 
     @Test
-    fun `GIVEN pluginName WHEN findPlugin() THEN return plugin`() {
+    public fun `GIVEN pluginName WHEN findPlugin() THEN return plugin`() {
         // GIVEN
         val pluginName = "pluginName"
 
@@ -209,7 +209,7 @@ class BaseVersionCatalogHelperTest {
         )
     }
 
-    inner class TestVersionCatalogHelper(
+    private inner class TestVersionCatalogHelper(
         project: Project,
         catalogName: String = DEFAULT_CATALOG_NAME
     ) : BaseVersionCatalogHelper(project, catalogName) {
@@ -229,5 +229,9 @@ class BaseVersionCatalogHelperTest {
         fun testFindPlugin(name: String): String {
             return findPlugin(name)
         }
+    }
+
+    private companion object {
+        const val DEFAULT_CATALOG_NAME = "libs"
     }
 }

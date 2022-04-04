@@ -18,7 +18,6 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Bundles
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
@@ -27,25 +26,25 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class ParserTest {
+public class ParserTest {
 
     private lateinit var parser: Parser
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         parser = Parser()
     }
 
     @Test
-    fun `parser implements contract`() {
+    public fun `parser implements contract`() {
         Assertions.assertInstanceOf(
-            VersionCatalogHelperContract.Parser::class.java,
+            InternalContract.Parser::class.java,
             parser
         )
     }
 
     @Test
-    fun `GIVEN version definitions WHEN parse() THEN return list of versions`() {
+    public fun `GIVEN version definitions WHEN parse() THEN return list of versions`() {
         // GIVEN
         val toml = """
             [versions]
@@ -68,7 +67,7 @@ class ParserTest {
     }
 
     @Test
-    fun `GIVEN library definitions WHEN parse() THEN return list of libraries`() {
+    public fun `GIVEN library definitions WHEN parse() THEN return list of libraries`() {
         // GIVEN
         val toml = """
             [libraries]
@@ -93,7 +92,7 @@ class ParserTest {
     }
 
     @Test
-    fun `GIVEN bundle definitions WHEN parse() THEN return list of bundles`() {
+    public fun `GIVEN bundle definitions WHEN parse() THEN return list of bundles`() {
         // GIVEN
         val toml = """
             [bundles]
@@ -114,7 +113,7 @@ class ParserTest {
     }
 
     @Test
-    fun `GIVEN plugin definitions WHEN parse() THEN return list of plugins`() {
+    public fun `GIVEN plugin definitions WHEN parse() THEN return list of plugins`() {
         // GIVEN
         val toml = """
             [plugins]

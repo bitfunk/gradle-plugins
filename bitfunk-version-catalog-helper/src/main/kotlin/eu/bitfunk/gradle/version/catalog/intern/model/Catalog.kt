@@ -23,14 +23,14 @@ import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Libraries
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Plugins
 import eu.bitfunk.gradle.version.catalog.intern.model.CatalogEntry.Versions
 
-data class Catalog(
+internal data class Catalog(
     val versions: Versions,
     val libraries: Libraries,
     val bundles: Bundles,
     val plugins: Plugins,
 )
 
-sealed class CatalogEntry(
+internal sealed class CatalogEntry(
     val items: List<String>
 ) {
     class Versions(items: List<String>) : CatalogEntry(items)

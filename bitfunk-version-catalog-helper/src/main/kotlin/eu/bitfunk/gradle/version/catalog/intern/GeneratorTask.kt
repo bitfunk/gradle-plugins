@@ -22,12 +22,12 @@ import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import org.gradle.configurationcache.extensions.capitalized
 import java.io.File
 
-class GeneratorTask(
+internal class GeneratorTask(
     private val projectRootPath: File,
     private val projectBuildPath: File,
-    private val mapper: VersionCatalogHelperContract.Mapper = Mapper(),
-    private val parser: VersionCatalogHelperContract.Parser = Parser()
-) : VersionCatalogHelperContract.Task.Generator.Intern {
+    private val mapper: InternalContract.Mapper = Mapper(),
+    private val parser: InternalContract.Parser = Parser()
+) : InternalContract.GeneratorTask {
 
     override fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>) {
         if (catalogNames.isEmpty()) return
@@ -56,13 +56,13 @@ class GeneratorTask(
         return generator.generate(catalog)
     }
 
-    private fun setupGenerator(packageName: String, name: String): VersionCatalogHelperContract.Generator = Generator(
+    private fun setupGenerator(packageName: String, name: String): InternalContract.Generator = Generator(
         packageName = packageName,
         baseName = name,
         mapper
     )
 
-    companion object {
+    private companion object {
         private const val VERSION_CATALOG_EXTENSION = ".versions.toml"
 
         private const val OUTPUT_FILE_NAME = "VersionCatalogHelper.kt"

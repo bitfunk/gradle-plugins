@@ -18,11 +18,10 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 
-object ResourceLoader : VersionCatalogHelperContract.ResourceLoader {
+internal object ResourceLoader : InternalContract.ResourceLoader {
     private val FILE_ENCODING = StandardCharsets.UTF_8
 
     @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
