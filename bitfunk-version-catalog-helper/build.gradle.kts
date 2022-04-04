@@ -16,10 +16,13 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
     jacoco
+
+    alias(libs.plugins.binaryCompatibilityValidator)
 }
 
 group = "eu.bitfunk.gradle.version.catalog"
@@ -55,6 +58,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("io.mockk:mockk:1.12.3")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+}
+
+apiValidation {
+    ignoredPackages.add("eu.bitfunk.gradle.version.catalog.helper")
 }
 
 tasks.withType<Test>().configureEach {
