@@ -18,34 +18,19 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
-import eu.bitfunk.gradle.version.catalog.intern.model.Node
 import java.io.File
-import java.io.InputStream
 
-internal interface InternalContract {
+internal class CopySourceTask : InternalContract.CopySourceTask {
 
-    interface CopySourceTask {
-        fun copy(sources: List<String>, outputDir: File)
-    }
+    override fun copy(sources: List<String>, outputDir: File) {
+        if (!outputDir.exists()) {
+            outputDir.mkdirs()
+        }
 
-    interface GeneratorTask {
-        fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
-    }
-
-    interface Generator {
-        fun generate(catalog: Catalog): String
-    }
-
-    interface Parser {
-        fun parse(inputStream: InputStream): Catalog
-    }
-
-    interface Mapper {
-        fun map(items: List<String>): List<Node>
-    }
-
-    interface ResourceLoader {
-        fun loadAsString(filePath: String): String
+        for (source in sources) {
+            val content = ResourceLoader.loadAsString(source)
+            val outputFileName = source.substringAfterLast("/")
+            File(outputDir, outputFileName).writeText(content)
+        }
     }
 }
