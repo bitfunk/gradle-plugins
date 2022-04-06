@@ -56,5 +56,8 @@ public interface VersionCatalogHelperContract {
             public fun generate()
         }
 
+        public interface CopySource {
+            public fun copySource()
+        }
     }
 }

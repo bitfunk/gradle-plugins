@@ -18,7 +18,6 @@
 
 package eu.bitfunk.gradle.version.catalog.intern
 
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import org.gradle.configurationcache.extensions.capitalized
 import java.io.File
 

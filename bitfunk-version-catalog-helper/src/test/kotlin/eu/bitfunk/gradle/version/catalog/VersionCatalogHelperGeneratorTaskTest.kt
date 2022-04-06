@@ -25,13 +25,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-class VersionCatalogHelperGeneratorTaskTest {
+public class VersionCatalogHelperGeneratorTaskTest {
 
     @TempDir
-    lateinit var projectDir: File
+    private lateinit var projectDir: File
 
     @Test
-    fun `GIVEN project without properties WHEN generate() THEN fail`() {
+    public fun `GIVEN project without properties WHEN generate() THEN fail`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val task = project.tasks.create("testTask", VersionCatalogHelperGeneratorTask::class.java)
@@ -45,7 +45,7 @@ class VersionCatalogHelperGeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN project with catalogSourceFolder WHEN generate() THEN fail`() {
+    public fun `GIVEN project with catalogSourceFolder WHEN generate() THEN fail`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val task = project.tasks.create("testTask", VersionCatalogHelperGeneratorTask::class.java)
@@ -60,7 +60,7 @@ class VersionCatalogHelperGeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated`() {
+    public fun `GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated`() {
         // GIVEN
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val task = project.tasks.create("testTask", VersionCatalogHelperGeneratorTask::class.java)
@@ -77,7 +77,7 @@ class VersionCatalogHelperGeneratorTaskTest {
     }
 
     @Test
-    fun `GIVEN project configured WHEN generate() THEN generated present in output folder`() {
+    public fun `GIVEN project configured WHEN generate() THEN generated present in output folder`() {
         // GIVEN
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val task = project.tasks.create("testTask", VersionCatalogHelperGeneratorTask::class.java)
