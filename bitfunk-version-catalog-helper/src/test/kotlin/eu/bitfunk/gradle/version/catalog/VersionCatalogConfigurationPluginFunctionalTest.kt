@@ -20,28 +20,30 @@ package eu.bitfunk.gradle.version.catalog
 
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-class VersionCatalogConfigurationPluginFunctionalTest {
+public class VersionCatalogConfigurationPluginFunctionalTest {
 
     @TempDir
-    lateinit var tempDir: File
+    private lateinit var tempDir: File
 
-    lateinit var buildFile: File
-    lateinit var settingsFile: File
+    private lateinit var buildFile: File
+    private lateinit var settingsFile: File
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         buildFile = File(tempDir, "build.gradle.kts")
         settingsFile = File(tempDir, "settings.gradle.kts")
         settingsFile.writeText(SETTINGS_FILE_DEFAULT)
     }
 
     @Test
-    fun `GIVEN Gradle version 7_1 WHEN run THEN fail`() {
+    public fun `GIVEN Gradle version 7_1 WHEN run THEN fail`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT)
 
@@ -55,7 +57,7 @@ class VersionCatalogConfigurationPluginFunctionalTest {
     }
 
     @Test
-    fun `GIVEN inner module with plugin WHEN run THEN fail`() {
+    public fun `GIVEN inner module with plugin WHEN run THEN fail`() {
         // GIVEN
         settingsFile.writeText("include(\":inner\")")
 
@@ -73,7 +75,7 @@ class VersionCatalogConfigurationPluginFunctionalTest {
     }
 
     @Test
-    fun `GIVEN setup without java-gradle-plugin WHEN run THEN fail`() {
+    public fun `GIVEN setup without java-gradle-plugin WHEN run THEN fail`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT)
 
@@ -82,10 +84,116 @@ class VersionCatalogConfigurationPluginFunctionalTest {
             .buildAndFail()
 
         // THEN
-        Assertions.assertTrue(runner.output.contains("The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work."))
+        assertTrue(runner.output.contains("The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work."))
     }
 
-    companion object {
+    @Test
+    public fun `GIVEN default configuration WHEN generateVersionCatalogHelper THEN catalog is present`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
+
+        File(tempDir, "gradle").mkdir()
+        File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .withArguments("generateVersionCatalogHelper")
+            .build()
+
+        // THEN
+        val outputFolder = File("$tempDir/build/generated/versionCatalogHelper/src/main/kotlin")
+        assertTrue(outputFolder.exists())
+        assertEquals(1, outputFolder.listFiles().size)
+        assertTrue(File(outputFolder, "LibsVersionCatalogHelper.kt").exists())
+    }
+
+    @Test
+    public fun `GIVEN custom configuration WHEN generateVersionCatalogHelper THEN catalogs are present`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
+
+        File(tempDir, "gradle").mkdir()
+        File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
+        File("$tempDir/gradle", "deps.versions.toml").writeText(VERSION_CATALOG)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .withArguments("generateVersionCatalogHelper")
+            .build()
+
+        // THEN
+        val outputFolder = File("$tempDir/build/generated/versionCatalogHelper/src/main/kotlin")
+        assertTrue(outputFolder.exists())
+        assertEquals(2, outputFolder.listFiles().size)
+        assertTrue(File(outputFolder, "DepsVersionCatalogHelper.kt").exists())
+        assertTrue(File(outputFolder, "LibsVersionCatalogHelper.kt").exists())
+    }
+
+    @Test
+    public fun `GIVEN default configuration WHEN copyVersionCatalogHelperSource THEN sources are present`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .withArguments("copyVersionCatalogHelperSource")
+            .build()
+
+        // THEN
+        val outputFolder = File("$tempDir/build/generated/versionCatalogHelper/src/main/kotlin")
+        assertTrue(outputFolder.exists())
+        assertEquals(2, outputFolder.listFiles().size)
+        assertTrue(File(outputFolder, "BaseVersionCatalogHelper.kt").exists())
+        assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
+    }
+
+    @Test
+    public fun `GIVEN default configuration WHEN all run THEN all files are present`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
+
+        File(tempDir, "gradle").mkdir()
+        File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .withArguments("generateVersionCatalogHelper", "copyVersionCatalogHelperSource")
+            .build()
+
+        // THEN
+        val outputFolder = File("$tempDir/build/generated/versionCatalogHelper/src/main/kotlin")
+        assertTrue(outputFolder.exists())
+        assertEquals(3, outputFolder.listFiles().size)
+        assertTrue(File(outputFolder, "BaseVersionCatalogHelper.kt").exists())
+        assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
+        assertTrue(File(outputFolder, "LibsVersionCatalogHelper.kt").exists())
+    }
+
+    @Test
+    public fun `GIVEN custom configuration WHEN all run THEN all files are present`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
+
+        File(tempDir, "gradle").mkdir()
+        File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
+        File("$tempDir/gradle", "deps.versions.toml").writeText(VERSION_CATALOG)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .withArguments("generateVersionCatalogHelper", "copyVersionCatalogHelperSource")
+            .build()
+
+        // THEN
+        val outputFolder = File("$tempDir/build/generated/versionCatalogHelper/src/main/kotlin")
+        assertTrue(outputFolder.exists())
+        assertEquals(4, outputFolder.listFiles().size)
+        assertTrue(File(outputFolder, "BaseVersionCatalogHelper.kt").exists())
+        assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
+        assertTrue(File(outputFolder, "LibsVersionCatalogHelper.kt").exists())
+        assertTrue(File(outputFolder, "DepsVersionCatalogHelper.kt").exists())
+    }
+
+    private companion object {
 
         private fun setupRunner(projectDir: File): GradleRunner {
             return GradleRunner.create()
@@ -98,6 +206,32 @@ class VersionCatalogConfigurationPluginFunctionalTest {
                     id("eu.bitfunk.gradle.version.catalog")
                 }
             """.trimIndent()
+
+        val BUILD_FILE_DEFAULT_JAVA = """
+                plugins {
+                    id("java-gradle-plugin")
+                    id("eu.bitfunk.gradle.version.catalog")
+                }
+            """.trimIndent()
+
+        val BUILD_FILE_DEFAULT_JAVA_CONFIGURED = """
+                plugins {
+                    id("java-gradle-plugin")
+                    id("eu.bitfunk.gradle.version.catalog")
+                }
+                
+                versionCatalogHelper {
+                    catalogNames.set(listOf("libs", "deps"))
+                }
+            """.trimIndent()
+
+        val VERSION_CATALOG = """
+            [versions]
+            kotlin = "1.6.20"
+
+            [libraries]
+            kotlin = { module = "org.jetbrains.kotlin:kotlin", version.ref = "kotlin" }
+        """.trimIndent()
 
         val SETTINGS_FILE_DEFAULT = """
             rootProject.name = "version-catalog-helper-test"

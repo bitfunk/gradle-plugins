@@ -178,7 +178,7 @@ public class VersionCatalogConfigurationPluginTest {
     }
 
     @Test
-    public fun `GIVEN WHEN apply() THEN`() {
+    public fun `GIVEN project WHEN apply() THEN everything is configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("java-gradle-plugin")
