@@ -21,11 +21,13 @@ package eu.bitfunk.gradle.version.catalog
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.EXTENSION_NAME
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.TASK_NAME_COPY_SOURCE
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.TASK_NAME_GENERATE
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.TASK_NAME_GENERATE_SOURCE
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Extension
 import org.gradle.api.Action
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.Task
 import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.kotlin.dsl.register
 import org.gradle.util.GradleVersion
@@ -48,6 +50,7 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
         val extension = addExtension(target)
         addSourceGeneratorTask(target, extension)
         addSourceCopyTask(target, extension)
+        addGeneratorTask(target)
         configureSourceSet(target)
     }
 
@@ -64,8 +67,11 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
         return extension
     }
 
-    override fun addSourceGeneratorTask(project: Project, extension: Extension): VersionCatalogHelperSourceGeneratorTask {
-        val taskProvider = project.tasks.register<VersionCatalogHelperSourceGeneratorTask>(TASK_NAME_GENERATE) {
+    override fun addSourceGeneratorTask(
+        project: Project,
+        extension: Extension
+    ): VersionCatalogHelperSourceGeneratorTask {
+        val taskProvider = project.tasks.register<VersionCatalogHelperSourceGeneratorTask>(TASK_NAME_GENERATE_SOURCE) {
             catalogSourceFolder.set(extension.catalogSourceFolder)
             catalogNames.set(extension.catalogNames)
             packageName.set(extension.packageName)
@@ -75,6 +81,13 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
 
     override fun addSourceCopyTask(project: Project, extension: Extension): VersionCatalogHelperSourceCopyTask {
         val taskProvider = project.tasks.register<VersionCatalogHelperSourceCopyTask>(TASK_NAME_COPY_SOURCE)
+        return taskProvider.get()
+    }
+
+    override fun addGeneratorTask(project: Project): Task {
+        val taskProvider = project.tasks.register<Task>(TASK_NAME_GENERATE) {
+            dependsOn(TASK_NAME_GENERATE_SOURCE, TASK_NAME_COPY_SOURCE)
+        }
         return taskProvider.get()
     }
 

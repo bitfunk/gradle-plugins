@@ -97,7 +97,7 @@ public class VersionCatalogHelperPluginFunctionalTest {
 
         // WHEN
         val runner = setupRunner(tempDir)
-            .withArguments("generateVersionCatalogHelper")
+            .withArguments("generateVersionCatalogHelperSource")
             .build()
 
         // THEN
@@ -118,7 +118,7 @@ public class VersionCatalogHelperPluginFunctionalTest {
 
         // WHEN
         val runner = setupRunner(tempDir)
-            .withArguments("generateVersionCatalogHelper")
+            .withArguments("generateVersionCatalogHelperSource")
             .build()
 
         // THEN
@@ -157,7 +157,7 @@ public class VersionCatalogHelperPluginFunctionalTest {
 
         // WHEN
         val runner = setupRunner(tempDir)
-            .withArguments("generateVersionCatalogHelper", "copyVersionCatalogHelperSource")
+            .withArguments("generateVersionCatalogHelper")
             .build()
 
         // THEN
@@ -180,7 +180,7 @@ public class VersionCatalogHelperPluginFunctionalTest {
 
         // WHEN
         val runner = setupRunner(tempDir)
-            .withArguments("generateVersionCatalogHelper", "copyVersionCatalogHelperSource")
+            .withArguments("generateVersionCatalogHelper")
             .build()
 
         // THEN

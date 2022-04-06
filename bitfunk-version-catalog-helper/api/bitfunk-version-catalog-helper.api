@@ -21,6 +21,7 @@ public abstract interface class eu/bitfunk/gradle/version/catalog/VersionCatalog
 
 public abstract interface class eu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Plugin {
 	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;
+	public abstract fun addGeneratorTask (Lorg/gradle/api/Project;)Lorg/gradle/api/Task;
 	public abstract fun addSourceCopyTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperSourceCopyTask;
 	public abstract fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperSourceGeneratorTask;
 	public abstract fun configureSourceSet (Lorg/gradle/api/Project;)V
@@ -40,6 +41,7 @@ public abstract interface class eu/bitfunk/gradle/version/catalog/VersionCatalog
 public final class eu/bitfunk/gradle/version/catalog/VersionCatalogHelperPlugin : eu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Plugin, org/gradle/api/Plugin {
 	public fun <init> ()V
 	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;
+	public fun addGeneratorTask (Lorg/gradle/api/Project;)Lorg/gradle/api/Task;
 	public fun addSourceCopyTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperSourceCopyTask;
 	public fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperContract$Extension;)Leu/bitfunk/gradle/version/catalog/VersionCatalogHelperSourceGeneratorTask;
 	public synthetic fun apply (Ljava/lang/Object;)V

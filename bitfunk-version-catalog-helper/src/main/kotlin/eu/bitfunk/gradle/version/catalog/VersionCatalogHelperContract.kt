@@ -37,6 +37,8 @@ public interface VersionCatalogHelperContract {
             extension: Extension
         ): VersionCatalogHelperSourceCopyTask
 
+        public fun addGeneratorTask(project: Project): org.gradle.api.Task
+
         public fun configureSourceSet(project: Project)
     }
 
@@ -76,6 +78,7 @@ public interface VersionCatalogHelperContract {
     public companion object {
         public const val EXTENSION_NAME: String = "versionCatalogHelper"
         public const val TASK_NAME_GENERATE: String = "generateVersionCatalogHelper"
+        public const val TASK_NAME_GENERATE_SOURCE: String = "generateVersionCatalogHelperSource"
         public const val TASK_NAME_COPY_SOURCE: String = "copyVersionCatalogHelperSource"
     }
 }

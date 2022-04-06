@@ -136,7 +136,7 @@ public class VersionCatalogHelperPluginTest {
         val task = plugin.addSourceGeneratorTask(project, extension)
 
         // THEN
-        assertEquals("generateVersionCatalogHelper", task.name)
+        assertEquals("generateVersionCatalogHelperSource", task.name)
         assertEquals("gradle/", task.catalogSourceFolder.get())
         assertEquals(listOf("libs"), task.catalogNames.get())
         assertEquals("", task.packageName.get())
@@ -156,6 +156,19 @@ public class VersionCatalogHelperPluginTest {
 
         // THEN
         assertEquals("copyVersionCatalogHelperSource", task.name)
+    }
+
+    @Test
+    public fun `GIVEN project and extension WHEN addGeneratorTask() THEN task is registered and configured`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val extension = spyk(plugin.addExtension(project))
+
+        // WHEN
+        val task = plugin.addGeneratorTask(project)
+
+        // THEN
+        assertEquals("generateVersionCatalogHelper", task.name)
     }
 
     @Test
@@ -191,8 +204,9 @@ public class VersionCatalogHelperPluginTest {
         assertNotNull(extension)
         assertInstanceOf(VersionCatalogHelperPluginExtension::class.java, extension)
 
-        assertEquals(1, project.getTasksByName("generateVersionCatalogHelper", false).size)
+        assertEquals(1, project.getTasksByName("generateVersionCatalogHelperSource", false).size)
         assertEquals(1, project.getTasksByName("copyVersionCatalogHelperSource", false).size)
+        assertEquals(1, project.getTasksByName("generateVersionCatalogHelper", false).size)
 
         val javaExtension = project.extensions.getByName("java") as JavaPluginExtension
         val srcDirs = javaExtension.sourceSets.named("main").get().java.srcDirs
