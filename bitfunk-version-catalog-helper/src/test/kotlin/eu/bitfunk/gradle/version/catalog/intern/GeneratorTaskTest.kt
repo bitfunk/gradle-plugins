@@ -28,7 +28,8 @@ import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertInstanceOf
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -62,7 +63,7 @@ public class GeneratorTaskTest {
 
     @Test
     public fun `generatorTask implements contract`() {
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             InternalContract.GeneratorTask::class.java,
             generatorTask
         )
@@ -110,9 +111,9 @@ public class GeneratorTaskTest {
         val libsHelperFile = File("${outputFolder}/LibsVersionCatalogHelper.kt")
         val depsHelperFile = File("${outputFolder}/DepsVersionCatalogHelper.kt")
 
-        Assertions.assertTrue(outputFolder.exists())
-        Assertions.assertTrue(libsHelperFile.exists())
-        Assertions.assertTrue(depsHelperFile.exists())
+        assertTrue(outputFolder.exists())
+        assertTrue(libsHelperFile.exists())
+        assertTrue(depsHelperFile.exists())
     }
 
     @Test
@@ -145,9 +146,9 @@ public class GeneratorTaskTest {
         val libsHelperFile = File("${outputFolder}/LibsVersionCatalogHelper.kt")
         val depsHelperFile = File("${outputFolder}/DepsVersionCatalogHelper.kt")
 
-        Assertions.assertTrue(outputFolder.exists())
-        Assertions.assertTrue(libsHelperFile.exists())
-        Assertions.assertTrue(depsHelperFile.exists())
+        assertTrue(outputFolder.exists())
+        assertTrue(libsHelperFile.exists())
+        assertTrue(depsHelperFile.exists())
     }
 
     @Test
@@ -180,11 +181,13 @@ public class GeneratorTaskTest {
         val libsHelperFile = File("${outputFolder}/LibsVersionCatalogHelper.kt")
         val depsHelperFile = File("${outputFolder}/DepsVersionCatalogHelper.kt")
 
-        Assertions.assertTrue(outputFolder.exists())
-        Assertions.assertTrue(libsHelperFile.exists())
-        Assertions.assertTrue(libsHelperFile.readText().contains(packageName))
-        Assertions.assertTrue(depsHelperFile.exists())
-        Assertions.assertTrue(depsHelperFile.readText().contains(packageName))
+        assertTrue(outputFolder.exists())
+        assertTrue(libsHelperFile.exists())
+        assertTrue(libsHelperFile.readText().contains(packageName))
+        assertTrue(libsHelperFile.readText().contains("LibsVersionCatalogHelper"))
+        assertTrue(depsHelperFile.exists())
+        assertTrue(depsHelperFile.readText().contains(packageName))
+        assertTrue(depsHelperFile.readText().contains("DepsVersionCatalogHelper"))
     }
 
     private companion object {

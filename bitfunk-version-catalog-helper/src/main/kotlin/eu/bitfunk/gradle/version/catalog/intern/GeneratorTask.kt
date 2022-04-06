@@ -48,7 +48,7 @@ internal class GeneratorTask(
     }
 
     private fun generateVersionCatalogHelper(packageName: String, name: String, file: File): String {
-        val generator = setupGenerator(packageName, name)
+        val generator = setupGenerator(packageName, name.capitalized())
 
         val catalog = parser.parse(file.inputStream())
 
