@@ -18,28 +18,24 @@
 
 package eu.bitfunk.gradle.version.catalog
 
-import org.gradle.testfixtures.ProjectBuilder
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import eu.bitfunk.gradle.version.catalog.intern.CopySourceTask
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
 import java.io.File
 
-public class VersionCatalogHelperCopySourceTaskTest {
+public abstract class VersionCatalogHelperSourceCopyTask : DefaultTask(), VersionCatalogHelperContract.Task.CopySource {
 
-    @Test
-    public fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
-        // GIVEN
-        val project = ProjectBuilder.builder().build()
-        val task = project.tasks.create("testTask", VersionCatalogHelperCopySourceTask::class.java)
-        val output = File("${project.buildDir}/$OUTPUT_PATH")
+    private val copySourceTask = CopySourceTask()
 
-        // WHEN
-        task.copySource()
-
-        // THEN
-        assertTrue(output.exists())
+    @TaskAction
+    override fun copySource() {
+        val outputDir = File("${project.buildDir}/$OUTPUT_PATH")
+        copySourceTask.copy(SOURCES, outputDir)
     }
 
     private companion object {
+        private val SOURCES = listOf("sources/BaseVersionCatalogHelper.kt", "sources/VersionCatalogDependency.kt")
+
         private const val OUTPUT_PATH = "generated/versionCatalogHelper/src/main/kotlin"
     }
 }

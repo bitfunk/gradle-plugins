@@ -47,7 +47,7 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
 
         val extension = addExtension(target)
         addSourceGeneratorTask(target, extension)
-        addCopySourceTask(target, extension)
+        addSourceCopyTask(target, extension)
         configureSourceSet(target)
     }
 
@@ -73,8 +73,8 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
         return taskProvider.get()
     }
 
-    override fun addCopySourceTask(project: Project, extension: Extension): VersionCatalogHelperCopySourceTask {
-        val taskProvider = project.tasks.register<VersionCatalogHelperCopySourceTask>(TASK_NAME_COPY_SOURCE)
+    override fun addSourceCopyTask(project: Project, extension: Extension): VersionCatalogHelperSourceCopyTask {
+        val taskProvider = project.tasks.register<VersionCatalogHelperSourceCopyTask>(TASK_NAME_COPY_SOURCE)
         return taskProvider.get()
     }
 

@@ -152,7 +152,7 @@ public class VersionCatalogHelperPluginTest {
         val extension = spyk(plugin.addExtension(project))
 
         // WHEN
-        val task = plugin.addCopySourceTask(project, extension)
+        val task = plugin.addSourceCopyTask(project, extension)
 
         // THEN
         assertEquals("copyVersionCatalogHelperSource", task.name)
