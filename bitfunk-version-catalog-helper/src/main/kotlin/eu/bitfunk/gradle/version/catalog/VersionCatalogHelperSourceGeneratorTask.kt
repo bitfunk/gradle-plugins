@@ -25,7 +25,7 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
-public abstract class VersionCatalogHelperGeneratorTask : DefaultTask(), VersionCatalogHelperContract.Task.Generator {
+public abstract class VersionCatalogHelperSourceGeneratorTask : DefaultTask(), VersionCatalogHelperContract.Task.Generator {
 
     private val generatorTask = GeneratorTask(project.rootDir, project.buildDir)
 

@@ -133,7 +133,7 @@ public class VersionCatalogHelperPluginTest {
         val extension = spyk(plugin.addExtension(project))
 
         // WHEN
-        val task = plugin.addHelperGeneratorTask(project, extension)
+        val task = plugin.addSourceGeneratorTask(project, extension)
 
         // THEN
         assertEquals("generateVersionCatalogHelper", task.name)
