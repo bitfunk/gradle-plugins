@@ -21,33 +21,38 @@ package eu.bitfunk.gradle.version.catalog
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import io.mockk.spyk
+import io.mockk.unmockkAll
 import io.mockk.verify
 import org.gradle.api.GradleException
 import org.gradle.api.Project
-import org.gradle.api.plugins.Convention
 import org.gradle.api.plugins.ExtensionContainer
+import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.plugins.PluginManager
-import org.gradle.kotlin.dsl.typeOf
+import org.gradle.testfixtures.ProjectBuilder
 import org.gradle.util.GradleVersion
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertInstanceOf
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class VersionCatalogConfigurationPluginTest {
+public class VersionCatalogConfigurationPluginTest {
 
-    lateinit var project: Project
+    private lateinit var project: Project
 
-    lateinit var plugin: VersionCatalogConfigurationPlugin
+    private lateinit var plugin: VersionCatalogConfigurationPlugin
 
     @BeforeEach
-    fun setup() {
+    public fun setup() {
         project = mockk()
 
         plugin = VersionCatalogConfigurationPlugin()
     }
 
     @Test
-    fun `plugin implements contract`() {
+    public fun `plugin implements contract`() {
         Assertions.assertInstanceOf(
             VersionCatalogHelperContract.Plugin::class.java,
             plugin
@@ -55,7 +60,7 @@ class VersionCatalogConfigurationPluginTest {
     }
 
     @Test
-    fun `GIVEN Gradle version 7_1 WHEN apply() THEN throw GradleException`() {
+    public fun `GIVEN Gradle version 7_1 WHEN apply() THEN throw GradleException`() {
         // GIVEN
         mockkStatic(GradleVersion::class)
         every { GradleVersion.current() } returns GradleVersion.version("7.1")
@@ -66,10 +71,12 @@ class VersionCatalogConfigurationPluginTest {
             { plugin.apply(project) },
             "This plugin requires Gradle 7.2 or later"
         )
+
+        unmockkAll()
     }
 
     @Test
-    fun `GIVEN rootProject different to project WHEN apply() THEN throw GradleException`() {
+    public fun `GIVEN rootProject different to project WHEN apply() THEN throw GradleException`() {
         // GIVEN
         val newProject: Project = mockk()
         every { project.rootProject } returns newProject
@@ -83,7 +90,7 @@ class VersionCatalogConfigurationPluginTest {
     }
 
     @Test
-    fun `GIVEN java-gradle-plugin missing WHEN apply() THEN throw GradleException`() {
+    public fun `GIVEN java-gradle-plugin missing WHEN apply() THEN throw GradleException`() {
         // GIVEN
         every { project.rootProject } returns project
         val pluginManager: PluginManager = mockk()
@@ -99,26 +106,100 @@ class VersionCatalogConfigurationPluginTest {
     }
 
     @Test
-    fun `GIVEN extension WHEN apply() THEN extension is added to project with defaults`() {
+    public fun `GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults`() {
         // GIVEN
         every { project.rootProject } returns project
-        val pluginManager: PluginManager = mockk()
-        every { project.pluginManager } returns pluginManager
-        every { pluginManager.hasPlugin("java-gradle-plugin") } returns true
-        val extensions: ExtensionContainer = mockk(relaxed = true)
+        val extensions: ExtensionContainer = mockk()
         every { project.extensions } returns extensions
-        val convention: Convention = mockk(relaxed = true)
-        every { project.convention } returns convention
         val extension: VersionCatalogConfigurationPluginExtension = mockk(relaxed = true)
-        every { convention.findByType(typeOf<VersionCatalogConfigurationPluginExtension>()) } returns extension
+        every {
+            extensions.create(any(), VersionCatalogConfigurationPluginExtension::class.java)
+        } returns extension
+
+        // WHEN
+        plugin.addExtension(project)
+
+        // THEN
+        verify { extensions.create("versionCatalogHelper", VersionCatalogConfigurationPluginExtension::class.java) }
+        verify { extension.catalogSourceFolder.convention("gradle/") }
+        verify { extension.catalogNames.convention(listOf("libs")) }
+        verify { extension.packageName.convention("") }
+    }
+
+    @Test
+    public fun `GIVEN project and extension WHEN addHelperGeneratorTask() THEN task is registered and configured`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val extension = spyk(plugin.addExtension(project))
+
+        // WHEN
+        val task = plugin.addHelperGeneratorTask(project, extension)
+
+        // THEN
+        assertEquals("generateVersionCatalogHelper", task.name)
+        assertEquals("gradle/", task.catalogSourceFolder.get())
+        assertEquals(listOf("libs"), task.catalogNames.get())
+        assertEquals("", task.packageName.get())
+        verify { extension.catalogSourceFolder }
+        verify { extension.catalogNames }
+        verify { extension.packageName }
+    }
+
+    @Test
+    public fun `GIVEN project and extension WHEN addCopySourceTask() THEN task is registered and configured`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val extension = spyk(plugin.addExtension(project))
+
+        // WHEN
+        val task = plugin.addCopySourceTask(project, extension)
+
+        // THEN
+        assertEquals("copyVersionCatalogHelperSource", task.name)
+    }
+
+    @Test
+    public fun `GIVEN project WHEN configureSourceSet() THEN sourceSet configured`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        project.pluginManager.apply("java-gradle-plugin")
+
+        // WHEN
+        plugin.configureSourceSet(project)
+
+        // THEN
+        val javaExtension = project.extensions.getByName("java") as JavaPluginExtension
+        val srcDirs = javaExtension.sourceSets.named("main").get().java.srcDirs
+        assertEquals(2, srcDirs.size)
+        assertEquals(
+            "${project.buildDir}/generated/versionCatalogHelper/src/main/kotlin",
+            "${srcDirs.toList()[1]}"
+        )
+    }
+
+    @Test
+    public fun `GIVEN WHEN apply() THEN`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        project.pluginManager.apply("java-gradle-plugin")
 
         // WHEN
         plugin.apply(project)
 
         // THEN
-        verify { extensions.create("versionCatalogHelper", VersionCatalogConfigurationPluginExtension::class.java) }
-        verify { extension.catalogSourceFolder.set("gradle/") }
-        verify { extension.catalogNames.set(listOf("libs")) }
-        verify { extension.packageName.set("") }
+        val extension = project.extensions.findByName("versionCatalogHelper")
+        assertNotNull(extension)
+        assertInstanceOf(VersionCatalogConfigurationPluginExtension::class.java, extension)
+
+        assertEquals(1, project.getTasksByName("generateVersionCatalogHelper", false).size)
+        assertEquals(1, project.getTasksByName("copyVersionCatalogHelperSource", false).size)
+
+        val javaExtension = project.extensions.getByName("java") as JavaPluginExtension
+        val srcDirs = javaExtension.sourceSets.named("main").get().java.srcDirs
+        assertEquals(2, srcDirs.size)
+        assertEquals(
+            "${project.buildDir}/generated/versionCatalogHelper/src/main/kotlin",
+            "${srcDirs.toList()[1]}"
+        )
     }
 }

@@ -26,6 +26,9 @@ public interface VersionCatalogHelperContract {
 
     public interface Plugin {
         public fun addExtension(project: Project): Extension
+        public fun addHelperGeneratorTask(project: Project, extension: Extension): VersionCatalogHelperGeneratorTask
+        public fun addCopySourceTask(project: Project, extension: Extension): VersionCatalogHelperCopySourceTask
+        public fun configureSourceSet(project: Project)
     }
 
     public interface Extension {

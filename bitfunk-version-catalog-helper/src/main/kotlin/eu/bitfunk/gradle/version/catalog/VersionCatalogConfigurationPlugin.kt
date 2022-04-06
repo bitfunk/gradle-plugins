@@ -18,9 +18,13 @@
 
 package eu.bitfunk.gradle.version.catalog
 
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Extension
+import org.gradle.api.Action
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.SourceSetContainer
+import org.gradle.kotlin.dsl.register
 import org.gradle.util.GradleVersion
 
 public class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
@@ -38,23 +42,55 @@ public class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalog
             throw GradleException("The VersionCatalogHelperPlugin requires the `java-gradle-plugin` to work.")
         }
 
-        addExtension(target)
+        val extension = addExtension(target)
+        addHelperGeneratorTask(target, extension)
+        addCopySourceTask(target, extension)
+        configureSourceSet(target)
     }
 
-    override fun addExtension(project: Project) {
-        project.extensions.create(
+    override fun addExtension(project: Project): Extension {
+        val extension = project.extensions.create(
             EXTENSION_NAME,
             VersionCatalogConfigurationPluginExtension::class.java
         )
 
-        project.configure<VersionCatalogConfigurationPluginExtension> {
-            catalogSourceFolder.set("gradle/")
-            catalogNames.set(listOf("libs"))
-            packageName.set("")
+        extension.catalogSourceFolder.convention("gradle/")
+        extension.catalogNames.convention(listOf("libs"))
+        extension.packageName.convention("")
+
+        return extension
+    }
+
+    override fun addHelperGeneratorTask(project: Project, extension: Extension): VersionCatalogHelperGeneratorTask {
+        val taskProvider = project.tasks.register<VersionCatalogHelperGeneratorTask>(TASK_NAME_GENERATE) {
+            catalogSourceFolder.set(extension.catalogSourceFolder)
+            catalogNames.set(extension.catalogNames)
+            packageName.set(extension.packageName)
+        }
+        return taskProvider.get()
+    }
+
+    override fun addCopySourceTask(project: Project, extension: Extension): VersionCatalogHelperCopySourceTask {
+        val taskProvider = project.tasks.register<VersionCatalogHelperCopySourceTask>(TASK_NAME_COPY_SOURCE)
+        return taskProvider.get()
+    }
+
+    override fun configureSourceSet(project: Project) {
+        project.sourceSets {
+            named("main").configure {
+                java.srcDir(project.layout.buildDirectory.dir(OUTPUT_PATH).get())
+            }
         }
     }
 
+    private fun Project.sourceSets(configure: Action<SourceSetContainer>): Unit =
+        (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("sourceSets", configure)
+
     private companion object {
         private const val EXTENSION_NAME = "versionCatalogHelper"
+        private const val TASK_NAME_GENERATE = "generateVersionCatalogHelper"
+        private const val TASK_NAME_COPY_SOURCE = "copyVersionCatalogHelperSource"
+
+        private const val OUTPUT_PATH = "generated/versionCatalogHelper/src/main/kotlin"
     }
 }
