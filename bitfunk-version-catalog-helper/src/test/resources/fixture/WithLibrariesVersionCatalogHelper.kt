@@ -6,9 +6,8 @@ import kotlin.String
 import org.gradle.api.Project
 
 public class WithLibrariesVersionCatalogHelper(
-    project: Project,
-    catalogName: String
-) : BaseVersionCatalogHelper(project, catalogName) {
+    project: Project
+) : BaseVersionCatalogHelper(project, "with-libraries") {
     public val versions: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
     }
 

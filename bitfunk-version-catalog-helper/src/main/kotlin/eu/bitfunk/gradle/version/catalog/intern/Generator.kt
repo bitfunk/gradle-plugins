@@ -24,7 +24,6 @@ import com.squareup.kotlinpoet.KModifier.OVERRIDE
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.version.catalog.helper.BaseVersionCatalogHelper
-import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract
 import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.Group
 import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.GroupLeaf
 import eu.bitfunk.gradle.version.catalog.helper.VersionCatalogDependency.Leaf
@@ -48,7 +47,7 @@ internal class Generator(
     override fun generate(catalog: Catalog): String {
         val helperClass = generateHelperClass(catalog)
 
-        val file = FileSpec.builder(packageName, baseName + CLASS_NAME_HELPER)
+        val file = FileSpec.builder(packageName, generateClassBaseName() + CLASS_NAME_HELPER)
             .indent("    ")
             .addType(helperClass)
             .build()
@@ -56,19 +55,24 @@ internal class Generator(
         return file.toString()
     }
 
+    private fun generateClassBaseName(): String {
+        return baseName.split("-")
+            .map { it.capitalize() }
+            .joinToString(separator = "") { it }
+    }
+
     private fun generateHelperClass(catalog: Catalog): TypeSpec {
         val libraryNodes = mapper.map(catalog.libraries.items)
 
-        return TypeSpec.classBuilder(baseName + CLASS_NAME_HELPER)
+        return TypeSpec.classBuilder(generateClassBaseName() + CLASS_NAME_HELPER)
             .primaryConstructor(
                 FunSpec.constructorBuilder()
                     .addParameter(HELPER_PROPERTY_NAME_PROJECT, Project::class)
-                    .addParameter(HELPER_PROPERTY_NAME_CATALOG_NAME, String::class)
                     .build()
             )
             .superclass(BaseVersionCatalogHelper::class)
             .addSuperclassConstructorParameter("%N", HELPER_PROPERTY_NAME_PROJECT)
-            .addSuperclassConstructorParameter("%N", HELPER_PROPERTY_NAME_CATALOG_NAME)
+            .addSuperclassConstructorParameter("%S", baseName)
             .addProperty(generateRootProperty(PROPERTY_NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(PROPERTY_NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(PROPERTY_NAME_PLUGINS, catalog.plugins))
@@ -157,7 +161,6 @@ internal class Generator(
         const val CLASS_NAME_HELPER = "VersionCatalogHelper"
 
         const val HELPER_PROPERTY_NAME_PROJECT = "project"
-        const val HELPER_PROPERTY_NAME_CATALOG_NAME = "catalogName"
 
         const val FUNCTION_NAME_GET = "get"
     }

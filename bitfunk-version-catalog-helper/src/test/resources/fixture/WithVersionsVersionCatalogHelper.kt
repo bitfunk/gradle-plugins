@@ -6,9 +6,8 @@ import kotlin.String
 import org.gradle.api.Project
 
 public class WithVersionsVersionCatalogHelper(
-    project: Project,
-    catalogName: String
-) : BaseVersionCatalogHelper(project, catalogName) {
+    project: Project
+) : BaseVersionCatalogHelper(project, "with-versions") {
     public val versions: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
         public val example: VersionCatalogDependency.Leaf = object : VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("example")

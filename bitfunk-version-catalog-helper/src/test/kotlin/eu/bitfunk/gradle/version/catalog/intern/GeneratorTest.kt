@@ -54,7 +54,7 @@ public class GeneratorTest {
     @Test
     public fun `GIVEN empty catalog WHEN generate() THEN return empty helper`() {
         // GIVEN
-        val baseName = "Empty"
+        val baseName = "empty"
         val catalog = Catalog(
             Versions(emptyList()),
             Libraries(emptyList()),
@@ -74,7 +74,7 @@ public class GeneratorTest {
     @Test
     public fun `GIVEN catalog with versions WHEN generate() THEN return helper with versions`() {
         // GIVEN
-        val baseName = "WithVersions"
+        val baseName = "with-versions"
         val catalog = Catalog(
             Versions(TEST_ITEMS),
             Libraries(emptyList()),
@@ -95,7 +95,7 @@ public class GeneratorTest {
     @Test
     public fun `GIVEN catalog with libraries WHEN generate() THEN return helper with libraries`() {
         // GIVEN
-        val baseName = "WithLibraries"
+        val baseName = "with-libraries"
         val catalog = Catalog(
             Versions(emptyList()),
             Libraries(TEST_ITEMS),
@@ -116,7 +116,7 @@ public class GeneratorTest {
     @Test
     public fun `GIVEN catalog with bundles WHEN generate() THEN return helper with bundles`() {
         // GIVEN
-        val baseName = "WithBundles"
+        val baseName = "with-bundles"
         val catalog = Catalog(
             Versions(emptyList()),
             Libraries(emptyList()),
@@ -137,7 +137,7 @@ public class GeneratorTest {
     @Test
     public fun `GIVEN catalog with plugins WHEN generate() THEN return helper with plugins`() {
         // GIVEN
-        val baseName = "WithPlugins"
+        val baseName = "with-plugins"
         val catalog = Catalog(
             Versions(emptyList()),
             Libraries(emptyList()),
