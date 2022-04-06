@@ -63,4 +63,10 @@ public interface VersionCatalogHelperContract {
             public fun copySource()
         }
     }
+
+    public companion object {
+        public const val EXTENSION_NAME: String = "versionCatalogHelper"
+        public const val TASK_NAME_GENERATE: String = "generateVersionCatalogHelper"
+        public const val TASK_NAME_COPY_SOURCE: String = "copyVersionCatalogHelperSource"
+    }
 }

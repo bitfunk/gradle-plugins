@@ -18,6 +18,9 @@
 
 package eu.bitfunk.gradle.version.catalog
 
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.EXTENSION_NAME
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.TASK_NAME_COPY_SOURCE
+import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Companion.TASK_NAME_GENERATE
 import eu.bitfunk.gradle.version.catalog.VersionCatalogHelperContract.Extension
 import org.gradle.api.Action
 import org.gradle.api.GradleException
@@ -87,10 +90,6 @@ public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperC
         (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("sourceSets", configure)
 
     private companion object {
-        private const val EXTENSION_NAME = "versionCatalogHelper"
-        private const val TASK_NAME_GENERATE = "generateVersionCatalogHelper"
-        private const val TASK_NAME_COPY_SOURCE = "copyVersionCatalogHelperSource"
-
         private const val OUTPUT_PATH = "generated/versionCatalogHelper/src/main/kotlin"
     }
 }
