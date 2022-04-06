@@ -18,4 +18,4 @@
 
 package eu.bitfunk.gradle.version.catalog
 
-public interface VersionCatalogConfigurationPluginExtension : VersionCatalogHelperContract.Extension
+public interface VersionCatalogHelperPluginExtension : VersionCatalogHelperContract.Extension

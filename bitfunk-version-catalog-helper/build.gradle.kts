@@ -37,7 +37,7 @@ repositories {
 gradlePlugin {
     val versionCatalog by plugins.creating {
         id = "eu.bitfunk.gradle.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.version.catalog.VersionCatalogConfigurationPlugin"
+        implementationClass = "eu.bitfunk.gradle.version.catalog.VersionCatalogHelperPlugin"
     }
 }
 

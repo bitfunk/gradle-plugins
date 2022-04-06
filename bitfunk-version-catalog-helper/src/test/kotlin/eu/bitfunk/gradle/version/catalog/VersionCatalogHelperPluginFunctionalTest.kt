@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-public class VersionCatalogConfigurationPluginFunctionalTest {
+public class VersionCatalogHelperPluginFunctionalTest {
 
     @TempDir
     private lateinit var tempDir: File

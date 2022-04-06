@@ -27,7 +27,7 @@ import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.kotlin.dsl.register
 import org.gradle.util.GradleVersion
 
-public class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
+public class VersionCatalogHelperPlugin : Plugin<Project>, VersionCatalogHelperContract.Plugin {
 
     override fun apply(target: Project) {
         if (GradleVersion.current() < GradleVersion.version("7.2")) {
@@ -51,7 +51,7 @@ public class VersionCatalogConfigurationPlugin : Plugin<Project>, VersionCatalog
     override fun addExtension(project: Project): Extension {
         val extension = project.extensions.create(
             EXTENSION_NAME,
-            VersionCatalogConfigurationPluginExtension::class.java
+            VersionCatalogHelperPluginExtension::class.java
         )
 
         extension.catalogSourceFolder.convention("gradle/")

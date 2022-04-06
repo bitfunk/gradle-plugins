@@ -38,17 +38,17 @@ import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-public class VersionCatalogConfigurationPluginTest {
+public class VersionCatalogHelperPluginTest {
 
     private lateinit var project: Project
 
-    private lateinit var plugin: VersionCatalogConfigurationPlugin
+    private lateinit var plugin: VersionCatalogHelperPlugin
 
     @BeforeEach
     public fun setup() {
         project = mockk()
 
-        plugin = VersionCatalogConfigurationPlugin()
+        plugin = VersionCatalogHelperPlugin()
     }
 
     @Test
@@ -111,16 +111,16 @@ public class VersionCatalogConfigurationPluginTest {
         every { project.rootProject } returns project
         val extensions: ExtensionContainer = mockk()
         every { project.extensions } returns extensions
-        val extension: VersionCatalogConfigurationPluginExtension = mockk(relaxed = true)
+        val extension: VersionCatalogHelperPluginExtension = mockk(relaxed = true)
         every {
-            extensions.create(any(), VersionCatalogConfigurationPluginExtension::class.java)
+            extensions.create(any(), VersionCatalogHelperPluginExtension::class.java)
         } returns extension
 
         // WHEN
         plugin.addExtension(project)
 
         // THEN
-        verify { extensions.create("versionCatalogHelper", VersionCatalogConfigurationPluginExtension::class.java) }
+        verify { extensions.create("versionCatalogHelper", VersionCatalogHelperPluginExtension::class.java) }
         verify { extension.catalogSourceFolder.convention("gradle/") }
         verify { extension.catalogNames.convention(listOf("libs")) }
         verify { extension.packageName.convention("") }
@@ -189,7 +189,7 @@ public class VersionCatalogConfigurationPluginTest {
         // THEN
         val extension = project.extensions.findByName("versionCatalogHelper")
         assertNotNull(extension)
-        assertInstanceOf(VersionCatalogConfigurationPluginExtension::class.java, extension)
+        assertInstanceOf(VersionCatalogHelperPluginExtension::class.java, extension)
 
         assertEquals(1, project.getTasksByName("generateVersionCatalogHelper", false).size)
         assertEquals(1, project.getTasksByName("copyVersionCatalogHelperSource", false).size)
