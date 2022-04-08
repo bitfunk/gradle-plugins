@@ -7,7 +7,7 @@
 
 # Bitfunk Gradle Plugins
 
-Collection of Gradle plugins used across multiple projects.
+Collection of Gradle plugins to simplify and unify project development.
 
 [Explore the docs »][webpage]
 
@@ -18,34 +18,46 @@ Collection of Gradle plugins used across multiple projects.
 
 ## About the project
 
-Collection of Gradle plugins used across multiple projects.
+Collection of Gradle plugins used across multiple projects. They add opinionated configuration for other plugins or add new functionality.
 
 ### Plugins
 
-List of plugins 
+List of plugins:
 
-* TODO
+* Plugin development
+  * VersionCatalogAccessor - a version catalog accessor for Gradle plugin development
 
 ## Getting started
 
-### Installation
+You could use individual plugins or the all-plugins collection.
 
+Check the usage of each Gradle plugin by reading the [documentation][webpage].
+
+### Requirements
+
+* Gradle 7.2+
+* Java 11
+
+## Installation
+
+```
 TODO
+```
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code
-examples and demos work well in this space. You may also link to more resources.
+```
+TODO
+```
 
-For more examples, please refer to the [documentation][webpage].
+For more examples, please refer to the [documentation][webpage] and each individual plugin.
 
 ## Roadmap
 
 This project is work in progress. We are working on adding more functionality, guidelines,
 documentation and other improvements.
 
-See the open [issues][issues] for a list of proposed
-improvements and known issues.
+See the open [issues][issues] for a list of proposed improvements and known issues.
 
 ## Changelog
 
