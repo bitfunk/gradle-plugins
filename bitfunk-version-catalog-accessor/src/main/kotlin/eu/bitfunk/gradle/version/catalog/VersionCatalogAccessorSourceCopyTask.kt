@@ -16,18 +16,26 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog
+
+import eu.bitfunk.gradle.version.catalog.intern.CopySourceTask
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+import java.io.File
+
+public abstract class VersionCatalogAccessorSourceCopyTask : DefaultTask(), VersionCatalogAccessorContract.Task.CopySource {
+
+    private val copySourceTask = CopySourceTask()
+
+    @TaskAction
+    override fun copySource() {
+        val outputDir = File("${project.buildDir}/$OUTPUT_PATH")
+        copySourceTask.copy(SOURCES, outputDir)
     }
 
-    includeBuild("bitfunk-version-catalog-accessor")
+    private companion object {
+        private val SOURCES = listOf("sources/BaseVersionCatalogAccessor.kt", "sources/VersionCatalogDependency.kt")
+
+        private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
+    }
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

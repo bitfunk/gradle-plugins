@@ -16,18 +16,16 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog.accessor
+
+public interface VersionCatalogDependency {
+    public interface Group : VersionCatalogDependency
+
+    public interface GroupLeaf : VersionCatalogDependency {
+        public fun get(): String
     }
 
-    includeBuild("bitfunk-version-catalog-accessor")
+    public interface Leaf : VersionCatalogDependency {
+        public fun get(): String
+    }
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
