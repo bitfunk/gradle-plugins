@@ -103,7 +103,8 @@ nav:
   - Home: index.md
   - Changelog: changelog.md
   - Plugins:
-      - Overview: plugins/index.md
+    - Overview: plugins/index.md
+    - VersionCatalogAccessor: plugins/plugin/versionCatalogAccessor/index.md
   - Develop:
       - Contributing: develop/contributing.md
       - Releasing: develop/releasing.md
