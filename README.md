@@ -11,7 +11,7 @@
 
 [VersionCatalogAccessor]: docs/src/plugins/plugin/versionCatalogAccessor/index.md
 
-![Logo](./assets/images/logo.png)
+![Logo](docs/src/assets/images/logo.png)
 
 # Bitfunk Gradle Plugins
 
@@ -21,8 +21,8 @@ A Collection of Gradle plugins to simplify and unify project development.
 
 [Report Bug][issues] | [Request Feature][issues]
 
-[![Latest release](./assets/images/badge-release-latest.svg)][releases]
-[![License](./assets/images/badge-license.svg)](LICENSE)
+[![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
+[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
 
 ## About the project
 

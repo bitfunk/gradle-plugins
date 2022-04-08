@@ -16,6 +16,9 @@
 
 A Collection of Gradle plugins to simplify and unify project development.
 
+[![Latest release](./assets/images/badge-release-latest.svg)][releases]
+[![License](./assets/images/badge-license.svg)](LICENSE)
+
 ## About the project
 
 Collection of Gradle plugins used across multiple projects. They add opinionated configuration for other plugins or add new functionality.
