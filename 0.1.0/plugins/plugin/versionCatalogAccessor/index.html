@@ -12,21 +12,21 @@
         <meta name="author" content="Wolf-Martell Montwé">
       
       
-        <link rel="canonical" href="https://bitfunk.github.io/gradle-plugins/0.1.0/develop/contributing/">
+        <link rel="canonical" href="https://bitfunk.github.io/gradle-plugins/0.1.0/plugins/plugin/versionCatalogAccessor/">
       
-      <link rel="icon" href="../../assets/images/logo.svg">
+      <link rel="icon" href="../../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
     
     
       
-        <title>Contributing - Bitfunk Gradle Plugins</title>
+        <title>VersionCatalogAccessor - Bitfunk Gradle Plugins</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -35,9 +35,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing" class="md-skip">
+        <a href="#versioncatalogaccessor" class="md-skip">
           Skip to content
         </a>
       
@@ -80,7 +80,7 @@
             <div class="md-banner__inner md-grid md-typeset">
               
 You're not viewing the latest version.
-<a href="../../..">
+<a href="../../../..">
     <strong>Click here to go to latest.</strong>
 </a>
 
@@ -95,9 +95,9 @@ You're not viewing the latest version.
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Bitfunk Gradle Plugins" class="md-header__button md-logo" aria-label="Bitfunk Gradle Plugins" data-md-component="logo">
+    <a href="../../.." title="Bitfunk Gradle Plugins" class="md-header__button md-logo" aria-label="Bitfunk Gradle Plugins" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +113,7 @@ You're not viewing the latest version.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              VersionCatalogAccessor
             
           </span>
         </div>
@@ -214,9 +214,9 @@ You're not viewing the latest version.
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Bitfunk Gradle Plugins" class="md-nav__button md-logo" aria-label="Bitfunk Gradle Plugins" data-md-component="logo">
+    <a href="../../.." title="Bitfunk Gradle Plugins" class="md-nav__button md-logo" aria-label="Bitfunk Gradle Plugins" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     Bitfunk Gradle Plugins
@@ -244,7 +244,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -259,7 +259,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../../changelog/" class="md-nav__link">
         Changelog
       </a>
     </li>
@@ -272,12 +272,14 @@ You're not viewing the latest version.
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -300,7 +302,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../plugins/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -312,11 +314,66 @@ You're not viewing the latest version.
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../plugins/plugin/versionCatalogAccessor/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VersionCatalogAccessor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         VersionCatalogAccessor
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -334,14 +391,12 @@ You're not viewing the latest version.
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -362,132 +417,11 @@ You're not viewing the latest version.
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Contributing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../develop/contributing/" class="md-nav__link">
         Contributing
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#issues" class="md-nav__link">
-    Issues
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute-code" class="md-nav__link">
-    Contribute code
-  </a>
-  
-    <nav class="md-nav" aria-label="Contribute code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-    <nav class="md-nav" aria-label="Develop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#branch" class="md-nav__link">
-    Branch
-  </a>
-  
-    <nav class="md-nav" aria-label="Branch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#type-of-change" class="md-nav__link">
-    Type of change
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
-  </a>
-  
-    <nav class="md-nav" aria-label="Pull request">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-pull-request" class="md-nav__link">
-    Create pull request
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-review" class="md-nav__link">
-    Code review
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependencies-using-other-licenses" class="md-nav__link">
-    Dependencies using other licenses
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -499,7 +433,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../releasing/" class="md-nav__link">
+      <a href="../../../develop/releasing/" class="md-nav__link">
         Releasing
       </a>
     </li>
@@ -513,7 +447,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../badges/" class="md-nav__link">
+      <a href="../../../develop/badges/" class="md-nav__link">
         Badges
       </a>
     </li>
@@ -535,7 +469,7 @@ You're not viewing the latest version.
   
   
     <li class="md-nav__item">
-      <a href="../../license/" class="md-nav__link">
+      <a href="../../../license/" class="md-nav__link">
         License
       </a>
     </li>
@@ -569,89 +503,23 @@ You're not viewing the latest version.
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#issues" class="md-nav__link">
-    Issues
+  <a href="#requirements" class="md-nav__link">
+    Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#contribute-code" class="md-nav__link">
-    Contribute code
-  </a>
-  
-    <nav class="md-nav" aria-label="Contribute code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-    <nav class="md-nav" aria-label="Develop">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#branch" class="md-nav__link">
-    Branch
-  </a>
-  
-    <nav class="md-nav" aria-label="Branch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#type-of-change" class="md-nav__link">
-    Type of change
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
   </a>
-  
-    <nav class="md-nav" aria-label="Pull request">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-pull-request" class="md-nav__link">
-    Create pull request
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-review" class="md-nav__link">
-    Code review
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependencies-using-other-licenses" class="md-nav__link">
-    Dependencies using other licenses
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -667,93 +535,54 @@ You're not viewing the latest version.
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/bitfunk/gradle-plugins/edit/main/docs/src/develop/contributing.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/bitfunk/gradle-plugins/edit/main/docs/src/plugins/plugin/versionCatalogAccessor/index.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>When contributing to this project, this document should help you get started.</p>
-<h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h2>
-<p>We use GitHub Issues to track bugs and enhancements, please feel free to open <a href="https://github.com/wmontwe/gradle-plugins/issues">issues</a> for:</p>
+<h1 id="versioncatalogaccessor">VersionCatalogAccessor<a class="headerlink" href="#versioncatalogaccessor" title="Permanent link">&para;</a></h1>
+<p>This plugin generates an accessor to expose the <a href="https://docs.gradle.org/current/userguide/platforms.html">version catalog (toml)</a> content to Gradle plugins. This allows plugins to reuse an already available version catalog in it's own implementation similarly to typesafe accessors.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <ul>
-<li><em><strong>Questions</strong></em> help us to improve the user experience</li>
-<li><em><strong>Ideas</strong></em> are a great source for contributions</li>
-<li><em><strong>Problems</strong></em> show where this project is lacking</li>
+<li>Gradle 7.2+</li>
+<li>Can only be applied to Gradle plugins with the java-gradle-plugin available.</li>
+<li>A version catalog available and enabled (default: <code>libs.versions.toml</code>)</li>
 </ul>
-<p>If you're reporting a problem, please help us by providing as much information as possible.
-Ideally, that includes a description or small example how to reproduce the problem.</p>
-<h2 id="contribute-code">Contribute code<a class="headerlink" href="#contribute-code" title="Permanent link">&para;</a></h2>
-<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
-<p>Create a branch according to the following rules, work on your changes and create a pull-request.</p>
-<p><code>main</code> must be always in releasable state.</p>
-<h4 id="branch">Branch<a class="headerlink" href="#branch" title="Permanent link">&para;</a></h4>
-<p>Every change has to branch of from <code>main</code> and use this branch naming convention:</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Add to your project root <code>build.gradle/build.gradle.kts</code> file to download from GitHub packages:</p>
+<div class="highlight"><pre><span></span><code><span class="n">buildscript</span> <span class="p">{</span>
+    <span class="n">repositories</span> <span class="p">{</span>
+        <span class="n">maven</span> <span class="p">{</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="n">uri</span><span class="p">(</span><span class="s">&quot;https://maven.pkg.github.com/bitfunk/gradle-plugins&quot;</span><span class="p">)</span>
+            <span class="n">credentials</span> <span class="p">{</span>
+                <span class="n">username</span> <span class="o">=</span> <span class="n">project</span><span class="p">.</span><span class="na">findProperty</span><span class="p">(</span><span class="s">&quot;gpr.user&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String?</span> <span class="o">?:</span> <span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;PACKAGE_REGISTRY_USERNAME&quot;</span><span class="p">)</span>
+                <span class="n">password</span> <span class="o">=</span> <span class="n">project</span><span class="p">.</span><span class="na">findProperty</span><span class="p">(</span><span class="s">&quot;gpr.key&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String?</span> <span class="o">?:</span> <span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;PACKAGE_REGISTRY_TOKEN&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">plugins</span> <span class="p">{</span>
+    <span class="n">id</span><span class="p">(</span><span class="s">&quot;eu.bitfunk.gradle.version.catalog&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The plugin works with a default version catalog setup, but could be configured to your needs:</p>
 <ul>
-<li><code>feature/{type_of_change}-{short_description}</code> or with ticket
-  id <code>feature/{ticket_id}/{type_of_change}-{short_description}</code></li>
+<li><strong><em>catalogSourceFolder</em></strong>: relative path to the version catalog toml files. Default: <code>gradle/</code></li>
+<li><strong><em>catalogNames</em></strong>: names of the catalogs for whom to create an accessor. Default: <code>listOf("libs")</code></li>
+<li><strong><em>packageName</em></strong>: package used for the generated accessor. Default: empty</li>
 </ul>
-<h5 id="type-of-change">Type of change<a class="headerlink" href="#type-of-change" title="Permanent link">&para;</a></h5>
-<ul>
-<li><em><strong>added</strong></em> for new features or functionality</li>
-<li><em><strong>changed</strong></em> for changes in existing features or functionality</li>
-<li><em><strong>deprecated</strong></em> for soon-to-be removed features</li>
-<li><em><strong>removed</strong></em> for removed features or functionality</li>
-<li><em><strong>fixed</strong></em> for any bug fixes</li>
-<li><em><strong>security</strong></em> in case of vulnerabilities</li>
-<li><em><strong>bumped</strong></em> for dependency updates</li>
-</ul>
-<p>Examples:</p>
-<ul>
-<li><code>feature/ISSUE-456/added-awesome-hashing-algorithm</code></li>
-<li><code>feature/added-awesome-hashing-algorithm</code></li>
-<li><code>feature/removed-not-so-awesome-algorithm</code></li>
-<li><code>feature/fixed-algorithm-corner-case</code></li>
-<li><code>feature/bumped-lib-to-1.3.0</code></li>
-</ul>
-<h3 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/wmontwe/gradle-plugins/pulls">Pull requests</a> are a great way to improve the project. But please, discuss your
-contribution with us before making changes.</p>
-<p>If you contribute, you have:</p>
-<ul>
-<li>made clear which problem you're trying to solve</li>
-<li>followed following rules</li>
-</ul>
-<h4 id="create-pull-request">Create pull request<a class="headerlink" href="#create-pull-request" title="Permanent link">&para;</a></h4>
-<p>Please use our title pattern: <code>[{issue id}] {type of change} {short description}</code>:</p>
-<ul>
-<li>Optional: Add <code>issue id</code> in brackets if you have any, otherwise leave it out.</li>
-<li><code>type of change</code> e.g Added, Changed, ...</li>
-<li><code>short description</code> of your change</li>
-</ul>
-<p>Example:</p>
-<ul>
-<li>Added awesome hashing algorithm</li>
-<li>[Issue-156] Changed thumbnail generation</li>
-</ul>
-<p>Pull requests must fill the provided template. Put N/A when a paragraph cannot be filled.</p>
-<p><em>Labels</em> should be used (enhancement,bugfix, help wanted etc...) to categorise your contribution.</p>
-<h4 id="code-review">Code review<a class="headerlink" href="#code-review" title="Permanent link">&para;</a></h4>
-<p>We will review your contribution and check following criteria:</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Functional and fitting the project</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Code style and naming conventions followed</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Test written and passing</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Continuous Integration build passing</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Cross platform testing done for all supported platforms</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Documentation updated</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Changelog updated</li>
-</ul>
-<h3 id="dependencies-using-other-licenses">Dependencies using other licenses<a class="headerlink" href="#dependencies-using-other-licenses" title="Permanent link">&para;</a></h3>
-<p>Contributing code and introducing dependencies into the repository from other projects that use one
-of the following licenses is allowed.</p>
-<ul>
-<li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
-<li><a href="https://opensource.org/licenses/ISC">ISC</a></li>
-<li><a href="https://opensource.org/licenses/Apache-2.0">Apache 2.0</a></li>
-</ul>
-<p>Any other contribution needs to be signed off by the project owners.</p>
+<div class="highlight"><pre><span></span><code><span class="n">versionCatalogHelper</span> <span class="p">{</span>
+    <span class="n">catalogSourceFolder</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">catalogNames</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;libs&quot;</span><span class="p">,</span> <span class="s">&quot;deps&quot;</span><span class="p">))</span>
+    <span class="n">packageName</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&quot;com.example&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>To generate the version catalog accessor</p>
+<div class="highlight"><pre><span></span><code>./gradlew generateVersionCatalogAccessor
+</code></pre></div>
 
               
             </article>
@@ -772,7 +601,7 @@ of the following licenses is allowed.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../plugins/plugin/versionCatalogAccessor/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VersionCatalogAccessor" rel="prev">
+        <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -781,20 +610,20 @@ of the following licenses is allowed.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              VersionCatalogAccessor
+              Overview
             </div>
           </div>
         </a>
       
       
         
-        <a href="../releasing/" class="md-footer__link md-footer__link--next" aria-label="Next: Releasing" rel="next">
+        <a href="../../../develop/contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Releasing
+              Contributing
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -841,10 +670,10 @@ of the following licenses is allowed.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.8aa65030.min.js"></script>
       
     
   </body>

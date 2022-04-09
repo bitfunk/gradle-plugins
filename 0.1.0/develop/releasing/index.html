@@ -33,11 +33,6 @@
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
     
       <link rel="stylesheet" href="../../assets/css/extra.css">
@@ -313,6 +308,20 @@ You're not viewing the latest version.
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/plugin/versionCatalogAccessor/" class="md-nav__link">
+        VersionCatalogAccessor
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -519,6 +528,8 @@ You're not viewing the latest version.
 
 
 <h1 id="releasing">Releasing<a class="headerlink" href="#releasing" title="Permanent link">&para;</a></h1>
+<p>Releases are automatically created from added tags using GitHub Actions.</p>
+<p>A tag needs to be in the form of <code>v{major}.{minor}.{patch}</code>.</p>
 <h2 id="release-preparation">Release preparation<a class="headerlink" href="#release-preparation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -533,8 +544,14 @@ You're not viewing the latest version.
 <li>Update the latest release <a href="../badges/">badge</a></li>
 </ol>
 <h2 id="release">Release<a class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
-<p>Releases are automatically created from tags with GitHub Actions.</p>
-<p>They need to be in the form of <code>v{major}.{minor}.{patch}</code>.</p>
+<p>For a release, we use GitHub releases:</p>
+<ol>
+<li>Create a <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">new release</a></li>
+<li>Set the tag</li>
+<li>Set the title</li>
+<li>Add a description in form of a changelog</li>
+<li>Publish when ready</li>
+</ol>
 
               
             </article>
