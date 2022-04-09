@@ -17,4 +17,5 @@ Initial release
 
 ### Added
 
+* Add VersionCatalogAccessor - a version catalog accessor for Gradle Plugin development
 * Add initial project

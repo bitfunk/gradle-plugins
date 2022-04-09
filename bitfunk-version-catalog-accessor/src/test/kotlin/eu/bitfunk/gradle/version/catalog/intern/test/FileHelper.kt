@@ -16,18 +16,17 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog.intern.test
+
+import java.io.IOException
+import java.nio.charset.StandardCharsets
+
+object FileHelper {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
+
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @Throws(IOException::class)
+    fun loadAsString(fileName: String): String {
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
-
-    includeBuild("bitfunk-version-catalog-accessor")
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

@@ -26,6 +26,23 @@ buildscript {
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
+    alias(libs.plugins.bitfunkVersionCatalogHelper)
+}
+
+tasks.register<Delete>("clean") {
+    delete("build")
+}
+
+tasks.register("cleanAll") {
+    dependsOn("clean")
+    dependsOn(gradle.includedBuilds.map { it.task(":clean") })
+}
+
+tasks.register("check")
+
+tasks.register("checkAll") {
+    dependsOn("check")
+    dependsOn(gradle.includedBuilds.map { it.task(":check") })
 }
 
 tasks.register("dependencyUpdatesAll") {

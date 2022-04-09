@@ -16,18 +16,14 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
+package eu.bitfunk.gradle.version.catalog.intern.model
 
-    includeBuild("bitfunk-version-catalog-accessor")
+internal data class Node(
+    val name: String,
+    var path: String = "",
+    val children: MutableList<Node> = mutableListOf()
+) {
+    fun isLeaf(): Boolean = path.isNotBlank()
+
+    fun isGroup(): Boolean = children.isNotEmpty()
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

@@ -16,18 +16,30 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog
+
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
+import java.io.File
+
+public class VersionCatalogAccessorSourceCopyTaskTest {
+
+    @Test
+    public fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val task = project.tasks.create("testTask", VersionCatalogAccessorSourceCopyTask::class.java)
+        val output = File("${project.buildDir}/$OUTPUT_PATH")
+
+        // WHEN
+        task.copySource()
+
+        // THEN
+        assertTrue(output.exists())
     }
 
-    includeBuild("bitfunk-version-catalog-accessor")
+    private companion object {
+        private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
+    }
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

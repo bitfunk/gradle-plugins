@@ -16,18 +16,21 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog.intern
+
+import java.io.File
+
+internal class CopySourceTask : InternalContract.CopySourceTask {
+
+    override fun copy(sources: List<String>, outputDir: File) {
+        if (!outputDir.exists()) {
+            outputDir.mkdirs()
+        }
+
+        for (source in sources) {
+            val content = ResourceLoader.loadAsString(source)
+            val outputFileName = source.substringAfterLast("/")
+            File(outputDir, outputFileName).writeText(content)
+        }
     }
-
-    includeBuild("bitfunk-version-catalog-accessor")
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

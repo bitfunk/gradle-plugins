@@ -1,5 +1,9 @@
 # Releasing
 
+Releases are automatically created from added tags using GitHub Actions.
+
+A tag needs to be in the form of `v{major}.{minor}.{patch}`.
+
 ## Release preparation
 
 1. Create a release branch of from `main` branch with this pattern:
@@ -11,6 +15,10 @@
 
 ## Release
 
-Releases are automatically created from tags with GitHub Actions.
+For a release, we use GitHub releases:
 
-They need to be in the form of `v{major}.{minor}.{patch}`.
+1. Create a [new release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+2. Set the tag
+3. Set the title
+4. Add a description in form of a changelog
+5. Publish when ready

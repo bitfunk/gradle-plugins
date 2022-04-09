@@ -16,18 +16,36 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+package eu.bitfunk.gradle.version.catalog.intern
+
+import eu.bitfunk.gradle.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.version.catalog.intern.model.Node
+import java.io.File
+import java.io.InputStream
+
+internal interface InternalContract {
+
+    interface CopySourceTask {
+        fun copy(sources: List<String>, outputDir: File)
     }
 
-    includeBuild("bitfunk-version-catalog-accessor")
+    interface GeneratorTask {
+        fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
+    }
+
+    interface Generator {
+        fun generate(catalog: Catalog): String
+    }
+
+    interface Parser {
+        fun parse(inputStream: InputStream): Catalog
+    }
+
+    interface Mapper {
+        fun map(items: List<String>): List<Node>
+    }
+
+    interface ResourceLoader {
+        fun loadAsString(filePath: String): String
+    }
 }
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
