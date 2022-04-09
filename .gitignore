@@ -19,17 +19,8 @@ build-cache/
 !.idea/copyright/
 !.idea/externalDependencies.xml
 
-# Android
-# see app-android/.gitignore
-
-# Swift & Xcode
-# see app-ios/.gitignore
-
 # Others
 captures/
-
-## Asciidoctor
-.asciidoctor/
 
 ## OS X Finder
 .DS_Store
