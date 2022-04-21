@@ -1,0 +1,16 @@
+ci:
+  - .github/**/*
+
+documentation:
+  - docs/**/*
+  - CHANGELOG.adoc
+  - README.adoc
+  - LICENSE
+
+# Common
+common:
+  - common/**/*
+
+# Plugin
+plugin:
+  - bitfunk-*/**/*

@@ -1,0 +1,39 @@
+name: CI - Build Latest Version
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+  workflow_dispatch:
+
+jobs:
+  build-latest-version:
+
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ secrets.GH_PACKAGE_DOWNLOAD_USER }}
+      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GH_PACKAGE_DOWNLOAD_KEY }}
+      GITHUB_PACKAGE_UPLOAD_USER: ${{ secrets.GH_PACKAGE_UPLOAD_USER }}
+      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GH_PACKAGE_UPLOAD_KEY }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Build
+        run: ./gradlew --no-daemon --stacktrace build
+
+      - name: Publish Lastest Version
+        run: echo "TODO"
