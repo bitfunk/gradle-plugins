@@ -19,3 +19,4 @@
 rootProject.name = "plugin-plugins"
 
 includeBuild("gradle-plugin-convention")
+includeBuild("version-catalog-accessor")

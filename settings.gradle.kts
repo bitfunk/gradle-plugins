@@ -22,8 +22,6 @@ pluginManagement {
         mavenCentral()
         google()
     }
-
-    includeBuild("bitfunk-version-catalog-accessor")
 }
 
 includeBuild("plugins")
