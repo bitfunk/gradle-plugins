@@ -1,0 +1,47 @@
+name: CI - Pull Request Validation
+
+on:
+  pull_request:
+    types: [ opened, synchronize, edited, reopened ]
+    branches:
+      - main
+      - release/*
+      - feature/*
+      - bugfix/*
+  workflow_dispatch:
+
+jobs:
+  pull-request-validation:
+
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: validation-${{ github.head_ref }}
+      cancel-in-progress: true
+
+    env:
+      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ secrets.GH_PACKAGE_DOWNLOAD_USER }}
+      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GH_PACKAGE_DOWNLOAD_KEY }}
+      GITHUB_PACKAGE_UPLOAD_USER: ${{ secrets.GH_PACKAGE_UPLOAD_USER }}
+      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GH_PACKAGE_UPLOAD_KEY }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Build
+        run: ./gradlew --no-daemon --stacktrace build
+
+      - name: Publish Development Version
+        run: echo "TODO"

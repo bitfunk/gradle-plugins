@@ -1,0 +1,25 @@
+name: CI - Pull Request Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, reopened, assigned, unassigned]
+    branches:
+      - main
+      - release/*
+      - feature/*
+      - bugfix/*
+  workflow_dispatch:
+
+jobs:
+  pull-request-lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Danger
+        uses: docker://ghcr.io/danger/danger-kotlin:1.0.0
+        with:
+          args: --failOnErrors --no-publish-check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

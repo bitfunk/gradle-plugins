@@ -4,5 +4,5 @@ mkdocs = "2.2.0"
 
 
 [plugins]
-bitfunkVersionCatalogAccessor = { id = "eu.bitfunk.gradle.version.catalog.accessor", version.ref = "bitfunkVersionCatalogAccessor" }
+bitfunkVersionCatalogAccessor = { id = "eu.bitfunk.gradle.version.catalog", version.ref = "bitfunkVersionCatalogAccessor" }
 mkdocs = { id = "ru.vyarus.mkdocs", version.ref = "mkdocs" }
