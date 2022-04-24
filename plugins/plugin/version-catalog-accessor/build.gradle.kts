@@ -16,18 +16,34 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
+plugins {
+    id("eu.bitfunk.gradle.plugin.convention")
+}
+
+group = "eu.bitfunk.gradle.version.catalog"
+version = "0.1.0"
+
+gradlePlugin {
+    plugins.create("gradlePluginVersionCatalog") {
+        id = "eu.bitfunk.gradle.version.catalog"
+        implementationClass = "eu.bitfunk.gradle.version.catalog.VersionCatalogAccessorPlugin"
     }
 }
 
-includeBuild("plugins")
+dependencies {
+    implementation("com.squareup:kotlinpoet:1.10.2")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
+}
 
-include("docs")
+apiValidation {
+    ignoredPackages.add("eu.bitfunk.gradle.version.catalog.accessor")
+}
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+tasks.register<Copy>("copySources") {
+    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
+    into("src/main/resources/sources")
+}
 
-rootProject.name = "GradlePlugins"
+tasks.named("assemble") {
+    dependsOn("copySources")
+}

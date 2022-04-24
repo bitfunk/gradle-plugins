@@ -16,17 +16,13 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `kotlin-dsl`
     `java-gradle-plugin`
     jacoco
-
-    alias(libs.plugins.binaryCompatibilityValidator)
 }
 
-group = "eu.bitfunk.gradle.version.catalog"
-version = "0.1.0"
+group = "eu.bitfunk.gradle.plugin"
 
 repositories {
     gradlePluginPortal()
@@ -35,9 +31,9 @@ repositories {
 }
 
 gradlePlugin {
-    val versionCatalog by plugins.creating {
-        id = "eu.bitfunk.gradle.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.version.catalog.VersionCatalogAccessorPlugin"
+    plugins.create("gradlePluginConvention") {
+        id = "eu.bitfunk.gradle.plugin.convention"
+        implementationClass = "eu.bitfunk.gradle.plugin.convention.GradlePluginConventionPlugin"
     }
 }
 
@@ -51,30 +47,18 @@ kotlin {
 }
 
 dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
+    implementation(libs.gradleKotlinPlugin)
+    implementation(libs.gradleKotlinDsl)
+    implementation(libs.gradleKotlinBinaryCompatibilityPlugin)
 
     testImplementation(gradleTestKit())
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-    testImplementation("io.mockk:mockk:1.12.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.version.catalog.accessor")
+    testImplementation(libs.testJUnit5)
+    testRuntimeOnly(libs.testJUnit5Engine)
+    testImplementation(libs.testMockk)
 }
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
 }
 
 tasks.named<Wrapper>("wrapper") {

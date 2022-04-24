@@ -100,7 +100,7 @@ danger(args) {
         }
 
         // Changelog
-        if (isChangelogUpdated) {
+        if (!isChangelogUpdated) {
             warn("Changes should be reflected in the CHANGELOG.md")
         }
 

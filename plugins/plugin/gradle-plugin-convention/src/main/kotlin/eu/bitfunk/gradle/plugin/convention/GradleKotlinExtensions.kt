@@ -16,18 +16,15 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
+package eu.bitfunk.gradle.plugin.convention
+
+import org.gradle.api.Action
+import org.gradle.api.Project
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+
+public fun Project.kotlinJvm(action: Action<KotlinJvmProjectExtension>) {
+    extensions.configure(KotlinJvmProjectExtension::class.java, action)
 }
 
-includeBuild("plugins")
 
-include("docs")
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"

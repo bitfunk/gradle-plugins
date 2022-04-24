@@ -16,18 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
-}
+rootProject.name = "plugin-plugins"
 
-includeBuild("plugins")
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
+includeBuild("gradle-plugin-convention")
+includeBuild("version-catalog-accessor")

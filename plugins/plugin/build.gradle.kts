@@ -16,18 +16,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
+plugins {
+    id("eu.bitfunk.gradle.plugin.convention")
 }
 
-includeBuild("plugins")
-
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
+dependencies {
+    implementation("eu.bitfunk.gradle.plugin:gradle-plugin-convention")
+}
