@@ -26,6 +26,8 @@ pluginManagement {
     includeBuild("bitfunk-version-catalog-accessor")
 }
 
+includeBuild("plugins")
+
 include("docs")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

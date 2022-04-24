@@ -16,34 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+rootProject.name = "all-plugins"
 
-group = "eu.bitfunk.gradle.version.catalog"
-version = "0.1.0"
-
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.version.catalog.VersionCatalogAccessorPlugin"
-    }
-}
-
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
-}
+includeBuild("gradle-plugin-convention")
