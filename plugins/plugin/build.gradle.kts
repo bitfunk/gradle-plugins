@@ -16,6 +16,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "bitfunk-plugins"
+plugins {
+    id("eu.bitfunk.gradle.plugin.convention")
+}
 
-includeBuild("plugin")
+dependencies {
+    implementation("eu.bitfunk.gradle.plugin:gradle-plugin-convention")
+}

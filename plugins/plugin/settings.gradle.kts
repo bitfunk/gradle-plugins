@@ -16,6 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "bitfunk-plugins"
+rootProject.name = "plugin-plugins"
 
-includeBuild("plugin")
+includeBuild("gradle-plugin-convention")
