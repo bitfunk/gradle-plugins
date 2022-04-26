@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "plugin-plugins"
+rootProject.name = "plugin-development-plugins"
 
 includeBuild("gradle-plugin-convention")
 includeBuild("version-catalog-accessor")

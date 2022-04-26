@@ -8,4 +8,4 @@ Overview of Gradle plugins used across multiple projects.
 
 Plugins that support developing Gradle plugins.
 
-- [VersionCatalogAccessor](./plugin/versionCatalogAccessor/index.md) - a version catalog accessor for Gradle plugin development
+- [VersionCatalogAccessor](./plugin-development/versionCatalogAccessor/index.md) - a version catalog accessor for Gradle plugin development
