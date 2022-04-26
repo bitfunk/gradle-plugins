@@ -78,7 +78,7 @@ and
 
 ```kotlin
 plugins {
-    id("eu.bitfunk.gradle.all-plugins")
+    id("eu.bitfunk.gradle.plugins")
 }
 ```
 

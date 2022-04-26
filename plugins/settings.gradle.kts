@@ -16,6 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "all-plugins"
+rootProject.name = "plugins"
 
 includeBuild("plugin-development")
