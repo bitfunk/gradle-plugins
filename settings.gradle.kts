@@ -16,14 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-    }
-}
-
 includeBuild("plugins")
 
 include("docs")
