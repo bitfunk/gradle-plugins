@@ -28,38 +28,18 @@ plugins {
 
 }
 
-tasks.register<Delete>("clean") {
-    delete("build")
-}
-
-tasks.register("cleanAll") {
-    dependsOn("clean")
-    dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-}
-
-tasks.register("check")
-
-tasks.register("checkAll") {
-    dependsOn("check")
-    dependsOn(gradle.includedBuilds.map { it.task(":check") })
-}
-
-tasks.register("dependencyUpdatesAll") {
-    dependsOn("dependencyUpdates")
-    dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
-}
-
-tasks.register("versionCatalogUpdateAll") {
-    dependsOn("versionCatalogUpdate")
-    dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
-}
+tasks.maybeCreate("clean", Delete::class.java).delete("build")
 
 tasks.named<Wrapper>("wrapper") {
     gradleVersion = "7.4.2"
     distributionType = Wrapper.DistributionType.ALL
 }
 
-tasks.register("wrapperAll") {
-    dependsOn("wrapper")
-    dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
-}
+// Delegate to included builds
+tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
+tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
+tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
+tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
+tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
+tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
+

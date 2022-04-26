@@ -15,6 +15,7 @@ public final class eu/bitfunk/gradle/plugin/convention/GradlePluginConventionPlu
 	public static final field JACOCO_VERSION Ljava/lang/String;
 	public static final field JUNIT_5_VERSION Ljava/lang/String;
 	public static final field MOCKK_VERSION Ljava/lang/String;
+	public static final field PLUGIN_BINARY_VALIDATOR_VERSION Ljava/lang/String;
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
