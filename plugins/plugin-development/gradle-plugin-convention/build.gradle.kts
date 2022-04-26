@@ -16,10 +16,13 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    `kotlin-dsl`
     `java-gradle-plugin`
+    `kotlin-dsl`
     jacoco
+
+    alias(libs.plugins.binaryCompatibilityValidator)
 }
 
 group = "eu.bitfunk.gradle.plugin"
@@ -59,6 +62,31 @@ dependencies {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+tasks.named<JacocoReport>("jacocoTestReport"){
+    dependsOn(tasks.named("test"))
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+    }
+}
+
+tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
+    dependsOn(tasks.named("jacocoTestReport"))
+
+    violationRules {
+        rule {
+            limit {
+                minimum = BigDecimal(0.95)
+            }
+        }
+    }
+}
+
+tasks.named("check") {
+    dependsOn(tasks.named("jacocoTestCoverageVerification"))
 }
 
 tasks.named<Wrapper>("wrapper") {

@@ -104,7 +104,8 @@ nav:
   - Changelog: changelog.md
   - Plugins:
     - Overview: plugins/index.md
-    - VersionCatalogAccessor: plugins/plugin/versionCatalogAccessor/index.md
+    - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
+    - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md
   - Develop:
       - Contributing: develop/contributing.md
       - Releasing: develop/releasing.md

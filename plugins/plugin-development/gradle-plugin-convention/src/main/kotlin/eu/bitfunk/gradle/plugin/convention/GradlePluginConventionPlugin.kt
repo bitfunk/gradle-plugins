@@ -90,7 +90,7 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
             version = JACOCO_VERSION
         }
 
-        tasks.named<JacocoReport>("jacocoTestReport"){
+        tasks.named<JacocoReport>("jacocoTestReport") {
             dependsOn(tasks.named("test"))
 
             reports {
@@ -124,9 +124,10 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
     }
 
     private companion object {
+        const val PLUGIN_BINARY_VALIDATOR_VERSION = "0.8.0"
         const val GRADLE_VERSION = "7.4.2"
         const val JUNIT_5_VERSION = "5.8.2"
-        const val MOCKK_VERSION = "1.12.3"
+        const val MOCKK_VERSION = "1.12.2"
         const val JACOCO_VERSION = "0.8.7"
     }
 }

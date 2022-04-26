@@ -45,6 +45,8 @@ mkdocs {
     publish.setVersionAliases("latest")
     publish.generateVersionsFile = true
 
+    strict = true
+
     extras = mapOf(
         "version" to currentDocVersion
     )

@@ -16,6 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "bitfunk-plugins"
+rootProject.name = "plugins"
 
-includeBuild("plugin")
+includeBuild("plugin-development")
