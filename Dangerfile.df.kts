@@ -95,7 +95,7 @@ danger(args) {
             warn("Set a milestone please")
         }
 
-        if (pullRequest.body!!.length < pullRequestBodyMinLines) {
+        if (pullRequest.body == null || (pullRequest.body as String).length < pullRequestBodyMinLines) {
             warn("Please include a description of your PR changes")
         }
 
