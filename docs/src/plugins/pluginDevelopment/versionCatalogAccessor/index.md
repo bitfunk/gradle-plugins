@@ -24,7 +24,11 @@ buildscript {
         }
     }
 }
+```
 
+and
+
+```kotlin
 plugins {
     id("eu.bitfunk.gradle.version.catalog")
 }
