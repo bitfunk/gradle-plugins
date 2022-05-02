@@ -16,7 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "plugins"
-
-includeBuild("plugin-development")
-includeBuild("quality")
+rootProject.name = "quality"

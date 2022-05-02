@@ -16,7 +16,18 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "plugins"
+plugins {
+    id("eu.bitfunk.gradle.plugin.convention")
+}
 
-includeBuild("plugin-development")
-includeBuild("quality")
+dependencies {
+
+}
+
+// Delegate to included builds
+tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
+tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
+tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
+tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
+tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
+tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
