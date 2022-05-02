@@ -16,6 +16,19 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
+plugins {
+    id("eu.bitfunk.gradle.plugin.convention")
+}
 
-includeBuild("quality-format")
+group = "eu.bitfunk.gradle.plugin.quality"
+
+gradlePlugin {
+    plugins.create("qualityFormat") {
+        id = "eu.bitfunk.gradle.plugin.quality.format"
+        implementationClass = "eu.bitfunk.gradle.plugin.quality.format.FormatQualityPlugin"
+    }
+}
+
+dependencies {
+
+}
