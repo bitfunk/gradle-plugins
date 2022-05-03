@@ -31,7 +31,7 @@ import org.gradle.testing.jacoco.tasks.JacocoCoverageVerification
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import java.math.BigDecimal
 
-public class GradlePluginConventionPlugin : Plugin<Project> {
+public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConventionContract.Plugin {
 
     override fun apply(target: Project) {
         target.repositories {
@@ -40,37 +40,36 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
             google()
         }
 
-        target.addPlugins()
-
-        target.configureJavaCompatibility()
-        target.configureKotlin()
-        target.configureDependencies()
-        target.configureTests()
-        target.configureCoverage()
-        target.configureWrapper()
+        addPlugins(target)
+        configureJavaCompatibility(target)
+        configureKotlin(target)
+        configureDependencies(target)
+        configureTests(target)
+        configureTestCoverage(target)
+        configureGradleWrapper(target)
     }
 
-    private fun Project.addPlugins() {
+    public override fun addPlugins(project: Project): Unit = with(project) {
         pluginManager.apply("org.gradle.java-gradle-plugin")
         pluginManager.apply("org.gradle.kotlin.kotlin-dsl")
         pluginManager.apply("org.gradle.jacoco")
         pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
     }
 
-    private fun Project.configureJavaCompatibility() {
+    public override fun configureJavaCompatibility(project: Project): Unit = with(project) {
         javaPlugin {
             sourceCompatibility = JavaVersion.VERSION_11
             targetCompatibility = JavaVersion.VERSION_11
         }
     }
 
-    private fun Project.configureKotlin() {
+    public override fun configureKotlin(project: Project): Unit = with(project) {
         kotlinJvm {
             explicitApi()
         }
     }
 
-    private fun Project.configureDependencies() {
+    public override fun configureDependencies(project: Project): Unit = with(project) {
         dependencies {
             testImplementation(gradleTestKit())
             testImplementation("org.junit.jupiter:junit-jupiter:$JUNIT_5_VERSION")
@@ -79,13 +78,13 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.configureTests() {
+    public override fun configureTests(project: Project): Unit = with(project) {
         tasks.withType<Test>().configureEach {
             useJUnitPlatform()
         }
     }
 
-    private fun Project.configureCoverage() {
+    public override fun configureTestCoverage(project: Project): Unit = with(project) {
         jacoco {
             version = JACOCO_VERSION
         }
@@ -116,7 +115,7 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.configureWrapper() {
+    public override fun configureGradleWrapper(project: Project): Unit = with(project) {
         tasks.named<Wrapper>("wrapper") {
             gradleVersion = GRADLE_VERSION
             distributionType = Wrapper.DistributionType.ALL
@@ -124,7 +123,6 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
     }
 
     private companion object {
-        const val PLUGIN_BINARY_VALIDATOR_VERSION = "0.8.0"
         const val GRADLE_VERSION = "7.4.2"
         const val JUNIT_5_VERSION = "5.8.2"
         const val MOCKK_VERSION = "1.12.2"

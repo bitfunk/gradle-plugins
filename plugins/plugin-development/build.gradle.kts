@@ -20,8 +20,11 @@ plugins {
     id("eu.bitfunk.gradle.plugin.convention")
 }
 
+group = "eu.bitfunk.gradle.plugin.development"
+
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin:gradle-plugin-convention")
+    implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
+    implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
 }
 
 // Delegate to included builds

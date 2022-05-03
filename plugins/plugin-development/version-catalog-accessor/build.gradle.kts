@@ -20,7 +20,7 @@ plugins {
     id("eu.bitfunk.gradle.plugin.convention")
 }
 
-group = "eu.bitfunk.gradle.plugin"
+group = "eu.bitfunk.gradle.plugin.development"
 
 gradlePlugin {
     plugins.create("gradlePluginVersionCatalog") {
