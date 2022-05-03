@@ -20,7 +20,6 @@ package eu.bitfunk.gradle.plugin.version.catalog.intern
 
 import eu.bitfunk.gradle.plugin.version.catalog.intern.model.Node
 import org.junit.jupiter.api.Assertions
-
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -83,7 +82,8 @@ class MapperTest {
         Assertions.assertEquals(
             listOf(
                 Node(
-                    name = "group", children = mutableListOf(
+                    name = "group",
+                    children = mutableListOf(
                         Node("example", "group-example")
                     )
                 ),
@@ -104,9 +104,11 @@ class MapperTest {
         Assertions.assertEquals(
             listOf(
                 Node(
-                    name = "group", children = mutableListOf(
+                    name = "group",
+                    children = mutableListOf(
                         Node(
-                            name = "example", children = mutableListOf(
+                            name = "example",
+                            children = mutableListOf(
                                 Node("one", "group-example-one"),
                                 Node("two", "group-example-two")
                             )
@@ -130,9 +132,11 @@ class MapperTest {
         Assertions.assertEquals(
             listOf(
                 Node(
-                    name = "group", path = "group", children = mutableListOf(
+                    name = "group", path = "group",
+                    children = mutableListOf(
                         Node(
-                            name = "example", path = "group-example", children = mutableListOf(
+                            name = "example", path = "group-example",
+                            children = mutableListOf(
                                 Node("one", "group-example-one"),
                                 Node("two", "group-example-two")
                             )

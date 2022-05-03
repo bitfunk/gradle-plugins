@@ -168,9 +168,11 @@ class GeneratorTest {
         val TEST_NODE_LIST = listOf(
             Node("example", "example"),
             Node(
-                name = "group", children = mutableListOf(
+                name = "group",
+                children = mutableListOf(
                     Node(
-                        "example", "group-example", mutableListOf(
+                        "example", "group-example",
+                        mutableListOf(
                             Node("one", "group-example-one"),
                             Node("two", "group-example-two"),
                         )

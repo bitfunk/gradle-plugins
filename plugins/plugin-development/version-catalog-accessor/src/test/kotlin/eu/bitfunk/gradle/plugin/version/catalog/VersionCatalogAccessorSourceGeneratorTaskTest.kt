@@ -94,7 +94,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         task.generate()
 
         // THEN
-        val libsAccessorFile = File("${outputFolder}/LibsVersionCatalogAccessor.kt")
+        val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
 
         Assertions.assertTrue(outputFolder.exists())
         Assertions.assertTrue(libsAccessorFile.exists())

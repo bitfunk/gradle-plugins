@@ -108,8 +108,8 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
-        val libsAccessorFile = File("${outputFolder}/LibsVersionCatalogAccessor.kt")
-        val depsAccessorFile = File("${outputFolder}/DepsVersionCatalogAccessor.kt")
+        val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
+        val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
         assertTrue(libsAccessorFile.exists())
@@ -143,8 +143,8 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
-        val libsAccessorFile = File("${outputFolder}/LibsVersionCatalogAccessor.kt")
-        val depsAccessorFile = File("${outputFolder}/DepsVersionCatalogAccessor.kt")
+        val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
+        val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
         assertTrue(libsAccessorFile.exists())
@@ -178,8 +178,8 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
-        val libsAccessorFile = File("${outputFolder}/LibsVersionCatalogAccessor.kt")
-        val depsAccessorFile = File("${outputFolder}/DepsVersionCatalogAccessor.kt")
+        val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
+        val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
         assertTrue(libsAccessorFile.exists())

@@ -35,7 +35,7 @@ internal class GeneratorTask(
         val catalogFiles: List<Pair<String, File>> = catalogNames.map {
             Pair(
                 it,
-                File("$projectRootPath/${catalogSourceFolder}/$it$VERSION_CATALOG_EXTENSION")
+                File("$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION")
             )
         }
 

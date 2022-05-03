@@ -204,14 +204,14 @@ class VersionCatalogAccessorPluginFunctionalTest {
                 plugins {
                     id("eu.bitfunk.gradle.plugin.version.catalog")
                 }
-            """.trimIndent()
+        """.trimIndent()
 
         val BUILD_FILE_DEFAULT_JAVA = """
                 plugins {
                     id("java-gradle-plugin")
                     id("eu.bitfunk.gradle.plugin.version.catalog")
                 }
-            """.trimIndent()
+        """.trimIndent()
 
         val BUILD_FILE_DEFAULT_JAVA_CONFIGURED = """
                 plugins {
@@ -222,7 +222,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
                 versionCatalogAccessor {
                     catalogNames.set(listOf("libs", "deps"))
                 }
-            """.trimIndent()
+        """.trimIndent()
 
         val VERSION_CATALOG = """
             [versions]

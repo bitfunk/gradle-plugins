@@ -23,8 +23,8 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
-public abstract class VersionCatalogAccessorSourceCopyTask
-    : DefaultTask(), VersionCatalogAccessorContract.Task.CopySource {
+public abstract class VersionCatalogAccessorSourceCopyTask :
+    DefaultTask(), VersionCatalogAccessorContract.Task.CopySource {
 
     private val copySourceTask = CopySourceTask()
 
