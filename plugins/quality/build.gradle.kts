@@ -20,6 +20,8 @@ plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
 }
 
+group = "eu.bitfunk.gradle.plugin.quality"
+
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.quality:quality-formatter")
 }
