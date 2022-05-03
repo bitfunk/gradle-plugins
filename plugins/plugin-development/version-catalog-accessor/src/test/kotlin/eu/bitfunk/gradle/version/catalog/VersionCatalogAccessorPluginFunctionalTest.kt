@@ -19,7 +19,6 @@
 package eu.bitfunk.gradle.version.catalog
 
 import org.gradle.testkit.runner.GradleRunner
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
@@ -53,7 +52,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
             .buildAndFail()
 
         // THEN
-        Assertions.assertTrue(runner.output.contains("This plugin requires Gradle 7.2 or later"))
+        assertTrue(runner.output.contains("This plugin requires Gradle 7.2 or later"))
     }
 
     @Test
@@ -71,7 +70,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
             .buildAndFail()
 
         // THEN
-        Assertions.assertTrue(runner.output.contains("This plugin should be applied to root project only"))
+        assertTrue(runner.output.contains("This plugin should be applied to root project only"))
     }
 
     @Test
@@ -103,7 +102,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
         // THEN
         val outputFolder = File("$tempDir/build/generated/versionCatalogAccessor/src/main/kotlin")
         assertTrue(outputFolder.exists())
-        assertEquals(1, outputFolder.listFiles().size)
+        assertEquals(1, outputFolder.listFiles()?.size)
         assertTrue(File(outputFolder, "LibsVersionCatalogAccessor.kt").exists())
     }
 
@@ -124,7 +123,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
         // THEN
         val outputFolder = File("$tempDir/build/generated/versionCatalogAccessor/src/main/kotlin")
         assertTrue(outputFolder.exists())
-        assertEquals(2, outputFolder.listFiles().size)
+        assertEquals(2, outputFolder.listFiles()?.size)
         assertTrue(File(outputFolder, "DepsVersionCatalogAccessor.kt").exists())
         assertTrue(File(outputFolder, "LibsVersionCatalogAccessor.kt").exists())
     }
@@ -135,14 +134,14 @@ public class VersionCatalogAccessorPluginFunctionalTest {
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
 
         // WHEN
-        val runner = setupRunner(tempDir)
+        setupRunner(tempDir)
             .withArguments("copyVersionCatalogAccessorSource")
             .build()
 
         // THEN
         val outputFolder = File("$tempDir/build/generated/versionCatalogAccessor/src/main/kotlin")
         assertTrue(outputFolder.exists())
-        assertEquals(2, outputFolder.listFiles().size)
+        assertEquals(2, outputFolder.listFiles()?.size)
         assertTrue(File(outputFolder, "BaseVersionCatalogAccessor.kt").exists())
         assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
     }
@@ -163,7 +162,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
         // THEN
         val outputFolder = File("$tempDir/build/generated/versionCatalogAccessor/src/main/kotlin")
         assertTrue(outputFolder.exists())
-        assertEquals(3, outputFolder.listFiles().size)
+        assertEquals(3, outputFolder.listFiles()?.size)
         assertTrue(File(outputFolder, "BaseVersionCatalogAccessor.kt").exists())
         assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
         assertTrue(File(outputFolder, "LibsVersionCatalogAccessor.kt").exists())
@@ -186,7 +185,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
         // THEN
         val outputFolder = File("$tempDir/build/generated/versionCatalogAccessor/src/main/kotlin")
         assertTrue(outputFolder.exists())
-        assertEquals(4, outputFolder.listFiles().size)
+        assertEquals(4, outputFolder.listFiles()?.size)
         assertTrue(File(outputFolder, "BaseVersionCatalogAccessor.kt").exists())
         assertTrue(File(outputFolder, "VersionCatalogDependency.kt").exists())
         assertTrue(File(outputFolder, "LibsVersionCatalogAccessor.kt").exists())
