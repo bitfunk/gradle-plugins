@@ -18,8 +18,12 @@
 
 package eu.bitfunk.gradle.plugin.quality.formatter
 
+import org.gradle.api.Project
+
 public interface FormatterContract {
     public interface Plugin {
-
+        public fun addPlugins(project: Project)
+        public fun addRepository(project: Project)
+        public fun configureFormatter(project: Project)
     }
 }

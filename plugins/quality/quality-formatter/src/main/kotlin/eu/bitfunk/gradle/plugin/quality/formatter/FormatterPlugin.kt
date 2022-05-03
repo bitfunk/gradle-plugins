@@ -22,20 +22,32 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.repositories
 
 public class FormatterPlugin : Plugin<Project>, FormatterContract.Plugin {
 
     override fun apply(target: Project) {
-        target.pluginManager.apply("com.diffplug.spotless")
-
-        target.setupSpotless()
+        addPlugins(target)
+        addRepository(target)
+        configureFormatter(target)
     }
 
-    private fun Project.setupSpotless() {
+    override fun addPlugins(project: Project): Unit = with(project) {
+        pluginManager.apply("com.diffplug.spotless")
+    }
+
+    override fun addRepository(project: Project): Unit = with(project) {
+        repositories {
+            mavenCentral()
+        }
+    }
+
+    override fun configureFormatter(project: Project): Unit = with(project) {
         spotless {
             kotlin {
+                ktlint()
                 target("**/*.kt")
-                targetExclude("**/build/")
+                targetExclude("**/build/", "**/resources/")
                 trimTrailingWhitespace()
                 indentWithSpaces()
                 endWithNewline()

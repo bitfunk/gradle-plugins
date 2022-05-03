@@ -22,6 +22,7 @@ plugins {
 
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.development:plugin-development")
+    implementation("eu.bitfunk.gradle.plugin.development:quality")
 }
 
 // Delegate to included builds
