@@ -16,33 +16,22 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+package eu.bitfunk.gradle.plugin.version.catalog.intern
 
-group = "eu.bitfunk.gradle.plugin"
+import eu.bitfunk.gradle.plugin.version.catalog.intern.InternalContract.ResourceLoader
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
+internal object ResourceLoader : ResourceLoader {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
+
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @Throws(IOException::class)
+    override fun loadAsString(filePath: String): String {
+        try {
+            return this::class.java.classLoader.getResource(filePath).readText(FILE_ENCODING)
+        } catch (error: Throwable) {
+            throw NullPointerException("$filePath does not exist")
+        }
     }
-}
-
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
 }

@@ -16,33 +16,14 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+package eu.bitfunk.gradle.plugin.version.catalog.intern.model
 
-group = "eu.bitfunk.gradle.plugin"
+internal data class Node(
+    val name: String,
+    var path: String = "",
+    val children: MutableList<Node> = mutableListOf()
+) {
+    fun isLeaf(): Boolean = path.isNotBlank()
 
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
-    }
-}
-
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
+    fun isGroup(): Boolean = children.isNotEmpty()
 }

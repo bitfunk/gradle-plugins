@@ -16,16 +16,36 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.version.catalog.accessor
+package eu.bitfunk.gradle.plugin.version.catalog.intern
 
-public interface VersionCatalogDependency {
-    public interface Group : VersionCatalogDependency
+import eu.bitfunk.gradle.plugin.version.catalog.intern.model.Catalog
+import eu.bitfunk.gradle.plugin.version.catalog.intern.model.Node
+import java.io.File
+import java.io.InputStream
 
-    public interface GroupLeaf : VersionCatalogDependency {
-        public fun get(): String
+internal interface InternalContract {
+
+    interface CopySourceTask {
+        fun copy(sources: List<String>, outputDir: File)
     }
 
-    public interface Leaf : VersionCatalogDependency {
-        public fun get(): String
+    interface GeneratorTask {
+        fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
+    }
+
+    interface Generator {
+        fun generate(catalog: Catalog): String
+    }
+
+    interface Parser {
+        fun parse(inputStream: InputStream): Catalog
+    }
+
+    interface Mapper {
+        fun map(items: List<String>): List<Node>
+    }
+
+    interface ResourceLoader {
+        fun loadAsString(filePath: String): String
     }
 }

@@ -16,33 +16,17 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+package eu.bitfunk.gradle.plugin.version.catalog.intern.test
 
-group = "eu.bitfunk.gradle.plugin"
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
+object FileHelper {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
+
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @Throws(IOException::class)
+    fun loadAsString(fileName: String): String {
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
-}
-
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
 }

@@ -16,33 +16,27 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+package eu.bitfunk.gradle.plugin.version.catalog
 
-group = "eu.bitfunk.gradle.plugin"
+import eu.bitfunk.gradle.plugin.version.catalog.intern.CopySourceTask
+import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.TaskAction
+import java.io.File
 
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
+public abstract class VersionCatalogAccessorSourceCopyTask
+    : DefaultTask(), VersionCatalogAccessorContract.Task.CopySource {
+
+    private val copySourceTask = CopySourceTask()
+
+    @TaskAction
+    override fun copySource() {
+        val outputDir = File("${project.buildDir}/$OUTPUT_PATH")
+        copySourceTask.copy(SOURCES, outputDir)
     }
-}
 
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
+    private companion object {
+        private val SOURCES = listOf("sources/BaseVersionCatalogAccessor.kt", "sources/VersionCatalogDependency.kt")
 
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
+        private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
+    }
 }

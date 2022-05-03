@@ -16,33 +16,30 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
-}
+package eu.bitfunk.gradle.plugin.version.catalog
 
-group = "eu.bitfunk.gradle.plugin"
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+import java.io.File
 
-gradlePlugin {
-    plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
+public class VersionCatalogAccessorSourceCopyTaskTest {
+
+    @Test
+    public fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val task = project.tasks.create("testTask", VersionCatalogAccessorSourceCopyTask::class.java)
+        val output = File("${project.buildDir}/$OUTPUT_PATH")
+
+        // WHEN
+        task.copySource()
+
+        // THEN
+        assertTrue(output.exists())
     }
-}
 
-dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
-}
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
+    private companion object {
+        private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
+    }
 }
