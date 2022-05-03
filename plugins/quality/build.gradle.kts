@@ -17,7 +17,7 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
+    id("eu.bitfunk.gradle.plugin.development.convention")
 }
 
 dependencies {
