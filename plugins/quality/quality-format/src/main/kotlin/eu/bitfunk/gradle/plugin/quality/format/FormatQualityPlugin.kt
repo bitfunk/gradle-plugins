@@ -22,12 +22,11 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
 
 public class FormatQualityPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
-        target.apply("com.diffplug.spotless")
+        target.pluginManager.apply("com.diffplug.spotless")
 
         target.setupSpotless()
     }
