@@ -21,7 +21,7 @@ plugins {
 }
 
 dependencies {
-
+    implementation("eu.bitfunk.gradle.plugin.quality:quality-format")
 }
 
 // Delegate to included builds

@@ -30,5 +30,6 @@ gradlePlugin {
 }
 
 dependencies {
-
+    implementation(libs.gradleSpotlessPlugin)
+    implementation(libs.gradleKtlintPlugin)
 }
