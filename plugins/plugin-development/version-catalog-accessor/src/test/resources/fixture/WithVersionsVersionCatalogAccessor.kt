@@ -2,6 +2,7 @@ package com.example.catalog
 
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.BaseVersionCatalogAccessor
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency
+import kotlin.String
 import org.gradle.api.Project
 
 public class WithVersionsVersionCatalogAccessor(
