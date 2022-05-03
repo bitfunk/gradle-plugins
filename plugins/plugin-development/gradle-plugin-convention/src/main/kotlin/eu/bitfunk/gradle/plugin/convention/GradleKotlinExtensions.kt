@@ -25,6 +25,3 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 public fun Project.kotlinJvm(action: Action<KotlinJvmProjectExtension>) {
     extensions.configure(KotlinJvmProjectExtension::class.java, action)
 }
-
-
-

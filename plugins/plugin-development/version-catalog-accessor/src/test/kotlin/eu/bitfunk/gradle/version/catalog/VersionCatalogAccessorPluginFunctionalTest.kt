@@ -219,7 +219,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
                     id("java-gradle-plugin")
                     id("eu.bitfunk.gradle.version.catalog")
                 }
-                
+
                 versionCatalogAccessor {
                     catalogNames.set(listOf("libs", "deps"))
                 }

@@ -25,7 +25,7 @@ buildscript {
 }
 
 plugins {
-
+    id("eu.bitfunk.gradle.plugin.quality.format")
 }
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
@@ -42,4 +42,3 @@ tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean
 tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
 tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
 tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
-

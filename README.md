@@ -28,12 +28,12 @@
 A Collection of Gradle plugins to simplify and unify project development.
 
 [![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
-[![License](docs/src/assets/images/badge-license.svg)](LICENSE) 
+[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
 [![CI - Build Latest Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml)
 
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=coverage)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
-[![Tech debt](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins) 
+[![Tech debt](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6013/badge)](https://bestpractices.coreinfrastructure.org/projects/6013)
 
 ## About the project

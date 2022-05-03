@@ -131,5 +131,3 @@ public class GradlePluginConventionPlugin : Plugin<Project> {
         const val JACOCO_VERSION = "0.8.7"
     }
 }
-
-
