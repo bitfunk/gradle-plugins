@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.convention
+package eu.bitfunk.gradle.plugin.development.convention
 
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
