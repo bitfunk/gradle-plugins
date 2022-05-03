@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-class FormatQualityPluginFunctionalTest {
+class FormatterPluginFunctionalTest {
 
     @TempDir
     private lateinit var tempDir: File

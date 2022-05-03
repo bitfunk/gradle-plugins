@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class FormatQualityPluginTest {
+class FormatterPluginTest {
 
     lateinit var project: Project
 
