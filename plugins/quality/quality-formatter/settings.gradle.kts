@@ -16,4 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality-format"
+rootProject.name = "quality-formatter"

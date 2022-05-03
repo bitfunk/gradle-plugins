@@ -16,18 +16,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-}
+package eu.bitfunk.gradle.plugin.quality.formatter
 
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.quality:quality-formatter")
-}
+public interface FormatterContract {
+    public interface Plugin {
 
-// Delegate to included builds
-tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
-tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
-tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
-tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
-tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
+    }
+}

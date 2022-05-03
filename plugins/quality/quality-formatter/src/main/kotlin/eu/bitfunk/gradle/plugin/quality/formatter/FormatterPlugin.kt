@@ -16,14 +16,14 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.quality.format
+package eu.bitfunk.gradle.plugin.quality.formatter
 
 import com.diffplug.gradle.spotless.SpotlessExtension
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-public class FormatQualityPlugin : Plugin<Project> {
+public class FormatterPlugin : Plugin<Project>, FormatterContract.Plugin {
 
     override fun apply(target: Project) {
         target.pluginManager.apply("com.diffplug.spotless")

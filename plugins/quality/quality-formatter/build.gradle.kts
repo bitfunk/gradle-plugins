@@ -23,9 +23,9 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.quality"
 
 gradlePlugin {
-    plugins.create("qualityFormat") {
-        id = "eu.bitfunk.gradle.plugin.quality.format"
-        implementationClass = "eu.bitfunk.gradle.plugin.quality.format.FormatQualityPlugin"
+    plugins.create("qualityFormatter") {
+        id = "eu.bitfunk.gradle.plugin.quality.formatter"
+        implementationClass = "eu.bitfunk.gradle.plugin.quality.formatter.FormatterPlugin"
     }
 }
 

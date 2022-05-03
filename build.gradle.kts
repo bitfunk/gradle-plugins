@@ -25,7 +25,7 @@ buildscript {
 }
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.quality.format")
+    id("eu.bitfunk.gradle.plugin.quality.formatter")
 }
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")

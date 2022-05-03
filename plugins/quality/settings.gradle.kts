@@ -18,4 +18,4 @@
 
 rootProject.name = "quality"
 
-includeBuild("quality-format")
+includeBuild("quality-formatter")
