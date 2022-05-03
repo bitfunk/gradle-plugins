@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-public class GeneratorTaskTest {
+class GeneratorTaskTest {
 
     @TempDir
     private lateinit var projectRootDir: File
@@ -49,7 +49,7 @@ public class GeneratorTaskTest {
     private lateinit var generatorTask: GeneratorTask
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         mapper = mockk()
         parser = mockk()
 
@@ -62,7 +62,7 @@ public class GeneratorTaskTest {
     }
 
     @Test
-    public fun `generatorTask implements contract`() {
+    fun `generatorTask implements contract`() {
         assertInstanceOf(
             InternalContract.GeneratorTask::class.java,
             generatorTask
@@ -70,7 +70,7 @@ public class GeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN empty catalogNames WHEN generate() THEN do nothing`() {
+    fun `GIVEN empty catalogNames WHEN generate() THEN do nothing`() {
         // GIVEN
         val catalogSourceFolder = ""
         val packageName = ""
@@ -84,7 +84,7 @@ public class GeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN catalogNames WHEN generate() THEN accessor present in output folder`() {
+    fun `GIVEN catalogNames WHEN generate() THEN accessor present in output folder`() {
         // GIVEN
         val catalogSourceFolder = ""
         val packageName = ""
@@ -117,7 +117,7 @@ public class GeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN catalogNames and sourceFolder WHEN generate() THEN accessor present in output folder`() {
+    fun `GIVEN catalogNames and sourceFolder WHEN generate() THEN accessor present in output folder`() {
         // GIVEN
         val catalogSourceFolder = "catalogs"
         val packageName = ""
@@ -152,7 +152,7 @@ public class GeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output`() {
+    fun `GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output`() {
         // GIVEN
         val catalogSourceFolder = "catalogs"
         val packageName = "com.example"

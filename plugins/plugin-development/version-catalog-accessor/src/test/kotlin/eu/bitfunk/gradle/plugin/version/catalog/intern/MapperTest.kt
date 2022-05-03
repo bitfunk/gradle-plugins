@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-public class MapperTest {
+class MapperTest {
 
     private lateinit var mapper: InternalContract.Mapper
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         mapper = Mapper()
     }
 
     @Test
-    public fun `mapper implements contract`() {
+    fun `mapper implements contract`() {
         Assertions.assertInstanceOf(
             InternalContract.Mapper::class.java,
             mapper
@@ -42,7 +42,7 @@ public class MapperTest {
     }
 
     @Test
-    public fun `GIVEN empty list WHEN map() THEN return empty list`() {
+    fun `GIVEN empty list WHEN map() THEN return empty list`() {
         // GIVEN
         val input = emptyList<String>()
 
@@ -57,7 +57,7 @@ public class MapperTest {
     }
 
     @Test
-    public fun `GIVEN list with top level item WHEN map() THEN return top level list`() {
+    fun `GIVEN list with top level item WHEN map() THEN return top level list`() {
         // GIVEN
         val input = listOf("example")
 
@@ -72,7 +72,7 @@ public class MapperTest {
     }
 
     @Test
-    public fun `GIVEN list with group item WHEN map() THEN return list with nested items`() {
+    fun `GIVEN list with group item WHEN map() THEN return list with nested items`() {
         // GIVEN
         val input = listOf("group-example")
 
@@ -93,7 +93,7 @@ public class MapperTest {
     }
 
     @Test
-    public fun `GIVEN list with multiple group items WHEN map() THEN return list with all nested items`() {
+    fun `GIVEN list with multiple group items WHEN map() THEN return list with all nested items`() {
         // GIVEN
         val input = listOf("group-example-one", "group-example-two")
 
@@ -119,7 +119,7 @@ public class MapperTest {
     }
 
     @Test
-    public fun `GIVEN list with mixed items WHEN map() THEN return list with all nested items`() {
+    fun `GIVEN list with mixed items WHEN map() THEN return list with all nested items`() {
         // GIVEN
         val input = listOf("group", "group-example", "group-example-one", "group-example-two")
 

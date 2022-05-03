@@ -23,10 +23,10 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.io.File
 
-public class VersionCatalogAccessorSourceCopyTaskTest {
+class VersionCatalogAccessorSourceCopyTaskTest {
 
     @Test
-    public fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
+    fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceCopyTask::class.java)

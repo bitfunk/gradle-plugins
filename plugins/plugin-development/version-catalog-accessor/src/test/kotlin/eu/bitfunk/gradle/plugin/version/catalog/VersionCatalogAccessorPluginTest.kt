@@ -38,21 +38,21 @@ import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-public class VersionCatalogAccessorPluginTest {
+class VersionCatalogAccessorPluginTest {
 
     private lateinit var project: Project
 
     private lateinit var plugin: VersionCatalogAccessorPlugin
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         project = mockk()
 
         plugin = VersionCatalogAccessorPlugin()
     }
 
     @Test
-    public fun `plugin implements contract`() {
+    fun `plugin implements contract`() {
         assertInstanceOf(
             VersionCatalogAccessorContract.Plugin::class.java,
             plugin
@@ -60,7 +60,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN Gradle version 7_1 WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN Gradle version 7_1 WHEN apply() THEN throw GradleException`() {
         // GIVEN
         mockkStatic(GradleVersion::class)
         every { GradleVersion.current() } returns GradleVersion.version("7.1")
@@ -76,7 +76,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN rootProject different to project WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN rootProject different to project WHEN apply() THEN throw GradleException`() {
         // GIVEN
         val newProject: Project = mockk()
         every { project.rootProject } returns newProject
@@ -90,7 +90,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN java-gradle-plugin missing WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN java-gradle-plugin missing WHEN apply() THEN throw GradleException`() {
         // GIVEN
         every { project.rootProject } returns project
         val pluginManager: PluginManager = mockk()
@@ -106,7 +106,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults`() {
+    fun `GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults`() {
         // GIVEN
         every { project.rootProject } returns project
         val extensions: ExtensionContainer = mockk()
@@ -127,7 +127,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project and extension WHEN addSourceGeneratorTask() THEN task is registered and configured`() {
+    fun `GIVEN project and extension WHEN addSourceGeneratorTask() THEN task is registered and configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val extension = spyk(plugin.addExtension(project))
@@ -146,7 +146,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project and extension WHEN addCopySourceTask() THEN task is registered and configured`() {
+    fun `GIVEN project and extension WHEN addCopySourceTask() THEN task is registered and configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val extension = spyk(plugin.addExtension(project))
@@ -159,7 +159,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project and extension WHEN addGeneratorTask() THEN task is registered and configured`() {
+    fun `GIVEN project and extension WHEN addGeneratorTask() THEN task is registered and configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
 
@@ -171,7 +171,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project WHEN configureSourceSet() THEN sourceSet configured`() {
+    fun `GIVEN project WHEN configureSourceSet() THEN sourceSet configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("java-gradle-plugin")
@@ -190,7 +190,7 @@ public class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    public fun `GIVEN project WHEN apply() THEN everything is configured`() {
+    fun `GIVEN project WHEN apply() THEN everything is configured`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("java-gradle-plugin")

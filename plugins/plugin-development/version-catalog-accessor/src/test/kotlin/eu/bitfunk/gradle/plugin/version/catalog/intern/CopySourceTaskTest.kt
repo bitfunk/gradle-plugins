@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-public class CopySourceTaskTest {
+class CopySourceTaskTest {
 
     @TempDir
     private lateinit var outputDir: File
@@ -35,12 +35,12 @@ public class CopySourceTaskTest {
     private lateinit var copySourceTask: InternalContract.CopySourceTask
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         copySourceTask = CopySourceTask()
     }
 
     @Test
-    public fun `copySourceTask implements contract`() {
+    fun `copySourceTask implements contract`() {
         assertInstanceOf(
             InternalContract.CopySourceTask::class.java,
             copySourceTask
@@ -48,7 +48,7 @@ public class CopySourceTaskTest {
     }
 
     @Test
-    public fun `GIVEN empty sources and empty output WHEN copy() THEN output exists and empty`() {
+    fun `GIVEN empty sources and empty output WHEN copy() THEN output exists and empty`() {
         // GIVEN
         val sources = listOf<String>()
 
@@ -61,7 +61,7 @@ public class CopySourceTaskTest {
     }
 
     @Test
-    public fun `GIVEN empty source and output with non existing path WHEN copy() THEN output exists and empty`() {
+    fun `GIVEN empty source and output with non existing path WHEN copy() THEN output exists and empty`() {
         // GIVEN
         val sources = listOf<String>()
         val output = File("$outputDir/testFolder/one")
@@ -75,7 +75,7 @@ public class CopySourceTaskTest {
     }
 
     @Test
-    public fun `GIVEN sources and output WHEN copy() THEN output exists and contains sources`() {
+    fun `GIVEN sources and output WHEN copy() THEN output exists and contains sources`() {
         // GIVEN
         val sources = listOf("FileRoot.txt", "fixture/FileOne.txt", "fixture/FileTwo.txt")
         val output = File(outputDir, OUTPUT_PATH)

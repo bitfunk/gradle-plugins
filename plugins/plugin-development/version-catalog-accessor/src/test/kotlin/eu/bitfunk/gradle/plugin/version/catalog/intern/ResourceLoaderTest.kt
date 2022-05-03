@@ -21,10 +21,10 @@ package eu.bitfunk.gradle.plugin.version.catalog.intern
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-public class ResourceLoaderTest {
+class ResourceLoaderTest {
 
     @Test
-    public fun `generator implements contract`() {
+    fun `generator implements contract`() {
         Assertions.assertInstanceOf(
             InternalContract.ResourceLoader::class.java,
             ResourceLoader
@@ -32,7 +32,7 @@ public class ResourceLoaderTest {
     }
 
     @Test
-    public fun `GIVEN no resource WHEN loadAsString() THEN throw`() {
+    fun `GIVEN no resource WHEN loadAsString() THEN throw`() {
         // GIVEN
         val fileName = "NoFile.exists"
 
@@ -45,7 +45,7 @@ public class ResourceLoaderTest {
     }
 
     @Test
-    public fun `GIVEN resource WHEN loadAsString() THEN return file content`() {
+    fun `GIVEN resource WHEN loadAsString() THEN return file content`() {
         // GIVEN
         val fileName = "sources/VersionCatalogDependency.kt"
 

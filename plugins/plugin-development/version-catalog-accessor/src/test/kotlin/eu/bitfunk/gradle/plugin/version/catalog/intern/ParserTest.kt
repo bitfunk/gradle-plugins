@@ -26,17 +26,17 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-public class ParserTest {
+class ParserTest {
 
     private lateinit var parser: Parser
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         parser = Parser()
     }
 
     @Test
-    public fun `parser implements contract`() {
+    fun `parser implements contract`() {
         Assertions.assertInstanceOf(
             InternalContract.Parser::class.java,
             parser
@@ -44,7 +44,7 @@ public class ParserTest {
     }
 
     @Test
-    public fun `GIVEN version definitions WHEN parse() THEN return list of versions`() {
+    fun `GIVEN version definitions WHEN parse() THEN return list of versions`() {
         // GIVEN
         val toml = """
             [versions]
@@ -67,7 +67,7 @@ public class ParserTest {
     }
 
     @Test
-    public fun `GIVEN library definitions WHEN parse() THEN return list of libraries`() {
+    fun `GIVEN library definitions WHEN parse() THEN return list of libraries`() {
         // GIVEN
         val toml = """
             [libraries]
@@ -92,7 +92,7 @@ public class ParserTest {
     }
 
     @Test
-    public fun `GIVEN bundle definitions WHEN parse() THEN return list of bundles`() {
+    fun `GIVEN bundle definitions WHEN parse() THEN return list of bundles`() {
         // GIVEN
         val toml = """
             [bundles]
@@ -113,7 +113,7 @@ public class ParserTest {
     }
 
     @Test
-    public fun `GIVEN plugin definitions WHEN parse() THEN return list of plugins`() {
+    fun `GIVEN plugin definitions WHEN parse() THEN return list of plugins`() {
         // GIVEN
         val toml = """
             [plugins]

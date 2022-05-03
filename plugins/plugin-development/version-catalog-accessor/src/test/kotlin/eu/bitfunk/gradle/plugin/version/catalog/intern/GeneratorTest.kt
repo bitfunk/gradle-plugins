@@ -31,18 +31,18 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-public class GeneratorTest {
+class GeneratorTest {
 
     private lateinit var mapper: Mapper
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         mapper = mockk()
         every { mapper.map(emptyList()) } returns emptyList()
     }
 
     @Test
-    public fun `generator implements contract`() {
+    fun `generator implements contract`() {
         val generator = Generator(PACKAGE_NAME, "", mapper)
 
         Assertions.assertInstanceOf(
@@ -52,7 +52,7 @@ public class GeneratorTest {
     }
 
     @Test
-    public fun `GIVEN empty catalog WHEN generate() THEN return empty accessor`() {
+    fun `GIVEN empty catalog WHEN generate() THEN return empty accessor`() {
         // GIVEN
         val baseName = "empty"
         val catalog = Catalog(
@@ -72,7 +72,7 @@ public class GeneratorTest {
     }
 
     @Test
-    public fun `GIVEN catalog with versions WHEN generate() THEN return accessor with versions`() {
+    fun `GIVEN catalog with versions WHEN generate() THEN return accessor with versions`() {
         // GIVEN
         val baseName = "with-versions"
         val catalog = Catalog(
@@ -93,7 +93,7 @@ public class GeneratorTest {
     }
 
     @Test
-    public fun `GIVEN catalog with libraries WHEN generate() THEN return accessor with libraries`() {
+    fun `GIVEN catalog with libraries WHEN generate() THEN return accessor with libraries`() {
         // GIVEN
         val baseName = "with-libraries"
         val catalog = Catalog(
@@ -114,7 +114,7 @@ public class GeneratorTest {
     }
 
     @Test
-    public fun `GIVEN catalog with bundles WHEN generate() THEN return accessor with bundles`() {
+    fun `GIVEN catalog with bundles WHEN generate() THEN return accessor with bundles`() {
         // GIVEN
         val baseName = "with-bundles"
         val catalog = Catalog(
@@ -135,7 +135,7 @@ public class GeneratorTest {
     }
 
     @Test
-    public fun `GIVEN catalog with plugins WHEN generate() THEN return accessor with plugins`() {
+    fun `GIVEN catalog with plugins WHEN generate() THEN return accessor with plugins`() {
         // GIVEN
         val baseName = "with-plugins"
         val catalog = Catalog(

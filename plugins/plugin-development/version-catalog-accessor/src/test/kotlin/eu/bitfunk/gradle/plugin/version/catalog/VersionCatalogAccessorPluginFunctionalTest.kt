@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-public class VersionCatalogAccessorPluginFunctionalTest {
+class VersionCatalogAccessorPluginFunctionalTest {
 
     @TempDir
     private lateinit var tempDir: File
@@ -35,14 +35,14 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     private lateinit var settingsFile: File
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         buildFile = File(tempDir, "build.gradle.kts")
         settingsFile = File(tempDir, "settings.gradle.kts")
         settingsFile.writeText(SETTINGS_FILE_DEFAULT)
     }
 
     @Test
-    public fun `GIVEN Gradle version 7_1 WHEN run THEN fail`() {
+    fun `GIVEN Gradle version 7_1 WHEN run THEN fail`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT)
 
@@ -56,7 +56,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN inner module with plugin WHEN run THEN fail`() {
+    fun `GIVEN inner module with plugin WHEN run THEN fail`() {
         // GIVEN
         settingsFile.writeText("include(\":inner\")")
 
@@ -74,7 +74,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN setup without java-gradle-plugin WHEN run THEN fail`() {
+    fun `GIVEN setup without java-gradle-plugin WHEN run THEN fail`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT)
 
@@ -87,7 +87,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN default configuration WHEN generateVersionCatalogAccessor THEN catalog is present`() {
+    fun `GIVEN default configuration WHEN generateVersionCatalogAccessor THEN catalog is present`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
 
@@ -107,7 +107,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN custom configuration WHEN generateVersionCatalogAccessor THEN catalogs are present`() {
+    fun `GIVEN custom configuration WHEN generateVersionCatalogAccessor THEN catalogs are present`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
 
@@ -129,7 +129,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN default configuration WHEN copyVersionCatalogAccessorSource THEN sources are present`() {
+    fun `GIVEN default configuration WHEN copyVersionCatalogAccessorSource THEN sources are present`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
 
@@ -147,7 +147,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN default configuration WHEN all run THEN all files are present`() {
+    fun `GIVEN default configuration WHEN all run THEN all files are present`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
 
@@ -169,7 +169,7 @@ public class VersionCatalogAccessorPluginFunctionalTest {
     }
 
     @Test
-    public fun `GIVEN custom configuration WHEN all run THEN all files are present`() {
+    fun `GIVEN custom configuration WHEN all run THEN all files are present`() {
         // GIVEN
         buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
 

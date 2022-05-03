@@ -36,14 +36,14 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.Optional
 
-public class BaseVersionCatalogAccessorTest {
+class BaseVersionCatalogAccessorTest {
 
     private lateinit var versionCatalog: VersionCatalog
 
     private lateinit var accessor: TestVersionCatalogAccessor
 
     @BeforeEach
-    public fun setup() {
+    fun setup() {
         val project: Project = mockk()
         val extensionContainer: ExtensionContainer = mockk()
         val versionCatalogsExtension: VersionCatalogsExtension = mockk()
@@ -57,7 +57,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN versionCatalogName WHEN initialized THEN use provided catalog name`() {
+    fun `GIVEN versionCatalogName WHEN initialized THEN use provided catalog name`() {
         // GIVEN
         val versionCatalogName = "versionCatalogName"
         val project: Project = mockk()
@@ -76,7 +76,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException`() {
+    fun `GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException`() {
         // GIVEN
         val version = "invalid_version"
 
@@ -87,7 +87,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN versionName WHEN findVersion() THEN return version`() {
+    fun `GIVEN versionName WHEN findVersion() THEN return version`() {
         // GIVEN
         val versionName = "versionName"
 
@@ -108,7 +108,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException`() {
+    fun `GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException`() {
         // GIVEN
         val library = "invalid_library"
 
@@ -119,7 +119,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN libraryName WHEN findLibrary() THEN return library`() {
+    fun `GIVEN libraryName WHEN findLibrary() THEN return library`() {
         // GIVEN
         val libraryName = "libraryName"
 
@@ -142,7 +142,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException`() {
+    fun `GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException`() {
         // GIVEN
         val bundle = "invalid_bundle"
 
@@ -153,7 +153,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN bundleName WHEN findBundle() THEN return bundle`() {
+    fun `GIVEN bundleName WHEN findBundle() THEN return bundle`() {
         // GIVEN
         val bundleName = "bundleName"
 
@@ -176,7 +176,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException`() {
+    fun `GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException`() {
         // GIVEN
         val plugin = "invalid_plugin"
 
@@ -187,7 +187,7 @@ public class BaseVersionCatalogAccessorTest {
     }
 
     @Test
-    public fun `GIVEN pluginName WHEN findPlugin() THEN return plugin`() {
+    fun `GIVEN pluginName WHEN findPlugin() THEN return plugin`() {
         // GIVEN
         val pluginName = "pluginName"
 

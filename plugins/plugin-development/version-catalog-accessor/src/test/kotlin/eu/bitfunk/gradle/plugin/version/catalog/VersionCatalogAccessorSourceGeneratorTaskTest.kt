@@ -25,13 +25,13 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
 
-public class VersionCatalogAccessorSourceGeneratorTaskTest {
+class VersionCatalogAccessorSourceGeneratorTaskTest {
 
     @TempDir
     private lateinit var projectDir: File
 
     @Test
-    public fun `GIVEN project without properties WHEN generate() THEN fail`() {
+    fun `GIVEN project without properties WHEN generate() THEN fail`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceGeneratorTask::class.java)
@@ -45,7 +45,7 @@ public class VersionCatalogAccessorSourceGeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN project with catalogSourceFolder WHEN generate() THEN fail`() {
+    fun `GIVEN project with catalogSourceFolder WHEN generate() THEN fail`() {
         // GIVEN
         val project = ProjectBuilder.builder().build()
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceGeneratorTask::class.java)
@@ -60,7 +60,7 @@ public class VersionCatalogAccessorSourceGeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated`() {
+    fun `GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated`() {
         // GIVEN
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceGeneratorTask::class.java)
@@ -77,7 +77,7 @@ public class VersionCatalogAccessorSourceGeneratorTaskTest {
     }
 
     @Test
-    public fun `GIVEN project configured WHEN generate() THEN generated present in output folder`() {
+    fun `GIVEN project configured WHEN generate() THEN generated present in output folder`() {
         // GIVEN
         val project = ProjectBuilder.builder().withProjectDir(projectDir).build()
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceGeneratorTask::class.java)
