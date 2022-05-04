@@ -25,8 +25,10 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.spyk
 import io.mockk.verify
 import io.mockk.verifyAll
+import io.mockk.verifyOrder
 import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.artifacts.dsl.RepositoryHandler
@@ -52,7 +54,8 @@ class FormatterPluginTest {
     @Test
     fun plugin_implements_contract() {
         assertInstanceOf(
-            FormatterContract.Plugin::class.java, testSubject
+            FormatterContract.Plugin::class.java,
+            testSubject
         )
     }
 
@@ -100,19 +103,19 @@ class FormatterPluginTest {
 
         every { project.extensions } returns extensionContainer
         every { extensionContainer.configure(SpotlessExtension::class.java, any()) } answers {
-            (secondArg() as Action<SpotlessExtension>).execute(spotlessExtension)
+            secondArg<Action<SpotlessExtension>>().execute(spotlessExtension)
         }
         every { spotlessExtension.kotlin(any()) } answers {
-            (firstArg() as Action<KotlinExtension>).execute(kotlinExtension)
+            firstArg<Action<KotlinExtension>>().execute(kotlinExtension)
         }
         every { spotlessExtension.kotlinGradle(any()) } answers {
-            (firstArg() as Action<KotlinGradleExtension>).execute(kotlinGradleExtension)
+            firstArg<Action<KotlinGradleExtension>>().execute(kotlinGradleExtension)
         }
         every { spotlessExtension.format("markdown", any()) } answers {
-            (secondArg() as Action<FormatExtension>).execute(markdownFormatExtension)
+            secondArg<Action<FormatExtension>>().execute(markdownFormatExtension)
         }
         every { spotlessExtension.format("misc", any()) } answers {
-            (secondArg() as Action<FormatExtension>).execute(miscFormatExtension)
+            secondArg<Action<FormatExtension>>().execute(miscFormatExtension)
         }
 
         // WHEN
@@ -120,6 +123,8 @@ class FormatterPluginTest {
 
         // THEN
         verifyAll {
+            extensionContainer.configure(SpotlessExtension::class.java, any())
+
             spotlessExtension.kotlin(any())
             spotlessExtension.kotlinGradle(any())
             spotlessExtension.format("markdown", any())
@@ -150,6 +155,7 @@ class FormatterPluginTest {
         }
 
         confirmVerified(
+            extensionContainer,
             spotlessExtension,
             kotlinExtension,
             kotlinGradleExtension,
@@ -161,27 +167,17 @@ class FormatterPluginTest {
     @Test
     fun `GIVEN project WHEN apply() THEN all configured`() {
         // GIVEN
-        val pluginManager: PluginManager = mockk(relaxed = true)
-        val repositoryHandler: RepositoryHandler = mockk(relaxed = true)
-        val extensionContainer: ExtensionContainer = mockk()
-        val spotlessExtension: SpotlessExtension = mockk(relaxed = true)
-        every { project.pluginManager } returns pluginManager
-        every { project.repositories } returns repositoryHandler
-        every { project.extensions } returns extensionContainer
-        every { extensionContainer.configure(SpotlessExtension::class.java, any()) } answers {
-            (secondArg() as Action<SpotlessExtension>).execute(spotlessExtension)
-        }
+        val project: Project = mockk(relaxed = true)
+        val spyTestSubject = spyk(testSubject)
 
         // WHEN
         testSubject.apply(project)
 
         // THEN
-        verifyAll {
-            pluginManager.apply("com.diffplug.spotless")
-            repositoryHandler.mavenCentral()
-            extensionContainer.configure(SpotlessExtension::class.java, any())
+        verifyOrder {
+            testSubject.addPlugins(project)
         }
 
-        confirmVerified(pluginManager, repositoryHandler, extensionContainer)
+        confirmVerified(spyTestSubject)
     }
 }

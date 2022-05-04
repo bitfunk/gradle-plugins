@@ -156,15 +156,11 @@ class FormatterPluginFunctionalTest {
 
         val KOTLIN_FILE_INCORRECT = """
             package com.example
-
-            class Example{
-
-                fun calculate( ):
+            class Example{  fun calculate( ):
                 Int {
                     return 2 + 2
                 }
             }
-
         """.trimIndent()
     }
 }
