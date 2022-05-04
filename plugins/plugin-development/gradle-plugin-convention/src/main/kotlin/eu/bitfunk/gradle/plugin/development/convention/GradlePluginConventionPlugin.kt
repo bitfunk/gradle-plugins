@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -29,18 +30,15 @@ import org.gradle.kotlin.dsl.repositories
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.tasks.JacocoCoverageVerification
 import org.gradle.testing.jacoco.tasks.JacocoReport
+import org.gradle.util.GradleVersion
 import java.math.BigDecimal
 
 public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConventionContract.Plugin {
 
     override fun apply(target: Project) {
-        target.repositories {
-            gradlePluginPortal()
-            mavenCentral()
-            google()
-        }
-
+        checkPreconditions(target)
         addPlugins(target)
+        addRepositories(target)
         configureJavaCompatibility(target)
         configureKotlin(target)
         configureDependencies(target)
@@ -49,11 +47,25 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         configureGradleWrapper(target)
     }
 
+    override fun checkPreconditions(project: Project) {
+        if (GradleVersion.current() < GradleVersion.version("7.2")) {
+            throw GradleException("This plugin requires Gradle 7.2 or later")
+        }
+    }
+
     public override fun addPlugins(project: Project): Unit = with(project) {
         pluginManager.apply("org.gradle.java-gradle-plugin")
         pluginManager.apply("org.gradle.kotlin.kotlin-dsl")
         pluginManager.apply("org.gradle.jacoco")
         pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
+    }
+
+    public override fun addRepositories(project: Project): Unit = with(project) {
+        repositories {
+            gradlePluginPortal()
+            mavenCentral()
+            google()
+        }
     }
 
     public override fun configureJavaCompatibility(project: Project): Unit = with(project) {
@@ -86,7 +98,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
 
     public override fun configureTestCoverage(project: Project): Unit = with(project) {
         jacoco {
-            version = JACOCO_VERSION
+            toolVersion = JACOCO_VERSION
         }
 
         tasks.named<JacocoReport>("jacocoTestReport") {

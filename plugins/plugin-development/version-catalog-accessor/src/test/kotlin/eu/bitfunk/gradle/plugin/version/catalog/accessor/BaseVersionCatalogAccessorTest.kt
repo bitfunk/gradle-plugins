@@ -31,7 +31,8 @@ import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.plugin.use.PluginDependency
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.Optional
@@ -81,7 +82,7 @@ class BaseVersionCatalogAccessorTest {
         val version = "invalid_version"
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             NoSuchElementException::class.java
         ) { accessor.testFindVersion(version) }
     }
@@ -101,7 +102,7 @@ class BaseVersionCatalogAccessorTest {
         val result = accessor.testFindVersion(versionName)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             "1.0.0",
             result
         )
@@ -113,7 +114,7 @@ class BaseVersionCatalogAccessorTest {
         val library = "invalid_library"
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             NoSuchElementException::class.java
         ) { accessor.testFindLibrary(library) }
     }
@@ -135,7 +136,7 @@ class BaseVersionCatalogAccessorTest {
         val result = accessor.testFindLibrary(libraryName)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             "com.example:library:1.0.0",
             result
         )
@@ -147,7 +148,7 @@ class BaseVersionCatalogAccessorTest {
         val bundle = "invalid_bundle"
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             NoSuchElementException::class.java
         ) { accessor.testFindBundle(bundle) }
     }
@@ -169,7 +170,7 @@ class BaseVersionCatalogAccessorTest {
         val result = accessor.testFindBundle(bundleName)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             "bundle",
             result
         )
@@ -181,7 +182,7 @@ class BaseVersionCatalogAccessorTest {
         val plugin = "invalid_plugin"
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             NoSuchElementException::class.java
         ) { accessor.testFindPlugin(plugin) }
     }
@@ -203,7 +204,7 @@ class BaseVersionCatalogAccessorTest {
         val result = accessor.testFindPlugin(pluginName)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             "plugin",
             result
         )

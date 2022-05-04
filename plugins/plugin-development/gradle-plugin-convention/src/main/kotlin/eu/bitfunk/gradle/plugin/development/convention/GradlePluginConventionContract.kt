@@ -23,7 +23,9 @@ import org.gradle.api.Project
 public interface GradlePluginConventionContract {
 
     public interface Plugin {
+        public fun checkPreconditions(project: Project)
         public fun addPlugins(project: Project)
+        public fun addRepositories(project: Project)
         public fun configureJavaCompatibility(project: Project)
         public fun configureKotlin(project: Project)
         public fun configureDependencies(project: Project)

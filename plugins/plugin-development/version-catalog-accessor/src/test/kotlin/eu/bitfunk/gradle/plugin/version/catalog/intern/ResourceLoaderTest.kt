@@ -18,14 +18,16 @@
 
 package eu.bitfunk.gradle.plugin.version.catalog.intern
 
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertInstanceOf
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.Test
 
 class ResourceLoaderTest {
 
     @Test
     fun `generator implements contract`() {
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             InternalContract.ResourceLoader::class.java,
             ResourceLoader
         )
@@ -37,7 +39,7 @@ class ResourceLoaderTest {
         val fileName = "NoFile.exists"
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             NullPointerException::class.java,
             { ResourceLoader.loadAsString(fileName) },
             "$fileName does not exist"
@@ -53,6 +55,6 @@ class ResourceLoaderTest {
         val result = ResourceLoader.loadAsString(fileName)
 
         // THEN
-        Assertions.assertNotNull(result)
+        assertNotNull(result)
     }
 }

@@ -19,7 +19,8 @@
 package eu.bitfunk.gradle.plugin.version.catalog.intern
 
 import eu.bitfunk.gradle.plugin.version.catalog.intern.model.Node
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -34,7 +35,7 @@ class MapperTest {
 
     @Test
     fun `mapper implements contract`() {
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             InternalContract.Mapper::class.java,
             mapper
         )
@@ -49,7 +50,7 @@ class MapperTest {
         val result = mapper.map(input)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             emptyList<Node>(),
             result
         )
@@ -64,7 +65,7 @@ class MapperTest {
         val result = mapper.map(input)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             listOf(Node("example", "example")),
             result
         )
@@ -79,7 +80,7 @@ class MapperTest {
         val result = mapper.map(input)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             listOf(
                 Node(
                     name = "group",
@@ -101,7 +102,7 @@ class MapperTest {
         val result = mapper.map(input)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             listOf(
                 Node(
                     name = "group",
@@ -129,7 +130,7 @@ class MapperTest {
         val result = mapper.map(input)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             listOf(
                 Node(
                     name = "group", path = "group",
