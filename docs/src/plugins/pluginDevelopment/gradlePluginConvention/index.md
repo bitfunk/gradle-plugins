@@ -5,7 +5,6 @@ The plugin applies configuration for Gradle plugin development to ease configura
 ## Requirements
 
 - Gradle 7.2+
-- Can only be applied to Gradle plugins with the java-gradle-plugin available.
 
 ## Installation
 

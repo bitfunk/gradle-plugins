@@ -21,10 +21,13 @@ package eu.bitfunk.gradle.plugin.development.convention
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkStatic
 import io.mockk.spyk
+import io.mockk.unmockkAll
 import io.mockk.verifyAll
 import io.mockk.verifyOrder
 import org.gradle.api.Action
+import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion.VERSION_11
 import org.gradle.api.Project
 import org.gradle.api.Task
@@ -46,10 +49,14 @@ import org.gradle.testing.jacoco.tasks.JacocoReportsContainer
 import org.gradle.testing.jacoco.tasks.rules.JacocoLimit
 import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRule
 import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRulesContainer
+import org.gradle.util.GradleVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
+import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 import java.math.BigDecimal
 import org.gradle.api.tasks.testing.Test as TestTask
 
@@ -72,6 +79,36 @@ class GradlePluginConventionPluginTest {
             GradlePluginConventionContract.Plugin::class.java,
             testSubject
         )
+    }
+
+    @Test
+    fun `GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException`() {
+        // GIVEN
+        mockkStatic(GradleVersion::class)
+        every { GradleVersion.current() } returns GradleVersion.version("7.1")
+
+        // WHEN/THEN
+        assertThrowsExactly(
+            GradleException::class.java,
+            { testSubject.checkPreconditions(project) },
+            "This plugin requires Gradle 7.2 or later"
+        )
+
+        unmockkAll() // mockStatic!!
+    }
+
+    @Test
+    fun `GIVEN project WHEN checkPreconditions() THEN conditions are met`() {
+        // GIVEN
+        mockkStatic(GradleVersion::class)
+        every { GradleVersion.current() } returns GradleVersion.version("7.2")
+
+        // WHEN/THEN
+        assertDoesNotThrow {
+            testSubject.checkPreconditions(project)
+        }
+
+        unmockkAll() // mockStatic!!
     }
 
     @Test
@@ -422,6 +459,7 @@ class GradlePluginConventionPluginTest {
 
         // THEN
         verifyOrder {
+            spyTestSubject.checkPreconditions(project)
             spyTestSubject.apply(project)
             spyTestSubject.addPlugins(project)
             spyTestSubject.addRepositories(project)
