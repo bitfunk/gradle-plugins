@@ -10,13 +10,13 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/wmontwe/gradle-plugins/compare/v0.1.0...main)
 
-
 ## [0.1.0](https://github.com/wmontwe/gradle-plugins/releases/tag/v0.1.0)
 
 Initial release
 
 ### Added
 
-* Add Gradle Plugin Convention
-* Add VersionCatalogAccessor - a version catalog accessor for Gradle Plugin development
-* Add initial project
+- Add initial project
+- Add VersionCatalogAccessor - a version catalog accessor for Gradle plugin development
+- Add Gradle Plugin Convention - for Gradle plugin development
+- Add Formatter Plugin - using Spotless and ktlint
