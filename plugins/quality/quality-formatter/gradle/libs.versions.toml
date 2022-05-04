@@ -1,0 +1,7 @@
+[versions]
+ktlint = "0.43.2"
+spotless = "6.4.2"
+
+[libraries]
+gradleKtlintPlugin = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
+gradleSpotlessPlugin = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }

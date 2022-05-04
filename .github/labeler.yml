@@ -13,4 +13,4 @@ common:
 
 # Plugin
 plugin:
-  - bitfunk-*/**/*
+  - plugins/**/*

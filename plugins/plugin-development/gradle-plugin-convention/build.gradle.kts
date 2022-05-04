@@ -25,7 +25,7 @@ plugins {
     alias(libs.plugins.binaryCompatibilityValidator)
 }
 
-group = "eu.bitfunk.gradle.plugin"
+group = "eu.bitfunk.gradle.plugin.development"
 
 repositories {
     gradlePluginPortal()
@@ -35,8 +35,8 @@ repositories {
 
 gradlePlugin {
     plugins.create("gradlePluginConvention") {
-        id = "eu.bitfunk.gradle.plugin.convention"
-        implementationClass = "eu.bitfunk.gradle.plugin.convention.GradlePluginConventionPlugin"
+        id = "eu.bitfunk.gradle.plugin.development.convention"
+        implementationClass = "eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPlugin"
     }
 }
 

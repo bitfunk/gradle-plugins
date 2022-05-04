@@ -17,11 +17,12 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.convention")
+    id("eu.bitfunk.gradle.plugin.development.convention")
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin:gradle-plugin-convention")
+    implementation("eu.bitfunk.gradle.plugin.development:plugin-development")
+    implementation("eu.bitfunk.gradle.plugin.quality:quality")
 }
 
 // Delegate to included builds

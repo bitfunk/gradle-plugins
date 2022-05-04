@@ -19,15 +19,15 @@ curl "link" -s -o badge-filename
 Latest release:
 
 ```bash
-curl "https://img.shields.io/badge/Release-0.1.0-blueviolet.svg?style=flat-square"  -s -o badge-release-latest.svg
+curl "https://img.shields.io/badge/Release-0.1.0-blueviolet.svg?style=flat"  -s -o badge-release-latest.svg
 ```
 
 License:
 
 ```bash
-curl "https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat-square" -s -o badge-license.svg
+curl "https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat" -s -o badge-license.svg
 ```
 
 ## License
 
-Shields is licensed under *Creative Commons Zero v1.0 Universal* (as of 2022-02-23)
+Shields is licensed under _Creative Commons Zero v1.0 Universal_ (as of 2022-02-23)

@@ -19,3 +19,4 @@
 rootProject.name = "plugins"
 
 includeBuild("plugin-development")
+includeBuild("quality")

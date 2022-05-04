@@ -1,21 +1,27 @@
 <!--local-files-->
+
 [changelog]: CHANGELOG.md
 [license]: LICENSE
+
 <!--readme-start-->
 <!--local-links-overwrite-->
+
 [changelog]: docs/src/changelog.md
 [license]: docs/src/license.md
 
 <!--docs-links-->
+
 [plugins]: docs/src/plugins/index.md
 [contributing]: docs/src/develop/contributing.md
 [releasing]: docs/src/develop/releasing.md
 
 <!--plugin-links-->
-[Gradle Plugin Convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
-[VersionCatalogAccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
+
+[gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
+[versioncatalogaccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
 
 <!--github-links-->
+
 [webpage]: https://bitfunk.github.io/gradle-plugins/
 [repository]: https://github.com/bitfunk/gradle-plugins
 [issues]: https://github.com/bitfunk/gradle-plugins/issues
@@ -29,12 +35,12 @@ A Collection of Gradle plugins to simplify and unify project development.
 
 [![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
 [![License](docs/src/assets/images/badge-license.svg)](LICENSE)
-
 [![CI - Build Latest Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml)
 
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=coverage)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Tech debt](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6013/badge)](https://bestpractices.coreinfrastructure.org/projects/6013)
 
 ## About the project
 
@@ -44,8 +50,8 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Plugin development:
 
-* [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
-* [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
+- [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
+- [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
 
 ## Getting started
 
@@ -55,8 +61,8 @@ Check the usage of each Gradle plugin by reading the [plugin documentation][plug
 
 ### Requirements
 
-* Gradle 7.2+
-* Java 11
+- Gradle 7.2+
+- Java 11
 
 ## Installation
 
