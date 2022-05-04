@@ -43,10 +43,14 @@ import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.tasks.JacocoCoverageVerification
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.gradle.testing.jacoco.tasks.JacocoReportsContainer
+import org.gradle.testing.jacoco.tasks.rules.JacocoLimit
+import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRule
+import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRulesContainer
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 import org.gradle.api.tasks.testing.Test as TestTask
 
 class GradlePluginConventionPluginTest {
@@ -233,10 +237,16 @@ class GradlePluginConventionPluginTest {
 
         val jacocoCoverageVerificationTaskProvider: TaskProvider<JacocoCoverageVerification> = mockk()
         val jacocoCoverageVerification: JacocoCoverageVerification = mockk(relaxed = true)
+        val jacocoViolationRulesContainer: JacocoViolationRulesContainer = mockk()
+        val jacocoViolationRule: JacocoViolationRule = mockk()
+        val jacocoLimit: JacocoLimit = mockk(relaxed = true)
         configureGivenJacocoTestCoverageVerificationTask(
             taskContainer,
             jacocoCoverageVerificationTaskProvider,
             jacocoCoverageVerification,
+            jacocoViolationRulesContainer,
+            jacocoViolationRule,
+            jacocoLimit,
             taskDependencyProvider
         )
 
@@ -266,6 +276,9 @@ class GradlePluginConventionPluginTest {
             taskContainer.named("jacocoTestReport")
             jacocoCoverageVerification.dependsOn(taskDependencyProvider)
             jacocoCoverageVerification.violationRules(any())
+            jacocoViolationRulesContainer.rule(any())
+            jacocoViolationRule.limit(any())
+            jacocoLimit.minimum = BigDecimal(0.95)
 
             taskContainer.named("check", any())
             taskContainer.named("jacocoTestCoverageVerification")
@@ -284,6 +297,9 @@ class GradlePluginConventionPluginTest {
             xmlBooleanProperty,
             jacocoCoverageVerificationTaskProvider,
             jacocoCoverageVerification,
+            jacocoViolationRulesContainer,
+            jacocoViolationRule,
+            jacocoLimit,
             checkTaskProvider,
             checkTask
         )
@@ -326,6 +342,9 @@ class GradlePluginConventionPluginTest {
         taskContainer: TaskContainer,
         jacocoCoverageVerificationTaskProvider: TaskProvider<JacocoCoverageVerification>,
         jacocoCoverageVerification: JacocoCoverageVerification,
+        jacocoViolationRulesContainer: JacocoViolationRulesContainer,
+        jacocoViolationRule: JacocoViolationRule,
+        jacocoLimit: JacocoLimit,
         taskDependencyProvider: TaskProvider<Task>
     ) {
         every {
@@ -337,6 +356,18 @@ class GradlePluginConventionPluginTest {
         } answers {
             thirdArg<Action<JacocoCoverageVerification>>().execute(jacocoCoverageVerification)
             jacocoCoverageVerificationTaskProvider
+        }
+        every { jacocoCoverageVerification.violationRules(any()) } answers {
+            firstArg<Action<JacocoViolationRulesContainer>>().execute(jacocoViolationRulesContainer)
+            jacocoViolationRulesContainer
+        }
+        every { jacocoViolationRulesContainer.rule(any()) } answers {
+            firstArg<Action<JacocoViolationRule>>().execute(jacocoViolationRule)
+            jacocoViolationRule
+        }
+        every { jacocoViolationRule.limit(any()) } answers {
+            firstArg<Action<JacocoLimit>>().execute(jacocoLimit)
+            jacocoLimit
         }
         every { taskContainer.named("jacocoTestReport") } returns taskDependencyProvider
     }
