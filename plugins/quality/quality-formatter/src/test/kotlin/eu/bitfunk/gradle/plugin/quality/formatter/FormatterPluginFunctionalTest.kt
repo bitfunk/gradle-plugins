@@ -135,36 +135,36 @@ class FormatterPluginFunctionalTest {
                 plugins {
                     id("eu.bitfunk.gradle.plugin.quality.formatter")
                 }
-                
+
         """.trimIndent()
 
         val SETTINGS_FILE_DEFAULT = """
             rootProject.name = "quality-format-test"
-            
+
         """.trimIndent()
 
         val KOTLIN_FILE_CORRECT = """
             package com.example
-            
+
             class Example {
                 fun calculate(): Int {
                     return 2 + 2
                 }
             }
-            
+
         """.trimIndent()
 
         val KOTLIN_FILE_INCORRECT = """
             package com.example
-            
+
             class Example{
-            
+
                 fun calculate( ):
-                Int {                
-                    return 2 + 2        
+                Int {
+                    return 2 + 2
                 }
             }
-            
+
         """.trimIndent()
     }
 }

@@ -58,8 +58,15 @@ public class FormatterPlugin : Plugin<Project>, FormatterContract.Plugin {
                 indentWithSpaces()
                 endWithNewline()
             }
+            format("markdown") {
+                prettier()
+                target("**/*.md")
+                trimTrailingWhitespace()
+                indentWithSpaces()
+                endWithNewline()
+            }
             format("misc") {
-                target("**/*.md", "**/.gitignore", ".java-version")
+                target("**/.gitignore", "**/.gitattributes", ".java-version")
                 trimTrailingWhitespace()
                 indentWithSpaces()
                 endWithNewline()

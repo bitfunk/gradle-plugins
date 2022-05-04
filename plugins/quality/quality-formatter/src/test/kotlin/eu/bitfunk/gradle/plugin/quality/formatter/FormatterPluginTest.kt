@@ -95,7 +95,8 @@ class FormatterPluginTest {
         val spotlessExtension: SpotlessExtension = mockk()
         val kotlinExtension: KotlinExtension = mockk(relaxed = true)
         val kotlinGradleExtension: KotlinGradleExtension = mockk(relaxed = true)
-        val formatExtension: FormatExtension = mockk(relaxed = true)
+        val markdownFormatExtension: FormatExtension = mockk(relaxed = true)
+        val miscFormatExtension: FormatExtension = mockk(relaxed = true)
 
         every { project.extensions } returns extensionContainer
         every { extensionContainer.configure(SpotlessExtension::class.java, any()) } answers {
@@ -107,8 +108,11 @@ class FormatterPluginTest {
         every { spotlessExtension.kotlinGradle(any()) } answers {
             (firstArg() as Action<KotlinGradleExtension>).execute(kotlinGradleExtension)
         }
+        every { spotlessExtension.format("markdown", any()) } answers {
+            (secondArg() as Action<FormatExtension>).execute(markdownFormatExtension)
+        }
         every { spotlessExtension.format("misc", any()) } answers {
-            (secondArg() as Action<FormatExtension>).execute(formatExtension)
+            (secondArg() as Action<FormatExtension>).execute(miscFormatExtension)
         }
 
         // WHEN
@@ -118,6 +122,7 @@ class FormatterPluginTest {
         verifyAll {
             spotlessExtension.kotlin(any())
             spotlessExtension.kotlinGradle(any())
+            spotlessExtension.format("markdown", any())
             spotlessExtension.format("misc", any())
 
             kotlinExtension.ktlint()
@@ -132,13 +137,25 @@ class FormatterPluginTest {
             kotlinGradleExtension.indentWithSpaces()
             kotlinGradleExtension.endWithNewline()
 
-            formatExtension.target("**/*.md", "**/.gitignore", ".java-version")
-            formatExtension.trimTrailingWhitespace()
-            formatExtension.indentWithSpaces()
-            formatExtension.endWithNewline()
+            markdownFormatExtension.prettier()
+            markdownFormatExtension.target("**/*.md")
+            markdownFormatExtension.trimTrailingWhitespace()
+            markdownFormatExtension.indentWithSpaces()
+            markdownFormatExtension.endWithNewline()
+
+            miscFormatExtension.target("**/.gitignore", "**/.gitattributes", ".java-version")
+            miscFormatExtension.trimTrailingWhitespace()
+            miscFormatExtension.indentWithSpaces()
+            miscFormatExtension.endWithNewline()
         }
 
-        confirmVerified(spotlessExtension, kotlinExtension, kotlinGradleExtension, formatExtension)
+        confirmVerified(
+            spotlessExtension,
+            kotlinExtension,
+            kotlinGradleExtension,
+            markdownFormatExtension,
+            miscFormatExtension
+        )
     }
 
     @Test
