@@ -40,9 +40,9 @@ import org.junit.jupiter.api.Test
 
 class FormatterPluginTest {
 
-    lateinit var project: Project
+    private lateinit var project: Project
 
-    lateinit var testSubject: FormatterPlugin
+    private lateinit var testSubject: FormatterPlugin
 
     @BeforeEach
     fun setup() {
@@ -176,8 +176,12 @@ class FormatterPluginTest {
         // THEN
         verifyOrder {
             testSubject.addPlugins(project)
+            testSubject.addRepository(project)
+            testSubject.configureFormatter(project)
         }
 
-        confirmVerified(spyTestSubject)
+        confirmVerified(
+            spyTestSubject
+        )
     }
 }
