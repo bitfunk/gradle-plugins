@@ -458,8 +458,8 @@ class GradlePluginConventionPluginTest {
 
         // THEN
         verifyOrder {
-            spyTestSubject.checkPreconditions(project)
             spyTestSubject.apply(project)
+            spyTestSubject.checkPreconditions(project)
             spyTestSubject.addPlugins(project)
             spyTestSubject.addRepositories(project)
             spyTestSubject.configureJavaCompatibility(project)
