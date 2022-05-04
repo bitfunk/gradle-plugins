@@ -34,13 +34,8 @@ import java.math.BigDecimal
 public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConventionContract.Plugin {
 
     override fun apply(target: Project) {
-        target.repositories {
-            gradlePluginPortal()
-            mavenCentral()
-            google()
-        }
-
         addPlugins(target)
+        addRepositories(target)
         configureJavaCompatibility(target)
         configureKotlin(target)
         configureDependencies(target)
@@ -54,6 +49,14 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         pluginManager.apply("org.gradle.kotlin.kotlin-dsl")
         pluginManager.apply("org.gradle.jacoco")
         pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
+    }
+
+    public override fun addRepositories(project: Project): Unit = with(project) {
+        repositories {
+            gradlePluginPortal()
+            mavenCentral()
+            google()
+        }
     }
 
     public override fun configureJavaCompatibility(project: Project): Unit = with(project) {
@@ -86,7 +89,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
 
     public override fun configureTestCoverage(project: Project): Unit = with(project) {
         jacoco {
-            version = JACOCO_VERSION
+            toolVersion = JACOCO_VERSION
         }
 
         tasks.named<JacocoReport>("jacocoTestReport") {
