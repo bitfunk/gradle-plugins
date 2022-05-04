@@ -1,21 +1,27 @@
 <!--local-files-->
+
 [changelog]: CHANGELOG.md
 [license]: LICENSE
+
 <!--readme-start-->
 <!--local-links-overwrite-->
+
 [changelog]: docs/src/changelog.md
 [license]: docs/src/license.md
 
 <!--docs-links-->
+
 [plugins]: docs/src/plugins/index.md
 [contributing]: docs/src/develop/contributing.md
 [releasing]: docs/src/develop/releasing.md
 
 <!--plugin-links-->
-[Gradle Plugin Convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
-[VersionCatalogAccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
+
+[gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
+[versioncatalogaccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
 
 <!--github-links-->
+
 [webpage]: https://bitfunk.github.io/gradle-plugins/
 [repository]: https://github.com/bitfunk/gradle-plugins
 [issues]: https://github.com/bitfunk/gradle-plugins/issues
@@ -44,8 +50,8 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Plugin development:
 
-* [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
-* [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
+- [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
+- [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
 
 ## Getting started
 
@@ -55,8 +61,8 @@ Check the usage of each Gradle plugin by reading the [plugin documentation][plug
 
 ### Requirements
 
-* Gradle 7.2+
-* Java 11
+- Gradle 7.2+
+- Java 11
 
 ## Installation
 

@@ -4,9 +4,9 @@ This plugin generates an accessor to expose the [version catalog (toml)](https:/
 
 ## Requirements
 
-* Gradle 7.2+
-* Can only be applied to Gradle plugins with the java-gradle-plugin available.
-* A version catalog available and enabled (default: `libs.versions.toml`)
+- Gradle 7.2+
+- Can only be applied to Gradle plugins with the java-gradle-plugin available.
+- A version catalog available and enabled (default: `libs.versions.toml`)
 
 ## Installation
 
@@ -36,9 +36,9 @@ plugins {
 
 The plugin works with a default version catalog setup, but could be configured to your needs:
 
-* **_catalogSourceFolder_**: relative path to the version catalog toml files. Default: `gradle/`
-* **_catalogNames_**: names of the catalogs for whom to create an accessor. Default: `listOf("libs")`
-* **_packageName_**: package used for the generated accessor. Default: empty
+- **_catalogSourceFolder_**: relative path to the version catalog toml files. Default: `gradle/`
+- **_catalogNames_**: names of the catalogs for whom to create an accessor. Default: `listOf("libs")`
+- **_packageName_**: package used for the generated accessor. Default: empty
 
 ```kotlin
 versionCatalogHelper {
