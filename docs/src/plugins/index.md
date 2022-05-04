@@ -4,6 +4,10 @@ Overview of Gradle plugins used across multiple projects.
 
 ## Plugins
 
+### Quality
+
+- [Formatter](./quality/formatter/index.md) - a source code formatter applying bitfunk code style
+
 ### Plugin development
 
 Plugins that support developing Gradle plugins.

@@ -104,8 +104,11 @@ nav:
   - Changelog: changelog.md
   - Plugins:
     - Overview: plugins/index.md
-    - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
-    - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md
+    - Quality:
+      - Formatter: plugins/quality/formatter/index.md
+    - PluginDevelopment:
+      - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
+      - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md
   - Develop:
       - Contributing: develop/contributing.md
       - Releasing: develop/releasing.md

@@ -19,6 +19,7 @@
 
 [gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
 [versioncatalogaccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
+[quality formatter]: docs/src/plugins/quality/formatter/index.md
 
 <!--github-links-->
 
@@ -48,7 +49,11 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 ### Plugins
 
-#### Plugin development:
+#### Quality
+
+- [Formatter] - a source code formatter applying bitfunk code style
+
+#### Plugin development
 
 - [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
 - [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
