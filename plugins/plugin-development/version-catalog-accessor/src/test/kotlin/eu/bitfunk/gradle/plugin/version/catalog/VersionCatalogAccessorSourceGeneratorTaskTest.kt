@@ -20,7 +20,9 @@ package eu.bitfunk.gradle.plugin.version.catalog
 
 import org.gradle.api.internal.provider.MissingValueException
 import org.gradle.testfixtures.ProjectBuilder
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertThrowsExactly
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
@@ -37,7 +39,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         val task = project.tasks.create("testTask", VersionCatalogAccessorSourceGeneratorTask::class.java)
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             MissingValueException::class.java,
             { task.generate() },
             "Cannot query the value of task ':testTask' property 'catalogSourceFolder' because it has no value available."
@@ -52,7 +54,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         task.catalogSourceFolder.set("sourceFolder")
 
         // WHEN/THEN
-        Assertions.assertThrowsExactly(
+        assertThrowsExactly(
             MissingValueException::class.java,
             { task.generate() },
             "Cannot query the value of task ':testTask' property 'packageName' because it has no value available."
@@ -73,7 +75,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         task.generate()
 
         // THEN
-        Assertions.assertFalse(outputFolder.exists())
+        assertFalse(outputFolder.exists())
     }
 
     @Test
@@ -96,7 +98,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         // THEN
         val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
 
-        Assertions.assertTrue(outputFolder.exists())
-        Assertions.assertTrue(libsAccessorFile.exists())
+        assertTrue(outputFolder.exists())
+        assertTrue(libsAccessorFile.exists())
     }
 }

@@ -27,7 +27,8 @@ import eu.bitfunk.gradle.plugin.version.catalog.intern.model.Node
 import eu.bitfunk.gradle.plugin.version.catalog.intern.test.FileHelper
 import io.mockk.every
 import io.mockk.mockk
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -45,7 +46,7 @@ class GeneratorTest {
     fun `generator implements contract`() {
         val generator = Generator(PACKAGE_NAME, "", mapper)
 
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             InternalContract.Generator::class.java,
             generator
         )
@@ -68,7 +69,7 @@ class GeneratorTest {
 
         // THEN
         val expected = FileHelper.loadAsString("fixture/EmptyVersionCatalogAccessor.kt")
-        Assertions.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     @Test
@@ -89,7 +90,7 @@ class GeneratorTest {
 
         // THEN
         val expected = FileHelper.loadAsString("fixture/WithVersionsVersionCatalogAccessor.kt")
-        Assertions.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     @Test
@@ -110,7 +111,7 @@ class GeneratorTest {
 
         // THEN
         val expected = FileHelper.loadAsString("fixture/WithLibrariesVersionCatalogAccessor.kt")
-        Assertions.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     @Test
@@ -131,7 +132,7 @@ class GeneratorTest {
 
         // THEN
         val expected = FileHelper.loadAsString("fixture/WithBundlesVersionCatalogAccessor.kt")
-        Assertions.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     @Test
@@ -152,7 +153,7 @@ class GeneratorTest {
 
         // THEN
         val expected = FileHelper.loadAsString("fixture/WithPluginsVersionCatalogAccessor.kt")
-        Assertions.assertEquals(expected, result)
+        assertEquals(expected, result)
     }
 
     private companion object {

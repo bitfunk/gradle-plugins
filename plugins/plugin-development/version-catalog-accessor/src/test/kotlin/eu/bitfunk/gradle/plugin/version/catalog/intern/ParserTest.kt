@@ -22,7 +22,8 @@ import eu.bitfunk.gradle.plugin.version.catalog.intern.model.CatalogEntry.Bundle
 import eu.bitfunk.gradle.plugin.version.catalog.intern.model.CatalogEntry.Libraries
 import eu.bitfunk.gradle.plugin.version.catalog.intern.model.CatalogEntry.Plugins
 import eu.bitfunk.gradle.plugin.version.catalog.intern.model.CatalogEntry.Versions
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -37,7 +38,7 @@ class ParserTest {
 
     @Test
     fun `parser implements contract`() {
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             InternalContract.Parser::class.java,
             parser
         )
@@ -56,8 +57,8 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
-        Assertions.assertInstanceOf(Versions::class.java, result.versions)
-        Assertions.assertEquals(
+        assertInstanceOf(Versions::class.java, result.versions)
+        assertEquals(
             listOf(
                 "version",
                 "group-version"
@@ -80,8 +81,8 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
-        Assertions.assertInstanceOf(Libraries::class.java, result.libraries)
-        Assertions.assertEquals(
+        assertInstanceOf(Libraries::class.java, result.libraries)
+        assertEquals(
             listOf(
                 "library",
                 "group-library",
@@ -103,8 +104,8 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
-        Assertions.assertInstanceOf(Bundles::class.java, result.bundles)
-        Assertions.assertEquals(
+        assertInstanceOf(Bundles::class.java, result.bundles)
+        assertEquals(
             listOf(
                 "bundle"
             ),
@@ -125,8 +126,8 @@ class ParserTest {
         val result = parser.parse(toml.byteInputStream())
 
         // THEN
-        Assertions.assertInstanceOf(Plugins::class.java, result.plugins)
-        Assertions.assertEquals(
+        assertInstanceOf(Plugins::class.java, result.plugins)
+        assertEquals(
             listOf(
                 "plugin",
                 "pluginComplex"

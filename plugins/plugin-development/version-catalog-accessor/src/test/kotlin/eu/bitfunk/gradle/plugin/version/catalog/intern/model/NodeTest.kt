@@ -18,7 +18,9 @@
 
 package eu.bitfunk.gradle.plugin.version.catalog.intern.model
 
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 class NodeTest {
@@ -32,9 +34,9 @@ class NodeTest {
         val result = Node(name = name)
 
         // THEN
-        Assertions.assertEquals("Name", result.name)
-        Assertions.assertEquals("", result.path)
-        Assertions.assertEquals(mutableListOf<Node>(), result.children)
+        assertEquals("Name", result.name)
+        assertEquals("", result.path)
+        assertEquals(mutableListOf<Node>(), result.children)
     }
 
     @Test
@@ -48,9 +50,9 @@ class NodeTest {
         val result = Node(name = name, path = path, children = children)
 
         // THEN
-        Assertions.assertEquals("Name", result.name)
-        Assertions.assertEquals("Path", result.path)
-        Assertions.assertEquals(mutableListOf(Node("Child")), result.children)
+        assertEquals("Name", result.name)
+        assertEquals("Path", result.path)
+        assertEquals(mutableListOf(Node("Child")), result.children)
     }
 
     @Test
@@ -63,7 +65,7 @@ class NodeTest {
         val result = Node(name = name, children = children)
 
         // THEN
-        Assertions.assertTrue(result.isGroup())
+        assertTrue(result.isGroup())
     }
 
     @Test
@@ -79,8 +81,8 @@ class NodeTest {
         val childAdded = node.isGroup()
 
         // THEN
-        Assertions.assertFalse(initial)
-        Assertions.assertTrue(childAdded)
+        assertFalse(initial)
+        assertTrue(childAdded)
     }
 
     @Test
@@ -94,8 +96,8 @@ class NodeTest {
         val result = Node(name = name, path = path)
 
         // THEN
-        Assertions.assertTrue(result.isLeaf())
-        Assertions.assertEquals(node, result)
+        assertTrue(result.isLeaf())
+        assertEquals(node, result)
     }
 
     @Test
@@ -115,9 +117,9 @@ class NodeTest {
         val childAdded = node.isLeaf()
 
         // THEN
-        Assertions.assertFalse(initial)
-        Assertions.assertTrue(pathAdded)
-        Assertions.assertTrue(childAdded)
+        assertFalse(initial)
+        assertTrue(pathAdded)
+        assertTrue(childAdded)
     }
 
     @Test
@@ -131,7 +133,7 @@ class NodeTest {
         val result = Node(name, path, children)
 
         // THEN
-        Assertions.assertTrue(result.isLeaf())
-        Assertions.assertTrue(result.isGroup())
+        assertTrue(result.isLeaf())
+        assertTrue(result.isGroup())
     }
 }

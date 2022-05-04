@@ -19,7 +19,7 @@
 package eu.bitfunk.gradle.plugin.development.convention
 
 import org.gradle.testkit.runner.GradleRunner
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -51,7 +51,7 @@ class GradlePluginConventionPluginFunctionalTest {
             .buildAndFail()
 
         // THEN
-        Assertions.assertTrue(runner.output.contains("This plugin requires Gradle 7.2 or later"))
+        assertTrue(runner.output.contains("This plugin requires Gradle 7.2 or later"))
     }
 
     @Test
