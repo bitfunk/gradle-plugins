@@ -26,6 +26,16 @@ buildscript {
 
 plugins {
     id("eu.bitfunk.gradle.plugin.quality.formatter")
+
+    id("org.sonarqube") version "3.3"
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "bitfunk_gradle-plugins")
+        property("sonar.organization", "bitfunk")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
