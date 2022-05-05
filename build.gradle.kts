@@ -26,6 +26,40 @@ buildscript {
 
 plugins {
     id("eu.bitfunk.gradle.plugin.quality.formatter")
+
+    id("org.sonarqube") version "3.3"
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "bitfunk_gradle-plugins")
+        property("sonar.organization", "bitfunk")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
+    }
+}
+tasks.named("sonarqube") {
+    dependsOn("copyCoverageReports")
+}
+
+project(":docs") {
+    sonarqube {
+        isSkipProject = true
+    }
+}
+
+tasks.create<Copy>("copyCoverageReports") {
+    dependsOn("testCodeCoverageReport")
+
+    group = "verification"
+
+    from("$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport") {
+        include("*.xml")
+    }
+
+    into("$buildDir/reports/jacoco")
+
+    includeEmptyDirs = false
 }
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
