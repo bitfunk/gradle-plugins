@@ -18,11 +18,16 @@
 
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
+    id("jacoco-report-aggregation")
 }
 
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.development:plugin-development")
     implementation("eu.bitfunk.gradle.plugin.quality:quality")
+}
+
+tasks.check {
+    dependsOn(tasks.named("testCodeCoverageReport"))
 }
 
 // Delegate to included builds
