@@ -35,10 +35,17 @@ sonarqube {
         property("sonar.projectKey", "bitfunk_gradle-plugins")
         property("sonar.organization", "bitfunk")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
     }
 }
 tasks.named("sonarqube") {
     dependsOn("copyCoverageReports")
+}
+
+project(":docs") {
+    sonarqube {
+        isSkipProject = true
+    }
 }
 
 tasks.create<Copy>("copyCoverageReports") {
