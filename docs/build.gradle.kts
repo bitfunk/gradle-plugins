@@ -34,15 +34,17 @@ python {
     )
 }
 
-val currentDocVersion = "0.1.0"
+val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "develop"
 
 mkdocs {
     sourcesDir = "./"
 
     publish.docPath = currentDocVersion
-    publish.rootRedirect = true
-    publish.rootRedirectTo = "latest"
-    publish.setVersionAliases("latest")
+    publish.rootRedirect = project.hasProperty("release")
+    if (project.hasProperty("release")) {
+        publish.rootRedirectTo = "latest"
+        publish.setVersionAliases("latest")
+    }
     publish.generateVersionsFile = true
 
     strict = true

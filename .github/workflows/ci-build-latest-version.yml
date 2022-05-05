@@ -41,5 +41,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew --no-daemon --stacktrace sonarqube
 
+      - name: Publish documentation
+        run: ./gradlew --no-daemon --stacktrace mkdocsPublish
+
       - name: Publish Lastest Version
         run: echo "TODO"
