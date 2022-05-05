@@ -17,9 +17,9 @@
 
 <!--plugin-links-->
 
-[gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
-[versioncatalogaccessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
-[quality formatter]: docs/src/plugins/quality/formatter/index.md
+[Gradle Plugin Convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
+[VersionCatalog Accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
+[Formatter]: docs/src/plugins/quality/formatter/index.md
 
 <!--github-links-->
 
@@ -56,7 +56,7 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 #### Plugin development
 
 - [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
-- [VersionCatalogAccessor] - a version catalog accessor for Gradle plugin development
+- [VersionCatalog Accessor] - a version catalog accessor for Gradle plugin development
 
 ## Getting started
 
