@@ -27,7 +27,9 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.api.tasks.testing.Test as TestTask
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
+import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 import org.junit.jupiter.api.Test
 
 class GradleExtensionsKtTest {
@@ -72,6 +74,27 @@ class GradleExtensionsKtTest {
         }
 
         confirmVerified(project, extensionContainer)
+    }
+
+    @Test
+    fun `GIVEN testTask WHEN jacocoTaskExtension() THEN task extension configured`() {
+        // GIVEN
+        val task: TestTask = mockk()
+        val extensionContainer: ExtensionContainer = mockk(relaxed = true)
+        val action: Action<JacocoTaskExtension> = mockk()
+
+        every { task.extensions } returns extensionContainer
+
+        // WHEN
+        task.jacocoTaskExtension(action)
+
+        // THEN
+        verify {
+            task.extensions
+            extensionContainer.configure(JacocoTaskExtension::class.java, action)
+        }
+
+        confirmVerified(task, extensionContainer)
     }
 
     @Test

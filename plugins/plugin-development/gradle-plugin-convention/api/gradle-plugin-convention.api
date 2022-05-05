@@ -1,6 +1,7 @@
 public final class eu/bitfunk/gradle/plugin/development/convention/GradleExtensionsKt {
 	public static final fun implementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
 	public static final fun jacoco (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
+	public static final fun jacocoTaskExtension (Lorg/gradle/api/tasks/testing/Test;Lorg/gradle/api/Action;)V
 	public static final fun javaPlugin (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
 	public static final fun testImplementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
 	public static final fun testRuntimeOnly (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
