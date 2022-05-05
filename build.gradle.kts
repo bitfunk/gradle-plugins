@@ -35,9 +35,39 @@ sonarqube {
         property("sonar.projectKey", "bitfunk_gradle-plugins")
         property("sonar.organization", "bitfunk")
         property("sonar.host.url", "https://sonarcloud.io")
-        property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
+
+        property("sonar.sources", collectProjects(projectDir, "src/main/kotlin").map { "$it/src/main/kotlin" })
+        property("sonar.tests", collectProjects(projectDir, "src/test/kotlin").map { "$it/src/test/kotlin" })
+        property("sonar.sourceEncoding", "UTF-8")
+        property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
     }
 }
+
+tasks.create("testDirs") {
+    doLast {
+        println(collectProjects(projectDir, "src/main/kotlin"))
+    }
+}
+
+fun collectProjects(file: File, filter: String): List<File> {
+    val projects = mutableListOf<File>()
+
+    listOf(file)
+        .extract(projects, filter)
+        .extract(projects, filter)
+        .extract(projects, filter)
+        .toList()
+
+    return projects
+}
+
+fun List<File>.extract(targetList: MutableList<File>, filter: String): List<File> {
+    return flatMap { it.listFiles().asSequence() }
+        .filter { it.isDirectory && File(it, filter).exists() }
+        .map { it.also { targetList.add(it) } }
+}
+
+
 tasks.named("sonarqube") {
     dependsOn("copyCoverageReports")
 }
