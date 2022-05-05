@@ -37,6 +37,21 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
+tasks.named("sonarqube") {
+    dependsOn("copyCoverageReports")
+}
+
+tasks.create<Copy>("copyCoverageReports") {
+    dependsOn("testCodeCoverageReport")
+
+    group = "verification"
+
+    from("$projectDir/plugins/build/reports/jacoco")
+
+    into("$buildDir/reports/jacoco")
+
+    includeEmptyDirs = false
+}
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
 
@@ -50,6 +65,7 @@ tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build
 tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
 tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
 tasks.maybeCreate("jacocoTestReport").dependsOn(gradle.includedBuilds.map { it.task(":jacocoTestReport") })
+tasks.maybeCreate("testCodeCoverageReport").dependsOn(gradle.includedBuilds.map { it.task(":testCodeCoverageReport") })
 tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
 tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
 tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
