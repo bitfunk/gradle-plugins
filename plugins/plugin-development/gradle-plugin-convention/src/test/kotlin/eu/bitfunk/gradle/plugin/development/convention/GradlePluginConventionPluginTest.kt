@@ -56,9 +56,6 @@ import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
-import org.sonarqube.gradle.SonarQubeExtension
-import org.sonarqube.gradle.SonarQubeProperties
-import java.io.File
 import java.math.BigDecimal
 import org.gradle.api.tasks.testing.Test as TestTask
 
@@ -128,7 +125,6 @@ class GradlePluginConventionPluginTest {
             pluginManager.apply("org.gradle.kotlin.kotlin-dsl")
             pluginManager.apply("org.gradle.jacoco")
             pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
-            pluginManager.apply("org.sonarqube")
         }
 
         confirmVerified(pluginManager)
@@ -426,50 +422,6 @@ class GradlePluginConventionPluginTest {
     }
 
     @Test
-    fun `GIVEN project WHEN configureAnalysis() THEN all configured`() {
-        // GIVEN
-        val projectName = "projectName"
-        val buildDir: File = mockk()
-        val extensionContainer: ExtensionContainer = mockk()
-        val sonarQubeExtension: SonarQubeExtension = mockk()
-        val sonarQubeProperties: SonarQubeProperties = mockk(relaxed = true)
-        every { project.extensions } returns extensionContainer
-        every { project.name } returns projectName
-        every { project.buildDir } returns buildDir
-        every { extensionContainer.configure(SonarQubeExtension::class.java, any()) } answers {
-            secondArg<Action<SonarQubeExtension>>().execute(sonarQubeExtension)
-        }
-        every { sonarQubeExtension.properties(any()) } answers {
-            firstArg<Action<SonarQubeProperties>>().execute(sonarQubeProperties)
-        }
-
-        // WHEN
-        testSubject.configureAnalysis(project)
-
-        // THEN
-        verifyAll {
-            extensionContainer.configure(SonarQubeExtension::class.java, any())
-
-            sonarQubeExtension.properties(any())
-
-            sonarQubeProperties.property("sonar.projectKey", "bitfunk_gradle-plugins")
-            sonarQubeProperties.property("sonar.organization", "bitfunk")
-            sonarQubeProperties.property("sonar.host.url", "https://sonarcloud.io")
-            sonarQubeProperties.property("sonar.projectName", projectName)
-            sonarQubeProperties.property("sonar.sources", "src/main")
-            sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
-            sonarQubeProperties.property("sonar.language", "kotlin")
-            sonarQubeProperties.property("sonar.userHome", "$buildDir/.sonar")
-        }
-
-        confirmVerified(
-            extensionContainer,
-            sonarQubeExtension,
-            sonarQubeProperties
-        )
-    }
-
-    @Test
     fun `GIVEN project WHEN configureGradleWrapper() THEN wrapper configured`() {
         // GIVEN
         val taskContainer: TaskContainer = mockk()
@@ -515,7 +467,6 @@ class GradlePluginConventionPluginTest {
             spyTestSubject.configureDependencies(project)
             spyTestSubject.configureTests(project)
             spyTestSubject.configureTestCoverage(project)
-            spyTestSubject.configureAnalysis(project)
             spyTestSubject.configureGradleWrapper(project)
         }
 

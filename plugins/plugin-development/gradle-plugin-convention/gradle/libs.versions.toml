@@ -1,7 +1,6 @@
 [versions]
 kotlin = "1.5.31"
 gradle = "7.4.2"
-sonarqube = "3.3"
 jUnit5 = "5.8.2"
 kotlinBinaryCompatibility = "0.8.0"
 
@@ -9,11 +8,9 @@ kotlinBinaryCompatibility = "0.8.0"
 gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleKotlinBinaryCompatibilityPlugin = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
 gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.1.7"
-gradleSonarqube = { module = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin", version.ref = "sonarqube" }
 testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
 testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
 testMockk = "io.mockk:mockk:1.12.2"
 
 [plugins]
 binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
-sonarqube = { id = "org.sonarqube", version.ref = "sonarqube"}

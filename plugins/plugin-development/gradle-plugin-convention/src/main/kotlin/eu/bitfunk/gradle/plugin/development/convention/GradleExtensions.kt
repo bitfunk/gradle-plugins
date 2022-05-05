@@ -24,7 +24,6 @@ import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
-import org.sonarqube.gradle.SonarQubeExtension
 
 public fun Project.javaPlugin(action: Action<JavaPluginExtension>) {
     extensions.configure(JavaPluginExtension::class.java, action)
@@ -32,10 +31,6 @@ public fun Project.javaPlugin(action: Action<JavaPluginExtension>) {
 
 public fun Project.jacoco(action: Action<JacocoPluginExtension>) {
     extensions.configure(JacocoPluginExtension::class.java, action)
-}
-
-public fun Project.sonarqube(action: Action<SonarQubeExtension>) {
-    extensions.configure(SonarQubeExtension::class.java, action)
 }
 
 public fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
