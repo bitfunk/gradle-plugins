@@ -140,6 +140,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
                 property("sonar.sources", "src/main")
                 property("sonar.sourceEncoding", "UTF-8")
                 property("sonar.language", "kotlin")
+                property("sonar.userHome", "$buildDir/.sonar")
             }
         }
     }

@@ -58,6 +58,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import org.sonarqube.gradle.SonarQubeExtension
 import org.sonarqube.gradle.SonarQubeProperties
+import java.io.File
 import java.math.BigDecimal
 import org.gradle.api.tasks.testing.Test as TestTask
 
@@ -428,11 +429,13 @@ class GradlePluginConventionPluginTest {
     fun `GIVEN project WHEN configureAnalysis() THEN all configured`() {
         // GIVEN
         val projectName = "projectName"
+        val buildDir: File = mockk()
         val extensionContainer: ExtensionContainer = mockk()
         val sonarQubeExtension: SonarQubeExtension = mockk()
         val sonarQubeProperties: SonarQubeProperties = mockk(relaxed = true)
         every { project.extensions } returns extensionContainer
         every { project.name } returns projectName
+        every { project.buildDir } returns buildDir
         every { extensionContainer.configure(SonarQubeExtension::class.java, any()) } answers {
             secondArg<Action<SonarQubeExtension>>().execute(sonarQubeExtension)
         }
@@ -456,6 +459,7 @@ class GradlePluginConventionPluginTest {
             sonarQubeProperties.property("sonar.sources", "src/main")
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
             sonarQubeProperties.property("sonar.language", "kotlin")
+            sonarQubeProperties.property("sonar.userHome", "$buildDir/.sonar")
         }
 
         confirmVerified(
