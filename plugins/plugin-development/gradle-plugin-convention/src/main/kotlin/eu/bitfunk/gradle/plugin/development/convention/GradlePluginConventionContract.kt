@@ -31,6 +31,7 @@ public interface GradlePluginConventionContract {
         public fun configureDependencies(project: Project)
         public fun configureTests(project: Project)
         public fun configureTestCoverage(project: Project)
+        public fun configureAnalysis(project: Project)
         public fun configureGradleWrapper(project: Project)
     }
 }

@@ -44,6 +44,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         configureDependencies(target)
         configureTests(target)
         configureTestCoverage(target)
+        configureAnalysis(target)
         configureGradleWrapper(target)
     }
 
@@ -58,6 +59,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         pluginManager.apply("org.gradle.kotlin.kotlin-dsl")
         pluginManager.apply("org.gradle.jacoco")
         pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
+        pluginManager.apply("org.sonarqube")
     }
 
     public override fun addRepositories(project: Project): Unit = with(project) {
@@ -124,6 +126,21 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
 
         tasks.named("check") {
             dependsOn(tasks.named("jacocoTestCoverageVerification"))
+        }
+    }
+
+    public override fun configureAnalysis(project: Project): Unit = with(project) {
+        sonarqube {
+            properties {
+                property("sonar.projectKey", "bitfunk_gradle-plugins")
+                property("sonar.organization", "bitfunk")
+                property("sonar.host.url", "https://sonarcloud.io")
+
+                property("sonar.projectName", project.name)
+                property("sonar.sources", "src/main")
+                property("sonar.sourceEncoding", "UTF-8")
+                property("sonar.language", "kotlin")
+            }
         }
     }
 

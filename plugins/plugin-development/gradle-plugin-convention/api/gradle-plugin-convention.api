@@ -2,6 +2,7 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradleExtensi
 	public static final fun implementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
 	public static final fun jacoco (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
 	public static final fun javaPlugin (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
+	public static final fun sonarqube (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
 	public static final fun testImplementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
 	public static final fun testRuntimeOnly (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
 }
@@ -17,6 +18,7 @@ public abstract interface class eu/bitfunk/gradle/plugin/development/convention/
 	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
 	public abstract fun addRepositories (Lorg/gradle/api/Project;)V
 	public abstract fun checkPreconditions (Lorg/gradle/api/Project;)V
+	public abstract fun configureAnalysis (Lorg/gradle/api/Project;)V
 	public abstract fun configureDependencies (Lorg/gradle/api/Project;)V
 	public abstract fun configureGradleWrapper (Lorg/gradle/api/Project;)V
 	public abstract fun configureJavaCompatibility (Lorg/gradle/api/Project;)V
@@ -36,6 +38,7 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginC
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
 	public fun checkPreconditions (Lorg/gradle/api/Project;)V
+	public fun configureAnalysis (Lorg/gradle/api/Project;)V
 	public fun configureDependencies (Lorg/gradle/api/Project;)V
 	public fun configureGradleWrapper (Lorg/gradle/api/Project;)V
 	public fun configureJavaCompatibility (Lorg/gradle/api/Project;)V

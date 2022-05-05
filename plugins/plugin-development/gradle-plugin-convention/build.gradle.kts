@@ -23,6 +23,7 @@ plugins {
     jacoco
 
     alias(libs.plugins.binaryCompatibilityValidator)
+    alias(libs.plugins.sonarqube)
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
@@ -53,6 +54,7 @@ dependencies {
     implementation(libs.gradleKotlinPlugin)
     implementation(libs.gradleKotlinDsl)
     implementation(libs.gradleKotlinBinaryCompatibilityPlugin)
+    implementation(libs.gradleSonarqube)
 
     testImplementation(gradleTestKit())
     testImplementation(libs.testJUnit5)
@@ -87,6 +89,19 @@ tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
 
 tasks.named("check") {
     dependsOn(tasks.named("jacocoTestCoverageVerification"))
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "bitfunk_gradle-plugins")
+        property("sonar.organization", "bitfunk")
+        property("sonar.host.url", "https://sonarcloud.io")
+
+        property("sonar.projectName", project.name)
+        property("sonar.sources", "src/main")
+        property("sonar.sourceEncoding", "UTF-8")
+        property("sonar.language", "kotlin")
+    }
 }
 
 tasks.named<Wrapper>("wrapper") {

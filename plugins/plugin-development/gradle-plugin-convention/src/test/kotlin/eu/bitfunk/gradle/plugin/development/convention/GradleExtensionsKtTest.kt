@@ -29,6 +29,7 @@ import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.junit.jupiter.api.Test
+import org.sonarqube.gradle.SonarQubeExtension
 
 class GradleExtensionsKtTest {
 
@@ -69,6 +70,27 @@ class GradleExtensionsKtTest {
         verify {
             project.extensions
             extensionContainer.configure(JacocoPluginExtension::class.java, action)
+        }
+
+        confirmVerified(project, extensionContainer)
+    }
+
+    @Test
+    fun `GIVEN project WHEN sonarqube() THEN extension configured`() {
+        // GIVEN
+        val project: Project = mockk()
+        val extensionContainer: ExtensionContainer = mockk(relaxed = true)
+        val action: Action<SonarQubeExtension> = mockk()
+
+        every { project.extensions } returns extensionContainer
+
+        // WHEN
+        project.sonarqube(action)
+
+        // THEN
+        verify {
+            project.extensions
+            extensionContainer.configure(SonarQubeExtension::class.java, action)
         }
 
         confirmVerified(project, extensionContainer)
