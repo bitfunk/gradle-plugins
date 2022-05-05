@@ -46,7 +46,9 @@ tasks.create<Copy>("copyCoverageReports") {
 
     group = "verification"
 
-    from("$projectDir/plugins/build/reports/jacoco")
+    from("$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport") {
+        include("*.xml")
+    }
 
     into("$buildDir/reports/jacoco")
 
