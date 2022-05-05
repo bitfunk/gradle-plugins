@@ -20,3 +20,5 @@ Initial release
 - Add VersionCatalogAccessor - a version catalog accessor for Gradle plugin development
 - Add Gradle Plugin Convention - for Gradle plugin development
 - Add Formatter Plugin - using Spotless and ktlint
+- Add GradleWrapper validation GitHub Action
+- Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
