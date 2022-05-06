@@ -48,7 +48,7 @@ internal class Generator(
 
     override fun generate(catalog: Catalog): String {
         val accessorInterface = generateAccessorInterface(catalog)
-        val accessorClass = generateAccessorClass(catalog, accessorInterface)
+        val accessorClass = generateAccessorClass(catalog)
 
         val file = FileSpec.builder(packageName, generateClassBaseName() + CLASS_NAME_ACCESSOR)
             .indent("    ")
@@ -70,20 +70,71 @@ internal class Generator(
     }
 
     private fun generateAccessorInterface(catalog: Catalog): TypeSpec {
+        val versionNodes = mapper.map(catalog.versions.items)
+        val libraryNodes = mapper.map(catalog.libraries.items)
+        val bundleNodes = mapper.map(catalog.bundles.items)
+        val pluginNodes = mapper.map(catalog.plugins.items)
+
         return TypeSpec.interfaceBuilder(generateClassBaseName() + INTERFACE_NAME_ACCESSOR)
-            .addType(generateInterface(NAME_VERSIONS))
-            .addType(generateInterface(NAME_LIBRARIES))
-            .addType(generateInterface(NAME_BUNDLES))
-            .addType(generateInterface(NAME_PLUGINS))
+            .addType(generateInterface(NAME_VERSIONS, versionNodes, null))
+            .addType(generateInterface(NAME_LIBRARIES, libraryNodes, null))
+            .addType(generateInterface(NAME_BUNDLES, bundleNodes, null))
+            .addType(generateInterface(NAME_PLUGINS, pluginNodes, null))
             .build()
     }
 
-    private fun generateInterface(name: String): TypeSpec {
+    private fun generateInterface(name: String, nodes: List<Node>, kClass: KClass<*>?): TypeSpec {
+        val interfaces = nodes
+            .filter { (it.isGroup()) }
+            .map {
+                generateInterface(it.name, it.children, if (it.isLeaf()) GroupLeaf::class else Group::class)
+            }
+
         return TypeSpec.interfaceBuilder(name.capitalize())
+            .also { if (kClass != null) it.addSuperinterface(kClass) }
+            .addProperties(generateInterfaceProperties(nodes))
+            .addTypes(interfaces)
             .build()
     }
 
-    private fun generateAccessorClass(catalog: Catalog, accessorInterface: TypeSpec): TypeSpec {
+    private fun generateInterfaceProperties(
+        nodes: List<Node>,
+    ): Iterable<PropertySpec> {
+        val properties = mutableListOf<PropertySpec>()
+
+        for (node in nodes) {
+            val property = if (node.isGroup() && node.isLeaf()) {
+                generateInterfaceNodeProperty(
+                    node,
+                    ClassName("", node.name.capitalize()),
+                )
+            } else if (node.isLeaf()) {
+                generateInterfaceNodeProperty(
+                    node,
+                    ClassName("", "VersionCatalogDependency.Leaf"),
+                )
+            } else {
+                generateInterfaceNodeProperty(
+                    node,
+                    ClassName("", node.name.capitalize()),
+                )
+            }
+
+            properties.add(property)
+        }
+
+        return properties
+    }
+
+    private fun generateInterfaceNodeProperty(
+        node: Node,
+        className: ClassName,
+    ): PropertySpec {
+        return PropertySpec.builder(node.name, className)
+            .build()
+    }
+
+    private fun generateAccessorClass(catalog: Catalog): TypeSpec {
         val libraryNodes = mapper.map(catalog.libraries.items)
 
         return TypeSpec.classBuilder(generateClassBaseName() + CLASS_NAME_ACCESSOR)
@@ -99,7 +150,7 @@ internal class Generator(
             .addProperty(generateRootProperty(NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(NAME_PLUGINS, catalog.plugins))
-            .addProperties(generateProperties(catalog.libraries::class, libraryNodes))
+            .addProperties(generateProperties(catalog.libraries::class, libraryNodes, NAME_LIBRARIES))
             .build()
     }
 
@@ -112,7 +163,7 @@ internal class Generator(
 
     private fun generateRootImplementation(className: ClassName, catalogEntry: CatalogEntry): TypeSpec {
         val nodes = mapper.map(catalogEntry.items)
-        val properties = generateProperties(catalogEntry::class, nodes)
+        val properties = generateProperties(catalogEntry::class, nodes, className.simpleName)
 
         return TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
@@ -120,16 +171,40 @@ internal class Generator(
             .build()
     }
 
-    private fun generateProperties(catalogType: KClass<*>, nodes: List<Node>): Iterable<PropertySpec> {
+    private fun generateProperties(
+        catalogType: KClass<*>,
+        nodes: List<Node>,
+        parentName: String
+    ): Iterable<PropertySpec> {
         val properties = mutableListOf<PropertySpec>()
 
         for (node in nodes) {
             val property = if (node.isGroup() && node.isLeaf()) {
-                generateNodeProperty(catalogType, node, GroupLeaf::class)
+                val name = "$parentName.${node.name.capitalize()}"
+                generateNodeProperty(
+                    catalogType,
+                    node,
+                    ClassName(packageName, name),
+                    GroupLeaf::class,
+                    name
+                )
             } else if (node.isLeaf()) {
-                generateNodeProperty(catalogType, node, Leaf::class)
+                generateNodeProperty(
+                    catalogType,
+                    node,
+                    ClassName(packageName, "VersionCatalogDependency.Leaf"),
+                    Leaf::class,
+                    parentName
+                )
             } else {
-                generateNodeProperty(catalogType, node, Group::class)
+                val name = "$parentName.${node.name.capitalize()}"
+                generateNodeProperty(
+                    catalogType,
+                    node,
+                    ClassName(packageName, name),
+                    Group::class,
+                    name
+                )
             }
 
             properties.add(property)
@@ -138,23 +213,36 @@ internal class Generator(
         return properties
     }
 
-    private fun generateNodeProperty(catalogType: KClass<*>, node: Node, className: KClass<*>): PropertySpec {
+    private fun generateNodeProperty(
+        catalogType: KClass<*>,
+        node: Node,
+        className: ClassName,
+        kClass: KClass<*>,
+        parentName: String
+    ): PropertySpec {
         return PropertySpec.builder(node.name, className)
-            .initializer("%L", generateNodeImplementation(catalogType, node, className))
+            .addModifiers(OVERRIDE)
+            .initializer("%L", generateNodeImplementation(catalogType, node, className, kClass, parentName))
             .build()
     }
 
-    private fun generateNodeImplementation(catalogType: KClass<*>, node: Node, className: KClass<*>): TypeSpec {
+    private fun generateNodeImplementation(
+        catalogType: KClass<*>,
+        node: Node,
+        className: ClassName,
+        kClass: KClass<*>,
+        parentName: String
+    ): TypeSpec {
         val nodeImplementation = TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
 
-        if (className == Leaf::class || className == GroupLeaf::class) {
+        if (kClass == Leaf::class || kClass == GroupLeaf::class) {
             val function = generateFunction(catalogType, node.path)
             nodeImplementation.addFunction(function)
         }
 
         if (node.children.isNotEmpty()) {
-            val properties = generateProperties(catalogType, node.children)
+            val properties = generateProperties(catalogType, node.children, parentName)
             nodeImplementation.addProperties(properties)
         }
 
