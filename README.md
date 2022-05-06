@@ -36,7 +36,7 @@ A Collection of Gradle plugins to simplify and unify project development.
 
 [![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
 [![License](docs/src/assets/images/badge-license.svg)](LICENSE)
-[![CI - Build Latest Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-latest-version.yml)
+[![CI - Build Snapshot Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml)
 
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=coverage)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)

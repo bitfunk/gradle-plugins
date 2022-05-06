@@ -1,4 +1,4 @@
-name: CI - Build Latest Version
+name: CI - Build Snapshot Version
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-latest-version:
+  build-snapshot-version:
 
     runs-on: ubuntu-latest
 

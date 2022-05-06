@@ -34,7 +34,7 @@ python {
     )
 }
 
-val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "develop"
+val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "snapshot"
 
 mkdocs {
     sourcesDir = "./"
@@ -52,18 +52,6 @@ mkdocs {
     extras = mapOf(
         "version" to currentDocVersion
     )
-}
-
-tasks.register<Exec>("gitDisableSigning") {
-    group = "publishing"
-
-    workingDir(".gradle/gh-pages")
-
-    commandLine("git config commit.gpgsign false".split(" "))
-}
-
-tasks.named("gitPublishReset") {
-    dependsOn("gitDisableSigning")
 }
 
 tasks.register<Delete>("clean") {
