@@ -60,7 +60,7 @@ class FormatterPluginTest {
     }
 
     @Test
-    fun `GIVEN project WHEN addPlugins() THEN plugin added`() {
+    fun `GIVEN project WHEN addPlugins() THEN plugins added`() {
         // GIVEN
         val pluginManager: PluginManager = mockk(relaxed = true)
         every { project.pluginManager } returns pluginManager
