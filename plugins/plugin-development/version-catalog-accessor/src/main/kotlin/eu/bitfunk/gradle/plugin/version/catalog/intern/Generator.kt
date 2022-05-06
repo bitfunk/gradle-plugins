@@ -25,6 +25,7 @@ import com.squareup.kotlinpoet.KModifier.OVERRIDE
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.BaseVersionCatalogAccessor
+import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency.Group
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency.GroupLeaf
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency.Leaf
@@ -56,6 +57,10 @@ internal class Generator(
             .addImport(packageName, "${accessorInterface.name}.${NAME_LIBRARIES.capitalize()}")
             .addImport(packageName, "${accessorInterface.name}.${NAME_PLUGINS.capitalize()}")
             .addImport(packageName, "${accessorInterface.name}.${NAME_VERSIONS.capitalize()}")
+            .addImport(
+                VersionCatalogDependency::class.java.packageName,
+                VersionCatalogDependency::class.java.simpleName
+            )
             .addType(accessorInterface)
             .addType(accessorClass)
             .build()
