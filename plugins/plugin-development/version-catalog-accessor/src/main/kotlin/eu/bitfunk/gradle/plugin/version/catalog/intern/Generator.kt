@@ -150,7 +150,7 @@ internal class Generator(
             .addProperty(generateRootProperty(NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(NAME_PLUGINS, catalog.plugins))
-            .addProperties(generateProperties(catalog.libraries::class, libraryNodes, NAME_LIBRARIES))
+            .addProperties(generateProperties(catalog.libraries::class, libraryNodes, NAME_LIBRARIES.capitalize()))
             .build()
     }
 
