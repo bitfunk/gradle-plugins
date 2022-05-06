@@ -54,18 +54,6 @@ mkdocs {
     )
 }
 
-tasks.register<Exec>("gitDisableSigning") {
-    group = "publishing"
-
-    workingDir(".gradle/gh-pages")
-
-    commandLine("git config commit.gpgsign false".split(" "))
-}
-
-tasks.named("gitPublishReset") {
-    dependsOn("gitDisableSigning")
-}
-
 tasks.register<Delete>("clean") {
     delete("build")
 }
