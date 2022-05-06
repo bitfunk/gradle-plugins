@@ -22,16 +22,13 @@ plugins {
 
 group = "eu.bitfunk.gradle.plugin.quality"
 
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.quality:quality-formatter")
-    implementation("eu.bitfunk.gradle.plugin.quality:quality-code-analysis")
+gradlePlugin {
+    plugins.create("qualityCodeAnalysis") {
+        id = "eu.bitfunk.gradle.plugin.quality.code.analysis"
+        implementationClass = "eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPlugin"
+    }
 }
 
-// Delegate to included builds
-tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
-tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
-tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-tasks.maybeCreate("jacocoTestReport").dependsOn(gradle.includedBuilds.map { it.task(":jacocoTestReport") })
-tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
-tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
-tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })
+dependencies {
+    implementation(libs.gradleDetektPlugin)
+}
