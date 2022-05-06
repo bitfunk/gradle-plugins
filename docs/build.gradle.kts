@@ -34,7 +34,7 @@ python {
     )
 }
 
-val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "develop"
+val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "snapshot"
 
 mkdocs {
     sourcesDir = "./"
