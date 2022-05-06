@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.version.catalog.intern
 
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier.OVERRIDE
@@ -46,10 +47,16 @@ internal class Generator(
 ) : Generator {
 
     override fun generate(catalog: Catalog): String {
-        val accessorClass = generateAccessorClass(catalog)
+        val accessorInterface = generateAccessorInterface(catalog)
+        val accessorClass = generateAccessorClass(catalog, accessorInterface)
 
         val file = FileSpec.builder(packageName, generateClassBaseName() + CLASS_NAME_ACCESSOR)
             .indent("    ")
+            .addImport(packageName, "${accessorInterface.name}.${NAME_BUNDLES.capitalize()}")
+            .addImport(packageName, "${accessorInterface.name}.${NAME_LIBRARIES.capitalize()}")
+            .addImport(packageName, "${accessorInterface.name}.${NAME_PLUGINS.capitalize()}")
+            .addImport(packageName, "${accessorInterface.name}.${NAME_VERSIONS.capitalize()}")
+            .addType(accessorInterface)
             .addType(accessorClass)
             .build()
 
@@ -62,7 +69,21 @@ internal class Generator(
             .joinToString(separator = "") { it }
     }
 
-    private fun generateAccessorClass(catalog: Catalog): TypeSpec {
+    private fun generateAccessorInterface(catalog: Catalog): TypeSpec {
+        return TypeSpec.interfaceBuilder(generateClassBaseName() + INTERFACE_NAME_ACCESSOR)
+            .addType(generateInterface(NAME_VERSIONS))
+            .addType(generateInterface(NAME_LIBRARIES))
+            .addType(generateInterface(NAME_BUNDLES))
+            .addType(generateInterface(NAME_PLUGINS))
+            .build()
+    }
+
+    private fun generateInterface(name: String): TypeSpec {
+        return TypeSpec.interfaceBuilder(name.capitalize())
+            .build()
+    }
+
+    private fun generateAccessorClass(catalog: Catalog, accessorInterface: TypeSpec): TypeSpec {
         val libraryNodes = mapper.map(catalog.libraries.items)
 
         return TypeSpec.classBuilder(generateClassBaseName() + CLASS_NAME_ACCESSOR)
@@ -74,20 +95,22 @@ internal class Generator(
             .superclass(BaseVersionCatalogAccessor::class)
             .addSuperclassConstructorParameter("%N", ACCESSOR_PROPERTY_NAME_PROJECT)
             .addSuperclassConstructorParameter("%S", baseName)
-            .addProperty(generateRootProperty(PROPERTY_NAME_VERSIONS, catalog.versions))
-            .addProperty(generateRootProperty(PROPERTY_NAME_BUNDLES, catalog.bundles))
-            .addProperty(generateRootProperty(PROPERTY_NAME_PLUGINS, catalog.plugins))
+            .addSuperinterface(ClassName(packageName, NAME_LIBRARIES.capitalize()))
+            .addProperty(generateRootProperty(NAME_VERSIONS, catalog.versions))
+            .addProperty(generateRootProperty(NAME_BUNDLES, catalog.bundles))
+            .addProperty(generateRootProperty(NAME_PLUGINS, catalog.plugins))
             .addProperties(generateProperties(catalog.libraries::class, libraryNodes))
             .build()
     }
 
     private fun generateRootProperty(name: String, catalogEntry: CatalogEntry): PropertySpec {
-        return PropertySpec.builder(name, Group::class)
-            .initializer("%L", generateRootImplementation(Group::class, catalogEntry))
+        val className = ClassName(packageName, name.capitalize())
+        return PropertySpec.builder(name, className)
+            .initializer("%L", generateRootImplementation(className, catalogEntry))
             .build()
     }
 
-    private fun generateRootImplementation(className: KClass<*>, catalogEntry: CatalogEntry): TypeSpec {
+    private fun generateRootImplementation(className: ClassName, catalogEntry: CatalogEntry): TypeSpec {
         val nodes = mapper.map(catalogEntry.items)
         val properties = generateProperties(catalogEntry::class, nodes)
 
@@ -155,10 +178,12 @@ internal class Generator(
     }
 
     companion object {
-        const val PROPERTY_NAME_VERSIONS = "versions"
-        const val PROPERTY_NAME_BUNDLES = "bundles"
-        const val PROPERTY_NAME_PLUGINS = "plugins"
+        const val NAME_VERSIONS = "versions"
+        const val NAME_LIBRARIES = "libraries"
+        const val NAME_BUNDLES = "bundles"
+        const val NAME_PLUGINS = "plugins"
 
+        const val INTERFACE_NAME_ACCESSOR = "VersionCatalogAccessorContract"
         const val CLASS_NAME_ACCESSOR = "VersionCatalogAccessor"
 
         const val ACCESSOR_PROPERTY_NAME_PROJECT = "project"
