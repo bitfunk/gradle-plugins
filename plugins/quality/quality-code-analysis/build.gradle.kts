@@ -18,6 +18,7 @@
 
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
+    id("eu.bitfunk.gradle.plugin.version.catalog")
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
@@ -31,4 +32,12 @@ gradlePlugin {
 
 dependencies {
     implementation(libs.gradleDetektPlugin)
+}
+
+versionCatalogAccessor {
+    packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
+}
+
+apiValidation {
+    ignoredPackages.add("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
 }

@@ -18,7 +18,10 @@
 
 package eu.bitfunk.gradle.plugin.quality.code.analysis
 
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import io.gitlab.arturbosch.detekt.extensions.DetektReports
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -29,11 +32,16 @@ import io.mockk.verifyOrder
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
+import org.gradle.api.tasks.TaskContainer
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.io.File
 
 class CodeAnalysisPluginTest {
 
@@ -85,21 +93,122 @@ class CodeAnalysisPluginTest {
     fun `GIVEN project WHEN configureAnalysis() THEN analysis configured`() {
         // GIVEN
         val extensionContainer: ExtensionContainer = mockk()
-        val detektExtension: DetektExtension = mockk()
+        val versionCatalogsExtension: VersionCatalogsExtension = mockk()
+        val versionCatalog: VersionCatalog = mockk()
+        val requiredVersion = "requiredVersion"
+        val detektExtension: DetektExtension = mockk(relaxed = true)
+        val rootDir: File = mockk()
+        val projectFile: File = mockk()
+        val projectFiles: ConfigurableFileCollection = mockk()
+        val rootProject: Project = mockk()
+        val rootProjectFiles: ConfigurableFileCollection = mockk()
+        val rootProjectFile: File = mockk()
         every { project.extensions } returns extensionContainer
+        every { extensionContainer.getByType(VersionCatalogsExtension::class.java) } returns versionCatalogsExtension
+        every { versionCatalogsExtension.named(any()) } returns versionCatalog
+        every { versionCatalog.findVersion(any()).get().requiredVersion } returns requiredVersion
         every { extensionContainer.configure(DetektExtension::class.java, any()) } answers {
             secondArg<Action<DetektExtension>>().execute(detektExtension)
         }
+        every { project.rootDir } returns rootDir
+        every { project.file(rootDir) } returns projectFile
+        every { project.files(projectFile) } returns projectFiles
+        every { project.rootProject } returns rootProject
+        every { rootProject.files(any()) } returns rootProjectFiles
+        every { rootProject.file(any()) } returns rootProjectFile
 
         // WHEN
         testSubject.configureAnalysis(project)
 
         // THEN
         verifyAll {
+            extensionContainer.getByType(VersionCatalogsExtension::class.java)
             extensionContainer.configure(DetektExtension::class.java, any())
+
+            detektExtension.toolVersion = requiredVersion
+            detektExtension.parallel = true
+
+            detektExtension.source = projectFiles
+
+            detektExtension.config = rootProjectFiles
+            rootProject.files("config/detekt/config.xml")
+
+            detektExtension.baseline = rootProjectFile
+            rootProject.file("config/detekt/baseline.yml")
         }
 
-        confirmVerified(extensionContainer)
+        confirmVerified(extensionContainer, detektExtension, projectFiles, rootProjectFiles, rootProjectFile)
+    }
+
+    @Test
+    fun `GIVEN project WHEN configureTasks THEN tasks configured`() {
+        // GIVEN
+        val taskContainer: TaskContainer = mockk()
+        val detektTask: Detekt = mockk(relaxed = true)
+        val detektReports: DetektReports = mockk(relaxed = true)
+        val detektCreateBaselineTask: DetektCreateBaselineTask = mockk(relaxed = true)
+        every { project.tasks } returns taskContainer
+        every { taskContainer.withType(Detekt::class.java).configureEach(any()) } answers {
+            firstArg<Action<Detekt>>().execute(detektTask)
+        }
+        every { detektTask.reports(any()) } answers {
+            firstArg<Action<DetektReports>>().execute(detektReports)
+        }
+        every { taskContainer.withType(DetektCreateBaselineTask::class.java).configureEach(any()) } answers {
+            firstArg<Action<DetektCreateBaselineTask>>().execute(detektCreateBaselineTask)
+        }
+
+        // WHEN
+        testSubject.configureAnalysisTasks(project)
+
+        // THEN
+        verifyAll {
+            taskContainer.withType(Detekt::class.java).configureEach(any())
+
+            detektTask.jvmTarget = "11"
+            detektTask.exclude(
+                "**/.gradle/**",
+                "**/.idea/**",
+                "**/build/**",
+                ".github/**",
+                "gradle/**",
+            )
+            detektTask.reports(any())
+            detektReports.xml.required.set(true)
+            detektReports.html.required.set(true)
+
+            taskContainer.withType(DetektCreateBaselineTask::class.java).configureEach(any())
+
+            detektCreateBaselineTask.exclude(
+                "**/.gradle/**",
+                "**/.idea/**",
+                "**/build/**",
+                "**/gradle/wrapper/**",
+                ".github/**",
+                "assets/**",
+                "app-ios/**",
+                "docs/**",
+                "gradle/**",
+                "**/*.adoc",
+                "**/gradlew",
+                "**/LICENSE",
+                "**/.java-version",
+                "**/gradlew.bat",
+                "**/*.png",
+                "**/*.properties",
+                "**/*.pro",
+                "**/*.sq",
+                "**/*.xml",
+                "**/*.yml",
+            )
+        }
+
+        confirmVerified(
+            taskContainer,
+            detektTask,
+            detektReports,
+            detektCreateBaselineTask
+        )
     }
 
     @Test
@@ -107,14 +216,19 @@ class CodeAnalysisPluginTest {
         // GIVEN
         val project: Project = mockk(relaxed = true)
         val spyTestSubject = spyk(testSubject)
+        val versionCatalog: VersionCatalog = mockk()
+        every { project.extensions.getByType(VersionCatalogsExtension::class.java).named(any()) } returns versionCatalog
+        every { versionCatalog.findVersion(any()).get().requiredVersion } returns "requiredVersion"
 
         // WHEN
-        testSubject.apply(project)
+        spyTestSubject.apply(project)
 
         // THEN
         verifyOrder {
-            testSubject.addPlugins(project)
-            testSubject.configureAnalysis(project)
+            spyTestSubject.apply(project)
+            spyTestSubject.addPlugins(project)
+            spyTestSubject.configureAnalysis(project)
+            spyTestSubject.configureAnalysisTasks(project)
         }
 
         confirmVerified(

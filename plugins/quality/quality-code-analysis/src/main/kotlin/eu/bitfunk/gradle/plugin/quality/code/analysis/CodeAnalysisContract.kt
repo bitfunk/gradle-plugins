@@ -25,5 +25,6 @@ public interface CodeAnalysisContract {
     public interface Plugin {
         public fun addPlugins(project: Project)
         public fun configureAnalysis(project: Project)
+        public fun configureAnalysisTasks(project: Project)
     }
 }
