@@ -16,25 +16,3 @@ public final class eu/bitfunk/gradle/plugin/quality/code/analysis/CodeAnalysisPl
 	public fun configureAnalysisTasks (Lorg/gradle/api/Project;)V
 }
 
-public abstract class eu/bitfunk/gradle/plugin/version/catalog/accessor/BaseVersionCatalogAccessor {
-	public fun <init> (Lorg/gradle/api/Project;Ljava/lang/String;)V
-	protected final fun findBundle (Ljava/lang/String;)Ljava/lang/String;
-	protected final fun findLibrary (Ljava/lang/String;)Ljava/lang/String;
-	protected final fun findPlugin (Ljava/lang/String;)Ljava/lang/String;
-	protected final fun findVersion (Ljava/lang/String;)Ljava/lang/String;
-}
-
-public abstract interface class eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency {
-}
-
-public abstract interface class eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency$Group : eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency {
-}
-
-public abstract interface class eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency$GroupLeaf : eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency {
-	public abstract fun get ()Ljava/lang/String;
-}
-
-public abstract interface class eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency$Leaf : eu/bitfunk/gradle/plugin/version/catalog/accessor/VersionCatalogDependency {
-	public abstract fun get ()Ljava/lang/String;
-}
-
