@@ -43,7 +43,7 @@ class VersionInterfaceGeneratorTest {
     @Test
     fun `GIVEN packageName WHEN generate() THEN`() {
         // GIVEN
-        val packageName = "com.example.catalog.generated"
+        val packageName = "com.example.catalog"
         val expected = FileHelper.loadAsString("fixture/VersionCatalogDependency.kt")
 
         // WHEN

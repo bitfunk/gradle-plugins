@@ -21,14 +21,15 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.KModifier.ABSTRACT
 import com.squareup.kotlinpoet.TypeSpec
 
 internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGenerator {
 
     override fun generate(packageName: String): String {
-        val versionInterface = generateVersionInterface(packageName)
+        val versionInterface = generateVersionInterface("$packageName.generated")
 
-        val file = FileSpec.builder(packageName, INTERFACE_NAME)
+        val file = FileSpec.builder("$packageName.generated", INTERFACE_NAME)
             .indent("    ")
             .addType(versionInterface)
             .build()
@@ -49,6 +50,7 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                     .addFunction(
                         FunSpec.builder("get")
                             .returns(String::class)
+                            .addModifiers(ABSTRACT)
                             .build()
                     )
                     .build()
@@ -59,6 +61,7 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                     .addFunction(
                         FunSpec.builder("get")
                             .returns(String::class)
+                            .addModifiers(ABSTRACT)
                             .build()
                     )
                     .build()
