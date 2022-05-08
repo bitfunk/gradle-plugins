@@ -4,10 +4,10 @@ import com.example.catalog.generated.WithPluginsVersionCatalogAccessorContract.B
 import com.example.catalog.generated.WithPluginsVersionCatalogAccessorContract.Libraries
 import com.example.catalog.generated.WithPluginsVersionCatalogAccessorContract.Plugins
 import com.example.catalog.generated.WithPluginsVersionCatalogAccessorContract.Versions
-import eu.bitfunk.gradle.plugin.version.catalog.accessor.BaseVersionCatalogAccessor
-import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency
 import kotlin.String
 import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
 
 public interface WithPluginsVersionCatalogAccessorContract {
     public interface Versions
@@ -35,7 +35,10 @@ public interface WithPluginsVersionCatalogAccessorContract {
 
 public class WithPluginsVersionCatalogAccessor(
     project: Project
-) : BaseVersionCatalogAccessor(project, "with-plugins"), Libraries {
+) : Libraries {
+    private val versionCatalog: VersionCatalog =
+            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-plugins")
+
     public val versions: Versions = object : Versions {
     }
 
@@ -62,6 +65,46 @@ public class WithPluginsVersionCatalogAccessor(
 
                 public override fun `get`(): String = findPlugin("group-example")
             }
+        }
+    }
+
+    private fun findVersion(name: String): String {
+        try {
+            return versionCatalog.findVersion(name).get().requiredVersion
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't find accessor in with-plugins.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findLibrary(name: String): String {
+        try {
+            return versionCatalog.findLibrary(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't find accessor in with-plugins.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findBundle(name: String): String {
+        try {
+            return versionCatalog.findBundle(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't find accessor in with-plugins.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findPlugin(name: String): String {
+        try {
+            return versionCatalog.findPlugin(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't find accessor in with-plugins.versions.toml: $name"
+            )
         }
     }
 }

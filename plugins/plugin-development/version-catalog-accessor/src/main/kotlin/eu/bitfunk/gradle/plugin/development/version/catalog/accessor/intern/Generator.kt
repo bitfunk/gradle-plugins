@@ -98,10 +98,11 @@ internal class Generator(
                 generateInterface(
                     it.name,
                     it.children,
-                    if (it.isLeaf()) ClassName(generatePackage(), "GroupLeaf") else ClassName(
-                        generatePackage(),
-                        "Group"
-                    )
+                    if (it.isLeaf()) {
+                        ClassName(generatePackage(), "VersionCatalogDependency.GroupLeaf")
+                    } else {
+                        ClassName(generatePackage(), "VersionCatalogDependency.Group")
+                    }
                 )
             }
 
@@ -190,7 +191,9 @@ internal class Generator(
                 else it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
             }
             .addStatement("} catch (error: Throwable) {")
-            .addStatement("    throw NoSuchElementException(\"Can't find accessor in empty.versions.toml: \$name\")")
+            .addStatement("    throw NoSuchElementException(")
+            .addStatement("        \"Can't find accessor in $baseName.versions.toml: \$name\"")
+            .addStatement("    )")
             .addStatement("}")
             .build()
     }

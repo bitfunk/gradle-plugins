@@ -38,7 +38,9 @@ public class EmptyVersionCatalogAccessor(
         try {
             return versionCatalog.findVersion(name).get().requiredVersion
         } catch (error: Throwable) {
-            throw NoSuchElementException("Can't find accessor in empty.versions.toml: $name")
+            throw NoSuchElementException(
+                "Can't find accessor in empty.versions.toml: $name"
+            )
         }
     }
 
@@ -46,7 +48,9 @@ public class EmptyVersionCatalogAccessor(
         try {
             return versionCatalog.findLibrary(name).get().get().toString()
         } catch (error: Throwable) {
-            throw NoSuchElementException("Can't find accessor in empty.versions.toml: $name")
+            throw NoSuchElementException(
+                "Can't find accessor in empty.versions.toml: $name"
+            )
         }
     }
 
@@ -54,7 +58,9 @@ public class EmptyVersionCatalogAccessor(
         try {
             return versionCatalog.findBundle(name).get().get().toString()
         } catch (error: Throwable) {
-            throw NoSuchElementException("Can't find accessor in empty.versions.toml: $name")
+            throw NoSuchElementException(
+                "Can't find accessor in empty.versions.toml: $name"
+            )
         }
     }
 
@@ -62,7 +68,9 @@ public class EmptyVersionCatalogAccessor(
         try {
             return versionCatalog.findPlugin(name).get().get().toString()
         } catch (error: Throwable) {
-            throw NoSuchElementException("Can't find accessor in empty.versions.toml: $name")
+            throw NoSuchElementException(
+                "Can't find accessor in empty.versions.toml: $name"
+            )
         }
     }
 }
