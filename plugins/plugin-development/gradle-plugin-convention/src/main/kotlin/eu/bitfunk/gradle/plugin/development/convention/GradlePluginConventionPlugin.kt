@@ -138,6 +138,6 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         const val GRADLE_VERSION = "7.4.2"
         const val JUNIT_5_VERSION = "5.8.2"
         const val MOCKK_VERSION = "1.12.2"
-        const val JACOCO_VERSION = "0.8.7"
+        const val JACOCO_VERSION = "0.8.8"
     }
 }
