@@ -37,7 +37,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.util.Optional
 
-class BaseVersionCatalogAccessorTest {
+class TestVersionCatalogAccessorTest {
 
     private lateinit var versionCatalog: VersionCatalog
 
@@ -55,25 +55,6 @@ class BaseVersionCatalogAccessorTest {
         every { versionCatalogsExtension.named("libs") } returns versionCatalog
 
         accessor = TestVersionCatalogAccessor(project)
-    }
-
-    @Test
-    fun `GIVEN versionCatalogName WHEN initialized THEN use provided catalog name`() {
-        // GIVEN
-        val versionCatalogName = "versionCatalogName"
-        val project: Project = mockk()
-        val extensionContainer: ExtensionContainer = mockk()
-        val versionCatalogsExtension: VersionCatalogsExtension = mockk()
-
-        every { project.extensions } returns extensionContainer
-        every { extensionContainer.getByType(VersionCatalogsExtension::class) } returns versionCatalogsExtension
-        every { versionCatalogsExtension.named(versionCatalogName) } returns versionCatalog
-
-        // WHEN
-        TestVersionCatalogAccessor(project, versionCatalogName)
-
-        // THEN
-        verify { versionCatalogsExtension.named("versionCatalogName") }
     }
 
     @Test
@@ -208,31 +189,5 @@ class BaseVersionCatalogAccessorTest {
             "plugin",
             result
         )
-    }
-
-    private inner class TestVersionCatalogAccessor(
-        project: Project,
-        catalogName: String = DEFAULT_CATALOG_NAME
-    ) : BaseVersionCatalogAccessor(project, catalogName) {
-
-        fun testFindVersion(name: String): String {
-            return findVersion(name)
-        }
-
-        fun testFindLibrary(name: String): String {
-            return findLibrary(name)
-        }
-
-        fun testFindBundle(name: String): String {
-            return findBundle(name)
-        }
-
-        fun testFindPlugin(name: String): String {
-            return findPlugin(name)
-        }
-    }
-
-    private companion object {
-        const val DEFAULT_CATALOG_NAME = "libs"
     }
 }
