@@ -16,28 +16,17 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
-}
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.test
 
-group = "eu.bitfunk.gradle.plugin.quality"
+import java.io.IOException
+import java.nio.charset.StandardCharsets
 
-gradlePlugin {
-    plugins.create("qualityCodeAnalysis") {
-        id = "eu.bitfunk.gradle.plugin.quality.code.analysis"
-        implementationClass = "eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPlugin"
+object FileHelper {
+    private val FILE_ENCODING = StandardCharsets.UTF_8
+
+    @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+    @Throws(IOException::class)
+    fun loadAsString(fileName: String): String {
+        return this::class.java.classLoader.getResource(fileName).readText(FILE_ENCODING)
     }
-}
-
-dependencies {
-    implementation(libs.gradleDetektPlugin)
-}
-
-versionCatalogAccessor {
-    packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated")
 }

@@ -1,9 +1,9 @@
-package com.example.catalog
+package com.example.catalog.generated
 
-import com.example.catalog.WithBundlesVersionCatalogAccessorContract.Bundles
-import com.example.catalog.WithBundlesVersionCatalogAccessorContract.Libraries
-import com.example.catalog.WithBundlesVersionCatalogAccessorContract.Plugins
-import com.example.catalog.WithBundlesVersionCatalogAccessorContract.Versions
+import com.example.catalog.generated.WithBundlesVersionCatalogAccessorContract.Bundles
+import com.example.catalog.generated.WithBundlesVersionCatalogAccessorContract.Libraries
+import com.example.catalog.generated.WithBundlesVersionCatalogAccessorContract.Plugins
+import com.example.catalog.generated.WithBundlesVersionCatalogAccessorContract.Versions
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.BaseVersionCatalogAccessor
 import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency
 import kotlin.String

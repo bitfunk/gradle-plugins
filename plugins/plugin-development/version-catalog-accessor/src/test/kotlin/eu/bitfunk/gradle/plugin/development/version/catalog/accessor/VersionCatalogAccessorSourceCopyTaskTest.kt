@@ -16,28 +16,30 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
-}
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor
 
-group = "eu.bitfunk.gradle.plugin.quality"
+import org.gradle.testfixtures.ProjectBuilder
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
+import java.io.File
 
-gradlePlugin {
-    plugins.create("qualityCodeAnalysis") {
-        id = "eu.bitfunk.gradle.plugin.quality.code.analysis"
-        implementationClass = "eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPlugin"
+class VersionCatalogAccessorSourceCopyTaskTest {
+
+    @Test
+    fun `GIVEN sources WHEN copy() THEN sources in project buildDir`() {
+        // GIVEN
+        val project = ProjectBuilder.builder().build()
+        val task = project.tasks.create("testTask", VersionCatalogAccessorSourceCopyTask::class.java)
+        val output = File("${project.buildDir}/$OUTPUT_PATH")
+
+        // WHEN
+        task.copySource()
+
+        // THEN
+        assertTrue(output.exists())
     }
-}
 
-dependencies {
-    implementation(libs.gradleDetektPlugin)
-}
-
-versionCatalogAccessor {
-    packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated")
+    private companion object {
+        private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
+    }
 }

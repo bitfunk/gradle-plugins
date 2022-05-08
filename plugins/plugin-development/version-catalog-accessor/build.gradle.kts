@@ -24,8 +24,8 @@ group = "eu.bitfunk.gradle.plugin.development"
 
 gradlePlugin {
     plugins.create("gradlePluginVersionCatalog") {
-        id = "eu.bitfunk.gradle.plugin.version.catalog"
-        implementationClass = "eu.bitfunk.gradle.plugin.version.catalog.VersionCatalogAccessorPlugin"
+        id = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor"
+        implementationClass = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPlugin"
     }
 }
 
@@ -35,11 +35,11 @@ dependencies {
 }
 
 apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.version.catalog.accessor")
+    ignoredPackages.add("eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated")
 }
 
 tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/version/catalog/accessor")
+    from("src/main/kotlin/eu/bitfunk/gradle/plugin/development/version/catalog/accessor/generated")
     into("src/main/resources/sources")
 }
 

@@ -16,28 +16,22 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
-}
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
-group = "eu.bitfunk.gradle.plugin.quality"
+import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.InternalContract.CopySourceTask
+import java.io.File
 
-gradlePlugin {
-    plugins.create("qualityCodeAnalysis") {
-        id = "eu.bitfunk.gradle.plugin.quality.code.analysis"
-        implementationClass = "eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPlugin"
+internal class CopySourceTask : CopySourceTask {
+
+    override fun copy(sources: List<String>, outputDir: File) {
+        if (!outputDir.exists()) {
+            outputDir.mkdirs()
+        }
+
+        for (source in sources) {
+            val content = ResourceLoader.loadAsString(source)
+            val outputFileName = source.substringAfterLast("/")
+            File(outputDir, outputFileName).writeText(content)
+        }
     }
-}
-
-dependencies {
-    implementation(libs.gradleDetektPlugin)
-}
-
-versionCatalogAccessor {
-    packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated")
 }

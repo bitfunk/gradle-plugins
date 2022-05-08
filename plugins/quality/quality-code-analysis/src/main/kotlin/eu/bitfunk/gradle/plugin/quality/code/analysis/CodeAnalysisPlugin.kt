@@ -18,7 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.quality.code.analysis
 
-import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.LibsVersionCatalogAccessor
+import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated.LibsVersionCatalogAccessor
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension

@@ -16,28 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
-}
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor
 
-group = "eu.bitfunk.gradle.plugin.quality"
-
-gradlePlugin {
-    plugins.create("qualityCodeAnalysis") {
-        id = "eu.bitfunk.gradle.plugin.quality.code.analysis"
-        implementationClass = "eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPlugin"
-    }
-}
-
-dependencies {
-    implementation(libs.gradleDetektPlugin)
-}
-
-versionCatalogAccessor {
-    packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
-}
-
-apiValidation {
-    ignoredPackages.add("eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated")
-}
+public interface VersionCatalogAccessorPluginExtension : VersionCatalogAccessorContract.Extension
