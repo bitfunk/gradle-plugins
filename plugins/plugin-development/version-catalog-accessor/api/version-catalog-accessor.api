@@ -1,14 +1,12 @@
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract {
 	public static final field Companion Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Companion;
 	public static final field EXTENSION_NAME Ljava/lang/String;
-	public static final field TASK_NAME_COPY_SOURCE Ljava/lang/String;
 	public static final field TASK_NAME_GENERATE Ljava/lang/String;
 	public static final field TASK_NAME_GENERATE_SOURCE Ljava/lang/String;
 }
 
 public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Companion {
 	public static final field EXTENSION_NAME Ljava/lang/String;
-	public static final field TASK_NAME_COPY_SOURCE Ljava/lang/String;
 	public static final field TASK_NAME_GENERATE Ljava/lang/String;
 	public static final field TASK_NAME_GENERATE_SOURCE Ljava/lang/String;
 }
@@ -22,17 +20,12 @@ public abstract interface class eu/bitfunk/gradle/plugin/development/version/cat
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Plugin {
 	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;
 	public abstract fun addGeneratorTask (Lorg/gradle/api/Project;)V
-	public abstract fun addSourceCopyTask (Lorg/gradle/api/Project;)V
 	public abstract fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceGeneratorTask;
 	public abstract fun configureCodeCoverage (Lorg/gradle/api/Project;)V
 	public abstract fun configureSourceSet (Lorg/gradle/api/Project;)V
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Task {
-}
-
-public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Task$CopySource {
-	public abstract fun copySource ()V
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Task$Generator {
@@ -43,7 +36,6 @@ public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor
 	public fun <init> ()V
 	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;
 	public fun addGeneratorTask (Lorg/gradle/api/Project;)V
-	public fun addSourceCopyTask (Lorg/gradle/api/Project;)V
 	public fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceGeneratorTask;
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
@@ -52,11 +44,6 @@ public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorPluginExtension : eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension {
-}
-
-public abstract class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceCopyTask : org/gradle/api/DefaultTask, eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Task$CopySource {
-	public fun <init> ()V
-	public fun copySource ()V
 }
 
 public abstract class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceGeneratorTask : org/gradle/api/DefaultTask, eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Task$Generator {

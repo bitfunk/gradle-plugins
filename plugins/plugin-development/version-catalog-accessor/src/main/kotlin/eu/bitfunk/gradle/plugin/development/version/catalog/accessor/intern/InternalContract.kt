@@ -20,14 +20,9 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Catalog
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Node
-import java.io.File
 import java.io.InputStream
 
 internal interface InternalContract {
-
-    interface CopySourceTask {
-        fun copy(sources: List<String>, outputDir: File)
-    }
 
     interface GeneratorTask {
         fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>)
@@ -47,9 +42,5 @@ internal interface InternalContract {
 
     interface Mapper {
         fun map(items: List<String>): List<Node>
-    }
-
-    interface ResourceLoader {
-        fun loadAsString(filePath: String): String
     }
 }

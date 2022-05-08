@@ -37,12 +37,3 @@ dependencies {
 apiValidation {
     ignoredPackages.add("eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated")
 }
-
-tasks.register<Copy>("copySources") {
-    from("src/main/kotlin/eu/bitfunk/gradle/plugin/development/version/catalog/accessor/generated")
-    into("src/main/resources/sources")
-}
-
-tasks.named("assemble") {
-    dependsOn("copySources")
-}

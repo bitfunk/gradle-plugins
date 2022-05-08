@@ -32,8 +32,6 @@ public interface VersionCatalogAccessorContract {
             extension: Extension
         ): VersionCatalogAccessorSourceGeneratorTask
 
-        public fun addSourceCopyTask(project: Project)
-
         public fun addGeneratorTask(project: Project)
 
         public fun configureSourceSet(project: Project)
@@ -68,16 +66,11 @@ public interface VersionCatalogAccessorContract {
         public interface Generator {
             public fun generate()
         }
-
-        public interface CopySource {
-            public fun copySource()
-        }
     }
 
     public companion object {
         public const val EXTENSION_NAME: String = "versionCatalogAccessor"
         public const val TASK_NAME_GENERATE: String = "generateVersionCatalogAccessor"
         public const val TASK_NAME_GENERATE_SOURCE: String = "generateVersionCatalogAccessorSource"
-        public const val TASK_NAME_COPY_SOURCE: String = "copyVersionCatalogAccessorSource"
     }
 }

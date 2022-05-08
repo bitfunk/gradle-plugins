@@ -19,7 +19,6 @@
 package eu.bitfunk.gradle.plugin.development.version.catalog.accessor
 
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorContract.Companion.EXTENSION_NAME
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorContract.Companion.TASK_NAME_COPY_SOURCE
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorContract.Companion.TASK_NAME_GENERATE
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorContract.Companion.TASK_NAME_GENERATE_SOURCE
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorContract.Extension
@@ -55,7 +54,6 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
 
         val extension = addExtension(target)
         addSourceGeneratorTask(target, extension)
-        addSourceCopyTask(target)
         addGeneratorTask(target)
         configureSourceSet(target)
     }
@@ -85,13 +83,9 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
         return taskProvider.get()
     }
 
-    override fun addSourceCopyTask(project: Project): Unit = with(project) {
-        tasks.register<VersionCatalogAccessorSourceCopyTask>(TASK_NAME_COPY_SOURCE)
-    }
-
     override fun addGeneratorTask(project: Project): Unit = with(project) {
         tasks.register<Task>(TASK_NAME_GENERATE) {
-            dependsOn(TASK_NAME_GENERATE_SOURCE, TASK_NAME_COPY_SOURCE)
+            dependsOn(TASK_NAME_GENERATE_SOURCE)
         }
 
         tasks.named("assemble") {

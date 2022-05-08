@@ -157,26 +157,6 @@ class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    fun `GIVEN project WHEN addCopySourceTask() THEN task is registered and configured`() {
-        // GIVEN
-        val taskContainer: TaskContainer = mockk(relaxed = true)
-        every { project.tasks } returns taskContainer
-
-        // WHEN
-        testSubject.addSourceCopyTask(project)
-
-        // THEN
-        verify {
-            taskContainer.register(
-                "copyVersionCatalogAccessorSource",
-                VersionCatalogAccessorSourceCopyTask::class.java
-            )
-        }
-
-        confirmVerified(taskContainer)
-    }
-
-    @Test
     fun `GIVEN project WHEN addGeneratorTask() THEN task is registered and configured`() {
         // GIVEN
         val taskContainer: TaskContainer = mockk()
@@ -353,7 +333,6 @@ class VersionCatalogAccessorPluginTest {
             spyTestSubject.apply(project)
             spyTestSubject.addExtension(project)
             spyTestSubject.addSourceGeneratorTask(project, any<VersionCatalogAccessorPluginExtension>())
-            spyTestSubject.addSourceCopyTask(project)
             spyTestSubject.addGeneratorTask(project)
             spyTestSubject.configureSourceSet(project)
         }
