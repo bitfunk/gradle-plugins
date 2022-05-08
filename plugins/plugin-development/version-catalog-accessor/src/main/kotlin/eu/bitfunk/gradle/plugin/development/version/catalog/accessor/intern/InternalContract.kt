@@ -37,6 +37,10 @@ internal interface InternalContract {
         fun generate(catalog: Catalog): String
     }
 
+    interface VersionInterfaceGenerator {
+        fun generate(packageName: String): String
+    }
+
     interface Parser {
         fun parse(inputStream: InputStream): Catalog
     }
