@@ -28,6 +28,7 @@ import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
@@ -108,10 +109,13 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
+        val versionCatalogDependencyFile = File("$outputFolder/VersionCatalogDependency.kt")
         val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
         val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
+        assertEquals(3, outputFolder.listFiles()!!.size)
+        assertTrue(versionCatalogDependencyFile.exists())
         assertTrue(libsAccessorFile.exists())
         assertTrue(depsAccessorFile.exists())
     }
@@ -143,10 +147,13 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
+        val versionCatalogDependencyFile = File("$outputFolder/VersionCatalogDependency.kt")
         val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
         val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
+        assertEquals(3, outputFolder.listFiles()!!.size)
+        assertTrue(versionCatalogDependencyFile.exists())
         assertTrue(libsAccessorFile.exists())
         assertTrue(depsAccessorFile.exists())
     }
@@ -178,10 +185,15 @@ class GeneratorTaskTest {
 
         confirmVerified(parser, mapper)
 
+        val versionCatalogDependencyFile = File("$outputFolder/VersionCatalogDependency.kt")
         val libsAccessorFile = File("$outputFolder/LibsVersionCatalogAccessor.kt")
         val depsAccessorFile = File("$outputFolder/DepsVersionCatalogAccessor.kt")
 
         assertTrue(outputFolder.exists())
+        assertEquals(3, outputFolder.listFiles()!!.size)
+        assertTrue(versionCatalogDependencyFile.exists())
+        assertTrue(versionCatalogDependencyFile.readText().contains(packageName))
+        assertTrue(versionCatalogDependencyFile.readText().contains("VersionCatalogDependency"))
         assertTrue(libsAccessorFile.exists())
         assertTrue(libsAccessorFile.readText().contains(packageName))
         assertTrue(libsAccessorFile.readText().contains("LibsVersionCatalogAccessor"))

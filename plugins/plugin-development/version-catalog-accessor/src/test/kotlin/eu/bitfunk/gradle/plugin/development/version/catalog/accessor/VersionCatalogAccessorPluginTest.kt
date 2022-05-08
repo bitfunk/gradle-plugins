@@ -162,8 +162,8 @@ class VersionCatalogAccessorPluginTest {
         val taskContainer: TaskContainer = mockk()
         val generatorTaskProvider: TaskProvider<Task> = mockk()
         val generatorTask: Task = mockk(relaxed = true)
-        val compileTaskProvider: TaskProvider<Task> = mockk()
-        val compileTask: Task = mockk(relaxed = true)
+        val assembleTaskProvider: TaskProvider<Task> = mockk()
+        val assembleTask: Task = mockk(relaxed = true)
         every { project.tasks } returns taskContainer
         every {
             taskContainer.register(
@@ -175,9 +175,9 @@ class VersionCatalogAccessorPluginTest {
             thirdArg<Action<Task>>().execute(generatorTask)
             generatorTaskProvider
         }
-        every { taskContainer.named("compileKotlin", any()) } answers {
-            secondArg<Action<Task>>().execute(compileTask)
-            compileTaskProvider
+        every { taskContainer.named("assemble", any()) } answers {
+            secondArg<Action<Task>>().execute(assembleTask)
+            assembleTaskProvider
         }
 
         // WHEN
@@ -186,21 +186,18 @@ class VersionCatalogAccessorPluginTest {
         // THEN
         verifyAll {
             taskContainer.register("generateVersionCatalogAccessor", Task::class.java, any())
-            generatorTask.dependsOn(
-                "generateVersionCatalogAccessorSource",
-                "copyVersionCatalogAccessorSource",
-            )
+            generatorTask.dependsOn("generateVersionCatalogAccessorSource")
 
-            taskContainer.named("compileKotlin", any())
-            compileTask.dependsOn("generateVersionCatalogAccessor")
+            taskContainer.named("assemble", any())
+            assembleTask.dependsOn("generateVersionCatalogAccessor")
         }
 
         confirmVerified(
             taskContainer,
             generatorTaskProvider,
             generatorTask,
-            compileTaskProvider,
-            compileTask
+            assembleTaskProvider,
+            assembleTask
         )
     }
 
@@ -274,7 +271,7 @@ class VersionCatalogAccessorPluginTest {
             taskContainer.named("test", TestTask::class.java, any())
             testTask.extensions
             testTaskExtensionContainer.configure(JacocoTaskExtension::class.java, any())
-            jacocoTaskExtension.excludes = listOf("**/**VersionCatalogAccessor**")
+            jacocoTaskExtension.excludes = listOf("**/generated/**")
 
             taskContainer.named("jacocoTestReport", JacocoReport::class.java, any())
             jacocoReport.classDirectories.files

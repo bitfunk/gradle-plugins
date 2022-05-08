@@ -32,6 +32,8 @@ internal class GeneratorTask(
     override fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>) {
         if (catalogNames.isEmpty()) return
 
+        val versionInterface = generateVersionInterface(packageName)
+
         val catalogFiles: List<Pair<String, File>> = catalogNames.map {
             Pair(
                 it,
@@ -45,7 +47,13 @@ internal class GeneratorTask(
         val outputDir = File("$projectBuildPath/$OUTPUT_PATH")
         if (!outputDir.exists()) outputDir.mkdirs()
 
+        File("$outputDir/$OUTPUT_INTERFACE_FILE_NAME").writeText(versionInterface)
         generatedAccessors.map { File("$outputDir/${it.first.capitalized()}$OUTPUT_FILE_NAME").writeText(it.second) }
+    }
+
+    private fun generateVersionInterface(packageName: String): String {
+        val generator = VersionInterfaceGenerator()
+        return generator.generate(packageName)
     }
 
     private fun generateVersionCatalogAccessor(packageName: String, name: String, file: File): String {
@@ -65,6 +73,7 @@ internal class GeneratorTask(
     private companion object {
         private const val VERSION_CATALOG_EXTENSION = ".versions.toml"
 
+        private const val OUTPUT_INTERFACE_FILE_NAME = "VersionCatalogDependency.kt"
         private const val OUTPUT_FILE_NAME = "VersionCatalogAccessor.kt"
         private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
     }
