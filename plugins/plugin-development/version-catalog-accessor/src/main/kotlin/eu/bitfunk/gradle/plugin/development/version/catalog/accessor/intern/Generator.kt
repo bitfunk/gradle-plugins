@@ -21,14 +21,11 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.KModifier.OVERRIDE
+import com.squareup.kotlinpoet.KModifier.PRIVATE
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.BaseVersionCatalogAccessor
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.VersionCatalogDependency
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.VersionCatalogDependency.Group
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.VersionCatalogDependency.GroupLeaf
-import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.VersionCatalogDependency.Leaf
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.InternalContract.Generator
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.InternalContract.Mapper
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Catalog
@@ -39,6 +36,8 @@ import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.mode
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.CatalogEntry.Versions
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Node
 import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import kotlin.reflect.KClass
 
 internal class Generator(
@@ -62,8 +61,8 @@ internal class Generator(
             .addImport(generatePackage(), "${accessorInterface.name}.${NAME_PLUGINS.capitalize()}")
             .addImport(generatePackage(), "${accessorInterface.name}.${NAME_VERSIONS.capitalize()}")
             .addImport(
-                VersionCatalogDependency::class.java.packageName,
-                VersionCatalogDependency::class.java.simpleName
+                VersionCatalogsExtension::class.java.packageName,
+                VersionCatalogsExtension::class.java.simpleName
             )
             .addType(accessorInterface)
             .addType(accessorClass)
@@ -92,11 +91,18 @@ internal class Generator(
             .build()
     }
 
-    private fun generateInterface(name: String, nodes: List<Node>, kClass: KClass<*>?): TypeSpec {
+    private fun generateInterface(name: String, nodes: List<Node>, kClass: ClassName?): TypeSpec {
         val interfaces = nodes
             .filter { (it.isGroup()) }
             .map {
-                generateInterface(it.name, it.children, if (it.isLeaf()) GroupLeaf::class else Group::class)
+                generateInterface(
+                    it.name,
+                    it.children,
+                    if (it.isLeaf()) ClassName(generatePackage(), "GroupLeaf") else ClassName(
+                        generatePackage(),
+                        "Group"
+                    )
+                )
             }
 
         return TypeSpec.interfaceBuilder(name.capitalize())
@@ -152,14 +158,40 @@ internal class Generator(
                     .addParameter(ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
                     .build()
             )
-            .superclass(BaseVersionCatalogAccessor::class)
-            .addSuperclassConstructorParameter("%N", ACCESSOR_PROPERTY_NAME_PROJECT)
-            .addSuperclassConstructorParameter("%S", baseName)
             .addSuperinterface(ClassName(generatePackage(), NAME_LIBRARIES.capitalize()))
+            .addProperty(
+                PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
+                    .initializer(
+                        "%L",
+                        "project.extensions.getByType(VersionCatalogsExtension::class.java).named(\"$baseName\")"
+                    )
+                    .addModifiers(KModifier.PRIVATE)
+                    .build()
+            )
             .addProperty(generateRootProperty(NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(NAME_BUNDLES, catalog.bundles))
             .addProperty(generateRootProperty(NAME_PLUGINS, catalog.plugins))
             .addProperties(generateProperties(catalog.libraries::class, libraryNodes, NAME_LIBRARIES.capitalize()))
+            .addFunction(generateCatalogFindFunction("findVersion"))
+            .addFunction(generateCatalogFindFunction("findLibrary"))
+            .addFunction(generateCatalogFindFunction("findBundle"))
+            .addFunction(generateCatalogFindFunction("findPlugin"))
+            .build()
+    }
+
+    private fun generateCatalogFindFunction(name: String): FunSpec {
+        return FunSpec.builder(name)
+            .addModifiers(PRIVATE)
+            .addParameter("name", String::class)
+            .returns(String::class)
+            .addStatement("try {")
+            .also {
+                if ("findVersion" == name) it.addStatement("    return versionCatalog.$name(name).get().requiredVersion")
+                else it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
+            }
+            .addStatement("} catch (error: Throwable) {")
+            .addStatement("    throw NoSuchElementException(\"Can't find accessor in empty.versions.toml: \$name\")")
+            .addStatement("}")
             .build()
     }
 
@@ -194,7 +226,7 @@ internal class Generator(
                     catalogType,
                     node,
                     ClassName(generatePackage(), name),
-                    GroupLeaf::class,
+                    ClassName(generatePackage(), "GroupLeaf"),
                     name
                 )
             } else if (node.isLeaf()) {
@@ -202,7 +234,7 @@ internal class Generator(
                     catalogType,
                     node,
                     ClassName(generatePackage(), "VersionCatalogDependency.Leaf"),
-                    Leaf::class,
+                    ClassName(generatePackage(), "Leaf"),
                     parentName
                 )
             } else {
@@ -211,7 +243,7 @@ internal class Generator(
                     catalogType,
                     node,
                     ClassName(generatePackage(), name),
-                    Group::class,
+                    ClassName(generatePackage(), "Group"),
                     name
                 )
             }
@@ -226,7 +258,7 @@ internal class Generator(
         catalogType: KClass<*>,
         node: Node,
         className: ClassName,
-        kClass: KClass<*>,
+        kClass: ClassName,
         parentName: String
     ): PropertySpec {
         return PropertySpec.builder(node.name, className)
@@ -239,13 +271,13 @@ internal class Generator(
         catalogType: KClass<*>,
         node: Node,
         className: ClassName,
-        kClass: KClass<*>,
+        kClass: ClassName,
         parentName: String
     ): TypeSpec {
         val nodeImplementation = TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)
 
-        if (kClass == Leaf::class || kClass == GroupLeaf::class) {
+        if (kClass.simpleName == "Leaf" || kClass.simpleName == "GroupLeaf") {
             val function = generateFunction(catalogType, node.path)
             nodeImplementation.addFunction(function)
         }
