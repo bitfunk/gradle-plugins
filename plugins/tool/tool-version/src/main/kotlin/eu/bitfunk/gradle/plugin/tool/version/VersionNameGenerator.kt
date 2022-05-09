@@ -23,7 +23,6 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.provideDelegate
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.Date
 import java.util.Locale
 

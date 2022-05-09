@@ -23,8 +23,8 @@ import io.mockk.every
 import io.mockk.mockk
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtraPropertiesExtension
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -45,7 +45,7 @@ internal class VersionNameGeneratorTest {
 
     @Test
     fun plugin_implements_contract() {
-        Assertions.assertInstanceOf(
+        assertInstanceOf(
             VersionContract.Generator::class.java,
             testSubject
         )
