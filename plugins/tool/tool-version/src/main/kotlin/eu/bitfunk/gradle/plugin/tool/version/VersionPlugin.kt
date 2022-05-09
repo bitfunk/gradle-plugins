@@ -16,8 +16,13 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "plugins"
+package eu.bitfunk.gradle.plugin.tool.version
 
-includeBuild("plugin-development")
-includeBuild("quality")
-includeBuild("tool")
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+public class VersionPlugin : Plugin<Project> {
+
+    override fun apply(target: Project) {
+    }
+}

@@ -16,8 +16,18 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "plugins"
+plugins {
+    id("eu.bitfunk.gradle.plugin.development.convention")
+}
 
-includeBuild("plugin-development")
-includeBuild("quality")
-includeBuild("tool")
+group = "eu.bitfunk.gradle.plugin.tool"
+
+gradlePlugin {
+    plugins.create("toolVersion") {
+        id = "eu.bitfunk.gradle.plugin.tool.version"
+        implementationClass = "eu.bitfunk.gradle.plugin.tool.version.VersionPlugin"
+    }
+}
+
+dependencies {
+}
