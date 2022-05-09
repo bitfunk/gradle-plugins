@@ -73,7 +73,7 @@ public class WithBundlesVersionCatalogAccessor(
             return versionCatalog.findVersion(name).get().requiredVersion
         } catch (error: Throwable) {
             throw NoSuchElementException(
-                "Can't find accessor in with-bundles.versions.toml: $name"
+                "Can't findVersion accessor in with-bundles.versions.toml: $name"
             )
         }
     }
@@ -83,7 +83,7 @@ public class WithBundlesVersionCatalogAccessor(
             return versionCatalog.findLibrary(name).get().get().toString()
         } catch (error: Throwable) {
             throw NoSuchElementException(
-                "Can't find accessor in with-bundles.versions.toml: $name"
+                "Can't findLibrary accessor in with-bundles.versions.toml: $name"
             )
         }
     }
@@ -93,7 +93,7 @@ public class WithBundlesVersionCatalogAccessor(
             return versionCatalog.findBundle(name).get().get().toString()
         } catch (error: Throwable) {
             throw NoSuchElementException(
-                "Can't find accessor in with-bundles.versions.toml: $name"
+                "Can't findBundle accessor in with-bundles.versions.toml: $name"
             )
         }
     }
@@ -103,7 +103,7 @@ public class WithBundlesVersionCatalogAccessor(
             return versionCatalog.findPlugin(name).get().get().toString()
         } catch (error: Throwable) {
             throw NoSuchElementException(
-                "Can't find accessor in with-bundles.versions.toml: $name"
+                "Can't findPlugin accessor in with-bundles.versions.toml: $name"
             )
         }
     }

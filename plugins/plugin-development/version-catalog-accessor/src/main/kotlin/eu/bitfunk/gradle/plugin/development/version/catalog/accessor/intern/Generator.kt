@@ -164,7 +164,7 @@ internal class Generator(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
                     .initializer(
                         "%L",
-                        "project.extensions.getByType(VersionCatalogsExtension::class.java).named(\"$baseName\")"
+                        "project.extensions.getByType(VersionCatalogsExtension::class.java).named(\"${baseName.toLowerCase()}\")"
                     )
                     .addModifiers(KModifier.PRIVATE)
                     .build()
@@ -192,7 +192,7 @@ internal class Generator(
             }
             .addStatement("} catch (error: Throwable) {")
             .addStatement("    throw NoSuchElementException(")
-            .addStatement("        \"Can't find accessor in $baseName.versions.toml: \$name\"")
+            .addStatement("        \"Can't $name accessor in $baseName.versions.toml: \$name\"")
             .addStatement("    )")
             .addStatement("}")
             .build()

@@ -4,10 +4,10 @@ import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.T
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorContract.Libraries
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorContract.Plugins
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorContract.Versions
-import kotlin.String
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import kotlin.String
 
 public interface TestVersionCatalogAccessorContract {
     public interface Versions

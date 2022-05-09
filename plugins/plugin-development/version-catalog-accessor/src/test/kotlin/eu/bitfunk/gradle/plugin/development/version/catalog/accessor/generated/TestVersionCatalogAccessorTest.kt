@@ -20,7 +20,6 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated
 
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ExternalModuleDependencyBundle
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
