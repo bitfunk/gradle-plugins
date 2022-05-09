@@ -470,6 +470,7 @@ class GradlePluginConventionPluginTest {
             spyTestSubject.configureDependencies(project)
             spyTestSubject.configureTests(project)
             spyTestSubject.configureTestCoverage(project)
+            spyTestSubject.configureTestCoverageTasks(project)
             spyTestSubject.configureGradleWrapper(project)
         }
 

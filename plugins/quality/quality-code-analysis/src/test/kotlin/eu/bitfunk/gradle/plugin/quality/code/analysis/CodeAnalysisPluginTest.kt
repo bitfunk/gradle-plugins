@@ -141,7 +141,7 @@ class CodeAnalysisPluginTest {
     }
 
     @Test
-    fun `GIVEN project WHEN configureTasks THEN tasks configured`() {
+    fun `GIVEN project WHEN configureTasks() THEN tasks configured`() {
         // GIVEN
         val taskContainer: TaskContainer = mockk()
         val detektTask: Detekt = mockk(relaxed = true)
@@ -166,14 +166,14 @@ class CodeAnalysisPluginTest {
             taskContainer.withType(Detekt::class.java).configureEach(any())
 
             detektTask.jvmTarget = "11"
-            detektTask.exclude(DETEKT_EXCLUDES)
+            detektTask.exclude(*DETEKT_EXCLUDES)
             detektTask.reports(any())
             detektReports.xml.required.set(true)
             detektReports.html.required.set(true)
 
             taskContainer.withType(DetektCreateBaselineTask::class.java).configureEach(any())
 
-            detektCreateBaselineTask.exclude(DETEKT_BASELINE_EXCLUDED)
+            detektCreateBaselineTask.exclude(*DETEKT_BASELINE_EXCLUDED)
         }
 
         confirmVerified(
@@ -210,7 +210,7 @@ class CodeAnalysisPluginTest {
     }
 
     private companion object {
-        val DETEKT_EXCLUDES = listOf(
+        val DETEKT_EXCLUDES = arrayOf(
             "**/.gradle/**",
             "**/.idea/**",
             "**/build/**",
@@ -218,7 +218,7 @@ class CodeAnalysisPluginTest {
             "gradle/**",
         )
 
-        val DETEKT_BASELINE_EXCLUDED = listOf(
+        val DETEKT_BASELINE_EXCLUDED = arrayOf(
             "**/.gradle/**",
             "**/.idea/**",
             "**/build/**",

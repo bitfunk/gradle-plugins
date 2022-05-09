@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
+import com.squareup.kotlinpoet.TypeSpec
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Catalog
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Node
 import java.io.InputStream
@@ -30,6 +31,14 @@ internal interface InternalContract {
 
     interface Generator {
         fun generate(catalog: Catalog): String
+
+        interface VersionCatalogAccessorInterface {
+            fun generate(catalog: Catalog): TypeSpec
+        }
+
+        interface VersionCatalogAccessorClass {
+            fun generate(catalog: Catalog): TypeSpec
+        }
     }
 
     interface VersionInterfaceGenerator {
