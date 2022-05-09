@@ -24,6 +24,7 @@ group = "eu.bitfunk.gradle.plugin.quality"
 
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.quality:quality-formatter")
+    implementation("eu.bitfunk.gradle.plugin.quality:quality-code-analysis")
 }
 
 // Delegate to included builds

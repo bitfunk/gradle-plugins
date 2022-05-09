@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>MagicNumber:build.gradle.kts$0.95</ID>
+    <ID>SwallowedException:TestVersionCatalogAccessor.kt$TestVersionCatalogAccessor$error: Throwable</ID>
+  </CurrentIssues>
+</SmellBaseline>

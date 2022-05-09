@@ -26,6 +26,7 @@ buildscript {
 
 plugins {
     id("eu.bitfunk.gradle.plugin.quality.formatter")
+    id("eu.bitfunk.gradle.plugin.quality.code.analysis")
 
     id("org.sonarqube") version "3.3"
 }

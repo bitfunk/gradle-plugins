@@ -6,6 +6,7 @@ This plugin generates an accessor to expose the [version catalog (toml)](https:/
 
 - Gradle 7.2+
 - Can only be applied to Gradle plugins with the java-gradle-plugin available.
+- Kotlin DSL
 - A version catalog available and enabled (default: `libs.versions.toml`)
 
 ## Installation
@@ -30,7 +31,7 @@ and
 
 ```kotlin
 plugins {
-    id("eu.bitfunk.gradle.version.catalog")
+    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
 }
 ```
 

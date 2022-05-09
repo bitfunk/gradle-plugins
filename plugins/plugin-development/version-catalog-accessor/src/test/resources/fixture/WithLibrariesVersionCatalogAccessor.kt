@@ -1,38 +1,111 @@
-package com.example.catalog
+package com.example.catalog.generated
 
-import eu.bitfunk.gradle.plugin.version.catalog.accessor.BaseVersionCatalogAccessor
-import eu.bitfunk.gradle.plugin.version.catalog.accessor.VersionCatalogDependency
+import com.example.catalog.generated.WithLibrariesVersionCatalogAccessorContract.Bundles
+import com.example.catalog.generated.WithLibrariesVersionCatalogAccessorContract.Libraries
+import com.example.catalog.generated.WithLibrariesVersionCatalogAccessorContract.Plugins
+import com.example.catalog.generated.WithLibrariesVersionCatalogAccessorContract.Versions
 import kotlin.String
 import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
+
+public interface WithLibrariesVersionCatalogAccessorContract {
+    public interface Versions
+
+    public interface Libraries {
+        public val example: VersionCatalogDependency.Leaf
+
+        public val group: Group
+
+        public interface Group : VersionCatalogDependency.Group {
+            public val example: Example
+
+            public interface Example : VersionCatalogDependency.GroupLeaf {
+                public val one: VersionCatalogDependency.Leaf
+
+                public val two: VersionCatalogDependency.Leaf
+            }
+        }
+    }
+
+    public interface Bundles
+
+    public interface Plugins
+}
 
 public class WithLibrariesVersionCatalogAccessor(
     project: Project
-) : BaseVersionCatalogAccessor(project, "with-libraries") {
-    public val versions: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
+) : Libraries {
+    private val versionCatalog: VersionCatalog =
+            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-libraries")
+
+    public val versions: Versions = object : Versions {
     }
 
-    public val bundles: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
+    public val bundles: Bundles = object : Bundles {
     }
 
-    public val plugins: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
+    public val plugins: Plugins = object : Plugins {
     }
 
-    public val example: VersionCatalogDependency.Leaf = object : VersionCatalogDependency.Leaf {
+    public override val example: VersionCatalogDependency.Leaf = object :
+            VersionCatalogDependency.Leaf {
         public override fun `get`(): String = findLibrary("example")
     }
 
-    public val group: VersionCatalogDependency.Group = object : VersionCatalogDependency.Group {
-        public val example: VersionCatalogDependency.GroupLeaf = object :
-                VersionCatalogDependency.GroupLeaf {
-            public val one: VersionCatalogDependency.Leaf = object : VersionCatalogDependency.Leaf {
+    public override val group: Libraries.Group = object : Libraries.Group {
+        public override val example: Libraries.Group.Example = object : Libraries.Group.Example {
+            public override val one: VersionCatalogDependency.Leaf = object :
+                    VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findLibrary("group-example-one")
             }
 
-            public val two: VersionCatalogDependency.Leaf = object : VersionCatalogDependency.Leaf {
+            public override val two: VersionCatalogDependency.Leaf = object :
+                    VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findLibrary("group-example-two")
             }
 
             public override fun `get`(): String = findLibrary("group-example")
+        }
+    }
+
+    private fun findVersion(name: String): String {
+        try {
+            return versionCatalog.findVersion(name).get().requiredVersion
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't findVersion accessor in with-libraries.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findLibrary(name: String): String {
+        try {
+            return versionCatalog.findLibrary(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't findLibrary accessor in with-libraries.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findBundle(name: String): String {
+        try {
+            return versionCatalog.findBundle(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't findBundle accessor in with-libraries.versions.toml: $name"
+            )
+        }
+    }
+
+    private fun findPlugin(name: String): String {
+        try {
+            return versionCatalog.findPlugin(name).get().get().toString()
+        } catch (error: Throwable) {
+            throw NoSuchElementException(
+                "Can't findPlugin accessor in with-libraries.versions.toml: $name"
+            )
         }
     }
 }

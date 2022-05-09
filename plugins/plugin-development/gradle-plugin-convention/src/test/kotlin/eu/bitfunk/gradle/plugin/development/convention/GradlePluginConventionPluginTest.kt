@@ -251,9 +251,29 @@ class GradlePluginConventionPluginTest {
         // GIVEN
         val extensionContainer: ExtensionContainer = mockk()
         val jacocoPluginExtension: JacocoPluginExtension = mockk(relaxed = true)
-        configureGivenJacocoExtension(extensionContainer, jacocoPluginExtension)
+        every { project.extensions } returns extensionContainer
+        every { extensionContainer.configure(JacocoPluginExtension::class.java, any()) } answers {
+            secondArg<Action<JacocoPluginExtension>>().execute(jacocoPluginExtension)
+        }
 
+        // WHEN
+        testSubject.configureTestCoverage(project)
+
+        // THEN
+        verifyAll {
+            extensionContainer.configure(JacocoPluginExtension::class.java, any())
+
+            jacocoPluginExtension.toolVersion = "0.8.8"
+        }
+
+        confirmVerified(extensionContainer, jacocoPluginExtension)
+    }
+
+    @Test
+    fun `GIVEN project WHEN configureTestCoverageTasks() THEN tasks configured`() {
+        // GIVEN
         val taskContainer: TaskContainer = mockk()
+        every { project.tasks } returns taskContainer
         val taskDependencyProvider: TaskProvider<Task> = mockk()
 
         val jacocoReportTaskProvider: TaskProvider<JacocoReport> = mockk()
@@ -291,14 +311,10 @@ class GradlePluginConventionPluginTest {
         configureGivenCheckTask(taskContainer, checkTaskProvider, checkTask, taskDependencyProvider)
 
         // WHEN
-        testSubject.configureTestCoverage(project)
+        testSubject.configureTestCoverageTasks(project)
 
         // THEN
         verifyAll {
-            extensionContainer.configure(JacocoPluginExtension::class.java, any())
-
-            jacocoPluginExtension.toolVersion = "0.8.7"
-
             taskContainer.named("jacocoTestReport", JacocoReport::class.java, any())
             taskContainer.named("test")
             jacocoReport.dependsOn(taskDependencyProvider)
@@ -322,8 +338,6 @@ class GradlePluginConventionPluginTest {
         }
 
         confirmVerified(
-            extensionContainer,
-            jacocoPluginExtension,
             taskContainer,
             taskDependencyProvider,
             jacocoReportTaskProvider,
@@ -341,16 +355,6 @@ class GradlePluginConventionPluginTest {
         )
     }
 
-    private fun configureGivenJacocoExtension(
-        extensionContainer: ExtensionContainer,
-        jacocoPluginExtension: JacocoPluginExtension
-    ) {
-        every { project.extensions } returns extensionContainer
-        every { extensionContainer.configure(JacocoPluginExtension::class.java, any()) } answers {
-            secondArg<Action<JacocoPluginExtension>>().execute(jacocoPluginExtension)
-        }
-    }
-
     private fun configureGivenJacocoTestReportTask(
         taskContainer: TaskContainer,
         jacocoReportTaskProvider: TaskProvider<JacocoReport>,
@@ -360,7 +364,6 @@ class GradlePluginConventionPluginTest {
         htmlBooleanProperty: Property<Boolean>,
         xmlBooleanProperty: Property<Boolean>
     ) {
-        every { project.tasks } returns taskContainer
         every { taskContainer.named("jacocoTestReport", JacocoReport::class.java, any()) } answers {
             thirdArg<Action<JacocoReport>>().execute(jacocoReport)
             jacocoReportTaskProvider
@@ -467,6 +470,7 @@ class GradlePluginConventionPluginTest {
             spyTestSubject.configureDependencies(project)
             spyTestSubject.configureTests(project)
             spyTestSubject.configureTestCoverage(project)
+            spyTestSubject.configureTestCoverageTasks(project)
             spyTestSubject.configureGradleWrapper(project)
         }
 

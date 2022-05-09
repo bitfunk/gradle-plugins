@@ -60,7 +60,7 @@ class FormatterPluginTest {
     }
 
     @Test
-    fun `GIVEN project WHEN addPlugins() THEN plugin added`() {
+    fun `GIVEN project WHEN addPlugins() THEN plugins added`() {
         // GIVEN
         val pluginManager: PluginManager = mockk(relaxed = true)
         every { project.pluginManager } returns pluginManager
@@ -171,13 +171,14 @@ class FormatterPluginTest {
         val spyTestSubject = spyk(testSubject)
 
         // WHEN
-        testSubject.apply(project)
+        spyTestSubject.apply(project)
 
         // THEN
         verifyOrder {
-            testSubject.addPlugins(project)
-            testSubject.addRepository(project)
-            testSubject.configureFormatter(project)
+            spyTestSubject.apply(project)
+            spyTestSubject.addPlugins(project)
+            spyTestSubject.addRepository(project)
+            spyTestSubject.configureFormatter(project)
         }
 
         confirmVerified(

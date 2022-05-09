@@ -29,6 +29,7 @@ python {
         "mkdocs-material:8.2.1",
         "mkdocs-minify-plugin:0.5.0",
         "mkdocs-redirects:1.0.3",
+        "mkdocs-minify-plugin:0.5.0",
         "pygments:2.11.2",
         "pymdown-extensions:9.2"
     )

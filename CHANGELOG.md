@@ -22,3 +22,4 @@ Initial release
 - Add Formatter Plugin - using Spotless and ktlint
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
+- Add CodeAnalysis Plugin - using Detekt

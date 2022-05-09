@@ -14,7 +14,6 @@ docs_dir: src
 extra_css:
   - assets/css/extra.css
 
-# Meterial theme
 theme:
   name: 'material'
   font: false
@@ -49,6 +48,10 @@ plugins:
   - kroki
   - include-markdown
   - markdownextradata
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
 
 extra:
 #  palette:

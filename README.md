@@ -17,9 +17,10 @@
 
 <!--plugin-links-->
 
-[Gradle Plugin Convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
-[VersionCatalog Accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
-[Formatter]: docs/src/plugins/quality/formatter/index.md
+[gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
+[versioncatalog accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
+[code analysis]: docs/src/plugins/quality/code-analysis/index.md
+[formatter]: docs/src/plugins/quality/formatter/index.md
 
 <!--github-links-->
 
@@ -51,6 +52,7 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Quality
 
+- [Code Analysis] - a source code analysis
 - [Formatter] - a source code formatter applying bitfunk code style
 
 #### Plugin development
