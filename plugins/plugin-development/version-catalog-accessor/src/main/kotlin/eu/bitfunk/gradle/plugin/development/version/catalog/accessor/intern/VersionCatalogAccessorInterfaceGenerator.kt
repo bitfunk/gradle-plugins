@@ -73,12 +73,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
         val properties = mutableListOf<PropertySpec>()
 
         for (node in nodes) {
-            val property = if (node.isGroup() && node.isLeaf()) {
-                generateInterfaceNodeProperty(
-                    node,
-                    ClassName("", node.name.capitalize()),
-                )
-            } else if (node.isLeaf()) {
+            val property = if (!node.isGroup() && node.isLeaf()) {
                 generateInterfaceNodeProperty(
                     node,
                     ClassName("", "VersionCatalogDependency.Leaf"),
