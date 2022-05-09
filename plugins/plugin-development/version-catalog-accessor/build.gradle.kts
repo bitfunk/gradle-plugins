@@ -30,8 +30,8 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.squareup:kotlinpoet:1.10.2")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0")
+    implementation(libs.kotlinPoet)
+    implementation(libs.jacksonToml)
 }
 
 apiValidation {
