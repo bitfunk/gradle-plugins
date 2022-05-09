@@ -25,7 +25,8 @@ group = "eu.bitfunk.gradle.plugin.development"
 gradlePlugin {
     plugins.create("gradlePluginVersionCatalog") {
         id = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor"
-        implementationClass = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPlugin"
+        implementationClass =
+            "eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPlugin"
     }
 }
 

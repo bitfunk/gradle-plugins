@@ -116,7 +116,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             violationRules {
                 rule {
                     limit {
-                        minimum = BigDecimal(0.95)
+                        minimum = BigDecimal(JACOCO_THRESHOLD)
                     }
                 }
             }
@@ -139,5 +139,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         const val JUNIT_5_VERSION = "5.8.2"
         const val MOCKK_VERSION = "1.12.2"
         const val JACOCO_VERSION = "0.8.8"
+
+        const val JACOCO_THRESHOLD = 0.95
     }
 }

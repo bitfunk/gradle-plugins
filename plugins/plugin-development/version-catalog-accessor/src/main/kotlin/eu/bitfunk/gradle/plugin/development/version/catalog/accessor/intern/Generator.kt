@@ -164,7 +164,8 @@ internal class Generator(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
                     .initializer(
                         "%L",
-                        "project.extensions.getByType(VersionCatalogsExtension::class.java).named(\"${baseName.toLowerCase()}\")"
+                        "project.extensions.getByType(VersionCatalogsExtension::class.java)"
+                            + ".named(\"${baseName.toLowerCase()}\")"
                     )
                     .addModifiers(KModifier.PRIVATE)
                     .build()
@@ -187,8 +188,10 @@ internal class Generator(
             .returns(String::class)
             .addStatement("try {")
             .also {
-                if ("findVersion" == name) it.addStatement("    return versionCatalog.$name(name).get().requiredVersion")
-                else it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
+                if ("findVersion" == name)
+                    it.addStatement("    return versionCatalog.$name(name).get().requiredVersion")
+                else
+                    it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
             }
             .addStatement("} catch (error: Throwable) {")
             .addStatement("    throw NoSuchElementException(")

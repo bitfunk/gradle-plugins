@@ -166,41 +166,14 @@ class CodeAnalysisPluginTest {
             taskContainer.withType(Detekt::class.java).configureEach(any())
 
             detektTask.jvmTarget = "11"
-            detektTask.exclude(
-                "**/.gradle/**",
-                "**/.idea/**",
-                "**/build/**",
-                ".github/**",
-                "gradle/**",
-            )
+            detektTask.exclude(DETEKT_EXCLUDES)
             detektTask.reports(any())
             detektReports.xml.required.set(true)
             detektReports.html.required.set(true)
 
             taskContainer.withType(DetektCreateBaselineTask::class.java).configureEach(any())
 
-            detektCreateBaselineTask.exclude(
-                "**/.gradle/**",
-                "**/.idea/**",
-                "**/build/**",
-                "**/gradle/wrapper/**",
-                ".github/**",
-                "assets/**",
-                "app-ios/**",
-                "docs/**",
-                "gradle/**",
-                "**/*.adoc",
-                "**/gradlew",
-                "**/LICENSE",
-                "**/.java-version",
-                "**/gradlew.bat",
-                "**/*.png",
-                "**/*.properties",
-                "**/*.pro",
-                "**/*.sq",
-                "**/*.xml",
-                "**/*.yml",
-            )
+            detektCreateBaselineTask.exclude(DETEKT_BASELINE_EXCLUDED)
         }
 
         confirmVerified(
@@ -233,6 +206,39 @@ class CodeAnalysisPluginTest {
 
         confirmVerified(
             spyTestSubject
+        )
+    }
+
+    private companion object {
+        val DETEKT_EXCLUDES = listOf(
+            "**/.gradle/**",
+            "**/.idea/**",
+            "**/build/**",
+            ".github/**",
+            "gradle/**",
+        )
+
+        val DETEKT_BASELINE_EXCLUDED = listOf(
+            "**/.gradle/**",
+            "**/.idea/**",
+            "**/build/**",
+            "**/gradle/wrapper/**",
+            ".github/**",
+            "assets/**",
+            "app-ios/**",
+            "docs/**",
+            "gradle/**",
+            "**/*.adoc",
+            "**/gradlew",
+            "**/LICENSE",
+            "**/.java-version",
+            "**/gradlew.bat",
+            "**/*.png",
+            "**/*.properties",
+            "**/*.pro",
+            "**/*.sq",
+            "**/*.xml",
+            "**/*.yml",
         )
     }
 }
