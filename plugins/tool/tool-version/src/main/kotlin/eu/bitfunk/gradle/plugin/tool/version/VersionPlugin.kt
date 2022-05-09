@@ -22,25 +22,12 @@ import eu.bitfunk.gradle.plugin.tool.version.VersionContract.Generator
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.extra
+import java.util.Date
 
-public class VersionPlugin() : Plugin<Project>, VersionContract.Plugin {
-
-    public constructor(generator: Generator) : this() {
-        _generator = generator
-    }
-
-    private var _generator: Generator? = null
-
-    private fun getGenerator(project: Project): Generator {
-        return if (_generator == null)
-            VersionNameGenerator(project)
-        else {
-            _generator as Generator
-        }
-    }
+public class VersionPlugin : Plugin<Project>, VersionContract.Plugin {
 
     override fun apply(target: Project) {
-        val generator = getGenerator(target)
+        val generator = VersionNameGenerator(target)
 
         addPlugins(target)
         configureVersion(target, generator)
@@ -55,7 +42,7 @@ public class VersionPlugin() : Plugin<Project>, VersionContract.Plugin {
         allprojects {
             version = generator.generateVersionName()
             extra.set("versionCode", generator.generateVersionCode())
-            extra.set("versionCodeFeature", generator.generateFeatureVersionCode())
+            extra.set("versionCodeFeature", generator.generateFeatureVersionCode(Date()))
         }
     }
 
@@ -66,7 +53,7 @@ public class VersionPlugin() : Plugin<Project>, VersionContract.Plugin {
             doLast {
                 println("VersionName: ${generator.generateVersionName()}")
                 println("VersionCode: ${generator.generateVersionCode()}")
-                println("VersionCodeFeature: ${generator.generateFeatureVersionCode()}")
+                println("VersionCodeFeature: ${generator.generateFeatureVersionCode(Date())}")
                 println("VersionDetails: ${generator.generateVersionDetails()}")
             }
         }

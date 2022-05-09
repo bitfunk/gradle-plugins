@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.plugin.tool.version
 
 import org.gradle.api.Project
+import java.util.Date
 
 public interface VersionContract {
 
@@ -33,7 +34,7 @@ public interface VersionContract {
 
         public fun generateVersionCode(): Int
 
-        public fun generateFeatureVersionCode(): Int
+        public fun generateFeatureVersionCode(date: Date): Int
 
         public fun generateVersionDetails(): String
     }

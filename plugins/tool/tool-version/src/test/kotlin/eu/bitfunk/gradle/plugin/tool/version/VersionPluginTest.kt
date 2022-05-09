@@ -33,8 +33,7 @@ import org.gradle.api.plugins.PluginManager
 import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.extra
-import org.gradle.testfixtures.ProjectBuilder
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -90,7 +89,7 @@ class VersionPluginTest {
         }
         every { generator.generateVersionName() } returns versionName
         every { generator.generateVersionCode() } returns versionCode
-        every { generator.generateFeatureVersionCode() } returns featureVersionCode
+        every { generator.generateFeatureVersionCode(any()) } returns featureVersionCode
 
         // WHEN
         testSubject.configureVersion(project, generator)
@@ -101,7 +100,7 @@ class VersionPluginTest {
 
             generator.generateVersionName()
             generator.generateVersionCode()
-            generator.generateFeatureVersionCode()
+            generator.generateFeatureVersionCode(any())
 
             allProject.version = versionName
             allProject.extra.set("versionCode", versionCode)
@@ -144,7 +143,7 @@ class VersionPluginTest {
 
             generator.generateVersionName()
             generator.generateVersionCode()
-            generator.generateFeatureVersionCode()
+            generator.generateFeatureVersionCode(any())
             generator.generateVersionDetails()
         }
 
