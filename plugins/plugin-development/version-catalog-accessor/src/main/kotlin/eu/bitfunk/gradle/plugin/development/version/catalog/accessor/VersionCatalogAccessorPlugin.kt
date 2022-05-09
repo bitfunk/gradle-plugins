@@ -111,17 +111,17 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
 
     override fun configureCodeCoverage(project: Project): Unit = with(project) {
         if (pluginManager.hasPlugin("org.gradle.jacoco")) {
-            tasks.named("test", Test::class.java) {
+            tasks.withType(Test::class.java).configureEach {
                 extensions.configure(JacocoTaskExtension::class.java) {
                     excludes = coverageExcludes
                 }
             }
 
-            tasks.named<JacocoReport>("jacocoTestReport") {
+            tasks.withType(JacocoReport::class.java).configureEach {
                 excludeClassFilesFromCoverage(project, classDirectories)
             }
 
-            tasks.named<JacocoCoverageVerification>("jacocoTestCoverageVerification") {
+            tasks.withType(JacocoCoverageVerification::class.java).configureEach {
                 excludeClassFilesFromCoverage(project, classDirectories)
             }
         }
@@ -145,6 +145,6 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
     private companion object {
         private const val OUTPUT_PATH = "generated/versionCatalogAccessor/src/main/kotlin"
 
-        private val coverageExcludes = listOf("**/generated/**")
+        private val coverageExcludes = listOf("**/generated")
     }
 }

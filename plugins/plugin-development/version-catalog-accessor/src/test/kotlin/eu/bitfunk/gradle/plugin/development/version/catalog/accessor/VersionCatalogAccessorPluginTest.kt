@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.development.version.catalog.accessor
 
+import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.fake.FakeProject
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -256,7 +257,6 @@ class VersionCatalogAccessorPluginTest {
         // GIVEN
         val pluginManager: PluginManager = mockk()
         val taskContainer: TaskContainer = mockk()
-        val testTaskProvider: TaskProvider<TestTask> = mockk()
         val testTask: TestTask = mockk()
         val testTaskExtensionContainer: ExtensionContainer = mockk()
         val jacocoTaskExtension: JacocoTaskExtension = mockk(relaxed = true)
@@ -267,27 +267,20 @@ class VersionCatalogAccessorPluginTest {
         every { project.pluginManager } returns pluginManager
         every { pluginManager.hasPlugin("org.gradle.jacoco") } returns true
         every { project.tasks } returns taskContainer
-        every { taskContainer.named("test", TestTask::class.java, any()) } answers {
-            thirdArg<Action<TestTask>>().execute(testTask)
-            testTaskProvider
+        every { taskContainer.withType(TestTask::class.java).configureEach(any()) } answers {
+            firstArg<Action<TestTask>>().execute(testTask)
         }
         every { testTask.extensions } returns testTaskExtensionContainer
         every { testTaskExtensionContainer.configure(JacocoTaskExtension::class.java, any()) } answers {
             secondArg<Action<JacocoTaskExtension>>().execute(jacocoTaskExtension)
         }
-        every { taskContainer.named("jacocoTestReport", JacocoReport::class.java, any()) } answers {
-            thirdArg<Action<JacocoReport>>().execute(jacocoReport)
-            jacocoReportTaskProvider
+        every { taskContainer.withType(JacocoReport::class.java).configureEach(any()) } answers {
+            firstArg<Action<JacocoReport>>().execute(jacocoReport)
         }
         every {
-            taskContainer.named(
-                "jacocoTestCoverageVerification",
-                JacocoCoverageVerification::class.java,
-                any()
-            )
+            taskContainer.withType(JacocoCoverageVerification::class.java).configureEach(any())
         } answers {
-            thirdArg<Action<JacocoCoverageVerification>>().execute(jacocoCoverageVerification)
-            jacocoCoverageVerificationTaskProvider
+            firstArg<Action<JacocoCoverageVerification>>().execute(jacocoCoverageVerification)
         }
         val fileCollection: ConfigurableFileCollection = mockk(relaxed = true)
         every { project.files(any()) } returns fileCollection
@@ -299,20 +292,16 @@ class VersionCatalogAccessorPluginTest {
         verifyAll {
             pluginManager.hasPlugin("org.gradle.jacoco")
 
-            taskContainer.named("test", TestTask::class.java, any())
+            taskContainer.withType(TestTask::class.java).configureEach(any())
             testTask.extensions
             testTaskExtensionContainer.configure(JacocoTaskExtension::class.java, any())
-            jacocoTaskExtension.excludes = listOf("**/generated/**")
+            jacocoTaskExtension.excludes = any()
 
-            taskContainer.named("jacocoTestReport", JacocoReport::class.java, any())
+            taskContainer.withType(JacocoReport::class.java).configureEach(any())
             jacocoReport.classDirectories.files
             jacocoReport.classDirectories.setFrom(any())
 
-            taskContainer.named(
-                "jacocoTestCoverageVerification",
-                JacocoCoverageVerification::class.java,
-                any()
-            )
+            taskContainer.withType(JacocoCoverageVerification::class.java).configureEach(any())
             jacocoCoverageVerification.classDirectories.files
             jacocoCoverageVerification.classDirectories.setFrom(any())
         }
@@ -349,9 +338,16 @@ class VersionCatalogAccessorPluginTest {
     @Test
     fun `GIVEN project WHEN apply() THEN all configured`() {
         // GIVEN
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("java-gradle-plugin")
+        val pluginManager: PluginManager = mockk()
+        val delegateProject = ProjectBuilder.builder().build()
+        val project: Project = FakeProject(delegateProject, pluginManager)
         val spyTestSubject = spyk(testSubject)
+        delegateProject.pluginManager.apply("java-gradle-plugin")
+        delegateProject.pluginManager.apply("org.gradle.jacoco")
+        project.tasks.maybeCreate("compileKotlin")
+        every { pluginManager.hasPlugin("org.gradle.java-gradle-plugin") } returns true
+        every { pluginManager.hasPlugin("org.gradle.kotlin.kotlin-dsl") } returns true
+        every { pluginManager.hasPlugin("org.gradle.jacoco") } returns true
 
         // WHEN
         spyTestSubject.apply(project)
@@ -364,6 +360,7 @@ class VersionCatalogAccessorPluginTest {
             spyTestSubject.addSourceGeneratorTask(project, any<VersionCatalogAccessorPluginExtension>())
             spyTestSubject.addGeneratorTask(project)
             spyTestSubject.configureSourceSet(project)
+            spyTestSubject.configureCodeCoverage(project)
         }
 
         confirmVerified(
