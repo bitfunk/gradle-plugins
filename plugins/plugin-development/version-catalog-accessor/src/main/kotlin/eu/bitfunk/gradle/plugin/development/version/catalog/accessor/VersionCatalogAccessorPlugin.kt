@@ -96,7 +96,7 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
             dependsOn(TASK_NAME_GENERATE_SOURCE)
         }
 
-        tasks.named("assemble") {
+        tasks.named("compileKotlin") {
             dependsOn(TASK_NAME_GENERATE)
         }
     }

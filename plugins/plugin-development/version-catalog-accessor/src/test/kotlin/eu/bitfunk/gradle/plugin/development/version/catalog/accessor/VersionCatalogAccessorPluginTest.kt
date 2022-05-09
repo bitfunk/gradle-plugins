@@ -193,8 +193,8 @@ class VersionCatalogAccessorPluginTest {
         val taskContainer: TaskContainer = mockk()
         val generatorTaskProvider: TaskProvider<Task> = mockk()
         val generatorTask: Task = mockk(relaxed = true)
-        val assembleTaskProvider: TaskProvider<Task> = mockk()
-        val assembleTask: Task = mockk(relaxed = true)
+        val compileKotlinTaskProvider: TaskProvider<Task> = mockk()
+        val compileKotlinTask: Task = mockk(relaxed = true)
         every { project.tasks } returns taskContainer
         every {
             taskContainer.register(
@@ -206,9 +206,9 @@ class VersionCatalogAccessorPluginTest {
             thirdArg<Action<Task>>().execute(generatorTask)
             generatorTaskProvider
         }
-        every { taskContainer.named("assemble", any()) } answers {
-            secondArg<Action<Task>>().execute(assembleTask)
-            assembleTaskProvider
+        every { taskContainer.named("compileKotlin", any()) } answers {
+            secondArg<Action<Task>>().execute(compileKotlinTask)
+            compileKotlinTaskProvider
         }
 
         // WHEN
@@ -219,16 +219,16 @@ class VersionCatalogAccessorPluginTest {
             taskContainer.register("generateVersionCatalogAccessor", Task::class.java, any())
             generatorTask.dependsOn("generateVersionCatalogAccessorSource")
 
-            taskContainer.named("assemble", any())
-            assembleTask.dependsOn("generateVersionCatalogAccessor")
+            taskContainer.named("compileKotlin", any())
+            compileKotlinTask.dependsOn("generateVersionCatalogAccessor")
         }
 
         confirmVerified(
             taskContainer,
             generatorTaskProvider,
             generatorTask,
-            assembleTaskProvider,
-            assembleTask
+            compileKotlinTaskProvider,
+            compileKotlinTask
         )
     }
 

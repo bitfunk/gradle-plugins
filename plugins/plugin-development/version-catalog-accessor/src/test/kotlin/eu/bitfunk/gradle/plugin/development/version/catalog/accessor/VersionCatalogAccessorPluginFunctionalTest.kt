@@ -44,7 +44,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
     @Test
     fun `GIVEN Gradle version 7_1 WHEN run THEN fail`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT)
+        buildFile.writeText(BUILD_FILE_NO_PLUGINS)
 
         // WHEN
         val runner = setupRunner(tempDir)
@@ -63,7 +63,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
         val innerDir = File(tempDir, "inner")
         innerDir.mkdir()
         val innerBuildFile = File(innerDir, "build.gradle.kts")
-        innerBuildFile.writeText(BUILD_FILE_DEFAULT)
+        innerBuildFile.writeText(BUILD_FILE_NO_PLUGINS)
 
         // WHEN
         val runner = setupRunner(tempDir)
@@ -76,20 +76,33 @@ class VersionCatalogAccessorPluginFunctionalTest {
     @Test
     fun `GIVEN setup without java-gradle-plugin WHEN run THEN fail`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT)
+        buildFile.writeText(BUILD_FILE_NO_PLUGINS)
 
         // WHEN
         val runner = setupRunner(tempDir)
             .buildAndFail()
 
         // THEN
-        assertTrue(runner.output.contains("The VersionCatalogAccessorPlugin requires the `java-gradle-plugin` to work."))
+        assertTrue(runner.output.contains("The VersionCatalogAccessorPlugin requires `java-gradle-plugin` to work."))
+    }
+
+    @Test
+    fun `GIVEN setup without kotlin-dsl WHEN run THEN fail`() {
+        // GIVEN
+        buildFile.writeText(BUILD_FILE_WITH_JAVA_PLUGIN)
+
+        // WHEN
+        val runner = setupRunner(tempDir)
+            .buildAndFail()
+
+        // THEN
+        assertTrue(runner.output.contains("The VersionCatalogAccessorPlugin requires `kotlin-dsl` to work."))
     }
 
     @Test
     fun `GIVEN default configuration WHEN generateVersionCatalogAccessor THEN catalog is present`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
+        buildFile.writeText(BUILD_FILE_WITH_PLUGINS)
 
         File(tempDir, "gradle").mkdir()
         File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
@@ -110,7 +123,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
     @Test
     fun `GIVEN custom configuration WHEN generateVersionCatalogAccessor THEN catalogs are present`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
+        buildFile.writeText(BUILD_FILE_WITH_PLUGINS_CONFIGURED)
 
         File(tempDir, "gradle").mkdir()
         File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
@@ -133,7 +146,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
     @Test
     fun `GIVEN default configuration WHEN all run THEN all files are present`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA)
+        buildFile.writeText(BUILD_FILE_WITH_PLUGINS)
 
         File(tempDir, "gradle").mkdir()
         File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
@@ -154,7 +167,7 @@ class VersionCatalogAccessorPluginFunctionalTest {
     @Test
     fun `GIVEN custom configuration WHEN all run THEN all files are present`() {
         // GIVEN
-        buildFile.writeText(BUILD_FILE_DEFAULT_JAVA_CONFIGURED)
+        buildFile.writeText(BUILD_FILE_WITH_PLUGINS_CONFIGURED)
 
         File(tempDir, "gradle").mkdir()
         File("$tempDir/gradle", "libs.versions.toml").writeText(VERSION_CATALOG)
@@ -182,22 +195,31 @@ class VersionCatalogAccessorPluginFunctionalTest {
                 .withPluginClasspath()
         }
 
-        val BUILD_FILE_DEFAULT = """
+        val BUILD_FILE_NO_PLUGINS = """
                 plugins {
                     id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
                 }
         """.trimIndent()
 
-        val BUILD_FILE_DEFAULT_JAVA = """
+        val BUILD_FILE_WITH_JAVA_PLUGIN = """
                 plugins {
                     id("java-gradle-plugin")
                     id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
                 }
         """.trimIndent()
 
-        val BUILD_FILE_DEFAULT_JAVA_CONFIGURED = """
+        val BUILD_FILE_WITH_PLUGINS = """
                 plugins {
                     id("java-gradle-plugin")
+                    `kotlin-dsl`
+                    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
+                }
+        """.trimIndent()
+
+        val BUILD_FILE_WITH_PLUGINS_CONFIGURED = """
+                plugins {
+                    id("java-gradle-plugin")
+                    `kotlin-dsl`
                     id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
                 }
 
