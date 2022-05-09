@@ -44,6 +44,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         configureDependencies(target)
         configureTests(target)
         configureTestCoverage(target)
+        configureTestCoverageTasks(target)
         configureGradleWrapper(target)
     }
 
@@ -100,7 +101,9 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         jacoco {
             toolVersion = JACOCO_VERSION
         }
+    }
 
+    override fun configureTestCoverageTasks(project: Project): Unit = with(project) {
         tasks.named<JacocoReport>("jacocoTestReport") {
             dependsOn(tasks.named("test"))
 

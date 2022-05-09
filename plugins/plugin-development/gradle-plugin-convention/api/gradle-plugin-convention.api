@@ -22,11 +22,13 @@ public abstract interface class eu/bitfunk/gradle/plugin/development/convention/
 	public abstract fun configureJavaCompatibility (Lorg/gradle/api/Project;)V
 	public abstract fun configureKotlin (Lorg/gradle/api/Project;)V
 	public abstract fun configureTestCoverage (Lorg/gradle/api/Project;)V
+	public abstract fun configureTestCoverageTasks (Lorg/gradle/api/Project;)V
 	public abstract fun configureTests (Lorg/gradle/api/Project;)V
 }
 
 public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionPlugin : eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin, org/gradle/api/Plugin {
 	public static final field GRADLE_VERSION Ljava/lang/String;
+	public static final field JACOCO_THRESHOLD D
 	public static final field JACOCO_VERSION Ljava/lang/String;
 	public static final field JUNIT_5_VERSION Ljava/lang/String;
 	public static final field MOCKK_VERSION Ljava/lang/String;
@@ -41,6 +43,7 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginC
 	public fun configureJavaCompatibility (Lorg/gradle/api/Project;)V
 	public fun configureKotlin (Lorg/gradle/api/Project;)V
 	public fun configureTestCoverage (Lorg/gradle/api/Project;)V
+	public fun configureTestCoverageTasks (Lorg/gradle/api/Project;)V
 	public fun configureTests (Lorg/gradle/api/Project;)V
 }
 
