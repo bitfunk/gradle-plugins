@@ -40,22 +40,30 @@ import org.gradle.util.GradleVersion
 public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAccessorContract.Plugin {
 
     override fun apply(target: Project) {
-        if (GradleVersion.current() < GradleVersion.version("7.2")) {
-            throw GradleException("This plugin requires Gradle 7.2 or later")
-        }
-
-        if (target != target.rootProject) {
-            throw GradleException("This plugin should be applied to root project only")
-        }
-
-        if (!target.pluginManager.hasPlugin("java-gradle-plugin")) {
-            throw GradleException("The VersionCatalogAccessorPlugin requires the `java-gradle-plugin` to work.")
-        }
-
+        checkPreconditions(target)
         val extension = addExtension(target)
         addSourceGeneratorTask(target, extension)
         addGeneratorTask(target)
         configureSourceSet(target)
+        configureCodeCoverage(target)
+    }
+
+    override fun checkPreconditions(project: Project) {
+        if (GradleVersion.current() < GradleVersion.version("7.2")) {
+            throw GradleException("This plugin requires Gradle 7.2 or later")
+        }
+
+        if (project != project.rootProject) {
+            throw GradleException("This plugin should be applied to root project only")
+        }
+
+        if (!project.pluginManager.hasPlugin("org.gradle.java-gradle-plugin")) {
+            throw GradleException("The VersionCatalogAccessorPlugin requires `java-gradle-plugin` to work.")
+        }
+
+        if (!project.pluginManager.hasPlugin("org.gradle.kotlin.kotlin-dsl")) {
+            throw GradleException("The VersionCatalogAccessorPlugin requires `kotlin-dsl` to work.")
+        }
     }
 
     override fun addExtension(project: Project): Extension = with(project) {

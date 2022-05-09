@@ -42,6 +42,7 @@ import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 import org.gradle.testing.jacoco.tasks.JacocoCoverageVerification
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.gradle.util.GradleVersion
+import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertThrowsExactly
@@ -71,7 +72,7 @@ class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    fun `GIVEN Gradle version 7_1 WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException`() {
         // GIVEN
         mockkStatic(GradleVersion::class)
         every { GradleVersion.current() } returns GradleVersion.version("7.1")
@@ -79,7 +80,7 @@ class VersionCatalogAccessorPluginTest {
         // WHEN/THEN
         assertThrowsExactly(
             GradleException::class.java,
-            { testSubject.apply(project) },
+            { testSubject.checkPreconditions(project) },
             "This plugin requires Gradle 7.2 or later"
         )
 
@@ -87,7 +88,7 @@ class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    fun `GIVEN rootProject different to project WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN rootProject different to project WHEN checkPreconditions() THEN throw GradleException`() {
         // GIVEN
         val newProject: Project = mockk()
         every { project.rootProject } returns newProject
@@ -95,25 +96,55 @@ class VersionCatalogAccessorPluginTest {
         // WHEN/THEN
         assertThrowsExactly(
             GradleException::class.java,
-            { testSubject.apply(project) },
+            { testSubject.checkPreconditions(project) },
             "This plugin should be applied to root project only"
         )
     }
 
     @Test
-    fun `GIVEN java-gradle-plugin missing WHEN apply() THEN throw GradleException`() {
+    fun `GIVEN java-gradle-plugin missing WHEN checkPreconditions() THEN throw GradleException`() {
         // GIVEN
         every { project.rootProject } returns project
         val pluginManager: PluginManager = mockk()
         every { project.pluginManager } returns pluginManager
-        every { pluginManager.hasPlugin("java-gradle-plugin") } returns false
+        every { pluginManager.hasPlugin("org.gradle.java-gradle-plugin") } returns false
 
         // WHEN/THEN
         assertThrowsExactly(
             GradleException::class.java,
-            { testSubject.apply(project) },
-            "The VersionCatalogAccessorPlugin requires the `java-gradle-plugin` to work."
+            { testSubject.checkPreconditions(project) },
+            "The VersionCatalogAccessorPlugin requires `java-gradle-plugin` to work."
         )
+    }
+
+    @Test
+    fun `GIVEN kotlin-dsl missing WHEN checkPreconditions() THEN throw GradleException`() {
+        // GIVEN
+        every { project.rootProject } returns project
+        val pluginManager: PluginManager = mockk()
+        every { project.pluginManager } returns pluginManager
+        every { pluginManager.hasPlugin("org.gradle.java-gradle-plugin") } returns true
+        every { pluginManager.hasPlugin("org.gradle.kotlin.kotlin-dsl") } returns false
+
+        // WHEN/THEN
+        assertThrowsExactly(
+            GradleException::class.java,
+            { testSubject.checkPreconditions(project) },
+            "The VersionCatalogAccessorPlugin requires `kotlin-dsl` to work."
+        )
+    }
+
+    @Test
+    fun `GIVEN all required WHEN checkPreconditions() THEN success`() {
+        // GIVEN
+        every { project.rootProject } returns project
+        val pluginManager: PluginManager = mockk()
+        every { project.pluginManager } returns pluginManager
+        every { pluginManager.hasPlugin("org.gradle.java-gradle-plugin") } returns true
+        every { pluginManager.hasPlugin("org.gradle.kotlin.kotlin-dsl") } returns true
+
+        // WHEN/THEN
+        assertDoesNotThrow { testSubject.checkPreconditions(project) }
     }
 
     @Test
@@ -328,6 +359,7 @@ class VersionCatalogAccessorPluginTest {
         // THEN
         verifyOrder {
             spyTestSubject.apply(project)
+            spyTestSubject.checkPreconditions(project)
             spyTestSubject.addExtension(project)
             spyTestSubject.addSourceGeneratorTask(project, any<VersionCatalogAccessorPluginExtension>())
             spyTestSubject.addGeneratorTask(project)

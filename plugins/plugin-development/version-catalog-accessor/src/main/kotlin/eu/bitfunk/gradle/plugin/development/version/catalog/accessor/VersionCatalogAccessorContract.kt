@@ -25,6 +25,8 @@ import org.gradle.api.provider.Property
 public interface VersionCatalogAccessorContract {
 
     public interface Plugin {
+        public fun checkPreconditions(project: Project)
+
         public fun addExtension(project: Project): Extension
 
         public fun addSourceGeneratorTask(

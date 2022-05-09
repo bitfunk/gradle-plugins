@@ -21,6 +21,7 @@ public abstract interface class eu/bitfunk/gradle/plugin/development/version/cat
 	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;
 	public abstract fun addGeneratorTask (Lorg/gradle/api/Project;)V
 	public abstract fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceGeneratorTask;
+	public abstract fun checkPreconditions (Lorg/gradle/api/Project;)V
 	public abstract fun configureCodeCoverage (Lorg/gradle/api/Project;)V
 	public abstract fun configureSourceSet (Lorg/gradle/api/Project;)V
 }
@@ -39,6 +40,7 @@ public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor
 	public fun addSourceGeneratorTask (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension;)Leu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorSourceGeneratorTask;
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
+	public fun checkPreconditions (Lorg/gradle/api/Project;)V
 	public fun configureCodeCoverage (Lorg/gradle/api/Project;)V
 	public fun configureSourceSet (Lorg/gradle/api/Project;)V
 }
