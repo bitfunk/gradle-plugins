@@ -23,3 +23,4 @@ Initial release
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add CodeAnalysis Plugin - using Detekt
+- Add Versioning Plugin - a versioning plugin using git tags
