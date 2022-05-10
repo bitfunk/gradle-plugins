@@ -16,4 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool-versioning"
+rootProject.name = "versioning"
