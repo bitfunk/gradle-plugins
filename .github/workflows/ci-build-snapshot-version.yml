@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ secrets.GH_PACKAGE_DOWNLOAD_USER }}
-      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GH_PACKAGE_DOWNLOAD_KEY }}
-      GITHUB_PACKAGE_UPLOAD_USER: ${{ secrets.GH_PACKAGE_UPLOAD_USER }}
-      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GH_PACKAGE_UPLOAD_KEY }}
+      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ github.actor }}
+      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_PACKAGE_UPLOAD_USER: ${{ github.actor }}
+      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
