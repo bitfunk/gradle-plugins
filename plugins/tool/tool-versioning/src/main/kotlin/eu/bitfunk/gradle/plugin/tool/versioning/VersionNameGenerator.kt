@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.version
+package eu.bitfunk.gradle.plugin.tool.versioning
 
+import eu.bitfunk.gradle.plugin.tool.versioning.VersioningContract.Generator
 import eu.upwolf.gradle.gitversion.VersionDetails
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.invoke
@@ -28,7 +29,7 @@ import java.util.Locale
 
 internal class VersionNameGenerator(
     private val project: Project
-) : VersionContract.Generator {
+) : Generator {
 
     override fun generateVersionName(): String {
         val details = loadVersionDetails()

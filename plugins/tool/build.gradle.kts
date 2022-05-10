@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.tool:tool-version")
+    implementation("eu.bitfunk.gradle.plugin.tool:tool-versioning")
 }
 
 // Delegate to included builds

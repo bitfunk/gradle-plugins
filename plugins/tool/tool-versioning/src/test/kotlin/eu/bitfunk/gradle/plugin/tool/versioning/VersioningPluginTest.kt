@@ -16,9 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.version
+package eu.bitfunk.gradle.plugin.tool.versioning
 
-import eu.bitfunk.gradle.plugin.tool.version.VersionContract.Generator
+import eu.bitfunk.gradle.plugin.tool.versioning.VersioningContract.Generator
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -37,23 +37,23 @@ import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class VersionPluginTest {
+class VersioningPluginTest {
 
     private lateinit var project: Project
 
-    private lateinit var testSubject: VersionPlugin
+    private lateinit var testSubject: VersioningPlugin
 
     @BeforeEach
     fun setup() {
         project = mockk()
 
-        testSubject = VersionPlugin()
+        testSubject = VersioningPlugin()
     }
 
     @Test
     fun plugin_implements_contract() {
         assertInstanceOf(
-            VersionContract.Plugin::class.java,
+            VersioningContract.Plugin::class.java,
             testSubject
         )
     }

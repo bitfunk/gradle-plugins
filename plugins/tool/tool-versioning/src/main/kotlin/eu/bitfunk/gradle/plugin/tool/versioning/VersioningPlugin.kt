@@ -16,15 +16,15 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.version
+package eu.bitfunk.gradle.plugin.tool.versioning
 
-import eu.bitfunk.gradle.plugin.tool.version.VersionContract.Generator
+import eu.bitfunk.gradle.plugin.tool.versioning.VersioningContract.Generator
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.extra
 import java.util.Date
 
-public class VersionPlugin : Plugin<Project>, VersionContract.Plugin {
+public class VersioningPlugin : Plugin<Project>, VersioningContract.Plugin {
 
     override fun apply(target: Project) {
         val generator = VersionNameGenerator(target)

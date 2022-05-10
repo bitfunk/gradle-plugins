@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.version
+package eu.bitfunk.gradle.plugin.tool.versioning
 
 import eu.upwolf.gradle.gitversion.VersionDetails
 import io.mockk.every
@@ -46,7 +46,7 @@ internal class VersionNameGeneratorTest {
     @Test
     fun plugin_implements_contract() {
         assertInstanceOf(
-            VersionContract.Generator::class.java,
+            VersioningContract.Generator::class.java,
             testSubject
         )
     }

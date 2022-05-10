@@ -18,4 +18,4 @@
 
 rootProject.name = "tool"
 
-includeBuild("tool-version")
+includeBuild("tool-versioning")

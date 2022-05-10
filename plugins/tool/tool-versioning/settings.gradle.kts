@@ -16,26 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.version
-
-import org.gradle.api.Project
-import java.util.Date
-
-public interface VersionContract {
-
-    public interface Plugin {
-        public fun addPlugins(project: Project)
-        public fun configureVersion(project: Project, generator: Generator)
-        public fun configureVersionTasks(project: Project, generator: Generator)
-    }
-
-    public interface Generator {
-        public fun generateVersionName(): String
-
-        public fun generateVersionCode(): Int
-
-        public fun generateFeatureVersionCode(date: Date): Int
-
-        public fun generateVersionDetails(): String
-    }
-}
+rootProject.name = "tool-versioning"
