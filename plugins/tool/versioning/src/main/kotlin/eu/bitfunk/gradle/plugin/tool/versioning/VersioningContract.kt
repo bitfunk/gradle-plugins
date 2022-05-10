@@ -16,7 +16,26 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
+package eu.bitfunk.gradle.plugin.tool.versioning
 
-includeBuild("code-analysis")
-includeBuild("formatter")
+import org.gradle.api.Project
+import java.util.Date
+
+public interface VersioningContract {
+
+    public interface Plugin {
+        public fun addPlugins(project: Project)
+        public fun configureVersion(project: Project, generator: Generator)
+        public fun configureVersionTasks(project: Project, generator: Generator)
+    }
+
+    public interface Generator {
+        public fun generateVersionName(): String
+
+        public fun generateVersionCode(): Int
+
+        public fun generateFeatureVersionCode(date: Date): Int
+
+        public fun generateVersionDetails(): String
+    }
+}

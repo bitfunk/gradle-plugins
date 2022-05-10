@@ -105,7 +105,10 @@ nav:
   - Plugins:
     - Overview: plugins/index.md
     - Quality:
+      - Code Analysis: plugins/quality/code-analysis/index.md
       - Formatter: plugins/quality/formatter/index.md
+    - Tool:
+        - Version: plugins/tool/versioning/index.md
     - PluginDevelopment:
       - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
       - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md

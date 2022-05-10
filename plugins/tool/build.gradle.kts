@@ -18,8 +18,9 @@
 
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
-    id("jacoco-report-aggregation")
 }
+
+group = "eu.bitfunk.gradle.plugin.tool"
 
 repositories {
     maven {
@@ -32,13 +33,7 @@ repositories {
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:plugin-development")
-    implementation("eu.bitfunk.gradle.plugin.quality:quality")
-    implementation("eu.bitfunk.gradle.plugin.tool:tool")
-}
-
-tasks.check {
-    dependsOn(tasks.named("testCodeCoverageReport"))
+    implementation("eu.bitfunk.gradle.plugin.tool:versioning")
 }
 
 // Delegate to included builds

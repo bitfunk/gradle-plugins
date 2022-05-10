@@ -16,4 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality-code-analysis"
+rootProject.name = "formatter"

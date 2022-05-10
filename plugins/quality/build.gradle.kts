@@ -23,8 +23,8 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.quality"
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.quality:quality-formatter")
-    implementation("eu.bitfunk.gradle.plugin.quality:quality-code-analysis")
+    implementation("eu.bitfunk.gradle.plugin.quality:formatter")
+    implementation("eu.bitfunk.gradle.plugin.quality:code-analysis")
 }
 
 // Delegate to included builds

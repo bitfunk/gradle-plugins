@@ -9,6 +9,10 @@ Overview of Gradle plugins used across multiple projects.
 - [Code Analysis](./quality/code-analysis/index.md) - a source code analysis
 - [Formatter](./quality/formatter/index.md) - a source code formatter applying bitfunk code style
 
+### Tool
+
+- [Versioning](./tool/versioning/index.md) - a versioning plugin using git tags
+
 ### Plugin development
 
 Plugins that support developing Gradle plugins.

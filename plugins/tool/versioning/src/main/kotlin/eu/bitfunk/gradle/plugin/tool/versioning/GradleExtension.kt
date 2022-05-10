@@ -16,7 +16,21 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
+package eu.bitfunk.gradle.plugin.tool.versioning
 
-includeBuild("code-analysis")
-includeBuild("formatter")
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.extra
+
+public fun Project.version(): String = version as String
+
+public fun Project.versionCleaned(): String {
+    return if (version().endsWith("-SNAPSHOT")) {
+        version().removeSuffix("-SNAPSHOT")
+    } else {
+        version()
+    }
+}
+
+public fun Project.versionCode(): Int = extra.get("versionCode") as Int
+
+public fun Project.versionCodeFeature(): Int = extra.get("versionCodeFeature") as Int

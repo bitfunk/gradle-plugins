@@ -1,6 +1,6 @@
 # Code Analysis Plugin
 
-The plugin helps to analyse code of your project and warns about issues. It makes use of the [detekt plugin](https://github.com/detekt/detekts).
+The plugin helps to analyse code of your project and warns about issues. It makes use of the [detekt plugin](https://github.com/detekt/detekt).
 
 ## Features
 

@@ -1,0 +1,32 @@
+public final class eu/bitfunk/gradle/plugin/tool/versioning/GradleExtensionKt {
+	public static final fun version (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun versionCleaned (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun versionCode (Lorg/gradle/api/Project;)I
+	public static final fun versionCodeFeature (Lorg/gradle/api/Project;)I
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/versioning/VersioningContract {
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Generator {
+	public abstract fun generateFeatureVersionCode (Ljava/util/Date;)I
+	public abstract fun generateVersionCode ()I
+	public abstract fun generateVersionDetails ()Ljava/lang/String;
+	public abstract fun generateVersionName ()Ljava/lang/String;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Plugin {
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+	public abstract fun configureVersion (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Generator;)V
+	public abstract fun configureVersionTasks (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Generator;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/versioning/VersioningPlugin : eu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun configureVersion (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Generator;)V
+	public fun configureVersionTasks (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/versioning/VersioningContract$Generator;)V
+}
+

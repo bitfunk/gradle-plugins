@@ -21,12 +21,20 @@ buildscript {
         gradlePluginPortal()
         mavenCentral()
         google()
+        maven {
+            url = uri("https://maven.pkg.github.com/bitfunk/gradle-git-version")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_USER")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_KEY")
+            }
+        }
     }
 }
 
 plugins {
     id("eu.bitfunk.gradle.plugin.quality.formatter")
     id("eu.bitfunk.gradle.plugin.quality.code.analysis")
+    id("eu.bitfunk.gradle.plugin.tool.versioning")
 
     id("org.sonarqube") version "3.3"
 }
