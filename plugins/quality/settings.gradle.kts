@@ -18,5 +18,5 @@
 
 rootProject.name = "quality"
 
-includeBuild("quality-code-analysis")
+includeBuild("code-analysis")
 includeBuild("formatter")
