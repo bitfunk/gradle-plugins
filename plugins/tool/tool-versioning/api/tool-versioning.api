@@ -1,3 +1,10 @@
+public final class eu/bitfunk/gradle/plugin/tool/versioning/GradleExtensionKt {
+	public static final fun version (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun versionCleaned (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun versionCode (Lorg/gradle/api/Project;)I
+	public static final fun versionCodeFeature (Lorg/gradle/api/Project;)I
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/tool/versioning/VersioningContract {
 }
 

@@ -44,3 +44,10 @@ To print current version information:
 ```bash
 ./gradlew versionInfo
 ```
+
+To access the version information, use this project extensions:
+
+- `version()` - version as String
+- `versionCleaned` - version where `-SNAPSHOT` got removed
+- `versionCode()` - versionCode as Int
+- `versionCodeFeature()` - versionCodeFeature as Int
