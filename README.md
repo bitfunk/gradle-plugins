@@ -19,6 +19,7 @@
 
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
+[report]: docs/src/plugins/quality/report/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
 [versioncatalog accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
 [gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
@@ -53,8 +54,9 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Quality
 
-- [Code Analysis] - a source code analysis
-- [Formatter] - a source code formatter applying bitfunk code style
+- [Code Analysis] - a source code analysis plugin
+- [Formatter] - a source code formatter plugin applying bitfunk code style
+- [Report] - a quality report plugin using sonarqube
 
 #### Tool
 
