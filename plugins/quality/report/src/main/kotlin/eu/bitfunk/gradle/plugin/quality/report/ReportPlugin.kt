@@ -83,7 +83,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
             group = "verification"
 
-            from(extension.coverageReportSourceDir.get()) {
+            from(extension.coverageReportSourceDir) {
                 include("*.xml")
             }
 

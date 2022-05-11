@@ -31,6 +31,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.file.CopySpec
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Copy
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
@@ -170,7 +171,8 @@ class ReportPluginTest {
             thirdArg<Action<Copy>>().execute(copyTask)
             copyTask
         }
-        every { extension.coverageReportSourceDir.get() } returns "coverageReportSourceDir"
+        val coverageSrcDirProperty: Property<String> = mockk(relaxed = true)
+        every { extension.coverageReportSourceDir } returns coverageSrcDirProperty
         every { project.buildDir } returns File("buildDir")
         every { copyTask.from(any(), any<Action<CopySpec>>()) } answers {
             secondArg<Action<CopySpec>>().execute(copyTaskSpec)
@@ -193,7 +195,7 @@ class ReportPluginTest {
 
             copyTask.dependsOn("testCodeCoverageReport")
             copyTask.group = "verification"
-            copyTask.from("coverageReportSourceDir", any<Action<CopySpec>>())
+            copyTask.from(coverageSrcDirProperty, any<Action<CopySpec>>())
             copyTask.into("buildDir/reports/jacoco")
             copyTask.includeEmptyDirs = false
 
@@ -203,7 +205,7 @@ class ReportPluginTest {
             sonarqubeTask.dependsOn("copyCoverageReports")
         }
 
-        confirmVerified(project, extension, copyTask, copyTaskSpec, sonarqubeTask)
+        confirmVerified(project, extension, copyTask, coverageSrcDirProperty, copyTaskSpec, sonarqubeTask)
     }
 
     @Test
