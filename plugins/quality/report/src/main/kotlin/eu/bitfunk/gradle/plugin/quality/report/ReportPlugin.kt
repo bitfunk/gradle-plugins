@@ -30,11 +30,11 @@ import org.sonarqube.gradle.SonarQubeExtension
 
 public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     override fun apply(target: Project) {
-        val projectCollector = ProjectCollector()
+        val collector = ProjectCollector()
 
         addPlugins(target)
         val extension = addExtension(target)
-        configureReport(target, extension, projectCollector)
+        configureReport(target, extension, collector)
         configureTasks(target, extension)
     }
 

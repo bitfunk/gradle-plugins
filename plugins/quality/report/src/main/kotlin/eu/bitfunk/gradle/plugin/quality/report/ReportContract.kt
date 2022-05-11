@@ -31,7 +31,7 @@ public interface ReportContract {
         public fun configureReport(
             project: Project,
             extension: Extension,
-            projectCollector: Collector
+            collector: Collector
         )
 
         public fun configureTasks(project: Project, extension: Extension)
