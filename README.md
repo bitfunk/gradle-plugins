@@ -17,6 +17,7 @@
 
 <!--plugin-links-->
 
+[quality]: docs/src/plugins/quality/index.md
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
@@ -53,6 +54,8 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 ### Plugins
 
 #### Quality
+
+- [Quality] - a collection of all quality plugins
 
 - [Code Analysis] - a source code analysis plugin
 - [Formatter] - a source code formatter plugin applying bitfunk code style
