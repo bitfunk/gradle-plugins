@@ -34,71 +34,20 @@ buildscript {
 plugins {
     id("eu.bitfunk.gradle.plugin.quality.formatter")
     id("eu.bitfunk.gradle.plugin.quality.code.analysis")
+    id("eu.bitfunk.gradle.plugin.quality.report")
     id("eu.bitfunk.gradle.plugin.tool.versioning")
-
-    id("org.sonarqube") version "3.3"
 }
 
-sonarqube {
-    properties {
-        property("sonar.projectKey", "bitfunk_gradle-plugins")
-        property("sonar.organization", "bitfunk")
-        property("sonar.host.url", "https://sonarcloud.io")
-
-        property("sonar.sources", collectProjects(projectDir, "src/main/kotlin").map { "$it/src/main/kotlin" })
-        property("sonar.tests", collectProjects(projectDir, "src/test/kotlin").map { "$it/src/test/kotlin" })
-        property("sonar.sourceEncoding", "UTF-8")
-        property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
-    }
-}
-
-tasks.create("testDirs") {
-    doLast {
-        println(collectProjects(projectDir, "src/main/kotlin"))
-    }
-}
-
-fun collectProjects(file: File, filter: String): List<File> {
-    val projects = mutableListOf<File>()
-
-    listOf(file)
-        .extract(projects, filter)
-        .extract(projects, filter)
-        .extract(projects, filter)
-        .toList()
-
-    return projects
-}
-
-fun List<File>.extract(targetList: MutableList<File>, filter: String): List<File> {
-    return flatMap { it.listFiles().asSequence() }
-        .filter { it.isDirectory && File(it, filter).exists() }
-        .map { it.also { targetList.add(it) } }
-}
-
-
-tasks.named("sonarqube") {
-    dependsOn("copyCoverageReports")
+reportConfig {
+    sonarProjectKey.set("bitfunk_gradle-plugins")
+    sonarOrganization.set("bitfunk")
+    coverageReportSourceDir.set("$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport")
 }
 
 project(":docs") {
     sonarqube {
         isSkipProject = true
     }
-}
-
-tasks.create<Copy>("copyCoverageReports") {
-    dependsOn("testCodeCoverageReport")
-
-    group = "verification"
-
-    from("$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport") {
-        include("*.xml")
-    }
-
-    into("$buildDir/reports/jacoco")
-
-    includeEmptyDirs = false
 }
 
 tasks.maybeCreate("clean", Delete::class.java).delete("build")

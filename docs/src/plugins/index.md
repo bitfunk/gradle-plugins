@@ -8,6 +8,7 @@ Overview of Gradle plugins used across multiple projects.
 
 - [Code Analysis](./quality/code-analysis/index.md) - a source code analysis
 - [Formatter](./quality/formatter/index.md) - a source code formatter applying bitfunk code style
+- [Report](./quality/report/index.md) - a quality report plugin using sonarqube
 
 ### Tool
 

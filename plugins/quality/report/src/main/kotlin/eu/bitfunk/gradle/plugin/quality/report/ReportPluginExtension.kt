@@ -16,8 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
+package eu.bitfunk.gradle.plugin.quality.report
 
-includeBuild("code-analysis")
-includeBuild("formatter")
-includeBuild("report")
+public interface ReportPluginExtension : ReportContract.Extension

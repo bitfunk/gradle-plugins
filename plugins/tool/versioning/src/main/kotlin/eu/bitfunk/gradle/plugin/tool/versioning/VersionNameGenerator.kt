@@ -46,7 +46,7 @@ internal class VersionNameGenerator(
     override fun generateVersionCode(): Int {
         val details = loadVersionDetails()
 
-        return details.versionCode * 100 + details.commitDistance
+        return details.versionCode * VERSION_CODE_SHIFT + details.commitDistance
     }
 
     override fun generateFeatureVersionCode(date: Date): Int {
@@ -119,5 +119,7 @@ internal class VersionNameGenerator(
         val patternFeatureBranch = "feature/(.*)".toRegex()
         val patternDependabotBranch = "dependabot/(.*)".toRegex()
         val patternIssueNumber = "[A-Z]{2,8}-.*/(.*)".toRegex()
+
+        const val VERSION_CODE_SHIFT = 100
     }
 }

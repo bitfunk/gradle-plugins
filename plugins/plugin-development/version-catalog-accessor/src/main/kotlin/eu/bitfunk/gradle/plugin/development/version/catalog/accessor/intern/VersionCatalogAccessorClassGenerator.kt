@@ -58,8 +58,8 @@ internal class VersionCatalogAccessorClassGenerator(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
                     .initializer(
                         "%L",
-                        "project.extensions.getByType(VersionCatalogsExtension::class.java)"
-                            + ".named(\"${baseName.toLowerCase()}\")"
+                        "project.extensions.getByType(VersionCatalogsExtension::class.java)" +
+                            ".named(\"${baseName.toLowerCase()}\")"
                     )
                     .addModifiers(KModifier.PRIVATE)
                     .build()

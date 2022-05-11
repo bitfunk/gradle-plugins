@@ -160,9 +160,14 @@ class VersionCatalogAccessorPluginTest {
         } returns extension
 
         // WHEN
-        testSubject.addExtension(project)
+        val result = testSubject.addExtension(project)
 
         // THEN
+        assertEquals(
+            extension,
+            result
+        )
+
         verify { extensions.create("versionCatalogAccessor", VersionCatalogAccessorPluginExtension::class.java) }
         verify { extension.catalogSourceFolder.convention("gradle/") }
         verify { extension.catalogNames.convention(listOf("libs")) }

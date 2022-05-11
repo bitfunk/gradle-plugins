@@ -16,8 +16,19 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
+package eu.bitfunk.gradle.plugin.quality.report
 
-includeBuild("code-analysis")
-includeBuild("formatter")
-includeBuild("report")
+import java.io.File
+
+public class ProjectCollector : ReportContract.Collector {
+
+    override fun collectProjects(sourcePath: File, filterPath: String): List<String> {
+        return sourcePath.walkTopDown()
+            .filter { it.isDirectory }
+            .filter { File(it, filterPath).exists() }
+            .map { "${it.relativeTo(sourcePath)}/$filterPath" }
+            .map { if (it.startsWith("/")) it.substring(1) else it }
+            .toList()
+            .sorted()
+    }
+}
