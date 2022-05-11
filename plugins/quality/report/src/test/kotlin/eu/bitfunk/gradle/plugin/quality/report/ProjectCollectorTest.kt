@@ -81,11 +81,21 @@ class ProjectCollectorTest {
         // GIVEN
         val rootProjectSourceDir = File(tempDir, "src/main/kotlin")
         rootProjectSourceDir.mkdirs()
-        val subProject1SourceDir = File(tempDir, "project1/src/main/kotlin")
+
+        val subproject1 = File(tempDir, "project1")
+        subproject1.mkdirs()
+        val subProject1SourceDir = File(subproject1, "src/main/kotlin")
         subProject1SourceDir.mkdirs()
-        val subProject2SourceDir = File(tempDir, "project2/src/main/kotlin")
+
+        val subproject2 = File(tempDir, "project2")
+        subproject2.mkdirs()
+        val subProject2SourceDir = File(subproject2, "src/main/kotlin")
         subProject2SourceDir.mkdirs()
-        val nestedProjectSourceDir = File(tempDir, "project2/nestedProject/src/main/kotlin")
+
+        val nestedProject = File(subproject2, "nested")
+        nestedProject.mkdirs()
+
+        val nestedProjectSourceDir = File(nestedProject, "src/main/kotlin")
         nestedProjectSourceDir.mkdirs()
 
         // WHEN
