@@ -210,7 +210,7 @@ internal class VersionNameGeneratorTest {
         // GIVEN
         val versionDetails: VersionDetails = mockLoadVersionDetails()
         every { versionDetails.versionCode } returns 101010
-        every { versionDetails.commitDistance} returns 0
+        every { versionDetails.commitDistance } returns 0
 
         // WHEN
         val result = testSubject.generateVersionCode()
@@ -226,7 +226,7 @@ internal class VersionNameGeneratorTest {
         // GIVEN
         val versionDetails: VersionDetails = mockLoadVersionDetails()
         every { versionDetails.versionCode } returns 1415
-        every { versionDetails.commitDistance} returns 23
+        every { versionDetails.commitDistance } returns 23
 
         // WHEN
         val result = testSubject.generateVersionCode()
@@ -284,7 +284,6 @@ internal class VersionNameGeneratorTest {
             """.trimIndent(),
             result
         )
-
     }
 
     private fun mockLoadVersionDetails(): VersionDetails {

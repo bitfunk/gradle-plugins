@@ -4,9 +4,10 @@ A plugin to generate semantic version information and apply it to the project ba
 
 ## Features
 
-As this plugin wraps git-version, it offers the same features for versioning. 
+As this plugin wraps git-version, it offers the same features for versioning.
 
 Additionally it adds:
+
 - versionCode - version code for Android based on semantic versioning (MMmmPP)
 - featureVersionCode - version code for Android based on timesstamps (MMddHHmm)
 - versionInfo - prints all information about the current version
