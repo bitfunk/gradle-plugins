@@ -32,9 +32,7 @@ buildscript {
 }
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.quality.formatter")
-    id("eu.bitfunk.gradle.plugin.quality.code.analysis")
-    id("eu.bitfunk.gradle.plugin.quality.report")
+    id("eu.bitfunk.gradle.plugin.quality")
     id("eu.bitfunk.gradle.plugin.tool.versioning")
 }
 
