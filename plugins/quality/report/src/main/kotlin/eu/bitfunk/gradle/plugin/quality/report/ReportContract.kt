@@ -20,6 +20,7 @@ package eu.bitfunk.gradle.plugin.quality.report
 
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
+import java.io.File
 
 public interface ReportContract {
     public interface Plugin {
@@ -27,7 +28,11 @@ public interface ReportContract {
 
         public fun addExtension(project: Project): Extension
 
-        public fun configureReport(project: Project, extension: Extension)
+        public fun configureReport(
+            project: Project,
+            extension: Extension,
+            projectCollector: Collector
+        )
 
         public fun configureTasks(project: Project, extension: Extension)
     }
@@ -36,6 +41,10 @@ public interface ReportContract {
         public val sonarProjectKey: Property<String>
         public val sonarOrganization: Property<String>
         public val coverageReportSourceDir: Property<String>
+    }
+
+    public interface Collector {
+        public fun collectProjects(sourcePath: File, filterPath: String): List<String>
     }
 
     public companion object {

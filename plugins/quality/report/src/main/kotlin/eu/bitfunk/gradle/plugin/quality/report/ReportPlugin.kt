@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.quality.report
 
+import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Collector
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Companion.EXTENSION_NAME
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Extension
 import org.gradle.api.Action
@@ -26,13 +27,14 @@ import org.gradle.api.Project
 import org.gradle.api.tasks.Copy
 import org.gradle.kotlin.dsl.create
 import org.sonarqube.gradle.SonarQubeExtension
-import java.io.File
 
 public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     override fun apply(target: Project) {
+        val projectCollector = ProjectCollector()
+
         addPlugins(target)
         val extension = addExtension(target)
-        configureReport(target, extension)
+        configureReport(target, extension, projectCollector)
         configureTasks(target, extension)
     }
 
@@ -53,25 +55,22 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
         return extension
     }
 
-    override fun configureReport(project: Project, extension: Extension): Unit = with(project) {
+    override fun configureReport(
+        project: Project,
+        extension: Extension,
+        collector: Collector
+    ): Unit = with(project) {
+        val projectsWithSrc = collector.collectProjects(projectDir, "src/main/kotlin")
+        val projectsWithTests = collector.collectProjects(projectDir, "src/test/kotlin")
+
         sonarqube {
             properties {
                 property("sonar.projectKey", extension.sonarProjectKey.get())
                 property("sonar.organization", extension.sonarOrganization.get())
                 property("sonar.host.url", "https://sonarcloud.io")
 
-                property(
-                    "sonar.sources",
-                    collectProjects(
-                        projectDir,
-                        "src/main/kotlin"
-                    ).map { "${it.relativeTo(projectDir)}/src/main/kotlin" })
-                property(
-                    "sonar.tests",
-                    collectProjects(
-                        projectDir,
-                        "src/test/kotlin"
-                    ).map { "${it.relativeTo(projectDir)}/src/test/kotlin" })
+                property("sonar.sources", projectsWithSrc)
+                property("sonar.tests", projectsWithTests)
                 property("sonar.sourceEncoding", "UTF-8")
                 property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
             }
@@ -96,24 +95,6 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
         tasks.named("sonarqube") {
             dependsOn("copyCoverageReports")
         }
-    }
-
-    private fun collectProjects(file: File, filter: String): List<File> {
-        val projects = mutableListOf<File>()
-
-        listOf(file)
-            .extract(projects, filter)
-            .extract(projects, filter)
-            .extract(projects, filter)
-            .toList()
-
-        return projects
-    }
-
-    private fun List<File>.extract(targetList: MutableList<File>, filter: String): List<File> {
-        return flatMap { it.listFiles().asSequence() }
-            .filter { it.isDirectory && File(it, filter).exists() }
-            .map { it.also { targetList.add(it) } }
     }
 
     private fun Project.sonarqube(action: Action<SonarQubeExtension>) {

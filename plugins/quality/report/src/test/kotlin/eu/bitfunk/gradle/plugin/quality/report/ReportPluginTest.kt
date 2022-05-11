@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.quality.report
 
+import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Collector
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -34,15 +35,11 @@ import org.gradle.api.tasks.Copy
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.io.TempDir
 import org.sonarqube.gradle.SonarQubeExtension
 import org.sonarqube.gradle.SonarQubeProperties
 import java.io.File
 
 class ReportPluginTest {
-
-    @TempDir
-    private lateinit var tempDir: File
 
     private lateinit var testSubject: ReportPlugin
 
@@ -112,6 +109,7 @@ class ReportPluginTest {
         // GIVEN
         val project: Project = mockk(relaxed = true)
         val extension: ReportPluginExtension = mockk(relaxed = true)
+        val collector: Collector = mockk(relaxed = true)
         val sonarQubeExtension: SonarQubeExtension = mockk(relaxed = true)
         val sonarQubeProperties: SonarQubeProperties = mockk(relaxed = true)
         every { project.extensions.configure(SonarQubeExtension::class.java, any()) } answers {
@@ -122,29 +120,16 @@ class ReportPluginTest {
         }
         every { extension.sonarProjectKey.get() } returns "sonarProjectKey"
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
-        every { project.projectDir } returns tempDir
+        val projectDir: File = mockk()
+        every { project.projectDir } returns projectDir
         every { project.buildDir } returns File("build")
-
-        val rootProjectSourceDir = File("$tempDir/src/main/kotlin")
-        rootProjectSourceDir.mkdirs()
-        val subProject1SourceDir = File(tempDir, "project1/src/main/kotlin")
-        subProject1SourceDir.mkdirs()
-        val subProject2SourceDir = File(tempDir, "project2/src/main/kotlin")
-        subProject2SourceDir.mkdirs()
-        val nestedProjectSourceDir = File(tempDir, "project2/nestedProject/src/main/kotlin")
-        nestedProjectSourceDir.mkdirs()
-
-        val rootProjectTestDir = File("$tempDir/src/test/kotlin")
-        rootProjectTestDir.mkdirs()
-        val subProject1TestDir = File(tempDir, "project1/src/test/kotlin")
-        subProject1TestDir.mkdirs()
-        val subProject2TestDir = File(tempDir, "project2/src/test/kotlin")
-        subProject2TestDir.mkdirs()
-        val nestedProjectTestDir = File(tempDir, "project2/nestedProject/src/test/kotlin")
-        nestedProjectTestDir.mkdirs()
+        val srcProjects = listOf("srcProjects")
+        val testProjects = listOf("testProjects")
+        every { collector.collectProjects(projectDir, "src/main/kotlin") } returns srcProjects
+        every { collector.collectProjects(projectDir, "src/test/kotlin") } returns testProjects
 
         // WHEN
-        testSubject.configureReport(project, extension)
+        testSubject.configureReport(project, extension, collector)
 
         // THEN
         verifyAll {
@@ -161,27 +146,16 @@ class ReportPluginTest {
             sonarQubeProperties.property("sonar.organization", "sonarOrganization")
             sonarQubeProperties.property("sonar.host.url", "https://sonarcloud.io")
 
-            sonarQubeProperties.property(
-                "sonar.sources",
-                listOf(
-                    "${subProject1SourceDir.relativeTo(tempDir)}",
-                    "${subProject2SourceDir.relativeTo(tempDir)}",
-                    "${nestedProjectSourceDir.relativeTo(tempDir)}"
-                )
-            )
-            sonarQubeProperties.property(
-                "sonar.tests",
-                listOf(
-                    "${subProject1TestDir.relativeTo(tempDir)}",
-                    "${subProject2TestDir.relativeTo(tempDir)}",
-                    "${nestedProjectTestDir.relativeTo(tempDir)}"
-                )
-            )
+            collector.collectProjects(projectDir, "src/main/kotlin")
+            sonarQubeProperties.property("sonar.sources", srcProjects)
+            collector.collectProjects(projectDir, "src/test/kotlin")
+            sonarQubeProperties.property("sonar.tests", testProjects)
+
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
             sonarQubeProperties.property("sonar.jacoco.reportPaths", "build/reports/jacoco/testCodeCoverageReport.xml")
         }
 
-        confirmVerified(project, extension, sonarQubeExtension, sonarQubeProperties)
+        confirmVerified(project, extension, collector, sonarQubeExtension, sonarQubeProperties)
     }
 
     @Test
@@ -248,7 +222,7 @@ class ReportPluginTest {
             spyTestSubject.apply(project)
             spyTestSubject.addPlugins(project)
             spyTestSubject.addExtension(project)
-            spyTestSubject.configureReport(project, extension)
+            spyTestSubject.configureReport(project, extension, any())
             spyTestSubject.configureTasks(project, extension)
         }
 
