@@ -63,16 +63,15 @@ class ProjectCollectorTest {
     @Test
     fun `GIVEN folder with filterPath WHEN collectProjects() THEN return root folder`() {
         // GIVEN
-        val rootFolder = tempDir
-        val rootProjectSourceDir = File("$rootFolder/src/main/kotlin/")
+        val rootProjectSourceDir = File("$tempDir/src/main/kotlin/")
         rootProjectSourceDir.mkdirs()
 
         // WHEN
-        val result = testSubject.collectProjects(rootFolder, "src/main/kotlin")
+        val result = testSubject.collectProjects(tempDir, "src/main/kotlin")
 
         // THEN
         assertEquals(
-            listOf("$rootProjectSourceDir"),
+            listOf("${rootProjectSourceDir.relativeTo(tempDir)}"),
             result
         )
     }
