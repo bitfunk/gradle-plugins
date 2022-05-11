@@ -60,8 +60,18 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
                 property("sonar.organization", extension.sonarOrganization.get())
                 property("sonar.host.url", "https://sonarcloud.io")
 
-                property("sonar.sources", collectProjects(projectDir, "src/main/kotlin").map { "$it/src/main/kotlin" })
-                property("sonar.tests", collectProjects(projectDir, "src/test/kotlin").map { "$it/src/test/kotlin" })
+                property(
+                    "sonar.sources",
+                    collectProjects(
+                        projectDir,
+                        "src/main/kotlin"
+                    ).map { "${it.relativeTo(projectDir)}/src/main/kotlin" })
+                property(
+                    "sonar.tests",
+                    collectProjects(
+                        projectDir,
+                        "src/test/kotlin"
+                    ).map { "${it.relativeTo(projectDir)}/src/test/kotlin" })
                 property("sonar.sourceEncoding", "UTF-8")
                 property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
             }

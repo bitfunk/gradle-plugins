@@ -163,11 +163,19 @@ class ReportPluginTest {
 
             sonarQubeProperties.property(
                 "sonar.sources",
-                listOf("$subProject1SourceDir", "$subProject2SourceDir", "$nestedProjectSourceDir")
+                listOf(
+                    "${subProject1SourceDir.relativeTo(tempDir)}",
+                    "${subProject2SourceDir.relativeTo(tempDir)}",
+                    "${nestedProjectSourceDir.relativeTo(tempDir)}"
+                )
             )
             sonarQubeProperties.property(
                 "sonar.tests",
-                listOf("$subProject1TestDir", "$subProject2TestDir", "$nestedProjectTestDir")
+                listOf(
+                    "${subProject1TestDir.relativeTo(tempDir)}",
+                    "${subProject2TestDir.relativeTo(tempDir)}",
+                    "${nestedProjectTestDir.relativeTo(tempDir)}"
+                )
             )
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
             sonarQubeProperties.property("sonar.jacoco.reportPaths", "build/reports/jacoco/testCodeCoverageReport.xml")
