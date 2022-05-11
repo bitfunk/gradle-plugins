@@ -32,6 +32,20 @@ plugins {
 }
 ```
 
+The plugin needs some configuration:
+
+- **_sonarProjectKey_**: Sonar key used to identify the project.
+- **_sonarOrganization_**: Sonar organisation name the project belongs to.
+- **_coverageReportSourceDir_**: Directory in which the jacoco coverage report XML file could be found. Default: `buildDir/reports/jacoco/testCodeCoverageReport`
+
+```kotlin
+reportConfig {
+    sonarProjectKey.set("sonar project key")
+    sonarOrganization.set("sonar organization name")
+    coverageReportSourceDir.set("buildDir/reports/jacoco/testCodeCoverageReport") // Optional
+}
+```
+
 ## Usage
 
 To run the report generation and upload to sonarcloud.io:
