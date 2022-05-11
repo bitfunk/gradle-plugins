@@ -29,5 +29,6 @@ public class ProjectCollector : ReportContract.Collector {
             .map { "${it.relativeTo(sourcePath)}/$filterPath" }
             .map { if (it.startsWith("/")) it.substring(1) else it }
             .toList()
+            .sorted()
     }
 }

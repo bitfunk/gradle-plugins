@@ -108,7 +108,7 @@ class ProjectCollectorTest {
                 "${subProject1SourceDir.relativeTo(tempDir)}",
                 "${subProject2SourceDir.relativeTo(tempDir)}",
                 "${nestedProjectSourceDir.relativeTo(tempDir)}"
-            ),
+            ).sorted(),
             result
         )
     }
