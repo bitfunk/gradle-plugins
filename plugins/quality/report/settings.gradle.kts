@@ -16,8 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "quality"
-
-includeBuild("code-analysis")
-includeBuild("formatter")
-includeBuild("report")
+rootProject.name = "report"

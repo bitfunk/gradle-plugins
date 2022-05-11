@@ -1,0 +1,2 @@
+[libraries]
+gradleSonarqube = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"

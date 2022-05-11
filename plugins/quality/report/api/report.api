@@ -1,0 +1,16 @@
+public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract {
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Plugin {
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+	public abstract fun configureReport (Lorg/gradle/api/Project;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/quality/report/ReportPlugin : eu/bitfunk/gradle/plugin/quality/report/ReportContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun configureReport (Lorg/gradle/api/Project;)V
+}
+
