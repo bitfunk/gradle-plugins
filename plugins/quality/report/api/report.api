@@ -1,16 +1,35 @@
 public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract {
+	public static final field Companion Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Companion;
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public final class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Companion {
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension {
+	public abstract fun getCoverageReportSourceDir ()Lorg/gradle/api/provider/Property;
+	public abstract fun getSonarOrganization ()Lorg/gradle/api/provider/Property;
+	public abstract fun getSonarProjectKey ()Lorg/gradle/api/provider/Property;
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Plugin {
+	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;
 	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
-	public abstract fun configureReport (Lorg/gradle/api/Project;)V
+	public abstract fun configureReport (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;)V
+	public abstract fun configureTasks (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;)V
 }
 
 public final class eu/bitfunk/gradle/plugin/quality/report/ReportPlugin : eu/bitfunk/gradle/plugin/quality/report/ReportContract$Plugin, org/gradle/api/Plugin {
 	public fun <init> ()V
+	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;
 	public fun addPlugins (Lorg/gradle/api/Project;)V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
-	public fun configureReport (Lorg/gradle/api/Project;)V
+	public fun configureReport (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;)V
+	public fun configureTasks (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;)V
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportPluginExtension : eu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension {
 }
 

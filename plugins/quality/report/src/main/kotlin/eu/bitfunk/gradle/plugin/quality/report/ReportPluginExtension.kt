@@ -18,27 +18,4 @@
 
 package eu.bitfunk.gradle.plugin.quality.report
 
-import org.gradle.api.Project
-import org.gradle.api.provider.Property
-
-public interface ReportContract {
-    public interface Plugin {
-        public fun addPlugins(project: Project)
-
-        public fun addExtension(project: Project): Extension
-
-        public fun configureReport(project: Project, extension: Extension)
-
-        public fun configureTasks(project: Project, extension: Extension)
-    }
-
-    public interface Extension {
-        public val sonarProjectKey: Property<String>
-        public val sonarOrganization: Property<String>
-        public val coverageReportSourceDir: Property<String>
-    }
-
-    public companion object {
-        public const val EXTENSION_NAME: String = "reportConfig"
-    }
-}
+public interface ReportPluginExtension : ReportContract.Extension
