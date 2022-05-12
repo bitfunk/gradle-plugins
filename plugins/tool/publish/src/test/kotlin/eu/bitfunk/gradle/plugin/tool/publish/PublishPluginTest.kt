@@ -18,9 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.tool.publish
 
-import io.mockk.MockKAdditionalAnswerScope
 import io.mockk.MockKMatcherScope
-import io.mockk.MockKVerificationScope
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -41,6 +39,7 @@ import org.gradle.api.publish.maven.MavenPomLicense
 import org.gradle.api.publish.maven.MavenPomLicenseSpec
 import org.gradle.api.publish.maven.MavenPomScm
 import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.kotlin.dsl.getByName
 import org.gradle.plugins.signing.SigningExtension
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
@@ -200,7 +199,6 @@ class PublishPluginTest {
             confirmVerified(extension)
         }
 
-
         return Pair(setup, verify)
     }
 
@@ -287,6 +285,7 @@ class PublishPluginTest {
         every { project.extensions.configure(SigningExtension::class.java, any()) } answers {
             secondArg<Action<SigningExtension>>().execute(signingExtension)
         }
+        every { project.extensions.getByName("publishing") } returns mockk<PublishingExtension>(relaxed = true)
         every { project.findProperty(any()) } returnsMany listOf(
             null, null,
             "signingKey", null,
@@ -353,6 +352,7 @@ class PublishPluginTest {
         val spyTestSubject = spyk(testSubject)
         val extension: PublishPluginExtension = mockk(relaxed = true)
         every { project.extensions.create("publishConfig", PublishPluginExtension::class.java) } returns extension
+        every { extension.signingEnabled.get() } returns false
 
         // WHEN
         spyTestSubject.apply(project)

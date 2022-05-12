@@ -114,7 +114,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
         }
     }
 
-    private fun loadSigningKey(project: Project): String? {
+    private fun loadSigningKey(project: Project): String {
         return loadProperty(project, SIGNING_KEY_PROPERTY_NAME, SIGNING_KEY_ENV_NAME)
     }
 
