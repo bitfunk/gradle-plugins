@@ -21,6 +21,7 @@
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
+[publish]: docs/src/plugins/tool/publish/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
 [versioncatalog accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
 [gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
@@ -39,8 +40,8 @@
 A Collection of Gradle plugins to simplify and unify project development.
 
 [![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
-[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
 [![CI - Build Snapshot Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml)
+[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
 
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=coverage)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
@@ -63,6 +64,7 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Tool
 
+- [Publish] - a publish plugin for maven dependencies
 - [Versioning] - a versioning plugin using git tags
 
 #### Plugin development
