@@ -16,7 +16,25 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
+plugins {
+    id("eu.bitfunk.gradle.plugin.development.convention")
+}
 
-includeBuild("publish")
-includeBuild("versioning")
+repositories {
+    maven {
+        url = uri("https://maven.pkg.github.com/bitfunk/gradle-git-version")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_USER")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_KEY")
+        }
+    }
+}
+
+group = "eu.bitfunk.gradle.plugin.tool"
+
+gradlePlugin {
+    plugins.create("toolPublish") {
+        id = "eu.bitfunk.gradle.plugin.tool.publish"
+        implementationClass = "eu.bitfunk.gradle.plugin.tool.publish.PublishPlugin"
+    }
+}

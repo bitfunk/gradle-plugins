@@ -16,7 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
+package eu.bitfunk.gradle.plugin.tool.publish
 
-includeBuild("publish")
-includeBuild("versioning")
+public interface PublishPluginExtension : PublishContract.Extension

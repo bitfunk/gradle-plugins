@@ -33,6 +33,7 @@ repositories {
 }
 
 dependencies {
+    implementation("eu.bitfunk.gradle.plugin.tool:publish")
     implementation("eu.bitfunk.gradle.plugin.tool:versioning")
 }
 

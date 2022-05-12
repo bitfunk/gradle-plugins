@@ -16,7 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
-
-includeBuild("publish")
-includeBuild("versioning")
+rootProject.name = "publish"
