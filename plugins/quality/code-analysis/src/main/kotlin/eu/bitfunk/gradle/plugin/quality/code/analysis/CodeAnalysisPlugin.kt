@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.quality.code.analysis
 
+import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated.LibsCodeAnalysisVersionCatalogAccessor
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
@@ -39,8 +40,10 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
     }
 
     override fun configureAnalysis(project: Project): Unit = with(project) {
+        val libs = LibsCodeAnalysisVersionCatalogAccessor(project)
+
         detekt {
-            toolVersion = DETEKT_VERSION
+            toolVersion = libs.versions.detekt.get()
             parallel = true
 
             source = project.files(
@@ -97,9 +100,5 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
 
     private fun Project.detekt(action: Action<DetektExtension>) {
         extensions.configure(DetektExtension::class.java, action)
-    }
-
-    private companion object {
-        const val DETEKT_VERSION = "1.19.0"
     }
 }

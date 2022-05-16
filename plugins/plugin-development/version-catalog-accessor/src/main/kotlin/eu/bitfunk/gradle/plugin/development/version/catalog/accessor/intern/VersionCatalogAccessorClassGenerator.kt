@@ -59,7 +59,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     .initializer(
                         "%L",
                         "project.extensions.getByType(VersionCatalogsExtension::class.java)" +
-                            ".named(\"${baseName.toLowerCase()}\")"
+                            ".named(\"${baseName.decapitalize()}\")"
                     )
                     .addModifiers(KModifier.PRIVATE)
                     .build()

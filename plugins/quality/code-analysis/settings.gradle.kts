@@ -21,7 +21,7 @@ rootProject.name = "code-analysis"
 dependencyResolutionManagement {
     versionCatalogs {
         create("libsCodeAnalysis") {
-            from(files("gradle/libs-code-analysis.versions.toml"))
+            from(files("gradle/libsCodeAnalysis.versions.toml"))
         }
     }
 }

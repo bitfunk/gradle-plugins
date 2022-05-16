@@ -35,7 +35,7 @@ dependencies {
 }
 
 versionCatalogAccessor {
-    catalogNames.set(listOf("libs-code-analysis"))
+    catalogNames.set(listOf("libsCodeAnalysis"))
     packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
 }
 

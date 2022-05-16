@@ -21,6 +21,8 @@ plugins {
     id("jacoco-report-aggregation")
 }
 
+group = "eu.bitfunk.gradle.plugin"
+
 repositories {
     maven {
         url = uri("https://maven.pkg.github.com/bitfunk/gradle-git-version")
