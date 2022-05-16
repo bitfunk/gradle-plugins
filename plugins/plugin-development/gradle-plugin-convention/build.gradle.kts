@@ -22,7 +22,7 @@ plugins {
     `kotlin-dsl`
     jacoco
 
-    alias(libs.plugins.binaryCompatibilityValidator)
+    alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
@@ -50,14 +50,14 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.gradleKotlinPlugin)
-    implementation(libs.gradleKotlinDsl)
-    implementation(libs.gradleKotlinBinaryCompatibilityPlugin)
+    implementation(libsPluginConvention.gradleKotlinPlugin)
+    implementation(libsPluginConvention.gradleKotlinDsl)
+    implementation(libsPluginConvention.gradleKotlinBinaryCompatibilityPlugin)
 
     testImplementation(gradleTestKit())
-    testImplementation(libs.testJUnit5)
-    testRuntimeOnly(libs.testJUnit5Engine)
-    testImplementation(libs.testMockk)
+    testImplementation(libsPluginConvention.testJUnit5)
+    testRuntimeOnly(libsPluginConvention.testJUnit5Engine)
+    testImplementation(libsPluginConvention.testMockk)
 }
 
 tasks.withType<Test>().configureEach {

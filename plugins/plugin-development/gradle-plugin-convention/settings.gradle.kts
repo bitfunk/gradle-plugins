@@ -17,3 +17,11 @@
  */
 
 rootProject.name = "gradle-plugin-convention"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsPluginConvention") {
+            from(files("gradle/libs-plugin-convention.versions.toml"))
+        }
+    }
+}

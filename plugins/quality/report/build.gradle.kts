@@ -30,5 +30,5 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(libs.gradleSonarqube)
+    implementation(libsReport.gradleSonarqube)
 }
