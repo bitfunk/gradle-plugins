@@ -2,7 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [keep a changelog](http://keepachangelog.com/en/1.0.0/) and using following types of changes: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`, `Bumped` and `Migration`.
+The format is based on [keep a changelog](http://keepachangelog.com/en/1.0.0/) and using following
+types of changes: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`, `Bumped`
+and `Migration`.
 
 This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
@@ -27,3 +29,4 @@ Initial release
 - Add Report Plugin - a quality report plugin using sonarqube
 - Add Quality Plugin - a collection of all quality plugins
 - Add Publish Plugin - a publish plugin for maven dependencies
+- Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds

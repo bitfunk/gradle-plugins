@@ -34,6 +34,7 @@ buildscript {
 plugins {
     id("eu.bitfunk.gradle.plugin.quality")
     id("eu.bitfunk.gradle.plugin.tool.versioning")
+    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
 }
 
 reportConfig {
@@ -48,19 +49,13 @@ project(":docs") {
     }
 }
 
+compositeDelegator {
+    additionalTasks.set(listOf("testCodeCoverageReport"))
+}
+
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
 
 tasks.named<Wrapper>("wrapper") {
     gradleVersion = "7.4.2"
     distributionType = Wrapper.DistributionType.ALL
 }
-
-// Delegate to included builds
-tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
-tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
-tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-tasks.maybeCreate("jacocoTestReport").dependsOn(gradle.includedBuilds.map { it.task(":jacocoTestReport") })
-tasks.maybeCreate("testCodeCoverageReport").dependsOn(gradle.includedBuilds.map { it.task(":testCodeCoverageReport") })
-tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
-tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
-tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })

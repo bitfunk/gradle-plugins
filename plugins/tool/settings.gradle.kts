@@ -18,5 +18,6 @@
 
 rootProject.name = "tool"
 
+includeBuild("composite-delegator")
 includeBuild("publish")
 includeBuild("versioning")

@@ -16,14 +16,30 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
-}
+package eu.bitfunk.gradle.plugin.tool.composite.delegator
 
-group = "eu.bitfunk.gradle.plugin.development"
+import org.gradle.api.Project
+import org.gradle.api.provider.ListProperty
 
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
-    implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
+public interface CompositeDelegatorContract {
+
+    public interface Plugin {
+        public fun addExtension(project: Project): Extension
+
+        public fun configureTasks(project: Project, extension: Extension)
+    }
+
+    public interface Extension {
+
+        /**
+         * List of task names that additionally should be delegated to included builds
+         *
+         * Default: empty
+         */
+        public val additionalTasks: ListProperty<String>
+    }
+
+    public companion object {
+        public const val EXTENSION_NAME: String = "compositeDelegator"
+    }
 }

@@ -18,12 +18,14 @@
 
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
 }
 
-group = "eu.bitfunk.gradle.plugin.development"
+group = "eu.bitfunk.gradle.plugin.tool"
 
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
-    implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
+gradlePlugin {
+    plugins.create("gradleCompositeDelegator") {
+        id = "eu.bitfunk.gradle.plugin.tool.composite.delegator"
+        implementationClass =
+            "eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPlugin"
+    }
 }

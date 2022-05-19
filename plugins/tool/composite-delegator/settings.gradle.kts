@@ -16,14 +16,4 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
-}
-
-group = "eu.bitfunk.gradle.plugin.development"
-
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
-    implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
-}
+rootProject.name = "composite-delegator"
