@@ -21,6 +21,7 @@
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
+[composite delegator]: docs/src/plugins/tool/compositeDelegator/index.md
 [publish]: docs/src/plugins/tool/publish/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
 [versioncatalog accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
@@ -64,7 +65,8 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 
 #### Tool
 
-- [Publish] - a publish plugin for maven dependencies
+- [Composite Delegator] - a plugin that delegates gradle tasks execution to included builds
+- [Publish] - a publish plugin for maven publications
 - [Versioning] - a versioning plugin using git tags
 
 #### Plugin development
