@@ -205,9 +205,9 @@ internal class VersionCatalogAccessorClassGenerator(
     private fun generateGetStaticFunction(catalogType: KClass<*>, value: String?): FunSpec {
         val satement: String = when (catalogType) {
             Versions::class -> "return \"$value\""
-            Libraries::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
-            Bundles::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
-            Plugins::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
+            Libraries::class -> THROW_UNSUPPORTED
+            Bundles::class -> THROW_UNSUPPORTED
+            Plugins::class -> THROW_UNSUPPORTED
             else -> throw UnsupportedOperationException("$catalogType is not supported")
         }
 
@@ -241,5 +241,7 @@ internal class VersionCatalogAccessorClassGenerator(
     private companion object {
         const val FUNCTION_NAME_GET = "get"
         const val FUNCTION_NAME_GET_STATIC = "getStatic"
+
+        const val THROW_UNSUPPORTED = "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
     }
 }

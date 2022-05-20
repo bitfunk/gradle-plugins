@@ -48,7 +48,9 @@ internal class GeneratorTask(
         if (!outputDir.exists()) outputDir.mkdirs()
 
         File("$outputDir/$OUTPUT_INTERFACE_FILE_NAME").writeText(versionInterface)
-        generatedAccessors.map { File("$outputDir/${generateFileName(it.first)}$OUTPUT_FILE_NAME").writeText(it.second) }
+        generatedAccessors.map {
+            File("$outputDir/${generateFileName(it.first)}$OUTPUT_FILE_NAME").writeText(it.second)
+        }
     }
 
     private fun generateVersionInterface(packageName: String): String {
