@@ -34,10 +34,11 @@ public interface WithPluginsVersionCatalogAccessorContract {
 }
 
 public class WithPluginsVersionCatalogAccessor(
-    project: Project
+    private val project: Project
 ) : Libraries {
-    private val versionCatalog: VersionCatalog =
-            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-plugins")
+    private val versionCatalog: VersionCatalog
+        get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
+            .named("with-plugins")
 
     public val versions: Versions = object : Versions {
     }

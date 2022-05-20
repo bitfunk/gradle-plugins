@@ -43,7 +43,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
         val libs = LibsCodeAnalysisVersionCatalogAccessor(project)
 
         detekt {
-            toolVersion = libs.versions.detekt.get()
+            toolVersion = libs.versions.detekt.getStatic()
             parallel = true
 
             source = project.files(

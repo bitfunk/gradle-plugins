@@ -23,11 +23,3 @@ include("docs")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "GradlePlugins"
-
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libsCodeAnalysis") {
-            from(files("gradle/libsCodeAnalysis.versions.toml"))
-        }
-    }
-}

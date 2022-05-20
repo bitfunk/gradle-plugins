@@ -34,10 +34,11 @@ public interface WithVersionsVersionCatalogAccessorContract {
 }
 
 public class WithVersionsVersionCatalogAccessor(
-    project: Project
+    private val project: Project
 ) : Libraries {
-    private val versionCatalog: VersionCatalog =
-            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-versions")
+    private val versionCatalog: VersionCatalog
+        get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
+            .named("with-versions")
 
     public val versions: Versions = object : Versions {
         public override val example: VersionCatalogDependency.Leaf = object :

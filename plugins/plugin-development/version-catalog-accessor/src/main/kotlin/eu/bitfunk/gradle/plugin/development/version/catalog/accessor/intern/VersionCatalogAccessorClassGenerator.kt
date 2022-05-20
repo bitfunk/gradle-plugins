@@ -52,16 +52,25 @@ internal class VersionCatalogAccessorClassGenerator(
                 FunSpec.constructorBuilder()
                     .addParameter(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
                     .build()
+            ).addProperty(
+                PropertySpec.builder(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
+                    .initializer(Generator.ACCESSOR_PROPERTY_NAME_PROJECT)
+                    .addModifiers(PRIVATE)
+                    .build()
             )
             .addSuperinterface(ClassName(packageName, Generator.NAME_LIBRARIES.capitalize()))
             .addProperty(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
-                    .initializer(
-                        "%L",
-                        "project.extensions.getByType(VersionCatalogsExtension::class.java)" +
-                            ".named(\"${baseName.decapitalize()}\")"
+                    .getter(
+                        FunSpec.getterBuilder()
+                            .addStatement(
+                                "return %L",
+                                "project.extensions.getByType(VersionCatalogsExtension::class.java)\n" +
+                                    "    .named(\"${baseName.decapitalize()}\")"
+                            )
+                            .build()
                     )
-                    .addModifiers(KModifier.PRIVATE)
+                    .addModifiers(PRIVATE)
                     .build()
             )
             .addProperty(generateRootProperty(Generator.NAME_VERSIONS, catalog.versions))
