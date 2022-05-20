@@ -130,7 +130,7 @@ class NodeTest {
         val children = mutableListOf(Node("Child"))
 
         // WHEN
-        val result = Node(name, path, children)
+        val result = Node(name = name, path = path, children = children)
 
         // THEN
         assertTrue(result.isLeaf())

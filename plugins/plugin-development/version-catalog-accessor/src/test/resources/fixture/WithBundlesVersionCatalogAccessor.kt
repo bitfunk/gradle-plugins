@@ -46,6 +46,10 @@ public class WithBundlesVersionCatalogAccessor(
         public override val example: VersionCatalogDependency.Leaf = object :
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findBundle("example")
+
+            public override fun getStatic(): String = throw UnsupportedOperationException(
+                "not yet implemented"
+            )
         }
 
         public override val group: Bundles.Group = object : Bundles.Group {
@@ -53,14 +57,26 @@ public class WithBundlesVersionCatalogAccessor(
                 public override val one: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findBundle("group-example-one")
+
+                    public override fun getStatic(): String = throw UnsupportedOperationException(
+                        "not yet implemented"
+                    )
                 }
 
                 public override val two: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findBundle("group-example-two")
+
+                    public override fun getStatic(): String = throw UnsupportedOperationException(
+                        "not yet implemented"
+                    )
                 }
 
                 public override fun `get`(): String = findBundle("group-example")
+
+                public override fun getStatic(): String = throw UnsupportedOperationException(
+                    "not yet implemented"
+                )
             }
         }
     }

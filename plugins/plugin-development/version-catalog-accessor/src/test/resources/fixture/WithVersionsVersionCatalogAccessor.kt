@@ -43,6 +43,8 @@ public class WithVersionsVersionCatalogAccessor(
         public override val example: VersionCatalogDependency.Leaf = object :
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("example")
+
+            public override fun getStatic(): String = "1.0.0"
         }
 
         public override val group: Versions.Group = object : Versions.Group {
@@ -50,14 +52,20 @@ public class WithVersionsVersionCatalogAccessor(
                 public override val one: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findVersion("group-example-one")
+
+                    public override fun getStatic(): String = "1.2.3"
                 }
 
                 public override val two: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findVersion("group-example-two")
+
+                    public override fun getStatic(): String = "0.1.0"
                 }
 
                 public override fun `get`(): String = findVersion("group-example")
+
+                public override fun getStatic(): String = "4.5.9"
             }
         }
     }

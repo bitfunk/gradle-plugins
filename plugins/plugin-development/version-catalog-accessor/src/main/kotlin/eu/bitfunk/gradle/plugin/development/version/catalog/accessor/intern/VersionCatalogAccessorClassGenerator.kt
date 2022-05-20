@@ -164,8 +164,10 @@ internal class VersionCatalogAccessorClassGenerator(
             .addSuperinterface(className)
 
         if (kClass.simpleName == "Leaf" || kClass.simpleName == "GroupLeaf") {
-            val function = generateFunction(catalogType, node.path)
-            nodeImplementation.addFunction(function)
+            val getFunction = generateGetFunction(catalogType, node.path)
+            nodeImplementation.addFunction(getFunction)
+            val getStaticFunction = generateGetStaticFunction(catalogType, node.value)
+            nodeImplementation.addFunction(getStaticFunction)
         }
 
         if (node.children.isNotEmpty()) {
@@ -176,7 +178,7 @@ internal class VersionCatalogAccessorClassGenerator(
         return nodeImplementation.build()
     }
 
-    private fun generateFunction(catalogType: KClass<*>, path: String): FunSpec {
+    private fun generateGetFunction(catalogType: KClass<*>, path: String): FunSpec {
         val functionName: String = when (catalogType) {
             Versions::class -> "findVersion"
             Libraries::class -> "findLibrary"
@@ -189,6 +191,22 @@ internal class VersionCatalogAccessorClassGenerator(
             .addModifiers(OVERRIDE)
             .returns(String::class)
             .addStatement("return $functionName(\"$path\")")
+            .build()
+    }
+
+    private fun generateGetStaticFunction(catalogType: KClass<*>, value: String?): FunSpec {
+        val satement: String = when (catalogType) {
+            Versions::class -> "return \"$value\""
+            Libraries::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
+            Bundles::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
+            Plugins::class -> "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
+            else -> throw UnsupportedOperationException("$catalogType is not supported")
+        }
+
+        return FunSpec.builder(FUNCTION_NAME_GET_STATIC)
+            .addModifiers(OVERRIDE)
+            .returns(String::class)
+            .addStatement(satement)
             .build()
     }
 
@@ -214,5 +232,6 @@ internal class VersionCatalogAccessorClassGenerator(
 
     private companion object {
         const val FUNCTION_NAME_GET = "get"
+        const val FUNCTION_NAME_GET_STATIC = "getStatic"
     }
 }
