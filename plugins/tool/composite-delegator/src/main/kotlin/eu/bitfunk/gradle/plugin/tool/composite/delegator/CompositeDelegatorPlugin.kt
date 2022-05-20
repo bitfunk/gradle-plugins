@@ -22,8 +22,10 @@ import eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorContr
 import eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorContract.Extension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.internal.ConventionTask
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.testing.Test
+import kotlin.collections.Map.Entry
 
 public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugin<Project> {
 
@@ -44,27 +46,33 @@ public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugi
     }
 
     override fun configureTasks(project: Project, extension: Extension): Unit = with(project) {
-        for (pair in DEFAULT_TASKS) {
-            val task = if (pair.second != null) {
-                tasks.maybeCreate(pair.first, pair.second!!)
-            } else {
-                tasks.maybeCreate(pair.first)
-            }
-            task.dependsOn(gradle.includedBuilds.map { it.task(":${pair.first}") })
+        DEFAULT_TASKS.map { addTask(project, it) }
+
+        afterEvaluate {
+            extension.additionalTasks.get().associateWith { null }.map { addTask(project, it) }
         }
     }
 
+    private fun addTask(project: Project, item: Entry<String, Class<out ConventionTask>?>): Unit = with(project) {
+        val task = if (item.value != null) {
+            tasks.maybeCreate(item.key, item.value!!)
+        } else {
+            tasks.maybeCreate(item.key)
+        }
+        task.dependsOn(gradle.includedBuilds.map { it.task(":${item.key}") })
+    }
+
     private companion object {
-        private val DEFAULT_TASKS = listOf(
-            Pair("assemble", null),
-            Pair("build", null),
-            Pair("check", null),
-            Pair("clean", Delete::class.java),
-            Pair("jacocoTestReport", null),
-            Pair("test", Test::class.java),
-            Pair("wrapper", null),
-            Pair("dependencyUpdates", null),
-            Pair("versionCatalogUpdate", null),
+        private val DEFAULT_TASKS = mapOf(
+            "assemble" to null,
+            "build" to null,
+            "check" to null,
+            "clean" to Delete::class.java,
+            "jacocoTestReport" to null,
+            "test" to Test::class.java,
+            "wrapper" to null,
+            "dependencyUpdates" to null,
+            "versionCatalogUpdate" to null,
         )
     }
 }

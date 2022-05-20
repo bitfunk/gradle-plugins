@@ -25,6 +25,7 @@ import io.mockk.mockk
 import io.mockk.spyk
 import io.mockk.verifyAll
 import io.mockk.verifyOrder
+import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
@@ -94,7 +95,7 @@ class CompositeDelegatorPluginTest {
     }
 
     @Test
-    fun `GIVEN project and extension WHEN configureTasks THEN tasks configured`() {
+    fun `GIVEN project and extension WHEN configureTasks() THEN tasks configured`() {
         // GIVEN
         val project: Project = mockk()
         val extension: Extension = mockk()
@@ -104,21 +105,28 @@ class CompositeDelegatorPluginTest {
         every { project.tasks.maybeCreate(any()) } returns task
         every { project.tasks.maybeCreate(any(), any<Class<Task>>()) } returns task
         every { project.gradle.includedBuilds } returns includedBuildsList
+        every { extension.additionalTasks.get() } returns listOf("task1", "task2")
+        every { project.afterEvaluate(any<Action<Project>>()) } answers {
+            firstArg<Action<Project>>().execute(project)
+        }
 
         // WHEN
         testSubject.configureTasks(project, extension)
 
         // THEN
         verifyAll {
-            for (pair in TASKS) {
-                if (pair.second != null) {
-                    project.tasks.maybeCreate(pair.first, pair.second!!)
+            project.afterEvaluate(any<Action<Project>>())
+            extension.additionalTasks
+
+            for (item in TASKS) {
+                if (item.value != null) {
+                    project.tasks.maybeCreate(item.key, item.value!!)
                 } else {
-                    project.tasks.maybeCreate(pair.first)
+                    project.tasks.maybeCreate(item.key)
                 }
                 project.gradle.includedBuilds
                 task.dependsOn(any())
-                includedBuild.task(":${pair.first}")
+                includedBuild.task(":${item.key}")
             }
         }
 
@@ -135,6 +143,7 @@ class CompositeDelegatorPluginTest {
         every { project.extensions.create(any(), CompositeDelegatorPluginExtension::class.java) } returns extension
         every { project.tasks.maybeCreate(any()) } returns task
         every { project.tasks.maybeCreate(any(), any<Class<Task>>()) } returns task
+        every { extension.additionalTasks.get() } returns emptyList()
 
         // WHEN
         spyTestSubject.apply(project)
@@ -152,16 +161,20 @@ class CompositeDelegatorPluginTest {
     }
 
     private companion object {
-        private val TASKS = listOf(
-            Pair("assemble", null),
-            Pair("build", null),
-            Pair("check", null),
-            Pair("clean", Delete::class.java),
-            Pair("jacocoTestReport", null),
-            Pair("test", org.gradle.api.tasks.testing.Test::class.java),
-            Pair("wrapper", null),
-            Pair("dependencyUpdates", null),
-            Pair("versionCatalogUpdate", null),
+        private val TASKS = mapOf(
+            "assemble" to null,
+            "build" to null,
+            "check" to null,
+            "clean" to Delete::class.java,
+            "jacocoTestReport" to null,
+            "test" to org.gradle.api.tasks.testing.Test::class.java,
+            "wrapper" to null,
+            "dependencyUpdates" to null,
+            "versionCatalogUpdate" to null,
+
+            // Custom
+            "task1" to null,
+            "task2" to null,
         )
     }
 }
