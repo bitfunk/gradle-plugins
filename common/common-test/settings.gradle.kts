@@ -18,6 +18,8 @@
 
 rootProject.name = "common-test"
 
+includeBuild("gradle-test-util")
+
 // outside dependencies
 includeBuild("../../plugins/plugin-development/gradle-plugin-convention")
 includeBuild("../../plugins/tool/composite-delegator")

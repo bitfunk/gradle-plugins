@@ -18,26 +18,18 @@
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    `java-gradle-plugin`
-    `kotlin-dsl`
+    id("org.jetbrains.kotlin.jvm") version "1.5.32"
     jacoco
 
-    alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
+    alias(libsGradleTestUtil.plugins.binaryCompatibilityValidator)
 }
 
-group = "eu.bitfunk.gradle.plugin.development"
+group = "eu.bitfunk.gradle.plugin.common.test"
 
 repositories {
     gradlePluginPortal()
     mavenCentral()
     google()
-}
-
-gradlePlugin {
-    plugins.create("gradlePluginConvention") {
-        id = "eu.bitfunk.gradle.plugin.development.convention"
-        implementationClass = "eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPlugin"
-    }
 }
 
 java {
@@ -50,14 +42,12 @@ kotlin {
 }
 
 dependencies {
-    implementation(libsPluginConvention.gradleKotlinPlugin)
-    implementation(libsPluginConvention.gradleKotlinDsl)
-    implementation(libsPluginConvention.gradleKotlinBinaryCompatibilityPlugin)
+    implementation(libsGradleTestUtil.testMockk)
+    // implementation("eu.bitfunk.gradle.plugin.common:report")
 
-    testImplementation(gradleTestKit())
-    testImplementation(libsPluginConvention.testJUnit5)
-    testRuntimeOnly(libsPluginConvention.testJUnit5Engine)
-    testImplementation(libsPluginConvention.testMockk)
+    testImplementation(libsGradleTestUtil.testJUnit5)
+    testRuntimeOnly(libsGradleTestUtil.testJUnit5Engine)
+    testImplementation(libsGradleTestUtil.testMockk)
 }
 
 tasks.withType<Test>().configureEach {
@@ -90,6 +80,6 @@ tasks.named("check") {
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = libsPluginConvention.versions.gradle.get()
+    gradleVersion = libsGradleTestUtil.versions.gradle.get()
     distributionType = Wrapper.DistributionType.ALL
 }
