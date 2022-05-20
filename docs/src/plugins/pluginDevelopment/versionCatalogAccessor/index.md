@@ -85,4 +85,3 @@ If you're consuming a version like `LibsVersionCatalogAccessor(project).versions
 will be a dynamic version. This version needs to be defined in any consuming project. Alternatively
 you could use `LibsVersionCatalogAccessor(project).versions.exmaple.getStatic()` for a fixed version
 bound to your local version catalog.
-

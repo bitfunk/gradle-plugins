@@ -4,8 +4,8 @@ A plugin that delegates gradle task execution to included builds.
 
 ## Features
 
-* standard tasks are already added: `assemble`, `build`, `check`, `test`
-* additional task could be configured
+- standard tasks are already added: `assemble`, `build`, `check`, `test`
+- additional task could be configured
 
 ## Installation
 
