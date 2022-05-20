@@ -16,11 +16,18 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-includeBuild("common")
-includeBuild("plugins")
+plugins {
+    id("eu.bitfunk.gradle.plugin.development.convention")
+    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    id("jacoco-report-aggregation")
+}
 
-include("docs")
+group = "eu.bitfunk.gradle.plugin.common"
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+dependencies {
+    implementation("eu.bitfunk.gradle.plugin.common:common-test")
+}
 
-rootProject.name = "GradlePlugins"
+tasks.check {
+    dependsOn(tasks.named("testCodeCoverageReport"))
+}

@@ -16,11 +16,8 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-includeBuild("common")
-includeBuild("plugins")
+rootProject.name = "common-test"
 
-include("docs")
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
+// outside dependencies
+includeBuild("../../plugins/plugin-development/gradle-plugin-convention")
+includeBuild("../../plugins/tool/composite-delegator")

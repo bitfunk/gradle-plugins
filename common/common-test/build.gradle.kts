@@ -16,11 +16,12 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-includeBuild("common")
-includeBuild("plugins")
+plugins {
+    id("eu.bitfunk.gradle.plugin.development.convention")
+    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+}
 
-include("docs")
+group = "eu.bitfunk.gradle.plugin.common.test"
 
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-rootProject.name = "GradlePlugins"
+dependencies {
+}
