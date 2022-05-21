@@ -18,7 +18,8 @@
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.5.32"
+    id("org.jetbrains.kotlin.jvm") version "1.5.31"
+    `kotlin-dsl`
     jacoco
 
     alias(libsGradleTestUtil.plugins.binaryCompatibilityValidator)
@@ -42,8 +43,8 @@ kotlin {
 }
 
 dependencies {
+    implementation(libsGradleTestUtil.gradleKotlinDsl)
     implementation(libsGradleTestUtil.testMockk)
-    // implementation("eu.bitfunk.gradle.plugin.common:report")
 
     testImplementation(libsGradleTestUtil.testJUnit5)
     testRuntimeOnly(libsGradleTestUtil.testJUnit5Engine)
@@ -54,7 +55,7 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-tasks.named<JacocoReport>("jacocoTestReport"){
+tasks.named<JacocoReport>("jacocoTestReport") {
     dependsOn(tasks.named("test"))
 
     reports {

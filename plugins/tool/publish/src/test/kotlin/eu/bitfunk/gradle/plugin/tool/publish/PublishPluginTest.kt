@@ -18,7 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.tool.publish
 
-import io.mockk.MockKMatcherScope
+import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -39,7 +39,6 @@ import org.gradle.api.publish.maven.MavenPomLicense
 import org.gradle.api.publish.maven.MavenPomLicenseSpec
 import org.gradle.api.publish.maven.MavenPomScm
 import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.kotlin.dsl.getByName
 import org.gradle.plugins.signing.SigningExtension
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
@@ -117,17 +116,17 @@ class PublishPluginTest {
         val mavenPublication: MavenPublication = mockk()
         val mavenPom: MavenPom = mockk(relaxed = true)
 
-        everyAnswersSecondAction(publishingExtension) {
-            project.extensions.configure(PublishingExtension::class.java, any())
+        stubGradleAction(publishingExtension) {
+            project.extensions.configure(PublishingExtension::class.java, it)
         }
-        everyAnswersFirstAction(publicationContainer) { publishingExtension.publications(any()) }
+        stubGradleAction(publicationContainer) { publishingExtension.publications(it) }
         every {
             publicationContainer.withType(MavenPublication::class.java, any<Action<MavenPublication>>())
         } answers {
             secondArg<Action<MavenPublication>>().execute(mavenPublication)
             domainObjectCollection
         }
-        everyAnswersFirstAction(mavenPom) { mavenPublication.pom(any()) }
+        stubGradleAction(mavenPom) { mavenPublication.pom(it) }
 
         val extensionSetup = setupExtension(extension)
         extensionSetup.first()
@@ -210,11 +209,11 @@ class PublishPluginTest {
         val mavenPomScm: MavenPomScm = mockk(relaxed = true)
 
         val setup: () -> Unit = {
-            everyAnswersFirstAction(mavenPomLicenseSpec) { mavenPom.licenses(any()) }
-            everyAnswersFirstAction(mavenPomLicense) { mavenPomLicenseSpec.license(any()) }
-            everyAnswersFirstAction(mavenPomDeveloperSpec) { mavenPom.developers(any()) }
-            everyAnswersFirstAction(mavenPomDeveloper) { mavenPomDeveloperSpec.developer(any()) }
-            everyAnswersFirstAction(mavenPomScm) { mavenPom.scm(any()) }
+            stubGradleAction(mavenPomLicenseSpec) { mavenPom.licenses(it) }
+            stubGradleAction(mavenPomLicense) { mavenPomLicenseSpec.license(it) }
+            stubGradleAction(mavenPomDeveloperSpec) { mavenPom.developers(it) }
+            stubGradleAction(mavenPomDeveloper) { mavenPomDeveloperSpec.developer(it) }
+            stubGradleAction(mavenPomScm) { mavenPom.scm(it) }
 
             val mavenPomScmUrlProperty: Property<String> = mockk(relaxed = true)
             every { mavenPomScm.url } returns mavenPomScmUrlProperty
@@ -282,9 +281,7 @@ class PublishPluginTest {
         val extension: PublishPluginExtension = mockk(relaxed = true)
         val signingExtension: SigningExtension = mockk(relaxed = true)
         every { extension.signingEnabled.get() } returns true
-        every { project.extensions.configure(SigningExtension::class.java, any()) } answers {
-            secondArg<Action<SigningExtension>>().execute(signingExtension)
-        }
+        stubGradleAction(signingExtension) { project.extensions.configure(SigningExtension::class.java, it) }
         every { project.extensions.getByName("publishing") } returns mockk<PublishingExtension>(relaxed = true)
         every { project.findProperty(any()) } returnsMany listOf(
             null, null,
@@ -316,9 +313,7 @@ class PublishPluginTest {
         every { extension.signingEnabled.get() } returns true
         every { project.extensions.getByName("publishing") } returns publishingExtension
         every { publishingExtension.publications } returns publicationContainer
-        every { project.extensions.configure(SigningExtension::class.java, any()) } answers {
-            secondArg<Action<SigningExtension>>().execute(signingExtension)
-        }
+        stubGradleAction(signingExtension) { project.extensions.configure(SigningExtension::class.java, it) }
         every { project.findProperty(any()) } returnsMany listOf(
             "signingKey", "signingPassword",
         )
@@ -367,21 +362,5 @@ class PublishPluginTest {
         }
 
         confirmVerified(spyTestSubject)
-    }
-
-    private fun <T : Any> everyAnswersFirstAction(answer: T, every: MockKMatcherScope.() -> Unit) {
-        every {
-            every()
-        } answers {
-            firstArg<Action<T>>().execute(answer)
-        }
-    }
-
-    private fun <T : Any> everyAnswersSecondAction(answer: T, every: MockKMatcherScope.() -> Unit) {
-        every {
-            every()
-        } answers {
-            secondArg<Action<T>>().execute(answer)
-        }
     }
 }

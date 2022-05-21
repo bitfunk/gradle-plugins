@@ -16,14 +16,35 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "gradle-plugin-convention"
+package eu.bitfunk.gradle.plugin.common.test.util
 
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libsPluginConvention") {
-            from(files("gradle/libs-plugin-convention.versions.toml"))
-        }
+import io.mockk.MockKMatcherScope
+import io.mockk.every
+import io.mockk.slot
+import org.gradle.api.Action
+
+public fun <T : Any> stubGradleAction(
+    answer: T,
+    every: MockKMatcherScope.(Action<T>) -> Unit,
+) {
+    val actionSlot = slot<Action<T>>()
+    every {
+        every(capture(actionSlot))
+    } answers {
+        actionSlot.captured.execute(answer)
     }
 }
 
-includeBuild("../../../common/common-test/gradle-test-util")
+public fun <T : Any, R : Any> stubGradleActionWithReturn(
+    answer: T,
+    returnValue: R,
+    every: MockKMatcherScope.(Action<T>) -> R,
+) {
+    val actionSlot = slot<Action<T>>()
+    every {
+        every(capture(actionSlot))
+    } answers {
+        actionSlot.captured.execute(answer)
+        returnValue
+    }
+}

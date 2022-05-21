@@ -18,6 +18,8 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
+import eu.bitfunk.gradle.plugin.common.test.util.stubGradleActionWithReturn
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -155,9 +157,7 @@ class GradlePluginConventionPluginTest {
         val extensionContainer: ExtensionContainer = mockk()
         val javaPluginExtension: JavaPluginExtension = mockk(relaxed = true)
         every { project.extensions } returns extensionContainer
-        every { extensionContainer.configure(JavaPluginExtension::class.java, any()) } answers {
-            secondArg<Action<JavaPluginExtension>>().execute(javaPluginExtension)
-        }
+        stubGradleAction(javaPluginExtension) { extensionContainer.configure(JavaPluginExtension::class.java, it) }
 
         // WHEN
         testSubject.configureJavaCompatibility(project)
@@ -215,6 +215,7 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.8.2")
             dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.8.2")
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.12.2")
+            dependencyHandlerScope.add("testImplementation", "eu.bitfunk.gradle.plugin.common.test:gradle-test-util:0.1.0")
         }
 
         confirmVerified(dependencyHandlerScope)
@@ -349,11 +350,8 @@ class GradlePluginConventionPluginTest {
         htmlBooleanProperty: Property<Boolean>,
         xmlBooleanProperty: Property<Boolean>
     ) {
-        every {
-            taskContainer.named("jacocoTestReport", JacocoReport::class.java, any())
-        } answers {
-            thirdArg<Action<JacocoReport>>().execute(jacocoReport)
-            mockk()
+        stubGradleActionWithReturn(jacocoReport, mockk()) {
+            taskContainer.named("jacocoTestReport", JacocoReport::class.java, it)
         }
         every { taskContainer.named("test") } returns taskDependencyProvider
         every { jacocoReport.reports(any<Action<JacocoReportsContainer>>()) } answers {

@@ -25,7 +25,7 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.common"
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.common:common-test")
+    // implementation("eu.bitfunk.gradle.plugin.common:common-test")
 }
 
 tasks.check {

@@ -58,13 +58,14 @@ dependencies {
     testImplementation(libsPluginConvention.testJUnit5)
     testRuntimeOnly(libsPluginConvention.testJUnit5Engine)
     testImplementation(libsPluginConvention.testMockk)
+    testImplementation(libsPluginConvention.testGradleTestUtil)
 }
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-tasks.named<JacocoReport>("jacocoTestReport"){
+tasks.named<JacocoReport>("jacocoTestReport") {
     dependsOn(tasks.named("test"))
 
     reports {

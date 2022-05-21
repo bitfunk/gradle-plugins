@@ -28,6 +28,7 @@ public abstract interface class eu/bitfunk/gradle/plugin/development/convention/
 
 public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionPlugin : eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin, org/gradle/api/Plugin {
 	public static final field COVERAGE_MINIMUM D
+	public static final field GRADLE_TEST_UTIL Ljava/lang/String;
 	public static final field GRADLE_VERSION Ljava/lang/String;
 	public static final field JACOCO_VERSION Ljava/lang/String;
 	public static final field JUNIT_5_VERSION Ljava/lang/String;
