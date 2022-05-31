@@ -1,12 +1,16 @@
 <!--local-files-->
 
 [changelog]: CHANGELOG.md
+[code of conduct]: CODE_OF_CONDUCT.md
+[contributing]: CONTRIBUTING.md
 [license]: LICENSE
 
 <!--readme-start-->
 <!--local-links-overwrite-->
 
 [changelog]: docs/src/changelog.md
+[code of conduct]: docs/src/develop/codeOfConduct.md
+[contributing]: docs/src/develop/contributing.md
 [license]: docs/src/license.md
 
 <!--docs-links-->
@@ -130,7 +134,7 @@ We use [Semantic Versioning](http://semver.org/) as a guideline for our versioni
 
 You want to help or share a proposal? You have a specific problem? [Report a bug][issues] or [request a feature][issues].
 
-You want to fix or change code? Read the [contributing guide][contributing].
+You want to fix or change code? Read the [Code of Conduct] and [contributing guide][contributing].
 
 ## Releasing
 

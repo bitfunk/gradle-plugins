@@ -115,6 +115,7 @@ nav:
       - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
       - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md
   - Develop:
+      - Code of Conduct: develop/codeOfConduct.md
       - Contributing: develop/contributing.md
       - Releasing: develop/releasing.md
       - Badges: develop/badges.md
