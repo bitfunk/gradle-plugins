@@ -26,3 +26,4 @@ Initial release
 - Add Versioning Plugin - a versioning plugin using git tags
 - Add Report Plugin - a quality report plugin using sonarqube
 - Add Quality Plugin - a collection of all quality plugins
+- Add Code of Conduct
