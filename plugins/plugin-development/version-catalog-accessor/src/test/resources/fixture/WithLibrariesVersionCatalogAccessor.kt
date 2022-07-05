@@ -34,10 +34,11 @@ public interface WithLibrariesVersionCatalogAccessorContract {
 }
 
 public class WithLibrariesVersionCatalogAccessor(
-    project: Project
+    private val project: Project
 ) : Libraries {
-    private val versionCatalog: VersionCatalog =
-            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-libraries")
+    private val versionCatalog: VersionCatalog
+        get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
+            .named("with-libraries")
 
     public val versions: Versions = object : Versions {
     }
@@ -51,6 +52,10 @@ public class WithLibrariesVersionCatalogAccessor(
     public override val example: VersionCatalogDependency.Leaf = object :
             VersionCatalogDependency.Leaf {
         public override fun `get`(): String = findLibrary("example")
+
+        public override fun getStatic(): String = throw UnsupportedOperationException(
+            "not yet implemented"
+        )
     }
 
     public override val group: Libraries.Group = object : Libraries.Group {
@@ -58,14 +63,26 @@ public class WithLibrariesVersionCatalogAccessor(
             public override val one: VersionCatalogDependency.Leaf = object :
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findLibrary("group-example-one")
+
+                public override fun getStatic(): String = throw UnsupportedOperationException(
+                    "not yet implemented"
+                )
             }
 
             public override val two: VersionCatalogDependency.Leaf = object :
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findLibrary("group-example-two")
+
+                public override fun getStatic(): String = throw UnsupportedOperationException(
+                    "not yet implemented"
+                )
             }
 
             public override fun `get`(): String = findLibrary("group-example")
+
+            public override fun getStatic(): String = throw UnsupportedOperationException(
+                "not yet implemented"
+            )
         }
     }
 

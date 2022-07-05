@@ -30,6 +30,7 @@ import io.mockk.verifyAll
 import io.mockk.verifyOrder
 import org.gradle.api.Action
 import org.gradle.api.GradleException
+import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.file.ConfigurableFileCollection
@@ -65,9 +66,17 @@ class VersionCatalogAccessorPluginTest {
     }
 
     @Test
-    fun `plugin implements contract`() {
+    fun `implements contract`() {
         assertInstanceOf(
             VersionCatalogAccessorContract.Plugin::class.java,
+            testSubject
+        )
+    }
+
+    @Test
+    fun `implements plugin`() {
+        assertInstanceOf(
+            Plugin::class.java,
             testSubject
         )
     }

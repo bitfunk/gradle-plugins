@@ -31,8 +31,8 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(libs.kotlinPoet)
-    implementation(libs.jacksonToml)
+    implementation(libsCatalogAccessor.kotlinPoet)
+    implementation(libsCatalogAccessor.jacksonToml)
 }
 
 apiValidation {

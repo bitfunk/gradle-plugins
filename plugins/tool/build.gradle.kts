@@ -18,6 +18,7 @@
 
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
+    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
@@ -33,14 +34,7 @@ repositories {
 }
 
 dependencies {
+    implementation("eu.bitfunk.gradle.plugin.tool:composite-delegator")
+    implementation("eu.bitfunk.gradle.plugin.tool:publish")
     implementation("eu.bitfunk.gradle.plugin.tool:versioning")
 }
-
-// Delegate to included builds
-tasks.maybeCreate("build").dependsOn(gradle.includedBuilds.map { it.task(":build") })
-tasks.maybeCreate("check").dependsOn(gradle.includedBuilds.map { it.task(":check") })
-tasks.maybeCreate("clean").dependsOn(gradle.includedBuilds.map { it.task(":clean") })
-tasks.maybeCreate("jacocoTestReport").dependsOn(gradle.includedBuilds.map { it.task(":jacocoTestReport") })
-tasks.maybeCreate("wrapper").dependsOn(gradle.includedBuilds.map { it.task(":wrapper") })
-tasks.maybeCreate("dependencyUpdates").dependsOn(gradle.includedBuilds.map { it.task(":dependencyUpdates") })
-tasks.maybeCreate("versionCatalogUpdate").dependsOn(gradle.includedBuilds.map { it.task(":versionCatalogUpdate") })

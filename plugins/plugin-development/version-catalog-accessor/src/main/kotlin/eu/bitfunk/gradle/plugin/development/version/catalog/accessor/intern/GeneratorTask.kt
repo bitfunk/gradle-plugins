@@ -48,7 +48,9 @@ internal class GeneratorTask(
         if (!outputDir.exists()) outputDir.mkdirs()
 
         File("$outputDir/$OUTPUT_INTERFACE_FILE_NAME").writeText(versionInterface)
-        generatedAccessors.map { File("$outputDir/${it.first.capitalized()}$OUTPUT_FILE_NAME").writeText(it.second) }
+        generatedAccessors.map {
+            File("$outputDir/${generateFileName(it.first)}$OUTPUT_FILE_NAME").writeText(it.second)
+        }
     }
 
     private fun generateVersionInterface(packageName: String): String {
@@ -69,6 +71,12 @@ internal class GeneratorTask(
         baseName = name,
         mapper
     )
+
+    private fun generateFileName(name: String): String {
+        return name.split("-")
+            .map { it.capitalize() }
+            .joinToString(separator = "") { it }
+    }
 
     private companion object {
         private const val VERSION_CATALOG_EXTENSION = ".versions.toml"

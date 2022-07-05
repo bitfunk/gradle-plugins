@@ -17,3 +17,11 @@
  */
 
 rootProject.name = "versioning"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsVersioning") {
+            from(files("gradle/libs-versioning.versions.toml"))
+        }
+    }
+}

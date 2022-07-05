@@ -17,3 +17,11 @@
  */
 
 rootProject.name = "formatter"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsFormatter") {
+            from(files("gradle/libs-formatter.versions.toml"))
+        }
+    }
+}

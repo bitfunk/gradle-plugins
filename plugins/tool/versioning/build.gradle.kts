@@ -40,5 +40,5 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(libs.gradleGitVersionPlugin)
+    implementation(libsVersioning.gradleGitVersionPlugin)
 }

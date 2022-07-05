@@ -17,3 +17,11 @@
  */
 
 rootProject.name = "report"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsReport") {
+            from(files("gradle/libs-report.versions.toml"))
+        }
+    }
+}

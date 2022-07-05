@@ -31,10 +31,10 @@ internal data class Catalog(
 )
 
 internal sealed class CatalogEntry(
-    val items: List<String>
+    val items: Map<String, String?>
 ) {
-    class Versions(items: List<String>) : CatalogEntry(items)
-    class Libraries(items: List<String>) : CatalogEntry(items)
-    class Bundles(items: List<String>) : CatalogEntry(items)
-    class Plugins(items: List<String>) : CatalogEntry(items)
+    class Versions(items: Map<String, String>) : CatalogEntry(items)
+    class Libraries(items: List<String>) : CatalogEntry(items.associateWith { null })
+    class Bundles(items: List<String>) : CatalogEntry(items.associateWith { null })
+    class Plugins(items: List<String>) : CatalogEntry(items.associateWith { null })
 }
