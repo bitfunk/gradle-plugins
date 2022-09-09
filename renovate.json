@@ -2,5 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
-  ]
+  ],
+  "assignees": [
+    "wmontwe"
+  ],
+  "reviewers": [
+    "wmontwe"
+  ],
+  "branchNameStrict": true,
+  "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}{{#if separateMinorPatch}}.{{{newMinor}}}.{{{newPatch}}}{{/if}}"
 }
