@@ -51,7 +51,7 @@ project(":docs") {
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "7.4.2"
+    gradleVersion = "7.5.1"
     distributionType = Wrapper.DistributionType.ALL
 }
 
