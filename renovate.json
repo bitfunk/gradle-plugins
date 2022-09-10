@@ -13,5 +13,6 @@
     "dependencies"
   ],
   "branchNameStrict": true,
-  "separateMinorPatch": true
+  "separateMinorPatch": true,
+  "groupName": null
 }
