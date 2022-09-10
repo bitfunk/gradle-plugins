@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.5.31"
+kotlin = "1.7.10"
 gradle = "7.4.2"
 jUnit5 = "5.8.2"
 kotlinBinaryCompatibility = "0.8.0"
