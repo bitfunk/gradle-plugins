@@ -13,6 +13,5 @@
     "dependencies"
   ],
   "branchNameStrict": true,
-  "separateMinorPatch": true,
-  "branchTopic": "{{{depNameSanitized}}}-{{{prettyNewVersion}}}"
+  "separateMinorPatch": true
 }
