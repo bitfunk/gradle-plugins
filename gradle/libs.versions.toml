@@ -1,5 +1,5 @@
 [versions]
-mkdocs = "2.3.0"
+mkdocs = "2.4.0"
 detekt = "1.19.0"
 
 [plugins]
