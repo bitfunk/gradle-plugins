@@ -9,6 +9,9 @@
   "reviewers": [
     "wmontwe"
   ],
+  "labels": [
+    "dependencies"
+  ],
   "branchNameStrict": true,
-  "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}{{#if separateMinorPatch}}.{{{newMinor}}}.{{{newPatch}}}{{/if}}"
+  "separateMinorPatch": true
 }
