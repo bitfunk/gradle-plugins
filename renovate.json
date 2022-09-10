@@ -14,5 +14,5 @@
   ],
   "branchNameStrict": true,
   "separateMinorPatch": true,
-  "groupName": null
+  "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}"
 }
