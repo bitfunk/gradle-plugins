@@ -18,7 +18,7 @@
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.5.31"
+    id("org.jetbrains.kotlin.jvm") version "1.6.21"
     `kotlin-dsl`
     jacoco
 
