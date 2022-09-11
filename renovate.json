@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "assignees": [
+    "wmontwe"
+  ],
+  "reviewers": [
+    "wmontwe"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "branchNameStrict": true,
+  "separateMinorPatch": true
+}

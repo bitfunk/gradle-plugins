@@ -81,12 +81,29 @@ internal class VersionNameGeneratorTest {
     }
 
     @Test
-    fun `GIVEN main branch and tag version WHEN generateVersionName() THEN semver snapshot version`() {
+    fun `GIVEN main branch and tag version WHEN generateVersionName() THEN semver version`() {
         // GIVEN
         val versionDetails: VersionDetails = mockLoadVersionDetails()
         every { versionDetails.branchName } returns "main"
         every { versionDetails.isCleanTag } returns true
         every { versionDetails.version } returns "1.0.0"
+
+        // WHEN
+        val result = testSubject.generateVersionName()
+
+        // THEN
+        assertEquals(
+            "1.0.0", result
+        )
+    }
+
+    @Test
+    fun `GIVEN main branch and tag version with starting v WHEN generateVersionName() THEN semver version`() {
+        // GIVEN
+        val versionDetails: VersionDetails = mockLoadVersionDetails()
+        every { versionDetails.branchName } returns "main"
+        every { versionDetails.isCleanTag } returns true
+        every { versionDetails.version } returns "v1.0.0"
 
         // WHEN
         val result = testSubject.generateVersionName()
@@ -202,6 +219,24 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-bump-library-1.0.0-SNAPSHOT", result
+        )
+    }
+
+    @Test
+    fun `GIVEN renovate configure branch WHEN generateVersionName() THEN `() {
+        // GIVEN
+        val versionDetails: VersionDetails = mockLoadVersionDetails()
+        every { versionDetails.branchName } returns "renovate/configure"
+        every { versionDetails.isCleanTag } returns false
+        every { versionDetails.version } returns "1.0.0"
+        every { versionDetails.commitDistance } returns 1
+
+        // WHEN
+        val result = testSubject.generateVersionName()
+
+        // THEN
+        assertEquals(
+            "1.0.0-renovate-configure-SNAPSHOT", result
         )
     }
 

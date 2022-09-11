@@ -39,6 +39,7 @@ internal class VersionNameGenerator(
             patternNoQualifierBranch.matches(details.branchName) -> versionNameWithQualifier(details)
             patternFeatureBranch.matches(details.branchName) -> versionNameFeature(details)
             patternDependabotBranch.matches(details.branchName) -> versionNameDependabot(details)
+            patternRenovateBranch.matches(details.branchName) -> versionNameRenovate(details)
             else -> throw UnsupportedOperationException("branch name not supported: ${details.branchName}")
         }
     }
@@ -91,7 +92,10 @@ internal class VersionNameGenerator(
             details.version
         }
 
-        return version.substringAfter("v")
+        return if (version.startsWith("v"))
+            version.substring(1)
+        else
+            version
     }
 
     private fun versionNameFeature(details: VersionDetails): String {
@@ -114,10 +118,27 @@ internal class VersionNameGenerator(
         return versionNameWithQualifier(details, "bump-$dependabotName")
     }
 
+    private fun versionNameRenovate(details: VersionDetails): String {
+        var renovateName = patternRenovateBranch.matchEntire(details.branchName)!!.groups[1]!!.value
+
+        renovateName = renovateName
+            .replace("_", "-")
+            .replace("/", "-")
+
+        if (renovateName == "configure") {
+            renovateName = "renovate-$renovateName"
+        } else {
+            renovateName = "renovate-bump-$renovateName"
+        }
+
+        return versionNameWithQualifier(details, renovateName)
+    }
+
     private companion object {
         val patternNoQualifierBranch = "main|release/.*".toRegex()
         val patternFeatureBranch = "feature/(.*)".toRegex()
         val patternDependabotBranch = "dependabot/(.*)".toRegex()
+        val patternRenovateBranch = "renovate/(.*)".toRegex()
         val patternIssueNumber = "[A-Z]{2,8}-.*/(.*)".toRegex()
 
         const val VERSION_CODE_SHIFT = 100

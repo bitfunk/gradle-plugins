@@ -1,5 +1,5 @@
 [versions]
-mkdocs = "2.3.0"
+mkdocs = "2.4.0"
 
 [plugins]
 mkdocs = { id = "ru.vyarus.mkdocs", version.ref = "mkdocs" }
