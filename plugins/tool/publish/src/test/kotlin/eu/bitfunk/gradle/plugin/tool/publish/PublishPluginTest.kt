@@ -35,6 +35,7 @@ import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPom
 import org.gradle.api.publish.maven.MavenPomDeveloper
 import org.gradle.api.publish.maven.MavenPomDeveloperSpec
+import org.gradle.api.publish.maven.MavenPomIssueManagement
 import org.gradle.api.publish.maven.MavenPomLicense
 import org.gradle.api.publish.maven.MavenPomLicenseSpec
 import org.gradle.api.publish.maven.MavenPomScm
@@ -175,6 +176,9 @@ class PublishPluginTest {
             every { extension.organizationUrl } returns mockk()
 
             every { extension.scmUrl.get() } returns "https://github.com/bitfunk/gradle-plugins/tree/main"
+
+            every { extension.issueManagement } returns mockk()
+            every { extension.issueUrl } returns mockk()
         }
 
         val verify: () -> Unit = {
@@ -193,6 +197,9 @@ class PublishPluginTest {
                 extension.organizationUrl
 
                 extension.scmUrl.get()
+
+                extension.issueManagement
+                extension.issueUrl
             }
 
             confirmVerified(extension)
@@ -207,6 +214,7 @@ class PublishPluginTest {
         val mavenPomDeveloperSpec: MavenPomDeveloperSpec = mockk(relaxed = false)
         val mavenPomDeveloper: MavenPomDeveloper = mockk(relaxed = true)
         val mavenPomScm: MavenPomScm = mockk(relaxed = true)
+        val mavenPomIssueManagement: MavenPomIssueManagement = mockk(relaxed = true)
 
         val setup: () -> Unit = {
             stubGradleAction(mavenPomLicenseSpec) { mavenPom.licenses(it) }
@@ -217,6 +225,8 @@ class PublishPluginTest {
 
             val mavenPomScmUrlProperty: Property<String> = mockk(relaxed = true)
             every { mavenPomScm.url } returns mavenPomScmUrlProperty
+
+            stubGradleAction(mavenPomIssueManagement) { mavenPom.issueManagement(it) }
         }
 
         val verify: () -> Unit = {
@@ -241,6 +251,10 @@ class PublishPluginTest {
                 mavenPomScm.connection
                 mavenPomScm.developerConnection
                 mavenPomScm.url
+
+                mavenPom.issueManagement(any())
+                mavenPomIssueManagement.system
+                mavenPomIssueManagement.url
             }
 
             confirmVerified(
@@ -249,7 +263,8 @@ class PublishPluginTest {
                 mavenPomLicense,
                 mavenPomDeveloperSpec,
                 mavenPomDeveloper,
-                mavenPomScm
+                mavenPomScm,
+                mavenPomIssueManagement
             )
         }
 
@@ -257,7 +272,7 @@ class PublishPluginTest {
     }
 
     @Test
-    fun `GIVEN project and signing disabled WHEN configureSigning() THEN nothing configured`() {
+    fun `GIVEN project and signing is disabled WHEN configureSigning() THEN nothing configured`() {
         // GIVEN
         val project: Project = mockk(relaxed = true)
         val extension: PublishPluginExtension = mockk(relaxed = true)

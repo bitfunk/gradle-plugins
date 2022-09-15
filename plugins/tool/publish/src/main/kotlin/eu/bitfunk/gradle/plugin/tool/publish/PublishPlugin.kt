@@ -54,15 +54,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
     override fun configurePublishing(project: Project, extension: Extension): Unit = with(project) {
         publishing {
             publications {
-                // for (component in components) {
-                //     create<MavenPublication>(component.name) {
-                //         from(this@)
-                //     }
-                // }
-
                 withType<MavenPublication> {
-                    // artifacts.forEach(::artifact)
-
                     pom {
                         name.set(extension.projectName)
                         description.set(extension.projectDescription)
@@ -92,6 +84,11 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
                             connection.set("scm:git:git://$scmConnection.git")
                             developerConnection.set("scm:git:ssh://$scmDeveloperConnection.git")
                             url.set(extension.scmUrl)
+                        }
+
+                        issueManagement {
+                            system.set(extension.issueManagement)
+                            url.set(extension.issueUrl)
                         }
                     }
                 }

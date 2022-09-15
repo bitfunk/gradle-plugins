@@ -55,6 +55,9 @@ public interface PublishContract {
          */
         public val scmUrl: Property<String>
 
+        public val issueManagement: Property<String>
+        public val issueUrl: Property<String>
+
         public val signingEnabled: Property<Boolean>
     }
 
