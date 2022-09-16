@@ -22,4 +22,4 @@ includeBuild("gradle-plugin-convention")
 includeBuild("version-catalog-accessor")
 
 // outside dependencies
-includeBuild("../plugins/tool/composite-delegator")
+includeBuild("../tool/composite-delegator")
