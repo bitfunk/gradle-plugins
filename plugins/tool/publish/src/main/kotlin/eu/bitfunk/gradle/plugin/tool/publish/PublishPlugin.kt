@@ -106,6 +106,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
             val publications = publishingExtension().publications
 
             signing {
+                isRequired = true
                 useInMemoryPgpKeys(
                     loadSigningKey(project),
                     loadSigningPassword(project)

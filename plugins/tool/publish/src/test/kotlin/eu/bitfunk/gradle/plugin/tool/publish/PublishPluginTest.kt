@@ -349,6 +349,7 @@ class PublishPluginTest {
 
             project.findProperty("signing.key")
             project.findProperty("signing.password")
+            signingExtension.isRequired = true
             signingExtension.useInMemoryPgpKeys("signingKey", "signingPassword")
 
             signingExtension.sign(publicationContainer)
