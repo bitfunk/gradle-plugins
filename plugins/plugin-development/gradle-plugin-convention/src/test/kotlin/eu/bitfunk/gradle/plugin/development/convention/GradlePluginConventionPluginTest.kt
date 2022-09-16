@@ -429,7 +429,7 @@ class GradlePluginConventionPluginTest {
         verifyAll {
             taskContainer.named("wrapper", Wrapper::class.java, any())
 
-            wrapperTask.gradleVersion = "7.4.2"
+            wrapperTask.gradleVersion = "7.5.1"
             wrapperTask.distributionType = Wrapper.DistributionType.ALL
         }
 

@@ -56,6 +56,6 @@ compositeDelegator {
 tasks.maybeCreate("clean", Delete::class.java).delete("build")
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "7.5.1"
+    gradleVersion = libs.versions.gradle.get()
     distributionType = Wrapper.DistributionType.ALL
 }

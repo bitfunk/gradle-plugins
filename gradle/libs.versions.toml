@@ -1,4 +1,5 @@
 [versions]
+gradle = "7.5.1"
 mkdocs = "2.4.0"
 
 [plugins]
