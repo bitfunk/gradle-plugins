@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-includeBuild("common")
+includeBuild("plugin-development")
 includeBuild("plugins")
 
 include("docs")

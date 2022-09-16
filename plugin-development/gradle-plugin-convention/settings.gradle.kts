@@ -16,13 +16,14 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+rootProject.name = "gradle-plugin-convention"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsPluginConvention") {
+            from(files("gradle/libs-plugin-convention.versions.toml"))
+        }
+    }
 }
 
-group = "eu.bitfunk.gradle.plugin.common.test"
-
-dependencies {
-    implementation("eu.bitfunk.gradle.plugin.common.test:gradle-test-util")
-}
+includeBuild("../gradle-test-util")

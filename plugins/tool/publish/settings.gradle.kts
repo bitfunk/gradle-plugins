@@ -17,5 +17,3 @@
  */
 
 rootProject.name = "publish"
-
-includeBuild("../../../common/common-test/gradle-test-util")

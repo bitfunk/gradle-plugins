@@ -16,14 +16,10 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "gradle-plugin-convention"
+rootProject.name = "plugin-development"
 
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libsPluginConvention") {
-            from(files("gradle/libs-plugin-convention.versions.toml"))
-        }
-    }
-}
+includeBuild("gradle-plugin-convention")
+includeBuild("version-catalog-accessor")
 
-includeBuild("../../../common/common-test/gradle-test-util")
+// outside dependencies
+includeBuild("../plugins/tool/composite-delegator")
