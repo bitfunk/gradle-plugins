@@ -124,7 +124,7 @@ class CodeAnalysisPluginTest {
             detektExtension.source = projectFiles
 
             detektExtension.config = rootProjectFiles
-            rootProject.files("config/detekt/config.xml")
+            rootProject.files("config/detekt/detekt.yml")
 
             detektExtension.baseline = rootProjectFile
             rootProject.file("config/detekt/baseline.yml")

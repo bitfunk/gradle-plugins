@@ -50,7 +50,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
                 project.file(project.rootDir)
             )
 
-            config = project.rootProject.files("config/detekt/config.xml")
+            config = project.rootProject.files("config/detekt/detekt.yml")
             baseline = project.rootProject.file("config/detekt/baseline.yml")
         }
     }
