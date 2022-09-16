@@ -18,20 +18,4 @@
 
 package eu.bitfunk.gradle.plugin.tool.publish
 
-public abstract class PublishPluginExtension : PublishContract.Extension {
-
-    override fun isConfigured(): Boolean {
-        return projectName.isPresent
-            && projectDescription.isPresent
-            && projectUrl.isPresent
-            && licenseName.isPresent
-            && licenseUrl.isPresent
-            && developerName.isPresent
-            && developerEmail.isPresent
-            && organizationName.isPresent
-            && organizationUrl.isPresent
-            && scmUrl.isPresent
-            && issueManagement.isPresent
-            && issueUrl.isPresent
-    }
-}
+public interface PublishPluginExtension : PublishContract.Extension

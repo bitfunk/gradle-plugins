@@ -18,12 +18,9 @@
 
 package eu.bitfunk.gradle.plugin.tool.publish
 
-import io.mockk.every
 import io.mockk.mockk
 import org.gradle.api.provider.Property
-import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertInstanceOf
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -49,36 +46,10 @@ internal class PublishPluginExtensionTest {
         )
     }
 
-    @Test
-    fun `GIVEN extension configured WHEN isConfigured() THEN true`() {
-        // GIVEN
-        every { propertyString.isPresent } returns true
-        every { propertyBoolean.isPresent } returns true
-
-        // WHEN
-        val result = testSubject.isConfigured()
-
-        // THEN
-        assertTrue(result)
-    }
-
-    @Test
-    fun `GIVEN extension not configured WHEN isConfigured() THEN false`() {
-        // GIVEN
-        every { propertyString.isPresent } returns false
-        every { propertyBoolean.isPresent } returns false
-
-        // WHEN
-        val result = testSubject.isConfigured()
-
-        // THEN
-        assertFalse(result)
-    }
-
     internal class TestPublishPluginExtension(
         private val stringProperty: Property<String>,
         private val booleanProperty: Property<Boolean>
-    ) : PublishPluginExtension() {
+    ) : PublishPluginExtension {
 
         override val projectName: Property<String>
             get() = stringProperty
@@ -89,6 +60,8 @@ internal class PublishPluginExtensionTest {
         override val licenseName: Property<String>
             get() = stringProperty
         override val licenseUrl: Property<String>
+            get() = stringProperty
+        override val developerId: Property<String>
             get() = stringProperty
         override val developerName: Property<String>
             get() = stringProperty

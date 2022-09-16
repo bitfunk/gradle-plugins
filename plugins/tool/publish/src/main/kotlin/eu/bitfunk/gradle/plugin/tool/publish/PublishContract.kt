@@ -60,11 +60,6 @@ public interface PublishContract {
         public val issueUrl: Property<String>
 
         public val signingEnabled: Property<Boolean>
-
-        /**
-         * Validate if extension is properly configured
-         */
-        public fun isConfigured(): Boolean
     }
 
     public companion object {

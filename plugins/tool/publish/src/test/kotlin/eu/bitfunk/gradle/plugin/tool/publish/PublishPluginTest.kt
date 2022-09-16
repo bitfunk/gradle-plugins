@@ -180,8 +180,6 @@ class PublishPluginTest {
 
             every { extension.issueManagement } returns mockk()
             every { extension.issueUrl } returns mockk()
-
-            every { extension.isConfigured() } returns true
         }
 
         val verify: () -> Unit = {
@@ -369,7 +367,6 @@ class PublishPluginTest {
         val extension: PublishPluginExtension = mockk(relaxed = true)
         every { project.extensions.create("publishConfig", PublishPluginExtension::class.java) } returns extension
         every { extension.signingEnabled.get() } returns false
-        every { extension.isConfigured() } returns true
 
         // WHEN
         spyTestSubject.apply(project)

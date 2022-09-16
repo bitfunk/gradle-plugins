@@ -35,12 +35,8 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
         addPlugins(target)
         val extension = addExtension(target)
 
-        if (extension.isConfigured()) {
-            configurePublishing(target, extension)
-            configureSigning(target, extension)
-        } else {
-            println("publishConfig is not complete")
-        }
+        configurePublishing(target, extension)
+        configureSigning(target, extension)
     }
 
     override fun addPlugins(project: Project) {
