@@ -19,6 +19,7 @@
 plugins {
     id("eu.bitfunk.gradle.plugin.development.convention")
     id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    id("jacoco-report-aggregation")
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
@@ -26,4 +27,8 @@ group = "eu.bitfunk.gradle.plugin.development"
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
     implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
+}
+
+tasks.check {
+    dependsOn(tasks.named("testCodeCoverageReport"))
 }
