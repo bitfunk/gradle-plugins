@@ -42,6 +42,7 @@ public interface PublishContract {
         public val licenseName: Property<String>
         public val licenseUrl: Property<String>
 
+        public val developerId: Property<String>
         public val developerName: Property<String>
         public val developerEmail: Property<String>
 

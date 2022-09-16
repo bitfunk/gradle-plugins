@@ -9,6 +9,7 @@ public final class eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Compani
 
 public abstract interface class eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension {
 	public abstract fun getDeveloperEmail ()Lorg/gradle/api/provider/Property;
+	public abstract fun getDeveloperId ()Lorg/gradle/api/provider/Property;
 	public abstract fun getDeveloperName ()Lorg/gradle/api/provider/Property;
 	public abstract fun getIssueManagement ()Lorg/gradle/api/provider/Property;
 	public abstract fun getIssueUrl ()Lorg/gradle/api/provider/Property;

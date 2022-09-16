@@ -169,6 +169,7 @@ class PublishPluginTest {
             every { extension.licenseName } returns mockk()
             every { extension.licenseUrl } returns mockk()
 
+            every { extension.developerId } returns mockk()
             every { extension.developerName } returns mockk()
             every { extension.developerEmail } returns mockk()
 
@@ -192,6 +193,7 @@ class PublishPluginTest {
                 extension.licenseName
                 extension.licenseUrl
 
+                extension.developerId
                 extension.developerName
                 extension.developerEmail
 
@@ -244,6 +246,7 @@ class PublishPluginTest {
 
                 mavenPom.developers(any())
                 mavenPomDeveloperSpec.developer(any())
+                mavenPomDeveloper.id
                 mavenPomDeveloper.name
                 mavenPomDeveloper.email
                 mavenPomDeveloper.organization

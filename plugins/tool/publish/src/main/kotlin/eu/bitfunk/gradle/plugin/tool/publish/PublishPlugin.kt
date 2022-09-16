@@ -74,6 +74,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
 
                         developers {
                             developer {
+                                id.set(extension.developerId)
                                 name.set(extension.developerName)
                                 email.set(extension.developerEmail)
                                 organization.set(extension.organizationName)
