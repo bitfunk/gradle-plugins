@@ -71,6 +71,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/compositeDelegator/</loc>
+         <lastmod>2022-09-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/publish/</loc>
+         <lastmod>2022-09-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/versioning/</loc>
          <lastmod>2022-09-27</lastmod>
          <changefreq>daily</changefreq>
