@@ -1,4 +1,4 @@
-site_name: Bitfunk Gradle Plugins
+site_name: Gradle Plugins
 site_description: Collection of Gradle plugins used across multiple projects.
 site_author: Wolf-Martell Montwé
 site_url: https://bitfunk.github.io/gradle-plugins/
@@ -7,7 +7,9 @@ repo_name: bitfunk/gradle-plugins
 repo_url: https://github.com/bitfunk/gradle-plugins
 edit_uri: edit/main/docs/src/
 
-copyright: Copyright &copy; 2022 Wolf-Martell Montwé;
+copyright: Copyright &copy; 2022 Wolf-Martell Montwé
+
+dev_addr: 127.0.0.1:3000
 
 docs_dir: src
 
@@ -18,7 +20,7 @@ theme:
   name: 'material'
   font: false
   language: en
-  logo: assets/images/logo.svg
+  logo: assets/images/brand-logo.svg
   favicon: assets/images/logo.svg
   custom_dir: theme
   palette:
