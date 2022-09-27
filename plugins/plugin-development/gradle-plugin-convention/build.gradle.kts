@@ -22,7 +22,7 @@ plugins {
     `kotlin-dsl`
     jacoco
 
-    alias(libs.plugins.binaryCompatibilityValidator)
+    alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
@@ -50,21 +50,22 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.gradleKotlinPlugin)
-    implementation(libs.gradleKotlinDsl)
-    implementation(libs.gradleKotlinBinaryCompatibilityPlugin)
+    implementation(libsPluginConvention.gradleKotlinPlugin)
+    implementation(libsPluginConvention.gradleKotlinDsl)
+    implementation(libsPluginConvention.gradleKotlinBinaryCompatibilityPlugin)
 
     testImplementation(gradleTestKit())
-    testImplementation(libs.testJUnit5)
-    testRuntimeOnly(libs.testJUnit5Engine)
-    testImplementation(libs.testMockk)
+    testImplementation(libsPluginConvention.testJUnit5)
+    testRuntimeOnly(libsPluginConvention.testJUnit5Engine)
+    testImplementation(libsPluginConvention.testMockk)
+    testImplementation(libsPluginConvention.testGradleTestUtil)
 }
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-tasks.named<JacocoReport>("jacocoTestReport"){
+tasks.named<JacocoReport>("jacocoTestReport") {
     dependsOn(tasks.named("test"))
 
     reports {
@@ -90,6 +91,6 @@ tasks.named("check") {
 }
 
 tasks.named<Wrapper>("wrapper") {
-    gradleVersion = "7.4.2"
+    gradleVersion = libsPluginConvention.versions.gradle.get()
     distributionType = Wrapper.DistributionType.ALL
 }

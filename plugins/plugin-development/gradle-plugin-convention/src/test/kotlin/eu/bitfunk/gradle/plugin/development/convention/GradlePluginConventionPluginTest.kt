@@ -18,6 +18,8 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
+import eu.bitfunk.gradle.plugin.common.test.util.stubGradleActionWithReturn
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -155,9 +157,7 @@ class GradlePluginConventionPluginTest {
         val extensionContainer: ExtensionContainer = mockk()
         val javaPluginExtension: JavaPluginExtension = mockk(relaxed = true)
         every { project.extensions } returns extensionContainer
-        every { extensionContainer.configure(JavaPluginExtension::class.java, any()) } answers {
-            secondArg<Action<JavaPluginExtension>>().execute(javaPluginExtension)
-        }
+        stubGradleAction(javaPluginExtension) { extensionContainer.configure(JavaPluginExtension::class.java, it) }
 
         // WHEN
         testSubject.configureJavaCompatibility(project)
@@ -215,6 +215,10 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.8.2")
             dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.8.2")
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.12.2")
+            dependencyHandlerScope.add(
+                "testImplementation",
+                "eu.bitfunk.gradle.plugin.common.test:gradle-test-util:0.1.0"
+            )
         }
 
         confirmVerified(dependencyHandlerScope)
@@ -276,14 +280,12 @@ class GradlePluginConventionPluginTest {
         every { project.tasks } returns taskContainer
         val taskDependencyProvider: TaskProvider<Task> = mockk()
 
-        val jacocoReportTaskProvider: TaskProvider<JacocoReport> = mockk()
         val jacocoReport: JacocoReport = mockk(relaxed = true)
         val jacocoReportsContainer: JacocoReportsContainer = mockk(relaxed = true)
         val htmlBooleanProperty: Property<Boolean> = mockk(relaxed = true)
         val xmlBooleanProperty: Property<Boolean> = mockk(relaxed = true)
         configureGivenJacocoTestReportTask(
             taskContainer,
-            jacocoReportTaskProvider,
             jacocoReport,
             jacocoReportsContainer,
             taskDependencyProvider,
@@ -291,14 +293,12 @@ class GradlePluginConventionPluginTest {
             xmlBooleanProperty
         )
 
-        val jacocoCoverageVerificationTaskProvider: TaskProvider<JacocoCoverageVerification> = mockk()
         val jacocoCoverageVerification: JacocoCoverageVerification = mockk(relaxed = true)
         val jacocoViolationRulesContainer: JacocoViolationRulesContainer = mockk()
         val jacocoViolationRule: JacocoViolationRule = mockk()
         val jacocoLimit: JacocoLimit = mockk(relaxed = true)
         configureGivenJacocoTestCoverageVerificationTask(
             taskContainer,
-            jacocoCoverageVerificationTaskProvider,
             jacocoCoverageVerification,
             jacocoViolationRulesContainer,
             jacocoViolationRule,
@@ -306,9 +306,8 @@ class GradlePluginConventionPluginTest {
             taskDependencyProvider
         )
 
-        val checkTaskProvider: TaskProvider<Task> = mockk()
         val checkTask: Task = mockk(relaxed = true)
-        configureGivenCheckTask(taskContainer, checkTaskProvider, checkTask, taskDependencyProvider)
+        configureGivenCheckTask(taskContainer, checkTask, taskDependencyProvider)
 
         // WHEN
         testSubject.configureTestCoverageTasks(project)
@@ -340,33 +339,22 @@ class GradlePluginConventionPluginTest {
         confirmVerified(
             taskContainer,
             taskDependencyProvider,
-            jacocoReportTaskProvider,
-            jacocoReport,
-            jacocoReportsContainer,
-            htmlBooleanProperty,
-            xmlBooleanProperty,
-            jacocoCoverageVerificationTaskProvider,
-            jacocoCoverageVerification,
-            jacocoViolationRulesContainer,
-            jacocoViolationRule,
-            jacocoLimit,
-            checkTaskProvider,
+            jacocoReport, jacocoReportsContainer, htmlBooleanProperty, xmlBooleanProperty,
+            jacocoCoverageVerification, jacocoViolationRulesContainer, jacocoViolationRule, jacocoLimit,
             checkTask
         )
     }
 
     private fun configureGivenJacocoTestReportTask(
         taskContainer: TaskContainer,
-        jacocoReportTaskProvider: TaskProvider<JacocoReport>,
         jacocoReport: JacocoReport,
         jacocoReportsContainer: JacocoReportsContainer,
         taskDependencyProvider: TaskProvider<Task>,
         htmlBooleanProperty: Property<Boolean>,
         xmlBooleanProperty: Property<Boolean>
     ) {
-        every { taskContainer.named("jacocoTestReport", JacocoReport::class.java, any()) } answers {
-            thirdArg<Action<JacocoReport>>().execute(jacocoReport)
-            jacocoReportTaskProvider
+        stubGradleActionWithReturn(jacocoReport, mockk()) {
+            taskContainer.named("jacocoTestReport", JacocoReport::class.java, it)
         }
         every { taskContainer.named("test") } returns taskDependencyProvider
         every { jacocoReport.reports(any<Action<JacocoReportsContainer>>()) } answers {
@@ -379,7 +367,6 @@ class GradlePluginConventionPluginTest {
 
     private fun configureGivenJacocoTestCoverageVerificationTask(
         taskContainer: TaskContainer,
-        jacocoCoverageVerificationTaskProvider: TaskProvider<JacocoCoverageVerification>,
         jacocoCoverageVerification: JacocoCoverageVerification,
         jacocoViolationRulesContainer: JacocoViolationRulesContainer,
         jacocoViolationRule: JacocoViolationRule,
@@ -394,7 +381,7 @@ class GradlePluginConventionPluginTest {
             )
         } answers {
             thirdArg<Action<JacocoCoverageVerification>>().execute(jacocoCoverageVerification)
-            jacocoCoverageVerificationTaskProvider
+            mockk()
         }
         every { jacocoCoverageVerification.violationRules(any()) } answers {
             firstArg<Action<JacocoViolationRulesContainer>>().execute(jacocoViolationRulesContainer)
@@ -413,13 +400,12 @@ class GradlePluginConventionPluginTest {
 
     private fun configureGivenCheckTask(
         taskContainer: TaskContainer,
-        checkTaskProvider: TaskProvider<Task>,
         checkTask: Task,
         taskDependencyProvider: TaskProvider<Task>
     ) {
         every { taskContainer.named("check", any()) } answers {
             secondArg<Action<Task>>().execute(checkTask)
-            checkTaskProvider
+            mockk()
         }
         every { taskContainer.named("jacocoTestCoverageVerification") } returns taskDependencyProvider
     }
@@ -443,7 +429,7 @@ class GradlePluginConventionPluginTest {
         verifyAll {
             taskContainer.named("wrapper", Wrapper::class.java, any())
 
-            wrapperTask.gradleVersion = "7.4.2"
+            wrapperTask.gradleVersion = "7.5.1"
             wrapperTask.distributionType = Wrapper.DistributionType.ALL
         }
 

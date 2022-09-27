@@ -1,0 +1,5 @@
+public final class eu/bitfunk/gradle/plugin/common/test/util/GradleActionMockKt {
+	public static final fun stubGradleAction (Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
+	public static final fun stubGradleActionWithReturn (Ljava/lang/Object;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)V
+}
+
