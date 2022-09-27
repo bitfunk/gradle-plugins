@@ -141,7 +141,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     private companion object {
         const val GRADLE_VERSION = "7.5.1"
         const val JUNIT_5_VERSION = "5.8.2"
-        const val MOCKK_VERSION = "1.12.2"
+        const val MOCKK_VERSION = "1.12.8"
         const val JACOCO_VERSION = "0.8.8"
         const val GRADLE_TEST_UTIL = "0.1.0"
 
