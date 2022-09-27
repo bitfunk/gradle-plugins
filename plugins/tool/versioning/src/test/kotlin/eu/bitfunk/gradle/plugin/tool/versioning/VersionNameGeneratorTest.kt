@@ -76,7 +76,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0", result
+            "1.0.0",
+            result
         )
     }
 
@@ -93,7 +94,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0", result
+            "1.0.0",
+            result
         )
     }
 
@@ -110,7 +112,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0", result
+            "1.0.0",
+            result
         )
     }
 
@@ -128,7 +131,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-SNAPSHOT", result
+            "1.0.0-SNAPSHOT",
+            result
         )
     }
 
@@ -146,7 +150,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-SNAPSHOT", result
+            "1.0.0-SNAPSHOT",
+            result
         )
     }
 
@@ -164,7 +169,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-add-some-code-SNAPSHOT", result
+            "1.0.0-add-some-code-SNAPSHOT",
+            result
         )
     }
 
@@ -182,7 +188,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-add-some-code-SNAPSHOT", result
+            "1.0.0-add-some-code-SNAPSHOT",
+            result
         )
     }
 
@@ -200,7 +207,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-add-some-numbers-SNAPSHOT", result
+            "1.0.0-add-some-numbers-SNAPSHOT",
+            result
         )
     }
 
@@ -218,7 +226,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-bump-library-1.0.0-SNAPSHOT", result
+            "1.0.0-bump-library-1.0.0-SNAPSHOT",
+            result
         )
     }
 
@@ -236,7 +245,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            "1.0.0-renovate-configure-SNAPSHOT", result
+            "1.0.0-renovate-configure-SNAPSHOT",
+            result
         )
     }
 
@@ -252,7 +262,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            10101000, result
+            10101000,
+            result
         )
     }
 
@@ -268,7 +279,8 @@ internal class VersionNameGeneratorTest {
 
         // THEN
         assertEquals(
-            141523, result
+            141523,
+            result
         )
     }
 

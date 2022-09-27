@@ -92,10 +92,11 @@ internal class VersionNameGenerator(
             details.version
         }
 
-        return if (version.startsWith("v"))
+        return if (version.startsWith("v")) {
             version.substring(1)
-        else
+        } else {
             version
+        }
     }
 
     private fun versionNameFeature(details: VersionDetails): String {

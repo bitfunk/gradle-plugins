@@ -207,7 +207,7 @@ class GeneratorTaskTest {
             Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
     }
 }

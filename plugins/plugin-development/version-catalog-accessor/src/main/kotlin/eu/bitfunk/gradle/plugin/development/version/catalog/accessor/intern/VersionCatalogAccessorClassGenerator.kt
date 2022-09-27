@@ -225,10 +225,11 @@ internal class VersionCatalogAccessorClassGenerator(
             .returns(String::class)
             .addStatement("try {")
             .also {
-                if ("findVersion" == name)
+                if ("findVersion" == name) {
                     it.addStatement("    return versionCatalog.$name(name).get().requiredVersion")
-                else
+                } else {
                     it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
+                }
             }
             .addStatement("} catch (error: Throwable) {")
             .addStatement("    throw NoSuchElementException(")

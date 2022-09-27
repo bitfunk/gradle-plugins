@@ -72,7 +72,7 @@ public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugi
             "test" to Test::class.java,
             "wrapper" to null,
             "dependencyUpdates" to null,
-            "versionCatalogUpdate" to null,
+            "versionCatalogUpdate" to null
         )
     }
 }

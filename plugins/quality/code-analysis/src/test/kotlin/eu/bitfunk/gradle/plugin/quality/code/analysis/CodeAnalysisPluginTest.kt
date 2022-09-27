@@ -208,7 +208,7 @@ class CodeAnalysisPluginTest {
             "**/.idea/**",
             "**/build/**",
             ".github/**",
-            "gradle/**",
+            "gradle/**"
         )
 
         val DETEKT_BASELINE_EXCLUDED = arrayOf(
@@ -231,7 +231,7 @@ class CodeAnalysisPluginTest {
             "**/*.pro",
             "**/*.sq",
             "**/*.xml",
-            "**/*.yml",
+            "**/*.yml"
         )
     }
 }

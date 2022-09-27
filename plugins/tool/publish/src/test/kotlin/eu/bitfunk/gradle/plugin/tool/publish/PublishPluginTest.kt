@@ -58,14 +58,16 @@ class PublishPluginTest {
     @Test
     fun `implements contract`() {
         assertInstanceOf(
-            PublishContract.Plugin::class.java, testSubject
+            PublishContract.Plugin::class.java,
+            testSubject
         )
     }
 
     @Test
     fun `implements plugin`() {
         assertInstanceOf(
-            Plugin::class.java, testSubject
+            Plugin::class.java,
+            testSubject
         )
     }
 
@@ -155,8 +157,10 @@ class PublishPluginTest {
 
         confirmVerified(
             project,
-            publishingExtension, publicationContainer,
-            domainObjectCollection, mavenPublication
+            publishingExtension,
+            publicationContainer,
+            domainObjectCollection,
+            mavenPublication
         )
     }
 
@@ -302,8 +306,10 @@ class PublishPluginTest {
         stubGradleAction(signingExtension) { project.extensions.configure(SigningExtension::class.java, it) }
         every { project.extensions.getByName("publishing") } returns mockk<PublishingExtension>(relaxed = true)
         every { project.findProperty(any()) } returnsMany listOf(
-            null, null,
-            "signingKey", null,
+            null,
+            null,
+            "signingKey",
+            null
         )
 
         // WHEN//THEN
@@ -333,7 +339,8 @@ class PublishPluginTest {
         every { publishingExtension.publications } returns publicationContainer
         stubGradleAction(signingExtension) { project.extensions.configure(SigningExtension::class.java, it) }
         every { project.findProperty(any()) } returnsMany listOf(
-            "signingKey", "signingPassword",
+            "signingKey",
+            "signingPassword"
         )
 
         // WHEN
