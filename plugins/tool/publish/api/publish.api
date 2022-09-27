@@ -1,0 +1,46 @@
+public abstract interface class eu/bitfunk/gradle/plugin/tool/publish/PublishContract {
+	public static final field Companion Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Companion;
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Companion {
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension {
+	public abstract fun getDeveloperEmail ()Lorg/gradle/api/provider/Property;
+	public abstract fun getDeveloperId ()Lorg/gradle/api/provider/Property;
+	public abstract fun getDeveloperName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getIssueManagement ()Lorg/gradle/api/provider/Property;
+	public abstract fun getIssueUrl ()Lorg/gradle/api/provider/Property;
+	public abstract fun getLicenseName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getLicenseUrl ()Lorg/gradle/api/provider/Property;
+	public abstract fun getOrganizationName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getOrganizationUrl ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectDescription ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectUrl ()Lorg/gradle/api/provider/Property;
+	public abstract fun getScmUrl ()Lorg/gradle/api/provider/Property;
+	public abstract fun getSigningEnabled ()Lorg/gradle/api/provider/Property;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Plugin {
+	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+	public abstract fun configurePublishing (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;)V
+	public abstract fun configureSigning (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/publish/PublishPlugin : eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun configurePublishing (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;)V
+	public fun configureSigning (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension;)V
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/publish/PublishPluginExtension : eu/bitfunk/gradle/plugin/tool/publish/PublishContract$Extension {
+}
+

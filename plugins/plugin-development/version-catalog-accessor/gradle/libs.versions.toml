@@ -1,3 +1,0 @@
-[libraries]
-kotlinPoet = "com.squareup:kotlinpoet:1.10.2"
-jacksonToml = "com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.13.0"

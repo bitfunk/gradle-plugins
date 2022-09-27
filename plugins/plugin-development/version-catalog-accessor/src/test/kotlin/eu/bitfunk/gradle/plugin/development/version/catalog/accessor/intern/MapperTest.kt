@@ -44,7 +44,7 @@ class MapperTest {
     @Test
     fun `GIVEN empty list WHEN map() THEN return empty list`() {
         // GIVEN
-        val input = emptyList<String>()
+        val input = emptyMap<String, String?>()
 
         // WHEN
         val result = mapper.map(input)
@@ -59,14 +59,20 @@ class MapperTest {
     @Test
     fun `GIVEN list with top level item WHEN map() THEN return top level list`() {
         // GIVEN
-        val input = listOf("example")
+        val input = mapOf(
+            "example" to null,
+            "squad" to "1.0.0"
+        )
 
         // WHEN
         val result = mapper.map(input)
 
         // THEN
         assertEquals(
-            listOf(Node("example", "example")),
+            listOf(
+                Node("example", "example"),
+                Node("squad", "squad", "1.0.0")
+            ),
             result
         )
     }
@@ -74,7 +80,10 @@ class MapperTest {
     @Test
     fun `GIVEN list with group item WHEN map() THEN return list with nested items`() {
         // GIVEN
-        val input = listOf("group-example")
+        val input = mapOf(
+            "group-example" to null,
+            "squad-example" to "1.0.0"
+        )
 
         // WHEN
         val result = mapper.map(input)
@@ -85,7 +94,13 @@ class MapperTest {
                 Node(
                     name = "group",
                     children = mutableListOf(
-                        Node("example", "group-example")
+                        Node("example", "group-example"),
+                    )
+                ),
+                Node(
+                    name = "squad",
+                    children = mutableListOf(
+                        Node("example", "squad-example", "1.0.0")
                     )
                 ),
             ),
@@ -96,7 +111,12 @@ class MapperTest {
     @Test
     fun `GIVEN list with multiple group items WHEN map() THEN return list with all nested items`() {
         // GIVEN
-        val input = listOf("group-example-one", "group-example-two")
+        val input = mapOf(
+            "group-example-one" to null,
+            "group-example-two" to null,
+            "squad-example-one" to "1.0.0",
+            "squad-example-two" to "2.0.0",
+        )
 
         // WHEN
         val result = mapper.map(input)
@@ -116,6 +136,18 @@ class MapperTest {
                         )
                     )
                 ),
+                Node(
+                    name = "squad",
+                    children = mutableListOf(
+                        Node(
+                            name = "example",
+                            children = mutableListOf(
+                                Node("one", "squad-example-one", "1.0.0"),
+                                Node("two", "squad-example-two", "2.0.0")
+                            )
+                        )
+                    )
+                ),
             ),
             result
         )
@@ -124,7 +156,16 @@ class MapperTest {
     @Test
     fun `GIVEN list with mixed items WHEN map() THEN return list with all nested items`() {
         // GIVEN
-        val input = listOf("group", "group-example", "group-example-one", "group-example-two")
+        val input = mapOf(
+            "group" to null,
+            "group-example" to null,
+            "group-example-one" to null,
+            "group-example-two" to null,
+            "squad" to "3.0.0",
+            "squad-example" to "4.0.0",
+            "squad-example-one" to "1.0.0",
+            "squad-example-two" to "2.0.0",
+        )
 
         // WHEN
         val result = mapper.map(input)
@@ -140,6 +181,18 @@ class MapperTest {
                             children = mutableListOf(
                                 Node("one", "group-example-one"),
                                 Node("two", "group-example-two")
+                            )
+                        )
+                    )
+                ),
+                Node(
+                    name = "squad", path = "squad", value = "3.0.0",
+                    children = mutableListOf(
+                        Node(
+                            name = "example", path = "squad-example", value = "4.0.0",
+                            children = mutableListOf(
+                                Node("one", "squad-example-one", "1.0.0"),
+                                Node("two", "squad-example-two", "2.0.0")
                             )
                         )
                     )

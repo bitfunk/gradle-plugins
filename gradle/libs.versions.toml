@@ -1,6 +1,6 @@
 [versions]
-mkdocs = "2.3.0"
-detekt = "1.19.0"
+gradle = "7.5.1"
+mkdocs = "2.4.0"
 
 [plugins]
 mkdocs = { id = "ru.vyarus.mkdocs", version.ref = "mkdocs" }

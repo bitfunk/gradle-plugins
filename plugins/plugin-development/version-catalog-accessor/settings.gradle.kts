@@ -17,3 +17,11 @@
  */
 
 rootProject.name = "version-catalog-accessor"
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsCatalogAccessor") {
+            from(files("gradle/libs-catalog-accessor.versions.toml"))
+        }
+    }
+}

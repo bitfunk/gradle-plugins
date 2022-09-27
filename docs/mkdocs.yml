@@ -110,6 +110,8 @@ nav:
       - Formatter: plugins/quality/formatter/index.md
       - Report: plugins/quality/report/index.md
     - Tool:
+        - Composite Delegator: plugins/tool/compositeDelegator/index.md
+        - Publish: plugins/tool/publish/index.md
         - Version: plugins/tool/versioning/index.md
     - PluginDevelopment:
       - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md

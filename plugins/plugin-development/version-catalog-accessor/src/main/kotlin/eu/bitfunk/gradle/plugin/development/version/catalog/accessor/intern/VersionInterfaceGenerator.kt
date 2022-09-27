@@ -53,6 +53,12 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                             .addModifiers(ABSTRACT)
                             .build()
                     )
+                    .addFunction(
+                        FunSpec.builder("getStatic")
+                            .returns(String::class)
+                            .addModifiers(ABSTRACT)
+                            .build()
+                    )
                     .build()
             )
             .addType(
@@ -60,6 +66,12 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                     .addSuperinterface(ClassName(packageName, INTERFACE_NAME))
                     .addFunction(
                         FunSpec.builder("get")
+                            .returns(String::class)
+                            .addModifiers(ABSTRACT)
+                            .build()
+                    )
+                    .addFunction(
+                        FunSpec.builder("getStatic")
                             .returns(String::class)
                             .addModifiers(ABSTRACT)
                             .build()

@@ -1,13 +1,13 @@
 [versions]
-kotlin = "1.5.31"
-gradle = "7.4.2"
-jUnit5 = "5.8.2"
-kotlinBinaryCompatibility = "0.8.0"
+kotlin = "1.6.21"
+gradle = "7.5.1"
+jUnit5 = "5.9.1"
+kotlinBinaryCompatibility = "0.11.1"
 
 [libraries]
 gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleKotlinBinaryCompatibilityPlugin = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
-gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.1.7"
+gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
 testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
 testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
 testMockk = "io.mockk:mockk:1.12.7"
