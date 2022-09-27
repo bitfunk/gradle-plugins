@@ -10,7 +10,7 @@ gradleKotlinBinaryCompatibilityPlugin = { module = "org.jetbrains.kotlinx:binary
 gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
 testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
 testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
-testMockk = "io.mockk:mockk:1.12.2"
+testMockk = "io.mockk:mockk:1.12.8"
 testGradleTestUtil = "eu.bitfunk.gradle.plugin.common.test:gradle-test-util:0.1.0"
 
 [plugins]
