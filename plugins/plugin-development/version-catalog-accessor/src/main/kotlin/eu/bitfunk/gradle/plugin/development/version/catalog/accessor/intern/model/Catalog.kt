@@ -27,7 +27,7 @@ internal data class Catalog(
     val versions: Versions,
     val libraries: Libraries,
     val bundles: Bundles,
-    val plugins: Plugins,
+    val plugins: Plugins
 )
 
 internal sealed class CatalogEntry(

@@ -25,7 +25,7 @@ import org.gradle.api.Action
 
 public fun <T : Any> stubGradleAction(
     answer: T,
-    every: MockKMatcherScope.(Action<T>) -> Unit,
+    every: MockKMatcherScope.(Action<T>) -> Unit
 ) {
     val actionSlot = slot<Action<T>>()
     every {
@@ -38,7 +38,7 @@ public fun <T : Any> stubGradleAction(
 public fun <T : Any, R : Any> stubGradleActionWithReturn(
     answer: T,
     returnValue: R,
-    every: MockKMatcherScope.(Action<T>) -> R,
+    every: MockKMatcherScope.(Action<T>) -> R
 ) {
     val actionSlot = slot<Action<T>>()
     every {

@@ -94,7 +94,7 @@ class MapperTest {
                 Node(
                     name = "group",
                     children = mutableListOf(
-                        Node("example", "group-example"),
+                        Node("example", "group-example")
                     )
                 ),
                 Node(
@@ -102,7 +102,7 @@ class MapperTest {
                     children = mutableListOf(
                         Node("example", "squad-example", "1.0.0")
                     )
-                ),
+                )
             ),
             result
         )
@@ -115,7 +115,7 @@ class MapperTest {
             "group-example-one" to null,
             "group-example-two" to null,
             "squad-example-one" to "1.0.0",
-            "squad-example-two" to "2.0.0",
+            "squad-example-two" to "2.0.0"
         )
 
         // WHEN
@@ -147,7 +147,7 @@ class MapperTest {
                             )
                         )
                     )
-                ),
+                )
             ),
             result
         )
@@ -164,7 +164,7 @@ class MapperTest {
             "squad" to "3.0.0",
             "squad-example" to "4.0.0",
             "squad-example-one" to "1.0.0",
-            "squad-example-two" to "2.0.0",
+            "squad-example-two" to "2.0.0"
         )
 
         // WHEN
@@ -174,10 +174,12 @@ class MapperTest {
         assertEquals(
             listOf(
                 Node(
-                    name = "group", path = "group",
+                    name = "group",
+                    path = "group",
                     children = mutableListOf(
                         Node(
-                            name = "example", path = "group-example",
+                            name = "example",
+                            path = "group-example",
                             children = mutableListOf(
                                 Node("one", "group-example-one"),
                                 Node("two", "group-example-two")
@@ -186,17 +188,21 @@ class MapperTest {
                     )
                 ),
                 Node(
-                    name = "squad", path = "squad", value = "3.0.0",
+                    name = "squad",
+                    path = "squad",
+                    value = "3.0.0",
                     children = mutableListOf(
                         Node(
-                            name = "example", path = "squad-example", value = "4.0.0",
+                            name = "example",
+                            path = "squad-example",
+                            value = "4.0.0",
                             children = mutableListOf(
                                 Node("one", "squad-example-one", "1.0.0"),
                                 Node("two", "squad-example-two", "2.0.0")
                             )
                         )
                     )
-                ),
+                )
             ),
             result
         )

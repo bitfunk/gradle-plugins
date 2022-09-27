@@ -68,7 +68,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
     }
 
     private fun generateInterfaceProperties(
-        nodes: List<Node>,
+        nodes: List<Node>
     ): Iterable<PropertySpec> {
         val properties = mutableListOf<PropertySpec>()
 
@@ -76,12 +76,12 @@ internal class VersionCatalogAccessorInterfaceGenerator(
             val property = if (!node.isGroup() && node.isLeaf()) {
                 generateInterfaceNodeProperty(
                     node,
-                    ClassName("", "VersionCatalogDependency.Leaf"),
+                    ClassName("", "VersionCatalogDependency.Leaf")
                 )
             } else {
                 generateInterfaceNodeProperty(
                     node,
-                    ClassName("", node.name.capitalize()),
+                    ClassName("", node.name.capitalize())
                 )
             }
 
@@ -93,7 +93,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
 
     private fun generateInterfaceNodeProperty(
         node: Node,
-        className: ClassName,
+        className: ClassName
     ): PropertySpec {
         return PropertySpec.builder(node.name, className)
             .build()

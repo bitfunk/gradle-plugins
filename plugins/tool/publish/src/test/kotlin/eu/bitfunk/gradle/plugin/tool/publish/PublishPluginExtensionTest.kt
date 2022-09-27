@@ -42,7 +42,8 @@ internal class PublishPluginExtensionTest {
     @Test
     fun `implements contract`() {
         assertInstanceOf(
-            PublishContract.Extension::class.java, testSubject
+            PublishContract.Extension::class.java,
+            testSubject
         )
     }
 

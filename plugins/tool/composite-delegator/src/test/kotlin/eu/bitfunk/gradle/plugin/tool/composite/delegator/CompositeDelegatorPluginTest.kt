@@ -174,7 +174,7 @@ class CompositeDelegatorPluginTest {
 
             // Custom
             "task1" to null,
-            "task2" to null,
+            "task2" to null
         )
     }
 }
