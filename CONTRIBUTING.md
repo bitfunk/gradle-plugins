@@ -1,17 +1,20 @@
 <!--local-files-->
+
 [code of conduct]: CODE_OF_CONDUCT.md
 
 <!--contributing-start-->
 <!--local-links-overwrite-->
+
 [code of conduct]: docs/src/develop/codeOfConduct.md
 
 <!--other-links-->
+
 [issues]: https://github.com/wmontwe/gradle-plugins/issues
 [pull-request]: https://github.com/wmontwe/gradle-plugins/pulls
 
 # Contributing
 
-When contributing to this project, this document should help you get started. 
+When contributing to this project, this document should help you get started.
 
 ## Code of Conduct
 

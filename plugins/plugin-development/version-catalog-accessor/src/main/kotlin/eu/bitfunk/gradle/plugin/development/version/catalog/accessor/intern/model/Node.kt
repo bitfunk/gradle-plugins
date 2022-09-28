@@ -21,6 +21,7 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.mod
 internal data class Node(
     val name: String,
     var path: String = "",
+    val value: String? = null,
     val children: MutableList<Node> = mutableListOf()
 ) {
     fun isLeaf(): Boolean = path.isNotBlank()

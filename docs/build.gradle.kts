@@ -23,15 +23,16 @@ plugins {
 
 python {
     pip(
-        "mkdocs-include-markdown-plugin:3.3.0",
+        "mkdocs:1.3.1",
+        "mkdocs-include-markdown-plugin:3.8.1",
         "mkdocs-kroki-plugin:0.3.0",
         "mkdocs-markdownextradata-plugin:0.2.5",
-        "mkdocs-material:8.2.1",
+        "mkdocs-material:8.5.3",
         "mkdocs-minify-plugin:0.5.0",
-        "mkdocs-redirects:1.0.3",
+        "mkdocs-redirects:1.2.0",
         "mkdocs-minify-plugin:0.5.0",
-        "pygments:2.11.2",
-        "pymdown-extensions:9.2"
+        "pygments:2.13.0",
+        "pymdown-extensions:9.5"
     )
 }
 

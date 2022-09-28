@@ -39,7 +39,7 @@ class GeneratorTest {
     @BeforeEach
     fun setup() {
         mapper = mockk()
-        every { mapper.map(emptyList()) } returns emptyList()
+        every { mapper.map(emptyMap()) } returns emptyList()
     }
 
     @Test
@@ -57,10 +57,10 @@ class GeneratorTest {
         // GIVEN
         val baseName = "empty"
         val catalog = Catalog(
-            Versions(emptyList()),
+            Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
 
@@ -77,13 +77,13 @@ class GeneratorTest {
         // GIVEN
         val baseName = "with-versions"
         val catalog = Catalog(
-            Versions(TEST_ITEMS),
+            Versions(TEST_VERSIONS),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
-        every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST
+        every { mapper.map(TEST_VERSIONS) } returns TEST_VERSION_NODES
 
         // WHEN
         val result = generator.generate(catalog)
@@ -98,13 +98,13 @@ class GeneratorTest {
         // GIVEN
         val baseName = "with-libraries"
         val catalog = Catalog(
-            Versions(emptyList()),
+            Versions(emptyMap()),
             Libraries(TEST_ITEMS),
             Bundles(emptyList()),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
-        every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST
+        every { mapper.map(TEST_ITEM_MAP) } returns TEST_NODE_LIST
 
         // WHEN
         val result = generator.generate(catalog)
@@ -119,13 +119,13 @@ class GeneratorTest {
         // GIVEN
         val baseName = "with-bundles"
         val catalog = Catalog(
-            Versions(emptyList()),
+            Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(TEST_ITEMS),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
-        every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST
+        every { mapper.map(TEST_ITEM_MAP) } returns TEST_NODE_LIST
 
         // WHEN
         val result = generator.generate(catalog)
@@ -140,13 +140,13 @@ class GeneratorTest {
         // GIVEN
         val baseName = "with-plugins"
         val catalog = Catalog(
-            Versions(emptyList()),
+            Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(TEST_ITEMS),
+            Plugins(TEST_ITEMS)
         )
         val generator = Generator(PACKAGE_NAME, baseName, mapper)
-        every { mapper.map(TEST_ITEMS) } returns TEST_NODE_LIST
+        every { mapper.map(TEST_ITEM_MAP) } returns TEST_NODE_LIST
 
         // WHEN
         val result = generator.generate(catalog)
@@ -159,11 +159,43 @@ class GeneratorTest {
     private companion object {
         const val PACKAGE_NAME = "com.example.catalog"
 
+        val TEST_VERSIONS = mapOf(
+            "example" to "1.0.0",
+            "group-example" to "4.5.9",
+            "group-example-one" to "1.2.3",
+            "group-example-two" to "0.1.0"
+        )
+
+        val TEST_VERSION_NODES = listOf(
+            Node("example", "example", "1.0.0"),
+            Node(
+                name = "group",
+                children = mutableListOf(
+                    Node(
+                        "example",
+                        "group-example",
+                        value = "4.5.9",
+                        mutableListOf(
+                            Node("one", "group-example-one", "1.2.3"),
+                            Node("two", "group-example-two", "0.1.0")
+                        )
+                    )
+                )
+            )
+        )
+
         val TEST_ITEMS = listOf(
             "example",
             "group-example",
             "group-example-one",
-            "group-example-two",
+            "group-example-two"
+        )
+
+        val TEST_ITEM_MAP = mapOf(
+            "example" to null,
+            "group-example" to null,
+            "group-example-one" to null,
+            "group-example-two" to null
         )
 
         val TEST_NODE_LIST = listOf(
@@ -172,14 +204,16 @@ class GeneratorTest {
                 name = "group",
                 children = mutableListOf(
                     Node(
-                        "example", "group-example",
+                        "example",
+                        "group-example",
+                        null,
                         mutableListOf(
                             Node("one", "group-example-one"),
-                            Node("two", "group-example-two"),
+                            Node("two", "group-example-two")
                         )
                     )
                 )
-            ),
+            )
         )
     }
 }

@@ -37,10 +37,10 @@ internal class Parser : Parser {
         }
 
         return Catalog(
-            versions = Versions(catalog.entry("versions").keys.toList()),
+            versions = Versions(catalog.entry("versions") as Map<String, String>),
             libraries = Libraries(catalog.entry("libraries").keys.toList()),
             bundles = Bundles(catalog.entryList("bundles").keys.toList()),
-            plugins = Plugins(catalog.entry("plugins").keys.toList()),
+            plugins = Plugins(catalog.entry("plugins").keys.toList())
         )
     }
 

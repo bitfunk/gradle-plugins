@@ -20,3 +20,6 @@ rootProject.name = "plugin-development"
 
 includeBuild("gradle-plugin-convention")
 includeBuild("version-catalog-accessor")
+
+// outside dependencies
+includeBuild("../tool/composite-delegator")

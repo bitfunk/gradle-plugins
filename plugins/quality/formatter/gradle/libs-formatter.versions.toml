@@ -1,6 +1,6 @@
 [versions]
-ktlint = "0.43.2"
-spotless = "6.4.2"
+ktlint = "0.47.1"
+spotless = "6.11.0"
 
 [libraries]
 gradleKtlintPlugin = { module = "com.pinterest:ktlint", version.ref = "ktlint" }

@@ -20,14 +20,15 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.InternalContract.Mapper
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Node
+import kotlin.collections.Map.Entry
 
 internal class Mapper : Mapper {
 
-    override fun map(items: List<String>): List<Node> {
+    override fun map(items: Map<String, String?>): List<Node> {
         val nodes = mutableListOf<Node>()
 
         for (item in items) {
-            if (item.contains(SEPARATOR)) {
+            if (item.key.contains(SEPARATOR)) {
                 val newNode = mapToNodeData(item)
 
                 val currentNode = nodes.find { it.name == newNode.name }
@@ -40,21 +41,21 @@ internal class Mapper : Mapper {
                     nodes.add(newNode)
                 }
             } else {
-                nodes.add(Node(item, item))
+                nodes.add(Node(name = item.key, path = item.key, value = item.value))
             }
         }
 
         return nodes
     }
 
-    private fun mapToNodeData(path: String): Node {
-        val splits = path.split(SEPARATOR)
+    private fun mapToNodeData(path: Entry<String, String?>): Node {
+        val splits = path.key.split(SEPARATOR)
         val lastIndex = splits.size - 1
 
-        val nodes = path.split(SEPARATOR)
+        val nodes = path.key.split(SEPARATOR)
             .mapIndexed { index: Int, element: String ->
                 if (index == lastIndex) {
-                    Node(element, path)
+                    Node(element, path.key, path.value)
                 } else {
                     Node(element)
                 }

@@ -20,7 +20,6 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FunSpec
-import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.KModifier.OVERRIDE
 import com.squareup.kotlinpoet.KModifier.PRIVATE
 import com.squareup.kotlinpoet.PropertySpec
@@ -52,16 +51,25 @@ internal class VersionCatalogAccessorClassGenerator(
                 FunSpec.constructorBuilder()
                     .addParameter(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
                     .build()
+            ).addProperty(
+                PropertySpec.builder(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
+                    .initializer(Generator.ACCESSOR_PROPERTY_NAME_PROJECT)
+                    .addModifiers(PRIVATE)
+                    .build()
             )
             .addSuperinterface(ClassName(packageName, Generator.NAME_LIBRARIES.capitalize()))
             .addProperty(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
-                    .initializer(
-                        "%L",
-                        "project.extensions.getByType(VersionCatalogsExtension::class.java)" +
-                            ".named(\"${baseName.toLowerCase()}\")"
+                    .getter(
+                        FunSpec.getterBuilder()
+                            .addStatement(
+                                "return %L",
+                                "project.extensions.getByType(VersionCatalogsExtension::class.java)\n" +
+                                    "    .named(\"${baseName.decapitalize()}\")"
+                            )
+                            .build()
                     )
-                    .addModifiers(KModifier.PRIVATE)
+                    .addModifiers(PRIVATE)
                     .build()
             )
             .addProperty(generateRootProperty(Generator.NAME_VERSIONS, catalog.versions))
@@ -164,8 +172,10 @@ internal class VersionCatalogAccessorClassGenerator(
             .addSuperinterface(className)
 
         if (kClass.simpleName == "Leaf" || kClass.simpleName == "GroupLeaf") {
-            val function = generateFunction(catalogType, node.path)
-            nodeImplementation.addFunction(function)
+            val getFunction = generateGetFunction(catalogType, node.path)
+            nodeImplementation.addFunction(getFunction)
+            val getStaticFunction = generateGetStaticFunction(catalogType, node.value)
+            nodeImplementation.addFunction(getStaticFunction)
         }
 
         if (node.children.isNotEmpty()) {
@@ -176,7 +186,7 @@ internal class VersionCatalogAccessorClassGenerator(
         return nodeImplementation.build()
     }
 
-    private fun generateFunction(catalogType: KClass<*>, path: String): FunSpec {
+    private fun generateGetFunction(catalogType: KClass<*>, path: String): FunSpec {
         val functionName: String = when (catalogType) {
             Versions::class -> "findVersion"
             Libraries::class -> "findLibrary"
@@ -192,6 +202,22 @@ internal class VersionCatalogAccessorClassGenerator(
             .build()
     }
 
+    private fun generateGetStaticFunction(catalogType: KClass<*>, value: String?): FunSpec {
+        val satement: String = when (catalogType) {
+            Versions::class -> "return \"$value\""
+            Libraries::class -> THROW_UNSUPPORTED
+            Bundles::class -> THROW_UNSUPPORTED
+            Plugins::class -> THROW_UNSUPPORTED
+            else -> throw UnsupportedOperationException("$catalogType is not supported")
+        }
+
+        return FunSpec.builder(FUNCTION_NAME_GET_STATIC)
+            .addModifiers(OVERRIDE)
+            .returns(String::class)
+            .addStatement(satement)
+            .build()
+    }
+
     private fun generateCatalogFindFunction(name: String): FunSpec {
         return FunSpec.builder(name)
             .addModifiers(PRIVATE)
@@ -199,10 +225,11 @@ internal class VersionCatalogAccessorClassGenerator(
             .returns(String::class)
             .addStatement("try {")
             .also {
-                if ("findVersion" == name)
+                if ("findVersion" == name) {
                     it.addStatement("    return versionCatalog.$name(name).get().requiredVersion")
-                else
+                } else {
                     it.addStatement("    return versionCatalog.$name(name).get().get().toString()")
+                }
             }
             .addStatement("} catch (error: Throwable) {")
             .addStatement("    throw NoSuchElementException(")
@@ -214,5 +241,8 @@ internal class VersionCatalogAccessorClassGenerator(
 
     private companion object {
         const val FUNCTION_NAME_GET = "get"
+        const val FUNCTION_NAME_GET_STATIC = "getStatic"
+
+        const val THROW_UNSUPPORTED = "throw UnsupportedOperationException(\n    \"not yet implemented\"\n)"
     }
 }
