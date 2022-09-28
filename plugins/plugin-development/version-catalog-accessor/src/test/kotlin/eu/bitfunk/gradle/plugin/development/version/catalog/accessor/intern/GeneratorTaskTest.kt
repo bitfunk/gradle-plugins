@@ -204,10 +204,10 @@ class GeneratorTaskTest {
 
     private companion object {
         val CATALOG = Catalog(
-            Versions(emptyList()),
+            Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(emptyList()),
+            Plugins(emptyList())
         )
     }
 }

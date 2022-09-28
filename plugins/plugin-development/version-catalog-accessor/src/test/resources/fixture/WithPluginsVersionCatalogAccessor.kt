@@ -34,10 +34,11 @@ public interface WithPluginsVersionCatalogAccessorContract {
 }
 
 public class WithPluginsVersionCatalogAccessor(
-    project: Project
+    private val project: Project,
 ) : Libraries {
-    private val versionCatalog: VersionCatalog =
-            project.extensions.getByType(VersionCatalogsExtension::class.java).named("with-plugins")
+    private val versionCatalog: VersionCatalog
+        get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
+            .named("with-plugins")
 
     public val versions: Versions = object : Versions {
     }
@@ -49,6 +50,10 @@ public class WithPluginsVersionCatalogAccessor(
         public override val example: VersionCatalogDependency.Leaf = object :
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findPlugin("example")
+
+            public override fun getStatic(): String = throw UnsupportedOperationException(
+                "not yet implemented"
+            )
         }
 
         public override val group: Plugins.Group = object : Plugins.Group {
@@ -56,14 +61,26 @@ public class WithPluginsVersionCatalogAccessor(
                 public override val one: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findPlugin("group-example-one")
+
+                    public override fun getStatic(): String = throw UnsupportedOperationException(
+                        "not yet implemented"
+                    )
                 }
 
                 public override val two: VersionCatalogDependency.Leaf = object :
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findPlugin("group-example-two")
+
+                    public override fun getStatic(): String = throw UnsupportedOperationException(
+                        "not yet implemented"
+                    )
                 }
 
                 public override fun `get`(): String = findPlugin("group-example")
+
+                public override fun getStatic(): String = throw UnsupportedOperationException(
+                    "not yet implemented"
+                )
             }
         }
     }

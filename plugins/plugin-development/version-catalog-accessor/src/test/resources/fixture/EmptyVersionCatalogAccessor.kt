@@ -20,10 +20,11 @@ public interface EmptyVersionCatalogAccessorContract {
 }
 
 public class EmptyVersionCatalogAccessor(
-    project: Project
+    private val project: Project,
 ) : Libraries {
-    private val versionCatalog: VersionCatalog =
-            project.extensions.getByType(VersionCatalogsExtension::class.java).named("empty")
+    private val versionCatalog: VersionCatalog
+        get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
+            .named("empty")
 
     public val versions: Versions = object : Versions {
     }

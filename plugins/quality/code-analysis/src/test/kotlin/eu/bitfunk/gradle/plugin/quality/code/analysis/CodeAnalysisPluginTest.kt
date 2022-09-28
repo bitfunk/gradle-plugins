@@ -93,9 +93,6 @@ class CodeAnalysisPluginTest {
     fun `GIVEN project WHEN configureAnalysis() THEN analysis configured`() {
         // GIVEN
         val extensionContainer: ExtensionContainer = mockk()
-        val versionCatalogsExtension: VersionCatalogsExtension = mockk()
-        val versionCatalog: VersionCatalog = mockk()
-        val requiredVersion = "requiredVersion"
         val detektExtension: DetektExtension = mockk(relaxed = true)
         val rootDir: File = mockk()
         val projectFile: File = mockk()
@@ -104,9 +101,6 @@ class CodeAnalysisPluginTest {
         val rootProjectFiles: ConfigurableFileCollection = mockk()
         val rootProjectFile: File = mockk()
         every { project.extensions } returns extensionContainer
-        every { extensionContainer.getByType(VersionCatalogsExtension::class.java) } returns versionCatalogsExtension
-        every { versionCatalogsExtension.named(any()) } returns versionCatalog
-        every { versionCatalog.findVersion(any()).get().requiredVersion } returns requiredVersion
         every { extensionContainer.configure(DetektExtension::class.java, any()) } answers {
             secondArg<Action<DetektExtension>>().execute(detektExtension)
         }
@@ -122,16 +116,15 @@ class CodeAnalysisPluginTest {
 
         // THEN
         verifyAll {
-            extensionContainer.getByType(VersionCatalogsExtension::class.java)
             extensionContainer.configure(DetektExtension::class.java, any())
 
-            detektExtension.toolVersion = requiredVersion
+            detektExtension.toolVersion = "1.21.0"
             detektExtension.parallel = true
 
             detektExtension.source = projectFiles
 
             detektExtension.config = rootProjectFiles
-            rootProject.files("config/detekt/config.xml")
+            rootProject.files("config/detekt/detekt.yml")
 
             detektExtension.baseline = rootProjectFile
             rootProject.file("config/detekt/baseline.yml")
@@ -215,7 +208,7 @@ class CodeAnalysisPluginTest {
             "**/.idea/**",
             "**/build/**",
             ".github/**",
-            "gradle/**",
+            "gradle/**"
         )
 
         val DETEKT_BASELINE_EXCLUDED = arrayOf(
@@ -238,7 +231,7 @@ class CodeAnalysisPluginTest {
             "**/*.pro",
             "**/*.sq",
             "**/*.xml",
-            "**/*.yml",
+            "**/*.yml"
         )
     }
 }

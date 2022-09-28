@@ -88,6 +88,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             testImplementation("org.junit.jupiter:junit-jupiter:$JUNIT_5_VERSION")
             testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$JUNIT_5_VERSION")
             testImplementation("io.mockk:mockk:$MOCKK_VERSION")
+            testImplementation("eu.bitfunk.gradle.plugin.common.test:gradle-test-util:$GRADLE_TEST_UTIL")
         }
     }
 
@@ -119,7 +120,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             violationRules {
                 rule {
                     limit {
-                        minimum = BigDecimal(JACOCO_THRESHOLD)
+                        minimum = BigDecimal(COVERAGE_MINIMUM)
                     }
                 }
             }
@@ -138,11 +139,12 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     }
 
     private companion object {
-        const val GRADLE_VERSION = "7.4.2"
+        const val GRADLE_VERSION = "7.5.1"
         const val JUNIT_5_VERSION = "5.8.2"
-        const val MOCKK_VERSION = "1.12.2"
+        const val MOCKK_VERSION = "1.12.8"
         const val JACOCO_VERSION = "0.8.8"
+        const val GRADLE_TEST_UTIL = "0.1.0"
 
-        const val JACOCO_THRESHOLD = 0.95
+        const val COVERAGE_MINIMUM = 0.95
     }
 }

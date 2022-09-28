@@ -31,10 +31,11 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(libs.gradleDetektPlugin)
+    implementation(libsCodeAnalysis.gradleDetektPlugin)
 }
 
 versionCatalogAccessor {
+    catalogNames.set(listOf("libsCodeAnalysis"))
     packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
 }
 

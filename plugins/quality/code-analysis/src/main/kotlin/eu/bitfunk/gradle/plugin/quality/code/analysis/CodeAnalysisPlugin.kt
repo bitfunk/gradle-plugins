@@ -18,7 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.quality.code.analysis
 
-import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated.LibsVersionCatalogAccessor
+import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated.LibsCodeAnalysisVersionCatalogAccessor
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
@@ -40,17 +40,17 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
     }
 
     override fun configureAnalysis(project: Project): Unit = with(project) {
-        val libs = LibsVersionCatalogAccessor(project)
+        val libs = LibsCodeAnalysisVersionCatalogAccessor(project)
 
         detekt {
-            toolVersion = libs.versions.detekt.get()
+            toolVersion = libs.versions.detekt.getStatic()
             parallel = true
 
             source = project.files(
                 project.file(project.rootDir)
             )
 
-            config = project.rootProject.files("config/detekt/config.xml")
+            config = project.rootProject.files("config/detekt/detekt.yml")
             baseline = project.rootProject.file("config/detekt/baseline.yml")
         }
     }
@@ -64,7 +64,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
                 "**/.idea/**",
                 "**/build/**",
                 ".github/**",
-                "gradle/**",
+                "gradle/**"
             )
             reports {
                 xml.required.set(true)
@@ -93,7 +93,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
                 "**/*.pro",
                 "**/*.sq",
                 "**/*.xml",
-                "**/*.yml",
+                "**/*.yml"
             )
         }
     }

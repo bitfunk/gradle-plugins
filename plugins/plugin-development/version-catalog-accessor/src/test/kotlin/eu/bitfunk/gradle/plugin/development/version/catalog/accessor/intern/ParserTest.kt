@@ -59,9 +59,9 @@ class ParserTest {
         // THEN
         assertInstanceOf(Versions::class.java, result.versions)
         assertEquals(
-            listOf(
-                "version",
-                "group-version"
+            mapOf(
+                "version" to "1.0.0",
+                "group-version" to "2.0.0"
             ),
             result.versions.items
         )
@@ -83,10 +83,10 @@ class ParserTest {
         // THEN
         assertInstanceOf(Libraries::class.java, result.libraries)
         assertEquals(
-            listOf(
-                "library",
-                "group-library",
-                "library-complex"
+            mapOf(
+                "library" to null,
+                "group-library" to null,
+                "library-complex" to null
             ),
             result.libraries.items
         )
@@ -106,8 +106,8 @@ class ParserTest {
         // THEN
         assertInstanceOf(Bundles::class.java, result.bundles)
         assertEquals(
-            listOf(
-                "bundle"
+            mapOf(
+                "bundle" to null
             ),
             result.bundles.items
         )
@@ -128,9 +128,9 @@ class ParserTest {
         // THEN
         assertInstanceOf(Plugins::class.java, result.plugins)
         assertEquals(
-            listOf(
-                "plugin",
-                "pluginComplex"
+            mapOf(
+                "plugin" to null,
+                "pluginComplex" to null
             ),
             result.plugins.items
         )

@@ -50,6 +50,6 @@ internal interface InternalContract {
     }
 
     interface Mapper {
-        fun map(items: List<String>): List<Node>
+        fun map(items: Map<String, String?>): List<Node>
     }
 }
