@@ -20,7 +20,7 @@ public interface EmptyVersionCatalogAccessorContract {
 }
 
 public class EmptyVersionCatalogAccessor(
-    private val project: Project
+    private val project: Project,
 ) : Libraries {
     private val versionCatalog: VersionCatalog
         get() = project.extensions.getByType(VersionCatalogsExtension::class.java)
