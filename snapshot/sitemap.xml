@@ -36,17 +36,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/</loc>
+         <lastmod>2022-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/gradlePluginConvention/</loc>
+         <lastmod>2022-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/versionCatalogAccessor/</loc>
+         <lastmod>2022-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/</loc>
-         <lastmod>2022-10-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/pluginDevelopment/gradlePluginConvention/</loc>
-         <lastmod>2022-10-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/pluginDevelopment/versionCatalogAccessor/</loc>
          <lastmod>2022-10-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
