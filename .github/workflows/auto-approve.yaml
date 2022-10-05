@@ -1,0 +1,9 @@
+name: Auto approve
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  auto-approve:
+    uses: bitfunk/action-workflows/.github/workflows/owner-auto-approve.yaml@main
+          
