@@ -17,7 +17,7 @@ public final class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Compan
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension {
-	public abstract fun getCoverageReportSourceDir ()Lorg/gradle/api/provider/Property;
+	public abstract fun getCoverageReportSourceDirs ()Lorg/gradle/api/provider/ListProperty;
 	public abstract fun getSonarOrganization ()Lorg/gradle/api/provider/Property;
 	public abstract fun getSonarProjectKey ()Lorg/gradle/api/provider/Property;
 }

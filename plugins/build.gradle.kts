@@ -35,7 +35,6 @@ repositories {
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:plugin-development")
     implementation("eu.bitfunk.gradle.plugin.quality:quality")
     implementation("eu.bitfunk.gradle.plugin.tool:tool")
 }

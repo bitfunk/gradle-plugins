@@ -21,6 +21,7 @@ package eu.bitfunk.gradle.plugin.quality.report
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Collector
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Companion.EXTENSION_NAME
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Extension
+import eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformer
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -50,7 +51,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
         extension.sonarProjectKey.convention("")
         extension.sonarOrganization.convention("")
-        extension.coverageReportSourceDir.convention("$buildDir/reports/jacoco/testCodeCoverageReport")
+        extension.coverageReportSourceDirs.convention(listOf("$buildDir/reports/jacoco/testCodeCoverageReport"))
 
         return extension
     }
@@ -72,7 +73,13 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
                 property("sonar.sources", projectsWithSrc)
                 property("sonar.tests", projectsWithTests)
                 property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
+
+                val sourceFolderCount = extension.coverageReportSourceDirs.get().size
+                val reportPaths = mutableListOf<String>()
+                repeat(sourceFolderCount) { index ->
+                    reportPaths.add("$buildDir/reports/jacoco/testCodeCoverageReport-${index + 1}.xml")
+                }
+                property("sonar.coverage.jacoco.xmlReportPaths", reportPaths.joinToString(","))
             }
         }
     }
@@ -83,11 +90,13 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
             group = "verification"
 
-            from(extension.coverageReportSourceDir) {
+            from(extension.coverageReportSourceDirs) {
                 include("*.xml")
             }
 
             into("$buildDir/reports/jacoco")
+
+            rename(FileNameTransformer())
 
             includeEmptyDirs = false
         }

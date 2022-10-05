@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.plugin.quality.report
 
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Collector
+import eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformer
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -31,7 +32,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.file.CopySpec
-import org.gradle.api.provider.Property
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Copy
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
@@ -99,7 +100,7 @@ class ReportPluginTest {
 
             extension.sonarProjectKey.convention("")
             extension.sonarOrganization.convention("")
-            extension.coverageReportSourceDir.convention("buildDir/reports/jacoco/testCodeCoverageReport")
+            extension.coverageReportSourceDirs.convention(listOf("buildDir/reports/jacoco/testCodeCoverageReport"))
         }
 
         confirmVerified(project, extension)
@@ -121,6 +122,10 @@ class ReportPluginTest {
         }
         every { extension.sonarProjectKey.get() } returns "sonarProjectKey"
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
+        every { extension.coverageReportSourceDirs.get() } returns listOf(
+            "coverageReportSourceDirs1",
+            "coverageReportSourceDirs2"
+        )
         val projectDir: File = mockk()
         every { project.projectDir } returns projectDir
         every { project.buildDir } returns File("build")
@@ -142,6 +147,7 @@ class ReportPluginTest {
 
             extension.sonarProjectKey
             extension.sonarOrganization
+            extension.coverageReportSourceDirs
 
             sonarQubeProperties.property("sonar.projectKey", "sonarProjectKey")
             sonarQubeProperties.property("sonar.organization", "sonarOrganization")
@@ -153,7 +159,10 @@ class ReportPluginTest {
             sonarQubeProperties.property("sonar.tests", testProjects)
 
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
-            sonarQubeProperties.property("sonar.jacoco.reportPaths", "build/reports/jacoco/testCodeCoverageReport.xml")
+            sonarQubeProperties.property(
+                "sonar.coverage.jacoco.xmlReportPaths",
+                "build/reports/jacoco/testCodeCoverageReport-1.xml,build/reports/jacoco/testCodeCoverageReport-2.xml"
+            )
         }
 
         confirmVerified(project, extension, collector, sonarQubeExtension, sonarQubeProperties)
@@ -171,11 +180,14 @@ class ReportPluginTest {
             thirdArg<Action<Copy>>().execute(copyTask)
             copyTask
         }
-        val coverageSrcDirProperty: Property<String> = mockk(relaxed = true)
-        every { extension.coverageReportSourceDir } returns coverageSrcDirProperty
+        val coverageSrcsDirProperty: ListProperty<String> = mockk(relaxed = true)
+        every { extension.coverageReportSourceDirs } returns coverageSrcsDirProperty
         every { project.buildDir } returns File("buildDir")
         every { copyTask.from(any(), any<Action<CopySpec>>()) } answers {
             secondArg<Action<CopySpec>>().execute(copyTaskSpec)
+            copyTask
+        }
+        every { copyTask.rename(any<FileNameTransformer>()) } answers {
             copyTask
         }
         every { project.tasks.named("sonarqube", any()) } answers {
@@ -191,12 +203,13 @@ class ReportPluginTest {
             project.tasks.create("copyCoverageReports", Copy::class.java, any())
             project.buildDir
 
-            extension.coverageReportSourceDir
+            extension.coverageReportSourceDirs
 
             copyTask.dependsOn("testCodeCoverageReport")
             copyTask.group = "verification"
-            copyTask.from(coverageSrcDirProperty, any<Action<CopySpec>>())
+            copyTask.from(coverageSrcsDirProperty, any<Action<CopySpec>>())
             copyTask.into("buildDir/reports/jacoco")
+            copyTask.rename(any<FileNameTransformer>())
             copyTask.includeEmptyDirs = false
 
             copyTaskSpec.include("*.xml")
@@ -205,7 +218,7 @@ class ReportPluginTest {
             sonarqubeTask.dependsOn("copyCoverageReports")
         }
 
-        confirmVerified(project, extension, copyTask, coverageSrcDirProperty, copyTaskSpec, sonarqubeTask)
+        confirmVerified(project, extension, copyTask, coverageSrcsDirProperty, copyTaskSpec, sonarqubeTask)
     }
 
     @Test
@@ -215,6 +228,7 @@ class ReportPluginTest {
         val spyTestSubject = spyk(testSubject)
         val extension: ReportPluginExtension = mockk(relaxed = true)
         every { project.extensions.create(any(), ReportPluginExtension::class.java) } returns extension
+        every { extension.coverageReportSourceDirs.get() } returns listOf("coverageReportSourceDirs")
 
         // WHEN
         spyTestSubject.apply(project)

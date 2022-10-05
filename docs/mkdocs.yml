@@ -9,8 +9,6 @@ edit_uri: edit/main/docs/src/
 
 copyright: Copyright &copy; 2022 Wolf-Martell Montwé
 
-dev_addr: 127.0.0.1:3000
-
 docs_dir: src
 
 extra_css:
@@ -115,9 +113,10 @@ nav:
         - Composite Delegator: plugins/tool/compositeDelegator/index.md
         - Publish: plugins/tool/publish/index.md
         - Version: plugins/tool/versioning/index.md
-    - PluginDevelopment:
-      - GradlePluginConvention: plugins/pluginDevelopment/gradlePluginConvention/index.md
-      - VersionCatalogAccessor: plugins/pluginDevelopment/versionCatalogAccessor/index.md
+  - Plugin Development:
+    - Overview: pluginDevelopment/index.md
+    - GradlePluginConvention: pluginDevelopment/gradlePluginConvention/index.md
+    - VersionCatalogAccessor: pluginDevelopment/versionCatalogAccessor/index.md
   - Develop:
       - Code of Conduct: develop/codeOfConduct.md
       - Contributing: develop/contributing.md

@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.plugin.quality.report
 
 import org.gradle.api.Project
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import java.io.File
 
@@ -40,7 +41,7 @@ public interface ReportContract {
     public interface Extension {
         public val sonarProjectKey: Property<String>
         public val sonarOrganization: Property<String>
-        public val coverageReportSourceDir: Property<String>
+        public val coverageReportSourceDirs: ListProperty<String>
     }
 
     public interface Collector {
