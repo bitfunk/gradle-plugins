@@ -28,8 +28,11 @@
 [composite delegator]: docs/src/plugins/tool/compositeDelegator/index.md
 [publish]: docs/src/plugins/tool/publish/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
-[versioncatalog accessor]: docs/src/plugins/pluginDevelopment/versionCatalogAccessor/index.md
-[gradle plugin convention]: docs/src/plugins/pluginDevelopment/gradlePluginConvention/index.md
+
+<!--plugin-development-links-->
+
+[versioncatalog accessor]: docs/src/pluginDevelopment/versionCatalogAccessor/index.md
+[gradle plugin convention]: docs/src/pluginDevelopment/gradlePluginConvention/index.md
 
 <!--github-links-->
 
@@ -73,7 +76,7 @@ Collection of Gradle plugins used across multiple projects. They add opinionated
 - [Publish] - a publish plugin for maven publications
 - [Versioning] - a versioning plugin using git tags
 
-#### Plugin development
+### Plugin development
 
 - [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
 - [VersionCatalog Accessor] - a version catalog accessor for Gradle plugin development
