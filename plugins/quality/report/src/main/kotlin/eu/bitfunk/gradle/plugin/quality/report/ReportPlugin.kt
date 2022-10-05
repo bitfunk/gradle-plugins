@@ -21,6 +21,7 @@ package eu.bitfunk.gradle.plugin.quality.report
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Collector
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Companion.EXTENSION_NAME
 import eu.bitfunk.gradle.plugin.quality.report.ReportContract.Extension
+import eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformer
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -94,12 +95,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
             into("$buildDir/reports/jacoco")
 
-            var count = 0
-
-            rename { fileName ->
-                count++
-                fileName.replace(".xml", "-$count.xml")
-            }
+            rename(FileNameTransformer())
 
             includeEmptyDirs = false
         }
