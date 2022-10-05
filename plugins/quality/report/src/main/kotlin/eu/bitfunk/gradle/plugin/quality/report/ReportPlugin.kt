@@ -50,7 +50,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
         extension.sonarProjectKey.convention("")
         extension.sonarOrganization.convention("")
-        extension.coverageReportSourceDir.convention("$buildDir/reports/jacoco/testCodeCoverageReport")
+        extension.coverageReportSourceDirs.convention(listOf("$buildDir/reports/jacoco/testCodeCoverageReport"))
 
         return extension
     }
@@ -83,7 +83,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
             group = "verification"
 
-            from(extension.coverageReportSourceDir) {
+            from(extension.coverageReportSourceDirs) {
                 include("*.xml")
             }
 

@@ -31,7 +31,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.file.CopySpec
-import org.gradle.api.provider.Property
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Copy
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
@@ -99,7 +99,7 @@ class ReportPluginTest {
 
             extension.sonarProjectKey.convention("")
             extension.sonarOrganization.convention("")
-            extension.coverageReportSourceDir.convention("buildDir/reports/jacoco/testCodeCoverageReport")
+            extension.coverageReportSourceDirs.convention(listOf("buildDir/reports/jacoco/testCodeCoverageReport"))
         }
 
         confirmVerified(project, extension)
@@ -171,8 +171,8 @@ class ReportPluginTest {
             thirdArg<Action<Copy>>().execute(copyTask)
             copyTask
         }
-        val coverageSrcDirProperty: Property<String> = mockk(relaxed = true)
-        every { extension.coverageReportSourceDir } returns coverageSrcDirProperty
+        val coverageSrcsDirProperty: ListProperty<String> = mockk(relaxed = true)
+        every { extension.coverageReportSourceDirs } returns coverageSrcsDirProperty
         every { project.buildDir } returns File("buildDir")
         every { copyTask.from(any(), any<Action<CopySpec>>()) } answers {
             secondArg<Action<CopySpec>>().execute(copyTaskSpec)
@@ -191,11 +191,11 @@ class ReportPluginTest {
             project.tasks.create("copyCoverageReports", Copy::class.java, any())
             project.buildDir
 
-            extension.coverageReportSourceDir
+            extension.coverageReportSourceDirs
 
             copyTask.dependsOn("testCodeCoverageReport")
             copyTask.group = "verification"
-            copyTask.from(coverageSrcDirProperty, any<Action<CopySpec>>())
+            copyTask.from(coverageSrcsDirProperty, any<Action<CopySpec>>())
             copyTask.into("buildDir/reports/jacoco")
             copyTask.includeEmptyDirs = false
 
@@ -205,7 +205,7 @@ class ReportPluginTest {
             sonarqubeTask.dependsOn("copyCoverageReports")
         }
 
-        confirmVerified(project, extension, copyTask, coverageSrcDirProperty, copyTaskSpec, sonarqubeTask)
+        confirmVerified(project, extension, copyTask, coverageSrcsDirProperty, copyTaskSpec, sonarqubeTask)
     }
 
     @Test
