@@ -122,7 +122,10 @@ class ReportPluginTest {
         }
         every { extension.sonarProjectKey.get() } returns "sonarProjectKey"
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
-        every { extension.coverageReportSourceDirs.get() } returns listOf("coverageReportSourceDirs")
+        every { extension.coverageReportSourceDirs.get() } returns listOf(
+            "coverageReportSourceDirs1",
+            "coverageReportSourceDirs2"
+        )
         val projectDir: File = mockk()
         every { project.projectDir } returns projectDir
         every { project.buildDir } returns File("build")
@@ -157,8 +160,8 @@ class ReportPluginTest {
 
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
             sonarQubeProperties.property(
-                "sonar.jacoco.reportPaths",
-                listOf("build/reports/jacoco/testCodeCoverageReport-1.xml")
+                "sonar.coverage.jacoco.xmlReportPaths",
+                "build/reports/jacoco/testCodeCoverageReport-1.xml,build/reports/jacoco/testCodeCoverageReport-2.xml"
             )
         }
 

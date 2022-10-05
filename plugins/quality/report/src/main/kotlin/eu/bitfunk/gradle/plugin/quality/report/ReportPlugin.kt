@@ -78,7 +78,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
                 property("sonar.sources", projectsWithSrc)
                 property("sonar.tests", projectsWithTests)
                 property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.jacoco.reportPaths", reportPaths)
+                property("sonar.coverage.jacoco.xmlReportPaths", reportPaths.joinToString(","))
             }
         }
     }
