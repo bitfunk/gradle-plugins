@@ -122,6 +122,7 @@ class ReportPluginTest {
         }
         every { extension.sonarProjectKey.get() } returns "sonarProjectKey"
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
+        every { extension.coverageReportSourceDirs.get() } returns listOf("coverageReportSourceDirs")
         val projectDir: File = mockk()
         every { project.projectDir } returns projectDir
         every { project.buildDir } returns File("build")
@@ -143,6 +144,7 @@ class ReportPluginTest {
 
             extension.sonarProjectKey
             extension.sonarOrganization
+            extension.coverageReportSourceDirs
 
             sonarQubeProperties.property("sonar.projectKey", "sonarProjectKey")
             sonarQubeProperties.property("sonar.organization", "sonarOrganization")
@@ -154,7 +156,10 @@ class ReportPluginTest {
             sonarQubeProperties.property("sonar.tests", testProjects)
 
             sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
-            sonarQubeProperties.property("sonar.jacoco.reportPaths", "build/reports/jacoco/testCodeCoverageReport.xml")
+            sonarQubeProperties.property(
+                "sonar.jacoco.reportPaths",
+                listOf("build/reports/jacoco/testCodeCoverageReport-1.xml")
+            )
         }
 
         confirmVerified(project, extension, collector, sonarQubeExtension, sonarQubeProperties)
@@ -220,6 +225,7 @@ class ReportPluginTest {
         val spyTestSubject = spyk(testSubject)
         val extension: ReportPluginExtension = mockk(relaxed = true)
         every { project.extensions.create(any(), ReportPluginExtension::class.java) } returns extension
+        every { extension.coverageReportSourceDirs.get() } returns listOf("coverageReportSourceDirs")
 
         // WHEN
         spyTestSubject.apply(project)

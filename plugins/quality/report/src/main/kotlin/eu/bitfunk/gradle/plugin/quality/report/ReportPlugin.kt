@@ -62,6 +62,11 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     ): Unit = with(project) {
         val projectsWithSrc = collector.collectProjects(projectDir, "src/main/kotlin")
         val projectsWithTests = collector.collectProjects(projectDir, "src/test/kotlin")
+        val sourceFolderCount = extension.coverageReportSourceDirs.get().size
+        val reportPaths = mutableListOf<String>()
+        repeat(sourceFolderCount) { index ->
+            reportPaths.add("$buildDir/reports/jacoco/testCodeCoverageReport-${index + 1}.xml")
+        }
 
         sonarqube {
             properties {
@@ -72,7 +77,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
                 property("sonar.sources", projectsWithSrc)
                 property("sonar.tests", projectsWithTests)
                 property("sonar.sourceEncoding", "UTF-8")
-                property("sonar.jacoco.reportPaths", "$buildDir/reports/jacoco/testCodeCoverageReport.xml")
+                property("sonar.jacoco.reportPaths", reportPaths)
             }
         }
     }
