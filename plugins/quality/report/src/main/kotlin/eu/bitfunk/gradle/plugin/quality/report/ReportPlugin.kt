@@ -89,6 +89,13 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
 
             into("$buildDir/reports/jacoco")
 
+            var count = 0
+
+            rename { fileName ->
+                count++
+                fileName.replace(".xml", "-$count.xml")
+            }
+
             includeEmptyDirs = false
         }
 

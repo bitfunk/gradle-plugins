@@ -30,6 +30,7 @@ import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
+import org.gradle.api.Transformer
 import org.gradle.api.file.CopySpec
 import org.gradle.api.provider.ListProperty
 import org.gradle.api.tasks.Copy
@@ -178,6 +179,9 @@ class ReportPluginTest {
             secondArg<Action<CopySpec>>().execute(copyTaskSpec)
             copyTask
         }
+        every { copyTask.rename(any<Transformer<String, String>>()) } answers {
+            copyTask
+        }
         every { project.tasks.named("sonarqube", any()) } answers {
             secondArg<Action<Task>>().execute(sonarqubeTask)
             mockk()
@@ -197,6 +201,7 @@ class ReportPluginTest {
             copyTask.group = "verification"
             copyTask.from(coverageSrcsDirProperty, any<Action<CopySpec>>())
             copyTask.into("buildDir/reports/jacoco")
+            copyTask.rename(any<Transformer<String, String>>())
             copyTask.includeEmptyDirs = false
 
             copyTaskSpec.include("*.xml")
