@@ -40,7 +40,12 @@ plugins {
 reportConfig {
     sonarProjectKey.set("bitfunk_gradle-plugins")
     sonarOrganization.set("bitfunk")
-    coverageReportSourceDir.set("$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport")
+    coverageReportSourceDirs.set(
+        listOf(
+            "$projectDir/plugin-development/build/reports/jacoco/testCodeCoverageReport",
+            "$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport"
+        )
+    )
 }
 
 project(":docs") {
