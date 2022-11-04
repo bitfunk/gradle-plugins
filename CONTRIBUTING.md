@@ -9,8 +9,8 @@
 
 <!--other-links-->
 
-[issues]: https://github.com/wmontwe/gradle-plugins/issues
-[pull-request]: https://github.com/wmontwe/gradle-plugins/pulls
+[issues]: https://github.com/bitfunk/gradle-plugins/issues
+[pull-request]: https://github.com/bitfunk/gradle-plugins/pulls
 
 # Contributing
 

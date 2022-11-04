@@ -34,7 +34,7 @@ jobs:
           python-version: '3.9'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: bitfunk/setup-android@v1.0.0
 
       - name: Build project
         run: ./gradlew --no-daemon --stacktrace build
