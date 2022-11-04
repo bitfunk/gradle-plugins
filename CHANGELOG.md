@@ -8,11 +8,11 @@ and `Migration`.
 
 This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/wmontwe/gradle-plugins/releases/latest)
+## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/wmontwe/gradle-plugins/compare/v0.1.0...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
 
-## [0.1.0](https://github.com/wmontwe/gradle-plugins/releases/tag/v0.1.0)
+## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
 
 Initial release
 
