@@ -38,7 +38,7 @@ jobs:
           java-version: '11'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: bitfunk/setup-android@v1.0.0
 
       - name: Build
         run: ./gradlew --no-daemon --stacktrace build
