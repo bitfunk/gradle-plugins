@@ -36,11 +36,9 @@ theme:
     - type: 'github'
       link: 'https://github.com/bitfunk/gradle-plugins'
   features:
-    #- navigation.tabs
-    #- navigation.tabs.sticky
-    #- navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.indexes
 
 plugins:
   - search
@@ -54,10 +52,6 @@ plugins:
         remove_comments: true
 
 extra:
-#  palette:
-#    primary: 'indigo'
-#    accent: 'indigo'
-
   version:
     provider: mike
 
