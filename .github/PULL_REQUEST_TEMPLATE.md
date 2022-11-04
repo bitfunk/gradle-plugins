@@ -10,9 +10,8 @@
 <!--- Why is this change required? What problem does it solve? -->
 <!--- If it fixes an open issue, please link to the issue here. -->
 <!--- If it is related to an open pull request, please link to the pull request here. -->
-
-- **Issue:** #1245
-- **Related:** #1, #2 (pull-request)
+<!-- - **Issue:** #1245 -->
+<!-- - **Related:** #1, #2 (pull-request) -->
 
 ## 📷 Screenshots (if appropriate):
 
