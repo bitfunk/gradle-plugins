@@ -21,6 +21,7 @@ rootProject.name = "gradle-plugin-convention"
 pluginManagement {
     repositories {
         mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
         gradlePluginPortal()
     }
 }
@@ -33,4 +34,12 @@ dependencyResolutionManagement {
     }
 }
 
-includeBuild("../gradle-test-util")
+val includeTestUtils: String by settings
+if (includeTestUtils.toBoolean()) {
+    includeBuild("../gradle-test-util") {
+        dependencySubstitution {
+            substitute(module("eu.bitfunk.gradle.plugin.development.test:gradle-test-util"))
+                .using(project(":"))
+        }
+    }
+}

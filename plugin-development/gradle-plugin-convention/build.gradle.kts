@@ -35,6 +35,7 @@ version = "0.0.1-SNAPSHOT"
 repositories {
     gradlePluginPortal()
     mavenCentral()
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     google()
 }
 

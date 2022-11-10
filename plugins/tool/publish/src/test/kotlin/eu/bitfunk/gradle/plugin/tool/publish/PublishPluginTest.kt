@@ -18,7 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.tool.publish
 
-import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
+import eu.bitfunk.gradle.plugin.development.test.util.stubGradleAction
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk

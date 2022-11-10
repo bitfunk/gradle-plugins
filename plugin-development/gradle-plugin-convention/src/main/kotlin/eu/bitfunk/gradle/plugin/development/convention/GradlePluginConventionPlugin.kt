@@ -25,6 +25,7 @@ import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.wrapper.Wrapper
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.named
 import org.gradle.kotlin.dsl.repositories
 import org.gradle.kotlin.dsl.withType
@@ -66,6 +67,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             gradlePluginPortal()
             mavenCentral()
             google()
+            maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
         }
     }
 
@@ -88,7 +90,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             testImplementation("org.junit.jupiter:junit-jupiter:$JUNIT_5_VERSION")
             testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$JUNIT_5_VERSION")
             testImplementation("io.mockk:mockk:$MOCKK_VERSION")
-            testImplementation("eu.bitfunk.gradle.plugin.common.test:gradle-test-util:$GRADLE_TEST_UTIL")
+            testImplementation("eu.bitfunk.gradle.plugin.development.test:gradle-test-util:$GRADLE_TEST_UTIL")
         }
     }
 
@@ -143,7 +145,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         const val JUNIT_5_VERSION = "5.8.2"
         const val MOCKK_VERSION = "1.12.8"
         const val JACOCO_VERSION = "0.8.8"
-        const val GRADLE_TEST_UTIL = "0.1.0"
+        const val GRADLE_TEST_UTIL = "0.0.1-SNAPSHOT"
 
         const val COVERAGE_MINIMUM = 0.95
     }

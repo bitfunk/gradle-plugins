@@ -18,8 +18,8 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
-import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
-import eu.bitfunk.gradle.plugin.common.test.util.stubGradleActionWithReturn
+import eu.bitfunk.gradle.plugin.development.test.util.stubGradleAction
+import eu.bitfunk.gradle.plugin.development.test.util.stubGradleActionWithReturn
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -35,6 +35,7 @@ import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.RepositoryHandler
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.plugins.PluginManager
@@ -146,6 +147,7 @@ class GradlePluginConventionPluginTest {
             repositoryHandler.gradlePluginPortal()
             repositoryHandler.mavenCentral()
             repositoryHandler.google()
+            repositoryHandler.maven(any<Action<MavenArtifactRepository>>())
         }
 
         confirmVerified(repositoryHandler)
@@ -217,7 +219,7 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.12.8")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.common.test:gradle-test-util:0.1.0"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.0.1-SNAPSHOT"
             )
         }
 
