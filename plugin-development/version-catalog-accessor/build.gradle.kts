@@ -17,7 +17,7 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCatalogAccessor.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
