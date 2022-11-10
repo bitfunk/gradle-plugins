@@ -18,6 +18,22 @@
 
 rootProject.name = "tool"
 
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsTool") {
+            from(files("gradle/libs-tool.versions.toml"))
+        }
+    }
+}
+
 includeBuild("composite-delegator")
 includeBuild("publish")
 includeBuild("versioning")

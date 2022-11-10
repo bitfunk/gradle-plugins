@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsTool.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
 }
 
