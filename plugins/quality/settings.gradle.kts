@@ -18,6 +18,23 @@
 
 rootProject.name = "quality"
 
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsQuality") {
+            from(files("gradle/libs-quality.versions.toml"))
+        }
+    }
+}
+
+
 includeBuild("code-analysis")
 includeBuild("formatter")
 includeBuild("report")
