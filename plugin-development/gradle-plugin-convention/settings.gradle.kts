@@ -18,6 +18,13 @@
 
 rootProject.name = "gradle-plugin-convention"
 
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 dependencyResolutionManagement {
     versionCatalogs {
         create("libsPluginConvention") {
