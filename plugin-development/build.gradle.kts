@@ -26,7 +26,7 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.development"
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention")
+    implementation(libsPluginDevelopment.gradlePluginConvention)
     implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
 }
 
