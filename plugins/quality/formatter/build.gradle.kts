@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsFormatter.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"

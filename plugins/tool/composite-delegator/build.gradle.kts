@@ -16,6 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsCompositeDelegator.plugins.gradlePluginConvention)
 }
