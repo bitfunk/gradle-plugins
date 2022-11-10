@@ -17,7 +17,7 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsPluginDevelopment.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
     id("jacoco-report-aggregation")
 }

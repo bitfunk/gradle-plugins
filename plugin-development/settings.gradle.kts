@@ -18,7 +18,32 @@
 
 rootProject.name = "plugin-development"
 
-includeBuild("gradle-plugin-convention")
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsPluginDevelopment") {
+            from(files("gradle/libs-plugin-development.versions.toml"))
+        }
+    }
+}
+
+val includeConventionPlugin: String by settings
+if (includeConventionPlugin.toBoolean()) {
+    includeBuild("gradle-plugin-convention") {
+        dependencySubstitution {
+            substitute(module("eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention"))
+                .using(project(":"))
+        }
+    }
+}
+
 includeBuild("version-catalog-accessor")
 
 // outside dependencies
