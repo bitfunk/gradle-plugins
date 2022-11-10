@@ -30,7 +30,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.development.test"
-version = "0.0.1-SNAPSHOT"
+version = "0.1.0"
 
 repositories {
     gradlePluginPortal()

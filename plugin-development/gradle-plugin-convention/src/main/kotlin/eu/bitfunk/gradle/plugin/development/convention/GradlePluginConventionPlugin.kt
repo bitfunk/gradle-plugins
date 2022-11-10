@@ -145,7 +145,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         const val JUNIT_5_VERSION = "5.8.2"
         const val MOCKK_VERSION = "1.12.8"
         const val JACOCO_VERSION = "0.8.8"
-        const val GRADLE_TEST_UTIL = "0.0.1-SNAPSHOT"
+        const val GRADLE_TEST_UTIL = "0.1.0"
 
         const val COVERAGE_MINIMUM = 0.95
     }
