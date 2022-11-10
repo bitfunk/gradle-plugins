@@ -17,7 +17,7 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCodeAnalysis.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
 }
 

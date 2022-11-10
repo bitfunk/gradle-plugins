@@ -1,0 +1,9 @@
+[versions]
+detekt = "1.21.0"
+gradlePluginConvention = "0.0.1-SNAPSHOT"
+
+[libraries]
+gradleDetektPlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

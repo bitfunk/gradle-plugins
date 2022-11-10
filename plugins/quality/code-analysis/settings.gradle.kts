@@ -18,10 +18,18 @@
 
 rootProject.name = "code-analysis"
 
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
 dependencyResolutionManagement {
     versionCatalogs {
         create("libsCodeAnalysis") {
-            from(files("gradle/libsCodeAnalysis.versions.toml"))
+            from(files("gradle/libs-code-analysis.versions.toml"))
         }
     }
 }
