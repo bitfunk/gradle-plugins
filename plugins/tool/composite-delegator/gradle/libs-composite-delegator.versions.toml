@@ -1,0 +1,5 @@
+[versions]
+gradlePluginConvention = "0.0.1-SNAPSHOT"
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

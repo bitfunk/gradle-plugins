@@ -17,3 +17,19 @@
  */
 
 rootProject.name = "composite-delegator"
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsCompositeDelegator") {
+            from(files("gradle/libs-composite-delegator.versions.toml"))
+        }
+    }
+}

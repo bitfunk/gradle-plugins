@@ -17,7 +17,7 @@
  */
 
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCompositeDelegator.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
