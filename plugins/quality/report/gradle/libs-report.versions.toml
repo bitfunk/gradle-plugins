@@ -1,2 +1,8 @@
+[versions]
+gradlePluginConvention = "0.0.1-SNAPSHOT"
+
 [libraries]
 gradleSonarqube = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.4.0.2513"
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
