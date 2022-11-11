@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.artifacts.Dependency
@@ -27,6 +28,11 @@ import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 
 public fun Project.javaPlugin(action: Action<JavaPluginExtension>) {
     extensions.configure(JavaPluginExtension::class.java, action)
+}
+
+@Suppress("UnstableApiUsage")
+public fun Project.mavenPublishing(action: Action<MavenPublishBaseExtension>) {
+    extensions.configure(MavenPublishBaseExtension::class.java, action)
 }
 
 public fun Project.jacoco(action: Action<JacocoPluginExtension>) {

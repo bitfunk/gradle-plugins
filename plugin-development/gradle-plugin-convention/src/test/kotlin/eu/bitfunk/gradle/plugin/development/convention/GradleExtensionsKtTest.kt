@@ -18,6 +18,7 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
@@ -48,6 +49,28 @@ class GradleExtensionsKtTest {
         verify {
             project.extensions
             extensionContainer.configure(JavaPluginExtension::class.java, action)
+        }
+
+        confirmVerified(project, extensionContainer)
+    }
+
+    @Test
+    @Suppress("UnstableApiUsage")
+    fun `GIVEN project WHEN mavenPublishing() THEN extension configured`() {
+        // GIVEN
+        val project: Project = mockk()
+        val extensionContainer: ExtensionContainer = mockk(relaxed = true)
+        val action: Action<MavenPublishBaseExtension> = mockk()
+
+        every { project.extensions } returns extensionContainer
+
+        // WHEN
+        project.mavenPublishing(action)
+
+        // THEN
+        verify {
+            project.extensions
+            extensionContainer.configure(MavenPublishBaseExtension::class.java, action)
         }
 
         confirmVerified(project, extensionContainer)
