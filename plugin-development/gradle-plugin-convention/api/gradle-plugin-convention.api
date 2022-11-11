@@ -13,6 +13,13 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradleKotlinE
 public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract {
 }
 
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension {
+	public abstract fun getProjectDescription ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectGitHubOrganization ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectGitHubRepositoryName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getProjectName ()Lorg/gradle/api/provider/Property;
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin {
 	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
 	public abstract fun addRepositories (Lorg/gradle/api/Project;)V
@@ -46,5 +53,8 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginC
 	public fun configureTestCoverage (Lorg/gradle/api/Project;)V
 	public fun configureTestCoverageTasks (Lorg/gradle/api/Project;)V
 	public fun configureTests (Lorg/gradle/api/Project;)V
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionPluginExtension : eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension {
 }
 

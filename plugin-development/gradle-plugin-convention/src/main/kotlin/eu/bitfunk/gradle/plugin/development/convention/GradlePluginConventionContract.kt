@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.plugin.development.convention
 
 import org.gradle.api.Project
+import org.gradle.api.provider.Property
 
 public interface GradlePluginConventionContract {
 
@@ -33,5 +34,27 @@ public interface GradlePluginConventionContract {
         public fun configureTestCoverage(project: Project)
         public fun configureTestCoverageTasks(project: Project)
         public fun configureGradleWrapper(project: Project)
+    }
+
+    public interface Extension {
+        /**
+         * Project name
+         */
+        public val projectName: Property<String>
+
+        /**
+         * Project description
+         */
+        public val projectDescription: Property<String>
+
+        /**
+         * Project GitHub organization
+         */
+        public val projectGitHubOrganization: Property<String>
+
+        /**
+         * Project GitHub repository name
+         */
+        public val projectGitHubRepositoryName: Property<String>
     }
 }
