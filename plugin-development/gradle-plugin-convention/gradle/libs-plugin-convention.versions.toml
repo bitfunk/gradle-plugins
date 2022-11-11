@@ -10,6 +10,7 @@ gradleMavenPublishPlugin = "0.22.0"
 gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleKotlinBinaryCompatibilityPlugin = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
 gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
+gradleMavenPublishPlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "gradleMavenPublishPlugin"}
 testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
 testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
 testMockk = "io.mockk:mockk:1.13.2"

@@ -19,6 +19,7 @@
 import com.vanniktech.maven.publish.GradlePlugin
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.SonatypeHost
+import java.time.Year
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -59,6 +60,7 @@ dependencies {
     implementation(libsPluginConvention.gradleKotlinPlugin)
     implementation(libsPluginConvention.gradleKotlinDsl)
     implementation(libsPluginConvention.gradleKotlinBinaryCompatibilityPlugin)
+    implementation(libsPluginConvention.gradleMavenPublishPlugin)
 
     testImplementation(gradleTestKit())
     testImplementation(libsPluginConvention.testJUnit5)
@@ -82,7 +84,7 @@ mavenPublishing {
     pom {
         name.set("Gradle plugin development convention")
         description.set("A Collection of Gradle plugins to simplify and unify project development.")
-        inceptionYear.set("2022")
+        inceptionYear.set("${Year.now().value}")
         url.set("https://github.com/bitfunk/gradle-plugins/")
         licenses {
             license {
