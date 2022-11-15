@@ -32,3 +32,7 @@ Initial release
 - Add Publish Plugin - a publish plugin for maven dependencies
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
 - Add maven central publishing to Gradle Plugin Convention
+
+### Bumped
+
+- Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
