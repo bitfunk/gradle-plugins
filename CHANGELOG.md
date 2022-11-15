@@ -31,3 +31,4 @@ Initial release
 - Add Code of Conduct
 - Add Publish Plugin - a publish plugin for maven dependencies
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
+- Add maven central publishing to Gradle Plugin Convention
