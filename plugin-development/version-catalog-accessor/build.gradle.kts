@@ -22,6 +22,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
+version = "0.0.1-SNAPSHOT"
 
 gradlePlugin {
     plugins.create("gradlePluginVersionCatalog") {
