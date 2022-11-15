@@ -28,6 +28,7 @@ plugins {
     jacoco
     alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
     alias(libsPluginConvention.plugins.gradleMavenPublishPlugin)
+    alias(libsPluginConvention.plugins.gradleVersionCatalogAccessor)
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
@@ -45,6 +46,15 @@ gradlePlugin {
         id = "eu.bitfunk.gradle.plugin.development.convention"
         implementationClass = "eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPlugin"
     }
+}
+
+versionCatalogAccessor {
+    packageName.set("eu.bitfunk.gradle.plugin.development.convention.libs")
+    catalogNames.set(listOf("libs-plugin-convention"))
+}
+
+apiValidation {
+    ignoredPackages.add("eu.bitfunk.gradle.plugin.development.convention.libs.generated")
 }
 
 java {
