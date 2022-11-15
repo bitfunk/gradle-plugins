@@ -18,5 +18,21 @@
 
 rootProject.name = "plugins"
 
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsPlugins") {
+            from(files("gradle/libs-plugins.versions.toml"))
+        }
+    }
+}
+
 includeBuild("quality")
 includeBuild("tool")

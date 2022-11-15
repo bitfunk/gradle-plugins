@@ -1,0 +1,8 @@
+[versions]
+gradlePluginConvention = "0.0.3-SNAPSHOT"
+
+[libraries]
+gradlePluginConvention = { module = "eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention",  version.ref = "gradlePluginConvention" }
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

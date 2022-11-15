@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsVersioning.plugins.gradlePluginConvention)
 }
 
 repositories {
@@ -41,4 +42,11 @@ gradlePlugin {
 
 dependencies {
     implementation(libsVersioning.gradleGitVersionPlugin)
+}
+
+projectConfig {
+    publishName.set("Versioning")
+    publishDescription.set("A versioning plugin using git tags.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

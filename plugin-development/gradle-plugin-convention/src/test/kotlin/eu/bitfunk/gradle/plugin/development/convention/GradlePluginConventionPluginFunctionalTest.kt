@@ -75,6 +75,13 @@ class GradlePluginConventionPluginFunctionalTest {
                 plugins {
                     id("eu.bitfunk.gradle.plugin.development.convention")
                 }
+
+                projectConfig {
+                    publishName.set("name")
+                    publishDescription.set("description")
+                    publishGitHubOrganization.set("bitfunk")
+                    publishGitHubRepositoryName.set("gradle-plugins")
+                }
         """.trimIndent()
 
         val SETTINGS_FILE_DEFAULT = """

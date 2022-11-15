@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.common.test.util
+package eu.bitfunk.gradle.plugin.development.test.util
 
 import io.mockk.MockKMatcherScope
 import io.mockk.every

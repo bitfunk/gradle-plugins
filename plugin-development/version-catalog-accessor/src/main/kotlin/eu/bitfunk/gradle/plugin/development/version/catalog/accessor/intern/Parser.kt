@@ -36,6 +36,7 @@ internal class Parser : Parser {
             mapper.readValue(it, Map::class.java) as Map<String, Any>
         }
 
+        @Suppress("UNCHECKED_CAST")
         return Catalog(
             versions = Versions(catalog.entry("versions") as Map<String, String>),
             libraries = Libraries(catalog.entry("libraries").keys.toList()),

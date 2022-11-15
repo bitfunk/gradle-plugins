@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCodeAnalysis.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
 }
 
@@ -34,8 +35,15 @@ dependencies {
     implementation(libsCodeAnalysis.gradleDetektPlugin)
 }
 
+projectConfig {
+    publishName.set("Code Analysis")
+    publishDescription.set("A source code analysis plugin.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
+}
+
 versionCatalogAccessor {
-    catalogNames.set(listOf("libsCodeAnalysis"))
+    catalogNames.set(listOf("libs-code-analysis"))
     packageName.set("eu.bitfunk.gradle.plugin.quality.code.analysis.libs")
 }
 

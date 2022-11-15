@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCompositeDelegator.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
@@ -28,4 +29,11 @@ gradlePlugin {
         implementationClass =
             "eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPlugin"
     }
+}
+
+projectConfig {
+    publishName.set("Composite Delegator")
+    publishDescription.set("A plugin that delegates gradle tasks execution to included builds.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

@@ -18,6 +18,8 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionContract.Extension
+import eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfig
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -25,6 +27,7 @@ import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.wrapper.Wrapper
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.maven
 import org.gradle.kotlin.dsl.named
 import org.gradle.kotlin.dsl.repositories
 import org.gradle.kotlin.dsl.withType
@@ -39,9 +42,11 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         checkPreconditions(target)
         addPlugins(target)
         addRepositories(target)
+        val extension = addExtension(target)
         configureJavaCompatibility(target)
         configureKotlin(target)
         configureDependencies(target)
+        PublishingConfig.configure(target, extension)
         configureTests(target)
         configureTestCoverage(target)
         configureTestCoverageTasks(target)
@@ -66,7 +71,22 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             gradlePluginPortal()
             mavenCentral()
             google()
+            maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
         }
+    }
+
+    override fun addExtension(project: Project): Extension = with(project) {
+        val extension = extensions.create(
+            GradlePluginConventionContract.EXTENSION_NAME,
+            GradlePluginConventionPluginExtension::class.java
+        )
+
+        extension.publishName.convention("")
+        extension.publishDescription.convention("")
+        extension.publishGitHubOrganization.convention("")
+        extension.publishGitHubRepositoryName.convention("")
+
+        return extension
     }
 
     public override fun configureJavaCompatibility(project: Project): Unit = with(project) {
@@ -88,7 +108,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             testImplementation("org.junit.jupiter:junit-jupiter:$JUNIT_5_VERSION")
             testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$JUNIT_5_VERSION")
             testImplementation("io.mockk:mockk:$MOCKK_VERSION")
-            testImplementation("eu.bitfunk.gradle.plugin.common.test:gradle-test-util:$GRADLE_TEST_UTIL")
+            testImplementation("eu.bitfunk.gradle.plugin.development.test:gradle-test-util:$GRADLE_TEST_UTIL")
         }
     }
 

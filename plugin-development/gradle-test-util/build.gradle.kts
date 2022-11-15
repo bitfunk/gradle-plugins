@@ -16,16 +16,21 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
+import com.vanniktech.maven.publish.SonatypeHost
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.6.21"
+    alias(libsGradleTestUtil.plugins.kotlinJvm)
     `kotlin-dsl`
     jacoco
-
     alias(libsGradleTestUtil.plugins.binaryCompatibilityValidator)
+    alias(libsGradleTestUtil.plugins.gradleMavenPublishPlugin)
 }
 
-group = "eu.bitfunk.gradle.plugin.common.test"
+group = "eu.bitfunk.gradle.plugin.development.test"
+version = "0.1.0"
 
 repositories {
     gradlePluginPortal()
@@ -49,6 +54,45 @@ dependencies {
     testImplementation(libsGradleTestUtil.testJUnit5)
     testRuntimeOnly(libsGradleTestUtil.testJUnit5Engine)
     testImplementation(libsGradleTestUtil.testMockk)
+}
+
+mavenPublishing {
+    group = requireNotNull(project.group)
+    version = requireNotNull(project.version)
+
+    publishToMavenCentral(SonatypeHost.S01)
+    signAllPublications()
+    configure(
+        KotlinJvm(
+            javadocJar = JavadocJar.Javadoc(),
+            sourcesJar = true
+        )
+    )
+    pom {
+        name.set("Test utils for Gradle plugin development")
+        description.set("A Collection of test utils to ease Gradle plugin testing.")
+        inceptionYear.set("2022")
+        url.set("https://github.com/bitfunk/gradle-plugins/")
+        licenses {
+            license {
+                name.set("ISC License")
+                url.set("https://opensource.org/licenses/isc")
+                distribution.set("https://github.com/bitfunk/gradle-plugins/blob/main/LICENSE")
+            }
+        }
+        developers {
+            developer {
+                id.set("bitfunk")
+                name.set("Wolf-Martell Montwé (bitfunk)")
+                url.set("https://github.com/bitfunk/")
+            }
+        }
+        scm {
+            url.set("https://github.com/bitfunk/gradle-plugins/")
+            connection.set("scm:git:git://github.com/bitfunk/gradle-plugins.git")
+            developerConnection.set("scm:git:ssh://github.com/bitfunk/gradle-plugins.git")
+        }
+    }
 }
 
 tasks.withType<Test>().configureEach {

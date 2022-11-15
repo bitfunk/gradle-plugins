@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsTool.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
 }
 
@@ -37,4 +38,11 @@ dependencies {
     implementation("eu.bitfunk.gradle.plugin.tool:composite-delegator")
     implementation("eu.bitfunk.gradle.plugin.tool:publish")
     implementation("eu.bitfunk.gradle.plugin.tool:versioning")
+}
+
+projectConfig {
+    publishName.set("Tools")
+    publishDescription.set("A collection of tools Gradle.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsReport.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
@@ -31,4 +32,11 @@ gradlePlugin {
 
 dependencies {
     implementation(libsReport.gradleSonarqube)
+}
+
+projectConfig {
+    publishName.set("Report")
+    publishDescription.set("A quality report plugin using sonarqube.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

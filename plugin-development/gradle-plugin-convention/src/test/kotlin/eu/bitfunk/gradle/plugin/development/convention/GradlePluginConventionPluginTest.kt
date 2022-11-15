@@ -18,14 +18,15 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
-import eu.bitfunk.gradle.plugin.common.test.util.stubGradleAction
-import eu.bitfunk.gradle.plugin.common.test.util.stubGradleActionWithReturn
+import eu.bitfunk.gradle.plugin.development.test.util.stubGradleAction
+import eu.bitfunk.gradle.plugin.development.test.util.stubGradleActionWithReturn
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.spyk
 import io.mockk.unmockkAll
+import io.mockk.verify
 import io.mockk.verifyAll
 import io.mockk.verifyOrder
 import org.gradle.api.Action
@@ -35,6 +36,7 @@ import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.RepositoryHandler
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.plugins.PluginManager
@@ -53,6 +55,7 @@ import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRule
 import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRulesContainer
 import org.gradle.util.GradleVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
@@ -146,9 +149,37 @@ class GradlePluginConventionPluginTest {
             repositoryHandler.gradlePluginPortal()
             repositoryHandler.mavenCentral()
             repositoryHandler.google()
+            repositoryHandler.maven(any<Action<MavenArtifactRepository>>())
         }
 
         confirmVerified(repositoryHandler)
+    }
+
+    @Test
+    fun `GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults`() {
+        // GIVEN
+        every { project.rootProject } returns project
+        val extensions: ExtensionContainer = mockk()
+        every { project.extensions } returns extensions
+        val extension: GradlePluginConventionPluginExtension = mockk(relaxed = true)
+        every {
+            extensions.create(any(), GradlePluginConventionPluginExtension::class.java)
+        } returns extension
+
+        // WHEN
+        val result = testSubject.addExtension(project)
+
+        // THEN
+        Assertions.assertEquals(
+            extension,
+            result
+        )
+
+        verify { extensions.create("projectConfig", GradlePluginConventionPluginExtension::class.java) }
+        verify { extension.publishName.convention("") }
+        verify { extension.publishDescription.convention("") }
+        verify { extension.publishGitHubOrganization.convention("") }
+        verify { extension.publishGitHubRepositoryName.convention("") }
     }
 
     @Test
@@ -217,7 +248,7 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.12.8")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.common.test:gradle-test-util:0.1.0"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.0"
             )
         }
 
@@ -439,8 +470,16 @@ class GradlePluginConventionPluginTest {
     @Test
     fun `GIVEN project WHEN apply() THEN all configured`() {
         // GIVEN
-        val project: Project = mockk(relaxed = true)
+        val project: Project = mockk()
         val spyTestSubject = spyk(testSubject)
+        val extensionContainer: ExtensionContainer = mockk(relaxed = true)
+        val extension: GradlePluginConventionPluginExtension = mockk(relaxed = true)
+        every { project.pluginManager } returns mockk(relaxed = true)
+        every { project.repositories } returns mockk(relaxed = true)
+        every { project.extensions } returns extensionContainer
+        every { project.dependencies } returns mockk(relaxed = true)
+        every { project.tasks } returns mockk(relaxed = true)
+        every { extensionContainer.create(any(), GradlePluginConventionPluginExtension::class.java) } returns extension
 
         // WHEN
         spyTestSubject.apply(project)
@@ -451,6 +490,7 @@ class GradlePluginConventionPluginTest {
             spyTestSubject.checkPreconditions(project)
             spyTestSubject.addPlugins(project)
             spyTestSubject.addRepositories(project)
+            spyTestSubject.addExtension(project)
             spyTestSubject.configureJavaCompatibility(project)
             spyTestSubject.configureKotlin(project)
             spyTestSubject.configureDependencies(project)

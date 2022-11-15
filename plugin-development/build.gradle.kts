@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsPluginDevelopment.plugins.gradlePluginConvention)
     id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
     id("jacoco-report-aggregation")
 }
@@ -25,8 +26,15 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.development"
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.development:gradle-plugin-convention")
+    implementation(libsPluginDevelopment.gradlePluginConvention)
     implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
+}
+
+projectConfig {
+    publishName.set("Gradle Plugin Development")
+    publishDescription.set("A collection of plugins for Gradle plugin development.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }
 
 tasks.check {

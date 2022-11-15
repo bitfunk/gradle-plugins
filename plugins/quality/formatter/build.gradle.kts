@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsFormatter.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
@@ -32,4 +33,11 @@ gradlePlugin {
 dependencies {
     implementation(libsFormatter.gradleSpotlessPlugin)
     implementation(libsFormatter.gradleKtlintPlugin)
+}
+
+projectConfig {
+    publishName.set("Formatter")
+    publishDescription.set("A source code formatter plugin applying bitfunk code style.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

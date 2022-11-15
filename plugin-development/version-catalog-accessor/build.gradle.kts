@@ -16,11 +16,13 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsCatalogAccessor.plugins.gradlePluginConvention)
 }
 
 group = "eu.bitfunk.gradle.plugin.development"
+version = "0.0.1-SNAPSHOT"
 
 gradlePlugin {
     plugins.create("gradlePluginVersionCatalog") {
@@ -37,4 +39,11 @@ dependencies {
 
 apiValidation {
     ignoredPackages.add("eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated")
+}
+
+projectConfig {
+    publishName.set("VersionCatalog Accessor")
+    publishDescription.set("A version catalog accessor for Gradle plugin development.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

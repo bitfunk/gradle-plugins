@@ -17,3 +17,19 @@
  */
 
 rootProject.name = "publish"
+
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libsPublish") {
+            from(files("gradle/libs-publish.versions.toml"))
+        }
+    }
+}

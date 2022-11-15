@@ -16,8 +16,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.development.convention")
+    alias(libsPublish.plugins.gradlePluginConvention)
 }
 
 repositories {
@@ -37,4 +38,11 @@ gradlePlugin {
         id = "eu.bitfunk.gradle.plugin.tool.publish"
         implementationClass = "eu.bitfunk.gradle.plugin.tool.publish.PublishPlugin"
     }
+}
+
+projectConfig {
+    publishName.set("Publish")
+    publishDescription.set("A publish plugin for maven publications.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

@@ -21,7 +21,7 @@ rootProject.name = "gradle-test-util"
 dependencyResolutionManagement {
     versionCatalogs {
         create("libsGradleTestUtil") {
-            from(files("gradle/libsGradleTestUtil.versions.toml"))
+            from(files("gradle/libs-gradle-test-util.versions.toml"))
         }
     }
 }
