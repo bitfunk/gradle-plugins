@@ -36,8 +36,10 @@ dependencies {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Code Analysis")
+    publishDescription.set("A source code analysis plugin.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }
 
 versionCatalogAccessor {

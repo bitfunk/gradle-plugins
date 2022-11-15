@@ -35,6 +35,8 @@ dependencies {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Report")
+    publishDescription.set("A quality report plugin using sonarqube.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

@@ -45,6 +45,8 @@ dependencies {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Versioning")
+    publishDescription.set("A versioning plugin using git tags.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

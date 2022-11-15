@@ -36,6 +36,8 @@ dependencies {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Formatter")
+    publishDescription.set("A source code formatter plugin applying bitfunk code style.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

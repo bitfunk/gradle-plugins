@@ -32,6 +32,8 @@ gradlePlugin {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Composite Delegator")
+    publishDescription.set("A plugin that delegates gradle tasks execution to included builds.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

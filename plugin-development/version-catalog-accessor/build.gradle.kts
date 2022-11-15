@@ -42,8 +42,8 @@ apiValidation {
 }
 
 projectConfig {
-    projectName.set("VersionCatalog Accessor")
-    projectDescription.set("A version catalog accessor for Gradle plugin development.")
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("VersionCatalog Accessor")
+    publishDescription.set("A version catalog accessor for Gradle plugin development.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }

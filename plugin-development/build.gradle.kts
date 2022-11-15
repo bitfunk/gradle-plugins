@@ -31,8 +31,10 @@ dependencies {
 }
 
 projectConfig {
-    projectGitHubOrganization.set("bitfunk")
-    projectGitHubRepositoryName.set("gradle-plugins")
+    publishName.set("Gradle Plugin Development")
+    publishDescription.set("A collection of plugins for Gradle plugin development.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
 }
 
 tasks.check {
