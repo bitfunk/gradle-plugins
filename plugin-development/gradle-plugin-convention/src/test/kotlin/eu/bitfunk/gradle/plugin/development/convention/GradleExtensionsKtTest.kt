@@ -18,7 +18,6 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
-import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk

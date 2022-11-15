@@ -75,7 +75,7 @@ class GradlePluginConventionPluginFunctionalTest {
                 plugins {
                     id("eu.bitfunk.gradle.plugin.development.convention")
                 }
-                
+
                 projectConfig {
                     publishName.set("name")
                     publishDescription.set("description")

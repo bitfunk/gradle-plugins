@@ -57,7 +57,7 @@ internal fun configurePublishing(
             description.set(extension.publishDescription)
             inceptionYear.set("${Year.now().value}")
             url.set(
-                "https://github.com/${gitHubOrg}/${gitHubRepo}/"
+                "https://github.com/$gitHubOrg/$gitHubRepo/"
             )
 
             licenses {
@@ -78,13 +78,13 @@ internal fun configurePublishing(
 
             scm {
                 url.set(
-                    "https://github.com/${gitHubOrg}/${gitHubRepo}/"
+                    "https://github.com/$gitHubOrg/$gitHubRepo/"
                 )
                 connection.set(
-                    "scm:git:git://github.com/${gitHubOrg}/${gitHubRepo}.git"
+                    "scm:git:git://github.com/$gitHubOrg/$gitHubRepo.git"
                 )
                 developerConnection.set(
-                    "scm:git:ssh://github.com/${gitHubOrg}/${gitHubRepo}.git"
+                    "scm:git:ssh://github.com/$gitHubOrg/$gitHubRepo.git"
                 )
             }
         }
