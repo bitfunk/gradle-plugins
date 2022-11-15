@@ -81,10 +81,10 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             GradlePluginConventionPluginExtension::class.java
         )
 
-        extension.projectName.convention("")
-        extension.projectDescription.convention("")
-        extension.projectGitHubOrganization.convention("")
-        extension.projectGitHubRepositoryName.convention("")
+        extension.publishName.convention("")
+        extension.publishDescription.convention("")
+        extension.publishGitHubOrganization.convention("")
+        extension.publishGitHubRepositoryName.convention("")
 
         return extension
     }

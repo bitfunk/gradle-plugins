@@ -69,8 +69,8 @@ internal class PublishingConfigKtTest {
         stubGradleAction(mavenPublishBaseExtension) {
             extensionContainer.configure(MavenPublishBaseExtension::class.java, it)
         }
-        every { extension.projectGitHubOrganization.get() } returns "ORG_NAME"
-        every { extension.projectGitHubRepositoryName.get() } returns "REPOSITORY_NAME"
+        every { extension.publishGitHubOrganization.get() } returns "ORG_NAME"
+        every { extension.publishGitHubRepositoryName.get() } returns "REPOSITORY_NAME"
     }
 
     @Test
@@ -115,10 +115,10 @@ internal class PublishingConfigKtTest {
 
             mavenPublishBaseExtension.pom(any())
 
-            extension.projectName
-            extension.projectDescription
-            extension.projectGitHubOrganization
-            extension.projectGitHubRepositoryName
+            extension.publishName
+            extension.publishDescription
+            extension.publishGitHubOrganization
+            extension.publishGitHubRepositoryName
         }
 
         confirmVerified(project, extension, extensionContainer, mavenPublishBaseExtension)
@@ -161,13 +161,13 @@ internal class PublishingConfigKtTest {
             pom.developers(any())
             pom.scm(any())
 
-            extension.projectName
-            extension.projectDescription
-            extension.projectGitHubOrganization
-            extension.projectGitHubRepositoryName
+            extension.publishName
+            extension.publishDescription
+            extension.publishGitHubOrganization
+            extension.publishGitHubRepositoryName
 
-            nameProperty.set(extension.projectName)
-            descriptionProperty.set(extension.projectDescription)
+            nameProperty.set(extension.publishName)
+            descriptionProperty.set(extension.publishDescription)
             yearProperty.set("${Year.now().value}")
             urlProperty.set("https://github.com/ORG_NAME/REPOSITORY_NAME/")
 

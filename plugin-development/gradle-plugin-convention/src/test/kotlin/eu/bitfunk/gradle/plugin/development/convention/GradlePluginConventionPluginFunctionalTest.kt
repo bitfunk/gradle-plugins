@@ -77,8 +77,10 @@ class GradlePluginConventionPluginFunctionalTest {
                 }
                 
                 projectConfig {
-                    projectGitHubOrganization.set("bitfunk")
-                    projectGitHubRepositoryName.set("gradle-plugins")
+                    publishName.set("name")
+                    publishDescription.set("description")
+                    publishGitHubOrganization.set("bitfunk")
+                    publishGitHubRepositoryName.set("gradle-plugins")
                 }
         """.trimIndent()
 

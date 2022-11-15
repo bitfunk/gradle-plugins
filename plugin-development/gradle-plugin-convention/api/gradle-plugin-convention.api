@@ -20,10 +20,10 @@ public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginC
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension {
-	public abstract fun getProjectDescription ()Lorg/gradle/api/provider/Property;
-	public abstract fun getProjectGitHubOrganization ()Lorg/gradle/api/provider/Property;
-	public abstract fun getProjectGitHubRepositoryName ()Lorg/gradle/api/provider/Property;
-	public abstract fun getProjectName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishDescription ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishGitHubOrganization ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishGitHubRepositoryName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishName ()Lorg/gradle/api/provider/Property;
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin {

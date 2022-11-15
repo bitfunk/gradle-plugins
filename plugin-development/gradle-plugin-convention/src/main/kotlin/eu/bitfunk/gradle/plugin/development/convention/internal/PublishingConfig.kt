@@ -50,11 +50,11 @@ internal fun configurePublishing(
         )
 
         pom {
-            val gitHubOrg = extension.projectGitHubOrganization.get()
-            val gitHubRepo = extension.projectGitHubRepositoryName.get()
+            val gitHubOrg = extension.publishGitHubOrganization.get()
+            val gitHubRepo = extension.publishGitHubRepositoryName.get()
 
-            name.set(extension.projectName)
-            description.set(extension.projectDescription)
+            name.set(extension.publishName)
+            description.set(extension.publishDescription)
             inceptionYear.set("${Year.now().value}")
             url.set(
                 "https://github.com/${gitHubOrg}/${gitHubRepo}/"

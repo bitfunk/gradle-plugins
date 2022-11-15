@@ -39,24 +39,24 @@ public interface GradlePluginConventionContract {
 
     public interface Extension {
         /**
-         * Project name
+         * Publishing name
          */
-        public val projectName: Property<String>
+        public val publishName: Property<String>
 
         /**
-         * Project description
+         * Publishing description
          */
-        public val projectDescription: Property<String>
+        public val publishDescription: Property<String>
 
         /**
-         * Project GitHub organization
+         * Publishing GitHub organization
          */
-        public val projectGitHubOrganization: Property<String>
+        public val publishGitHubOrganization: Property<String>
 
         /**
-         * Project GitHub repository name
+         * Publishing GitHub repository name
          */
-        public val projectGitHubRepositoryName: Property<String>
+        public val publishGitHubRepositoryName: Property<String>
     }
 
     public companion object {

@@ -56,7 +56,6 @@ import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRulesContainer
 import org.gradle.util.GradleVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
@@ -177,10 +176,10 @@ class GradlePluginConventionPluginTest {
         )
 
         verify { extensions.create("projectConfig", GradlePluginConventionPluginExtension::class.java) }
-        verify { extension.projectName.convention("") }
-        verify { extension.projectDescription.convention("") }
-        verify { extension.projectGitHubOrganization.convention("") }
-        verify { extension.projectGitHubRepositoryName.convention("") }
+        verify { extension.publishName.convention("") }
+        verify { extension.publishDescription.convention("") }
+        verify { extension.publishGitHubOrganization.convention("") }
+        verify { extension.publishGitHubRepositoryName.convention("") }
     }
 
     @Test
