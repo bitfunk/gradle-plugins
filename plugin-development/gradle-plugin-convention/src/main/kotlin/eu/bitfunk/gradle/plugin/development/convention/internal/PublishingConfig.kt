@@ -27,65 +27,67 @@ import org.gradle.api.Action
 import org.gradle.api.Project
 import java.time.Year
 
-@Suppress("UnstableApiUsage")
-internal fun Project.mavenPublishing(action: Action<MavenPublishBaseExtension>) {
-    extensions.configure(MavenPublishBaseExtension::class.java, action)
-}
+internal object PublishingConfig {
+    @Suppress("UnstableApiUsage")
+    internal fun Project.mavenPublishing(action: Action<MavenPublishBaseExtension>) {
+        extensions.configure(MavenPublishBaseExtension::class.java, action)
+    }
 
-@Suppress("UnstableApiUsage")
-internal fun configurePublishing(
-    project: Project,
-    extension: GradlePluginConventionContract.Extension
-): Unit = with(project) {
-    pluginManager.apply("com.vanniktech.maven.publish.base")
+    @Suppress("UnstableApiUsage")
+    internal fun configure(
+        project: Project,
+        extension: GradlePluginConventionContract.Extension
+    ): Unit = with(project) {
+        pluginManager.apply("com.vanniktech.maven.publish.base")
 
-    mavenPublishing {
-        publishToMavenCentral(SonatypeHost.S01)
-        signAllPublications()
-        configure(
-            GradlePlugin(
-                javadocJar = Javadoc(),
-                sourcesJar = true
-            )
-        )
-
-        pom {
-            val gitHubOrg = extension.publishGitHubOrganization.get()
-            val gitHubRepo = extension.publishGitHubRepositoryName.get()
-
-            name.set(extension.publishName)
-            description.set(extension.publishDescription)
-            inceptionYear.set("${Year.now().value}")
-            url.set(
-                "https://github.com/$gitHubOrg/$gitHubRepo/"
+        mavenPublishing {
+            publishToMavenCentral(SonatypeHost.S01)
+            signAllPublications()
+            configure(
+                GradlePlugin(
+                    javadocJar = Javadoc(),
+                    sourcesJar = true
+                )
             )
 
-            licenses {
-                license {
-                    name.set("ISC License")
-                    url.set("https://opensource.org/licenses/isc")
-                    distribution.set("https://opensource.org/licenses/isc")
-                }
-            }
+            pom {
+                val gitHubOrg = extension.publishGitHubOrganization.get()
+                val gitHubRepo = extension.publishGitHubRepositoryName.get()
 
-            developers {
-                developer {
-                    id.set("bitfunk")
-                    name.set("Wolf-Martell Montwé (bitfunk)")
-                    url.set("https://github.com/bitfunk/")
-                }
-            }
-
-            scm {
+                name.set(extension.publishName)
+                description.set(extension.publishDescription)
+                inceptionYear.set("${Year.now().value}")
                 url.set(
                     "https://github.com/$gitHubOrg/$gitHubRepo/"
                 )
-                connection.set(
-                    "scm:git:git://github.com/$gitHubOrg/$gitHubRepo.git"
-                )
-                developerConnection.set(
-                    "scm:git:ssh://github.com/$gitHubOrg/$gitHubRepo.git"
-                )
+
+                licenses {
+                    license {
+                        name.set("ISC License")
+                        url.set("https://opensource.org/licenses/isc")
+                        distribution.set("https://opensource.org/licenses/isc")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("bitfunk")
+                        name.set("Wolf-Martell Montwé (bitfunk)")
+                        url.set("https://github.com/bitfunk/")
+                    }
+                }
+
+                scm {
+                    url.set(
+                        "https://github.com/$gitHubOrg/$gitHubRepo/"
+                    )
+                    connection.set(
+                        "scm:git:git://github.com/$gitHubOrg/$gitHubRepo.git"
+                    )
+                    developerConnection.set(
+                        "scm:git:ssh://github.com/$gitHubOrg/$gitHubRepo.git"
+                    )
+                }
             }
         }
     }

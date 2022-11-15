@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test
 import java.time.Year
 
 @Suppress("UnstableApiUsage")
-class PublishingConfigKtTest {
+class PublishingConfigTest {
 
     private lateinit var extension: GradlePluginConventionPluginExtension
 
@@ -78,7 +78,7 @@ class PublishingConfigKtTest {
         // GIVEN
 
         // WHEN
-        configurePublishing(project, extension)
+        PublishingConfig.configure(project, extension)
 
         // THEN
         verify {
@@ -95,7 +95,7 @@ class PublishingConfigKtTest {
         stubGradleAction(pom) { mavenPublishBaseExtension.pom(it) }
 
         // WHEN
-        configurePublishing(project, extension)
+        PublishingConfig.configure(project, extension)
 
         // THEN
         verifyAll {
@@ -149,7 +149,7 @@ class PublishingConfigKtTest {
         stubGradleAction(pomScm) { pom.scm(it) }
 
         // WHEN
-        configurePublishing(project, extension)
+        PublishingConfig.configure(project, extension)
 
         // THEN
         verifyAll {

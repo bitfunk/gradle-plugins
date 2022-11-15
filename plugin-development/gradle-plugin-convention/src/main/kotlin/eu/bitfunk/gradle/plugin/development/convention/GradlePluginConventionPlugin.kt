@@ -19,7 +19,7 @@
 package eu.bitfunk.gradle.plugin.development.convention
 
 import eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionContract.Extension
-import eu.bitfunk.gradle.plugin.development.convention.internal.configurePublishing
+import eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfig
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -46,7 +46,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         configureJavaCompatibility(target)
         configureKotlin(target)
         configureDependencies(target)
-        configurePublishing(target, extension)
+        PublishingConfig.configure(target, extension)
         configureTests(target)
         configureTestCoverage(target)
         configureTestCoverageTasks(target)
