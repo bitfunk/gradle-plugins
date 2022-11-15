@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test
 import java.time.Year
 
 @Suppress("UnstableApiUsage")
-internal class PublishingConfigKtTest {
+class PublishingConfigKtTest {
 
     private lateinit var extension: GradlePluginConventionPluginExtension
 
