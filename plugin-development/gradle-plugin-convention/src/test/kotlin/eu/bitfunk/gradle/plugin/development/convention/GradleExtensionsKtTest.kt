@@ -55,28 +55,6 @@ class GradleExtensionsKtTest {
     }
 
     @Test
-    @Suppress("UnstableApiUsage")
-    fun `GIVEN project WHEN mavenPublishing() THEN extension configured`() {
-        // GIVEN
-        val project: Project = mockk()
-        val extensionContainer: ExtensionContainer = mockk(relaxed = true)
-        val action: Action<MavenPublishBaseExtension> = mockk()
-
-        every { project.extensions } returns extensionContainer
-
-        // WHEN
-        project.mavenPublishing(action)
-
-        // THEN
-        verify {
-            project.extensions
-            extensionContainer.configure(MavenPublishBaseExtension::class.java, action)
-        }
-
-        confirmVerified(project, extensionContainer)
-    }
-
-    @Test
     fun `GIVEN project WHEN jacoco() THEN extension configured`() {
         // GIVEN
         val project: Project = mockk()

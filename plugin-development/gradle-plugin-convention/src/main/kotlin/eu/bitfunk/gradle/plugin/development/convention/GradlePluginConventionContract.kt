@@ -27,6 +27,7 @@ public interface GradlePluginConventionContract {
         public fun checkPreconditions(project: Project)
         public fun addPlugins(project: Project)
         public fun addRepositories(project: Project)
+        public fun addExtension(project: Project): Extension
         public fun configureJavaCompatibility(project: Project)
         public fun configureKotlin(project: Project)
         public fun configureDependencies(project: Project)
@@ -56,5 +57,9 @@ public interface GradlePluginConventionContract {
          * Project GitHub repository name
          */
         public val projectGitHubRepositoryName: Property<String>
+    }
+
+    public companion object {
+        public const val EXTENSION_NAME: String = "projectConfig"
     }
 }

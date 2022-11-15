@@ -18,6 +18,8 @@
 
 package eu.bitfunk.gradle.plugin.development.convention
 
+import eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionContract.Extension
+import eu.bitfunk.gradle.plugin.development.convention.internal.configurePublishing
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -40,9 +42,11 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         checkPreconditions(target)
         addPlugins(target)
         addRepositories(target)
+        val extension = addExtension(target)
         configureJavaCompatibility(target)
         configureKotlin(target)
         configureDependencies(target)
+        configurePublishing(target, extension)
         configureTests(target)
         configureTestCoverage(target)
         configureTestCoverageTasks(target)
@@ -69,6 +73,20 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             google()
             maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
         }
+    }
+
+    override fun addExtension(project: Project): Extension = with(project) {
+        val extension = extensions.create(
+            GradlePluginConventionContract.EXTENSION_NAME,
+            GradlePluginConventionPluginExtension::class.java
+        )
+
+        extension.projectName.convention("")
+        extension.projectDescription.convention("")
+        extension.projectGitHubOrganization.convention("")
+        extension.projectGitHubRepositoryName.convention("")
+
+        return extension
     }
 
     public override fun configureJavaCompatibility(project: Project): Unit = with(project) {
