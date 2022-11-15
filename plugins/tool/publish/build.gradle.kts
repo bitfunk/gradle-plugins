@@ -39,3 +39,8 @@ gradlePlugin {
         implementationClass = "eu.bitfunk.gradle.plugin.tool.publish.PublishPlugin"
     }
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

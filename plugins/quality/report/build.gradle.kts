@@ -33,3 +33,8 @@ gradlePlugin {
 dependencies {
     implementation(libsReport.gradleSonarqube)
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

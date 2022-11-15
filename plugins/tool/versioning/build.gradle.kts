@@ -43,3 +43,8 @@ gradlePlugin {
 dependencies {
     implementation(libsVersioning.gradleGitVersionPlugin)
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

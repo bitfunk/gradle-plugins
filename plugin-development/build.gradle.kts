@@ -30,6 +30,11 @@ dependencies {
     implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
 }
 
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}
+
 tasks.check {
     dependsOn(tasks.named("testCodeCoverageReport"))
 }

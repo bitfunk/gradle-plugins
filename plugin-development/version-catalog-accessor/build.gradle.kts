@@ -39,3 +39,10 @@ dependencies {
 apiValidation {
     ignoredPackages.add("eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated")
 }
+
+projectConfig {
+    projectName.set("VersionCatalog Accessor")
+    projectDescription.set("A version catalog accessor for Gradle plugin development.")
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

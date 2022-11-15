@@ -36,3 +36,8 @@ dependencies {
     implementation("eu.bitfunk.gradle.plugin.quality:formatter")
     implementation("eu.bitfunk.gradle.plugin.quality:report")
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

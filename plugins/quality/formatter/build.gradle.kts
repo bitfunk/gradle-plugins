@@ -34,3 +34,8 @@ dependencies {
     implementation(libsFormatter.gradleSpotlessPlugin)
     implementation(libsFormatter.gradleKtlintPlugin)
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}

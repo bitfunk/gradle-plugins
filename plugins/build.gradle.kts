@@ -40,6 +40,11 @@ dependencies {
     implementation("eu.bitfunk.gradle.plugin.tool:tool")
 }
 
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}
+
 tasks.check {
     dependsOn(tasks.named("testCodeCoverageReport"))
 }

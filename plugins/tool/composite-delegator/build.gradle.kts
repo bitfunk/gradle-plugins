@@ -30,3 +30,8 @@ gradlePlugin {
             "eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPlugin"
     }
 }
+
+projectConfig {
+    projectGitHubOrganization.set("bitfunk")
+    projectGitHubRepositoryName.set("gradle-plugins")
+}
