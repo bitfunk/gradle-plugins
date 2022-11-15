@@ -2,92 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/changelog/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/license/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/develop/badges/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/develop/codeOfConduct/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/develop/contributing/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/develop/releasing/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/gradlePluginConvention/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/pluginDevelopment/versionCatalogAccessor/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/quality/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/quality/code-analysis/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/quality/formatter/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/quality/report/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/compositeDelegator/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/publish/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/snapshot/plugins/tool/versioning/</loc>
-         <lastmod>2022-11-08</lastmod>
+         <lastmod>2022-11-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
