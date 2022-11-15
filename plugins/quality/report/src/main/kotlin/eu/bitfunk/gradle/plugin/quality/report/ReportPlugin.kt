@@ -27,7 +27,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.Copy
 import org.gradle.kotlin.dsl.create
-import org.sonarqube.gradle.SonarQubeExtension
+import org.sonarqube.gradle.SonarExtension
 
 public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     override fun apply(target: Project) {
@@ -64,7 +64,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
         val projectsWithSrc = collector.collectProjects(projectDir, "src/main/kotlin")
         val projectsWithTests = collector.collectProjects(projectDir, "src/test/kotlin")
 
-        sonarqube {
+        sonar {
             properties {
                 property("sonar.projectKey", extension.sonarProjectKey.get())
                 property("sonar.organization", extension.sonarOrganization.get())
@@ -101,12 +101,12 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
             includeEmptyDirs = false
         }
 
-        tasks.named("sonarqube") {
+        tasks.named("sonar") {
             dependsOn("copyCoverageReports")
         }
     }
 
-    private fun Project.sonarqube(action: Action<SonarQubeExtension>) {
-        extensions.configure(SonarQubeExtension::class.java, action)
+    private fun Project.sonar(action: Action<SonarExtension>) {
+        extensions.configure(SonarExtension::class.java, action)
     }
 }

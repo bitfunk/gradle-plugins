@@ -37,8 +37,8 @@ import org.gradle.api.tasks.Copy
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.sonarqube.gradle.SonarQubeExtension
-import org.sonarqube.gradle.SonarQubeProperties
+import org.sonarqube.gradle.SonarExtension
+import org.sonarqube.gradle.SonarProperties
 import java.io.File
 
 class ReportPluginTest {
@@ -112,13 +112,13 @@ class ReportPluginTest {
         val project: Project = mockk(relaxed = true)
         val extension: ReportPluginExtension = mockk(relaxed = true)
         val collector: Collector = mockk(relaxed = true)
-        val sonarQubeExtension: SonarQubeExtension = mockk(relaxed = true)
-        val sonarQubeProperties: SonarQubeProperties = mockk(relaxed = true)
-        every { project.extensions.configure(SonarQubeExtension::class.java, any()) } answers {
-            secondArg<Action<SonarQubeExtension>>().execute(sonarQubeExtension)
+        val sonarExtension: SonarExtension = mockk(relaxed = true)
+        val sonarProperties: SonarProperties = mockk(relaxed = true)
+        every { project.extensions.configure(SonarExtension::class.java, any()) } answers {
+            secondArg<Action<SonarExtension>>().execute(sonarExtension)
         }
-        every { sonarQubeExtension.properties(any()) } answers {
-            firstArg<Action<SonarQubeProperties>>().execute(sonarQubeProperties)
+        every { sonarExtension.properties(any()) } answers {
+            firstArg<Action<SonarProperties>>().execute(sonarProperties)
         }
         every { extension.sonarProjectKey.get() } returns "sonarProjectKey"
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
@@ -139,9 +139,9 @@ class ReportPluginTest {
 
         // THEN
         verifyAll {
-            project.extensions.configure(SonarQubeExtension::class.java, any())
+            project.extensions.configure(SonarExtension::class.java, any())
 
-            sonarQubeExtension.properties(any())
+            sonarExtension.properties(any())
             project.projectDir
             project.buildDir
 
@@ -149,23 +149,23 @@ class ReportPluginTest {
             extension.sonarOrganization
             extension.coverageReportSourceDirs
 
-            sonarQubeProperties.property("sonar.projectKey", "sonarProjectKey")
-            sonarQubeProperties.property("sonar.organization", "sonarOrganization")
-            sonarQubeProperties.property("sonar.host.url", "https://sonarcloud.io")
+            sonarProperties.property("sonar.projectKey", "sonarProjectKey")
+            sonarProperties.property("sonar.organization", "sonarOrganization")
+            sonarProperties.property("sonar.host.url", "https://sonarcloud.io")
 
             collector.collectProjects(projectDir, "src/main/kotlin")
-            sonarQubeProperties.property("sonar.sources", srcProjects)
+            sonarProperties.property("sonar.sources", srcProjects)
             collector.collectProjects(projectDir, "src/test/kotlin")
-            sonarQubeProperties.property("sonar.tests", testProjects)
+            sonarProperties.property("sonar.tests", testProjects)
 
-            sonarQubeProperties.property("sonar.sourceEncoding", "UTF-8")
-            sonarQubeProperties.property(
+            sonarProperties.property("sonar.sourceEncoding", "UTF-8")
+            sonarProperties.property(
                 "sonar.coverage.jacoco.xmlReportPaths",
                 "build/reports/jacoco/testCodeCoverageReport-1.xml,build/reports/jacoco/testCodeCoverageReport-2.xml"
             )
         }
 
-        confirmVerified(project, extension, collector, sonarQubeExtension, sonarQubeProperties)
+        confirmVerified(project, extension, collector, sonarExtension, sonarProperties)
     }
 
     @Test
@@ -190,7 +190,7 @@ class ReportPluginTest {
         every { copyTask.rename(any<FileNameTransformer>()) } answers {
             copyTask
         }
-        every { project.tasks.named("sonarqube", any()) } answers {
+        every { project.tasks.named("sonar", any()) } answers {
             secondArg<Action<Task>>().execute(sonarqubeTask)
             mockk()
         }
@@ -214,7 +214,7 @@ class ReportPluginTest {
 
             copyTaskSpec.include("*.xml")
 
-            project.tasks.named("sonarqube", any())
+            project.tasks.named("sonar", any())
             sonarqubeTask.dependsOn("copyCoverageReports")
         }
 
