@@ -28,10 +28,11 @@ plugins {
     jacoco
     alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
     alias(libsPluginConvention.plugins.gradleMavenPublishPlugin)
+    alias(libsPluginConvention.plugins.gradleVersionCatalogAccessor)
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
-version = "0.0.3-SNAPSHOT"
+version = "0.0.5"
 
 repositories {
     gradlePluginPortal()
@@ -45,6 +46,15 @@ gradlePlugin {
         id = "eu.bitfunk.gradle.plugin.development.convention"
         implementationClass = "eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPlugin"
     }
+}
+
+versionCatalogAccessor {
+    packageName.set("eu.bitfunk.gradle.plugin.development.convention.libs")
+    catalogNames.set(listOf("libs-plugin-convention"))
+}
+
+apiValidation {
+    ignoredPackages.add("eu.bitfunk.gradle.plugin.development.convention.libs.generated")
 }
 
 java {
@@ -69,42 +79,45 @@ dependencies {
     testImplementation(libsPluginConvention.testGradleTestUtil)
 }
 
-mavenPublishing {
-    group = requireNotNull(project.group)
-    version = requireNotNull(project.version)
+afterEvaluate {
+    mavenPublishing {
+        group = requireNotNull(project.group)
+        version = requireNotNull(project.version)
 
-    publishToMavenCentral(SonatypeHost.S01)
-    signAllPublications()
-    configure(
-        GradlePlugin(
-            javadocJar = JavadocJar.Javadoc(),
-            sourcesJar = true
-        )
-    )
-    pom {
-        name.set("Gradle plugin development convention")
-        description.set("A Collection of Gradle plugins to simplify and unify project development.")
-        inceptionYear.set("${Year.now().value}")
-        url.set("https://github.com/bitfunk/gradle-plugins/")
-        licenses {
-            license {
-                name.set("ISC License")
-                url.set("https://opensource.org/licenses/isc")
-                distribution.set("https://github.com/bitfunk/gradle-plugins/blob/main/LICENSE")
-            }
-        }
-        developers {
-            developer {
-                id.set("bitfunk")
-                name.set("Wolf-Martell Montwé (bitfunk)")
-                url.set("https://github.com/bitfunk/")
-            }
-        }
-        scm {
+        pom {
+            name.set("Gradle plugin development convention")
+            description.set("A Collection of Gradle plugins to simplify and unify project development.")
+            inceptionYear.set("${Year.now().value}")
             url.set("https://github.com/bitfunk/gradle-plugins/")
-            connection.set("scm:git:git://github.com/bitfunk/gradle-plugins.git")
-            developerConnection.set("scm:git:ssh://github.com/bitfunk/gradle-plugins.git")
+            licenses {
+                license {
+                    name.set("ISC License")
+                    url.set("https://opensource.org/licenses/isc")
+                    distribution.set("https://github.com/bitfunk/gradle-plugins/blob/main/LICENSE")
+                }
+            }
+            developers {
+                developer {
+                    id.set("bitfunk")
+                    name.set("Wolf-Martell Montwé (bitfunk)")
+                    url.set("https://github.com/bitfunk/")
+                }
+            }
+            scm {
+                url.set("https://github.com/bitfunk/gradle-plugins/")
+                connection.set("scm:git:git://github.com/bitfunk/gradle-plugins.git")
+                developerConnection.set("scm:git:ssh://github.com/bitfunk/gradle-plugins.git")
+            }
         }
+
+        publishToMavenCentral(SonatypeHost.S01)
+        signAllPublications()
+        configure(
+            GradlePlugin(
+                javadocJar = JavadocJar.Javadoc(),
+                sourcesJar = true
+            )
+        )
     }
 }
 

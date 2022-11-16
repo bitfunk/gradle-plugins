@@ -29,7 +29,7 @@ import java.time.Year
 
 internal object PublishingConfig {
     @Suppress("UnstableApiUsage")
-    internal fun Project.mavenPublishing(action: Action<MavenPublishBaseExtension>) {
+    private fun Project.mavenPublishing(action: Action<MavenPublishBaseExtension>) {
         extensions.configure(MavenPublishBaseExtension::class.java, action)
     }
 
@@ -40,53 +40,52 @@ internal object PublishingConfig {
     ): Unit = with(project) {
         pluginManager.apply("com.vanniktech.maven.publish.base")
 
-        mavenPublishing {
-            publishToMavenCentral(SonatypeHost.S01)
-            signAllPublications()
-            configure(
-                GradlePlugin(
-                    javadocJar = Javadoc(),
-                    sourcesJar = true
-                )
-            )
-
-            pom {
-                val gitHubOrg = extension.publishGitHubOrganization.get()
-                val gitHubRepo = extension.publishGitHubRepositoryName.get()
-
-                name.set(extension.publishName)
-                description.set(extension.publishDescription)
-                inceptionYear.set("${Year.now().value}")
-                url.set(
-                    "https://github.com/$gitHubOrg/$gitHubRepo/"
+        afterEvaluate {
+            mavenPublishing {
+                publishToMavenCentral(SonatypeHost.S01)
+                signAllPublications()
+                configure(
+                    GradlePlugin(
+                        javadocJar = Javadoc(),
+                        sourcesJar = true
+                    )
                 )
 
-                licenses {
-                    license {
-                        name.set("ISC License")
-                        url.set("https://opensource.org/licenses/isc")
-                        distribution.set("https://opensource.org/licenses/isc")
-                    }
-                }
-
-                developers {
-                    developer {
-                        id.set("bitfunk")
-                        name.set("Wolf-Martell Montwé (bitfunk)")
-                        url.set("https://github.com/bitfunk/")
-                    }
-                }
-
-                scm {
+                pom {
+                    name.set(extension.publishName)
+                    description.set(extension.publishDescription)
+                    inceptionYear.set("${Year.now().value}")
                     url.set(
-                        "https://github.com/$gitHubOrg/$gitHubRepo/"
+                        "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"
                     )
-                    connection.set(
-                        "scm:git:git://github.com/$gitHubOrg/$gitHubRepo.git"
-                    )
-                    developerConnection.set(
-                        "scm:git:ssh://github.com/$gitHubOrg/$gitHubRepo.git"
-                    )
+
+                    licenses {
+                        license {
+                            name.set("ISC License")
+                            url.set("https://opensource.org/licenses/isc")
+                            distribution.set("https://opensource.org/licenses/isc")
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id.set("bitfunk")
+                            name.set("Wolf-Martell Montwé (bitfunk)")
+                            url.set("https://github.com/bitfunk/")
+                        }
+                    }
+
+                    scm {
+                        url.set(
+                            "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"
+                        )
+                        connection.set(
+                            "scm:git:git://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"
+                        )
+                        developerConnection.set(
+                            "scm:git:ssh://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"
+                        )
+                    }
                 }
             }
         }

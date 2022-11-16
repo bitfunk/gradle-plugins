@@ -243,9 +243,9 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.gradleTestKit()
 
             dependencyHandlerScope.add("testImplementation", gradleTestKitDependency)
-            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.8.2")
-            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.8.2")
-            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.12.8")
+            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
+            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
+            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.2")
             dependencyHandlerScope.add(
                 "testImplementation",
                 "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.0"
@@ -476,6 +476,9 @@ class GradlePluginConventionPluginTest {
         val extension: GradlePluginConventionPluginExtension = mockk(relaxed = true)
         every { project.pluginManager } returns mockk(relaxed = true)
         every { project.repositories } returns mockk(relaxed = true)
+        stubGradleAction(project) {
+            project.afterEvaluate(it)
+        }
         every { project.extensions } returns extensionContainer
         every { project.dependencies } returns mockk(relaxed = true)
         every { project.tasks } returns mockk(relaxed = true)
