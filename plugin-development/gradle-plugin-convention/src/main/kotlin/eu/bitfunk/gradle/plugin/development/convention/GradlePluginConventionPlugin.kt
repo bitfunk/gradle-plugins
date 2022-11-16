@@ -20,6 +20,7 @@ package eu.bitfunk.gradle.plugin.development.convention
 
 import eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionContract.Extension
 import eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfig
+import eu.bitfunk.gradle.plugin.development.convention.libs.generated.LibsPluginConventionVersionCatalogAccessor
 import org.gradle.api.GradleException
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
@@ -103,12 +104,16 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     }
 
     public override fun configureDependencies(project: Project): Unit = with(project) {
+        val libs = LibsPluginConventionVersionCatalogAccessor(project)
+
         dependencies {
             testImplementation(gradleTestKit())
-            testImplementation("org.junit.jupiter:junit-jupiter:$JUNIT_5_VERSION")
-            testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$JUNIT_5_VERSION")
-            testImplementation("io.mockk:mockk:$MOCKK_VERSION")
-            testImplementation("eu.bitfunk.gradle.plugin.development.test:gradle-test-util:$GRADLE_TEST_UTIL")
+            testImplementation("org.junit.jupiter:junit-jupiter:${libs.versions.jUnit5.getStatic()}")
+            testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${libs.versions.jUnit5.getStatic()}")
+            testImplementation("io.mockk:mockk:${libs.versions.mockk.getStatic()}")
+            testImplementation(
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:${libs.versions.gradleTestUtil.getStatic()}"
+            )
         }
     }
 
@@ -119,8 +124,10 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     }
 
     public override fun configureTestCoverage(project: Project): Unit = with(project) {
+        val libs = LibsPluginConventionVersionCatalogAccessor(project)
+
         jacoco {
-            toolVersion = JACOCO_VERSION
+            toolVersion = libs.versions.jacoco.getStatic()
         }
     }
 
@@ -152,19 +159,15 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     }
 
     public override fun configureGradleWrapper(project: Project): Unit = with(project) {
+        val libs = LibsPluginConventionVersionCatalogAccessor(project)
+
         tasks.named<Wrapper>("wrapper") {
-            gradleVersion = GRADLE_VERSION
+            gradleVersion = libs.versions.gradle.getStatic()
             distributionType = Wrapper.DistributionType.ALL
         }
     }
 
     private companion object {
-        const val GRADLE_VERSION = "7.5.1"
-        const val JUNIT_5_VERSION = "5.8.2"
-        const val MOCKK_VERSION = "1.12.8"
-        const val JACOCO_VERSION = "0.8.8"
-        const val GRADLE_TEST_UTIL = "0.1.0"
-
         const val COVERAGE_MINIMUM = 0.95
     }
 }

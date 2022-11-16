@@ -2,9 +2,12 @@
 kotlin = "1.6.21"
 gradle = "7.5.1"
 jUnit5 = "5.9.1"
+mockk = "1.13.2"
 gradleTestUtil = "0.1.0"
+jacoco = "0.8.8"
 kotlinBinaryCompatibility = "0.12.1"
 gradleMavenPublishPlugin = "0.22.0"
+gradleVersionCatalogAccessor = "0.0.1-SNAPSHOT"
 
 [libraries]
 gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -13,9 +16,10 @@ gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
 gradleMavenPublishPlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "gradleMavenPublishPlugin"}
 testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
 testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
-testMockk = "io.mockk:mockk:1.13.2"
+testMockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 testGradleTestUtil = { module = "eu.bitfunk.gradle.plugin.development.test:gradle-test-util", version.ref = "gradleTestUtil" }
 
 [plugins]
 binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
 gradleMavenPublishPlugin = { id = "com.vanniktech.maven.publish.base", version.ref = "gradleMavenPublishPlugin"}
+gradleVersionCatalogAccessor = { id = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor", version.ref = "gradleVersionCatalogAccessor" }
