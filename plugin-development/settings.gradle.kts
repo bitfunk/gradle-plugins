@@ -44,9 +44,6 @@ if (includeConventionPlugin.toBoolean()) {
     }
 }
 
-
-// outside dependencies
-includeBuild("../plugins/tool/composite-delegator")
 val includeVersionCatalogAccessorPlugin: String by settings
 if (includeVersionCatalogAccessorPlugin.toBoolean()) {
     includeBuild("version-catalog-accessor") {

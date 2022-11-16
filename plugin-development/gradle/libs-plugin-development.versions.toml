@@ -1,5 +1,6 @@
 [versions]
 gradlePluginConvention = "0.0.5"
+gradleCompositeDelegator = "0.1.0"
 gradleVersionCatalogAccessor = "0.1.0"
 
 [libraries]
@@ -8,3 +9,4 @@ gradleVersionCatalogAccessor = { module = "eu.bitfunk.gradle.plugin.development:
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
+gradleCompositeDelegator = { id = "eu.bitfunk.gradle.plugin.tool.composite.delegator", version.ref = "gradleCompositeDelegator" }
