@@ -203,7 +203,7 @@ internal class VersionCatalogAccessorClassGenerator(
     }
 
     private fun generateGetStaticFunction(catalogType: KClass<*>, value: String?): FunSpec {
-        val satement: String = when (catalogType) {
+        val statement: String = when (catalogType) {
             Versions::class -> "return \"$value\""
             Libraries::class -> THROW_UNSUPPORTED
             Bundles::class -> THROW_UNSUPPORTED
@@ -214,7 +214,7 @@ internal class VersionCatalogAccessorClassGenerator(
         return FunSpec.builder(FUNCTION_NAME_GET_STATIC)
             .addModifiers(OVERRIDE)
             .returns(String::class)
-            .addStatement(satement)
+            .addStatement(statement)
             .build()
     }
 
