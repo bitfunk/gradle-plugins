@@ -1,8 +1,10 @@
 [versions]
 gradlePluginConvention = "0.0.5"
+gradleVersionCatalogAccessor = "0.1.0"
 
 [libraries]
-gradlePluginConvention = { module = "eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention",  version.ref = "gradlePluginConvention" }
+gradlePluginConvention = { module = "eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention", version.ref = "gradlePluginConvention" }
+gradleVersionCatalogAccessor = { module = "eu.bitfunk.gradle.plugin.development:version-catalog-accessor", version.ref = "gradleVersionCatalogAccessor" }
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

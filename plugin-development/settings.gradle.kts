@@ -44,7 +44,15 @@ if (includeConventionPlugin.toBoolean()) {
     }
 }
 
-includeBuild("version-catalog-accessor")
 
 // outside dependencies
 includeBuild("../plugins/tool/composite-delegator")
+val includeVersionCatalogAccessorPlugin: String by settings
+if (includeVersionCatalogAccessorPlugin.toBoolean()) {
+    includeBuild("version-catalog-accessor") {
+        dependencySubstitution {
+            substitute(module("eu.bitfunk.gradle.plugin.development:version-catalog-accessor"))
+                .using(project(":"))
+        }
+    }
+}
