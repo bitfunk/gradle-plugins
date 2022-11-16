@@ -29,6 +29,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.mockk.verifyAll
+import org.gradle.api.Action
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.PluginManager
@@ -62,6 +63,9 @@ class PublishingConfigTest {
         extensionContainer = mockk()
         mavenPublishBaseExtension = mockk(relaxed = true)
 
+        stubGradleAction(project) {
+            project.afterEvaluate(it)
+        }
         every { project.pluginManager } returns pluginManager
         every { project.extensions } returns extensionContainer
         every { project.group } returns "group"
@@ -101,6 +105,7 @@ class PublishingConfigTest {
         verifyAll {
             project.pluginManager
             project.extensions
+            project.afterEvaluate(any<Action<Project>>())
 
             extensionContainer.configure(MavenPublishBaseExtension::class.java, any())
 

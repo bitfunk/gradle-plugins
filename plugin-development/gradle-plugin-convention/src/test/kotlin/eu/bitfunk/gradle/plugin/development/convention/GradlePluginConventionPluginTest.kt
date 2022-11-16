@@ -476,6 +476,9 @@ class GradlePluginConventionPluginTest {
         val extension: GradlePluginConventionPluginExtension = mockk(relaxed = true)
         every { project.pluginManager } returns mockk(relaxed = true)
         every { project.repositories } returns mockk(relaxed = true)
+        stubGradleAction(project) {
+            project.afterEvaluate(it)
+        }
         every { project.extensions } returns extensionContainer
         every { project.dependencies } returns mockk(relaxed = true)
         every { project.tasks } returns mockk(relaxed = true)
