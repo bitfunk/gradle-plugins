@@ -25,14 +25,14 @@ plugins {
 group = "eu.bitfunk.gradle.plugin.quality"
 
 gradlePlugin {
-    plugins.create("qualityReport") {
+    plugins.create("quality") {
         id = "eu.bitfunk.gradle.plugin.quality"
         implementationClass = "eu.bitfunk.gradle.plugin.quality.QualityPlugin"
     }
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.quality:code-analysis")
+    implementation(libsQuality.gradleCodeAnalysis)
     implementation("eu.bitfunk.gradle.plugin.quality:formatter")
     implementation("eu.bitfunk.gradle.plugin.quality:report")
 }

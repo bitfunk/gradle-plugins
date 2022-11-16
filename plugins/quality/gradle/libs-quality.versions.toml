@@ -1,6 +1,11 @@
 [versions]
+gradleCodeAnalysis = "0.1.0"
+
 gradlePluginConvention = "0.0.5"
 gradleCompositeDelegator = "0.1.0"
+
+[libraries]
+gradleCodeAnalysis = { module = "eu.bitfunk.gradle.plugin.quality:code-analysis", version.ref = "gradleCodeAnalysis"}
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
