@@ -22,6 +22,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
+version = "0.1.0"
 
 gradlePlugin {
     plugins.create("qualityFormatter") {

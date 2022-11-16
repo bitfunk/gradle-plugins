@@ -33,7 +33,7 @@ gradlePlugin {
 
 dependencies {
     implementation(libsQuality.gradleCodeAnalysis)
-    implementation("eu.bitfunk.gradle.plugin.quality:formatter")
+    implementation(libsQuality.gradleFormatter)
     implementation("eu.bitfunk.gradle.plugin.quality:report")
 }
 
