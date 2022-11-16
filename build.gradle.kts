@@ -33,7 +33,7 @@ buildscript {
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("eu.bitfunk.gradle.plugin.quality")
+    alias(libs.plugins.gradleQuality)
     alias(libs.plugins.gradleVersioning)
     alias(libs.plugins.gradleCompositeDelegator)
 }
