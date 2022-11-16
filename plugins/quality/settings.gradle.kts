@@ -38,6 +38,3 @@ dependencyResolutionManagement {
 includeBuild("code-analysis")
 includeBuild("formatter")
 includeBuild("report")
-
-// outside dependencies
-includeBuild("../tool/composite-delegator")

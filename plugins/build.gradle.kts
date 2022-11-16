@@ -19,7 +19,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsPlugins.plugins.gradlePluginConvention)
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    alias(libsPlugins.plugins.gradleCompositeDelegator)
     id("jacoco-report-aggregation")
 }
 

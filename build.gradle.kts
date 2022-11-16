@@ -31,10 +31,11 @@ buildscript {
     }
 }
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("eu.bitfunk.gradle.plugin.quality")
     id("eu.bitfunk.gradle.plugin.tool.versioning")
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    alias(libs.plugins.gradleCompositeDelegator)
 }
 
 reportConfig {

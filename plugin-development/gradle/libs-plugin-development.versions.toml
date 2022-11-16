@@ -1,7 +1,7 @@
 [versions]
 gradlePluginConvention = "0.0.5"
-gradleCompositeDelegator = "0.1.0"
 gradleVersionCatalogAccessor = "0.1.0"
+gradleCompositeDelegator = "0.1.0"
 
 [libraries]
 gradlePluginConvention = { module = "eu.bitfunk.gradle.plugin.development.convention:gradle-plugin-convention", version.ref = "gradlePluginConvention" }
