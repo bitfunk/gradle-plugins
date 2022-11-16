@@ -32,7 +32,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
-version = "0.0.4"
+version = "0.0.5"
 
 repositories {
     gradlePluginPortal()
