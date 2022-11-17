@@ -25,7 +25,7 @@ public fun Project.version(): String = version as String
 
 public fun Project.versionCleaned(): String {
     return if (version().endsWith("-SNAPSHOT")) {
-        version().removeSuffix("-SNAPSHOT")
+        version().split("-")[0]
     } else {
         version()
     }

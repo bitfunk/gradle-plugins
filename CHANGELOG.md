@@ -33,6 +33,9 @@ Initial release
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
 - Add maven central publishing to Gradle Plugin Convention
 
+### Fixed
+- Versioning: cleaned version wrong for feature versions
+
 ### Bumped
 
 - Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
