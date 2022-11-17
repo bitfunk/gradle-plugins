@@ -44,12 +44,4 @@ if (includeConventionPlugin.toBoolean()) {
     }
 }
 
-val includeVersionCatalogAccessorPlugin: String by settings
-if (includeVersionCatalogAccessorPlugin.toBoolean()) {
-    includeBuild("version-catalog-accessor") {
-        dependencySubstitution {
-            substitute(module("eu.bitfunk.gradle.plugin.development:version-catalog-accessor"))
-                .using(project(":"))
-        }
-    }
-}
+includeBuild("version-catalog-accessor")
