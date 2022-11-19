@@ -16,7 +16,7 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
+rootProject.name = "git-version"
 
 pluginManagement {
     repositories {
@@ -28,13 +28,8 @@ pluginManagement {
 
 dependencyResolutionManagement {
     versionCatalogs {
-        create("libsTool") {
-            from(files("gradle/libs-tool.versions.toml"))
+        create("libsGitVersion") {
+            from(files("gradle/libs-git-version.versions.toml"))
         }
     }
 }
-
-includeBuild("composite-delegator")
-includeBuild("publish")
-includeBuild("versioning")
-includeBuild("git-version")

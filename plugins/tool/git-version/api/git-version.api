@@ -1,0 +1,20 @@
+public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract {
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension {
+	public abstract fun getPrefix ()Lorg/gradle/api/provider/Property;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin {
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPlugin : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public abstract class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPluginExtension : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension {
+	public fun <init> ()V
+}
+

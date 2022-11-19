@@ -16,25 +16,29 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    alias(libsGitVersion.plugins.gradlePluginConvention)
+}
 
-pluginManagement {
-    repositories {
-        mavenCentral()
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-        gradlePluginPortal()
+group = "eu.bitfunk.gradle.plugin.tool"
+version = "0.0.1"
+
+gradlePlugin {
+    plugins.create("toolGitVersion") {
+        id = "eu.bitfunk.gradle.plugin.tool.gitversion"
+        implementationClass = "eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPlugin"
     }
 }
 
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libsTool") {
-            from(files("gradle/libs-tool.versions.toml"))
-        }
-    }
+dependencies {
+    implementation(libsGitVersion.jGit)
+    implementation(libsGitVersion.semVer)
 }
 
-includeBuild("composite-delegator")
-includeBuild("publish")
-includeBuild("versioning")
-includeBuild("git-version")
+projectConfig {
+    publishName.set("Git Version")
+    publishDescription.set("A plugin to generate a version from git tags.")
+    publishGitHubOrganization.set("bitfunk")
+    publishGitHubRepositoryName.set("gradle-plugins")
+}

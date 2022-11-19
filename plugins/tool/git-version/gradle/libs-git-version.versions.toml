@@ -1,0 +1,11 @@
+[versions]
+jGit = "6.3.0.202209071007-r"
+semVer = "1.1.1"
+gradlePluginConvention = "0.0.5"
+
+[libraries]
+jGit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "jGit" }
+semVer = { module = "net.swiftzer.semver:semver", version.ref = "semVer" }
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

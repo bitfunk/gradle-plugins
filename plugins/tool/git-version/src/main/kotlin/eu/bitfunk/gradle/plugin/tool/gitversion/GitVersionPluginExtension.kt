@@ -16,25 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-rootProject.name = "tool"
+package eu.bitfunk.gradle.plugin.tool.gitversion
 
-pluginManagement {
-    repositories {
-        mavenCentral()
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-        gradlePluginPortal()
-    }
-}
-
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libsTool") {
-            from(files("gradle/libs-tool.versions.toml"))
-        }
-    }
-}
-
-includeBuild("composite-delegator")
-includeBuild("publish")
-includeBuild("versioning")
-includeBuild("git-version")
+public abstract class GitVersionPluginExtension : GitVersionContract.Extension
