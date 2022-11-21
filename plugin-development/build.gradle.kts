@@ -19,7 +19,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsPluginDevelopment.plugins.gradlePluginConvention)
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    alias(libsPluginDevelopment.plugins.gradleCompositeDelegator)
     id("jacoco-report-aggregation")
 }
 
@@ -27,7 +27,7 @@ group = "eu.bitfunk.gradle.plugin.development"
 
 dependencies {
     implementation(libsPluginDevelopment.gradlePluginConvention)
-    implementation("eu.bitfunk.gradle.plugin.development:version-catalog-accessor")
+    implementation(libsPluginDevelopment.gradleVersionCatalogAccessor)
 }
 
 projectConfig {

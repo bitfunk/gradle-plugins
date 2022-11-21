@@ -38,7 +38,7 @@ danger(args) {
         "(?:(?:\\[[A-Z]{2,8}-\\d{1,6}\\]\\s)?(?:Add|Change|Remove|Fix|Bump|Security)\\s.*)"
             .toRegex()
     val regexReleaseTitle =
-        "(?:(?:Prepare )?Release \\d{1,3}\\.\\d{1,3}\\.\\d{1,3})"
+        "(?:(?:Prepare )?(Release|release) \\d{1,3}\\.\\d{1,3}\\.\\d{1,3})"
             .toRegex()
 
     val lineCountInform = 300

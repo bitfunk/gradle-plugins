@@ -45,6 +45,3 @@ if (includeConventionPlugin.toBoolean()) {
 }
 
 includeBuild("version-catalog-accessor")
-
-// outside dependencies
-includeBuild("../plugins/tool/composite-delegator")

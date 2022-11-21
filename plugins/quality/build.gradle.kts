@@ -19,22 +19,23 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsQuality.plugins.gradlePluginConvention)
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    alias(libsQuality.plugins.gradleCompositeDelegator)
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
+version = "0.1.1"
 
 gradlePlugin {
-    plugins.create("qualityReport") {
+    plugins.create("quality") {
         id = "eu.bitfunk.gradle.plugin.quality"
         implementationClass = "eu.bitfunk.gradle.plugin.quality.QualityPlugin"
     }
 }
 
 dependencies {
-    implementation("eu.bitfunk.gradle.plugin.quality:code-analysis")
-    implementation("eu.bitfunk.gradle.plugin.quality:formatter")
-    implementation("eu.bitfunk.gradle.plugin.quality:report")
+    implementation(libsQuality.gradleCodeAnalysis)
+    implementation(libsQuality.gradleFormatter)
+    implementation(libsQuality.gradleReport)
 }
 
 projectConfig {

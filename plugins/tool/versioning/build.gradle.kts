@@ -32,6 +32,7 @@ repositories {
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
+version = "0.1.1"
 
 gradlePlugin {
     plugins.create("toolVersioning") {

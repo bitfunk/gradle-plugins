@@ -19,10 +19,11 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsCodeAnalysis.plugins.gradlePluginConvention)
-    id("eu.bitfunk.gradle.plugin.development.version.catalog.accessor")
+    alias(libsCodeAnalysis.plugins.gradleVersionCatalogAccessor)
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
+version = "0.1.0"
 
 gradlePlugin {
     plugins.create("qualityCodeAnalysis") {

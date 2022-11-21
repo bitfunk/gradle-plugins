@@ -76,6 +76,27 @@ class GradleExtensionKtTest {
     }
 
     @Test
+    fun `GIVEN project, feature snapshot version WHEN versionCleaned() THEN version returned`() {
+        // GIVEN
+        val project: Project = mockk()
+        val version = "1.0.0-add-some-feature-SNAPSHOT"
+        every { project.version } returns version
+
+        // WHEN
+        val result = project.versionCleaned()
+
+        // THEN
+        assertEquals(
+            "1.0.0",
+            result
+        )
+
+        verify { project.version }
+
+        confirmVerified(project)
+    }
+
+    @Test
     fun `GIVEN project, final version WHEN versionCleaned() THEN version returned`() {
         // GIVEN
         val project: Project = mockk()

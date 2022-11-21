@@ -19,7 +19,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libsTool.plugins.gradlePluginConvention)
-    id("eu.bitfunk.gradle.plugin.tool.composite.delegator")
+    alias(libsTool.plugins.gradleCompositeDelegator)
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
