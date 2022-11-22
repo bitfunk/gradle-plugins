@@ -16,15 +16,15 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-package eu.bitfunk.gradle.plugin.tool.gitversion
+package eu.bitfunk.gradle.plugin.tool.gitversion.internal.git
 
-import eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoader
-import org.gradle.api.Plugin
-import org.gradle.api.Project
+import org.eclipse.jgit.api.Git
+import java.io.File
 
-public class GitVersionPlugin : Plugin<Project>, GitVersionContract.Plugin {
+internal interface GitContract {
 
-    override fun apply(target: Project) {
-        val git: Git = GitLoader.load(target.projectDir)
+    interface Loader {
+        fun load(projectDir: File): Git
     }
+
 }
