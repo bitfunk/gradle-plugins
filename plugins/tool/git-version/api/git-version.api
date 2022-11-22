@@ -5,6 +5,17 @@ public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVers
 	public abstract fun getPrefix ()Lorg/gradle/api/provider/Property;
 }
 
+public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info {
+	public abstract fun getBranchName ()Ljava/lang/String;
+	public abstract fun getCommitDistance ()I
+	public abstract fun getGitHash ()Ljava/lang/String;
+	public abstract fun getGitHashFull ()Ljava/lang/String;
+	public abstract fun getLastTag ()Ljava/lang/String;
+	public abstract fun getVersion ()Ljava/lang/String;
+	public abstract fun getVersionCode ()I
+	public abstract fun isCleanTag ()Z
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin {
 }
 

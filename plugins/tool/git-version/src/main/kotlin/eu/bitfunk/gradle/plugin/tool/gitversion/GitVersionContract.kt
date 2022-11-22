@@ -31,4 +31,15 @@ public interface GitVersionContract {
          */
         public val prefix: Property<String>
     }
+
+    public interface Info {
+        public val branchName: String?
+        public val gitHashFull: String?
+        public val gitHash: String?
+        public val lastTag: String?
+        public val commitDistance: Int
+        public val isCleanTag: Boolean
+        public val version: String?
+        public val versionCode: Int
+    }
 }
