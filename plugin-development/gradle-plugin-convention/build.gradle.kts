@@ -27,8 +27,8 @@ plugins {
     `kotlin-dsl`
     jacoco
     alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
-    alias(libsPluginConvention.plugins.gradleMavenPublishPlugin)
-    alias(libsPluginConvention.plugins.gradleVersionCatalogAccessor)
+    alias(libsPluginConvention.plugins.mavenPublishPlugin)
+    alias(libsPluginConvention.plugins.versionCatalogAccessor)
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
@@ -67,16 +67,17 @@ kotlin {
 }
 
 dependencies {
-    implementation(libsPluginConvention.gradleKotlinPlugin)
-    implementation(libsPluginConvention.gradleKotlinDsl)
-    implementation(libsPluginConvention.gradleKotlinBinaryCompatibilityPlugin)
-    implementation(libsPluginConvention.gradleMavenPublishPlugin)
+    implementation(libsPluginConvention.plugin.kotlin)
+    implementation(libsPluginConvention.plugin.kotlinDsl)
+    implementation(libsPluginConvention.plugin.kotlinBinaryCompatibility)
+    implementation(libsPluginConvention.plugin.mavenPublish)
 
     testImplementation(gradleTestKit())
-    testImplementation(libsPluginConvention.testJUnit5)
-    testRuntimeOnly(libsPluginConvention.testJUnit5Engine)
-    testImplementation(libsPluginConvention.testMockk)
-    testImplementation(libsPluginConvention.testGradleTestUtil)
+    testImplementation(libsPluginConvention.test.jUnit5)
+    testRuntimeOnly(libsPluginConvention.test.jUnit5.engine)
+    testImplementation(libsPluginConvention.test.kotlin)
+    testImplementation(libsPluginConvention.test.mockk)
+    testImplementation(libsPluginConvention.test.gradleTestUtil)
 }
 
 afterEvaluate {
