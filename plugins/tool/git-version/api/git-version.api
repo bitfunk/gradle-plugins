@@ -29,3 +29,8 @@ public abstract class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPluginE
 	public fun <init> ()V
 }
 
+public final class eu/bitfunk/gradle/plugin/tool/gitversion/ProjectExtensionKt {
+	public static final fun gitVersion (Lorg/gradle/api/Project;)Ljava/lang/String;
+	public static final fun gitVersionInfo (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;
+}
+
