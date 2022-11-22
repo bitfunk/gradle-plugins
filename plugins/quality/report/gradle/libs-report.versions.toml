@@ -1,5 +1,5 @@
 [versions]
-gradlePluginConvention = "0.0.5"
+gradlePluginConvention = "0.0.6"
 
 [libraries]
 gradleSonarqube = "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.5.0.2730"
