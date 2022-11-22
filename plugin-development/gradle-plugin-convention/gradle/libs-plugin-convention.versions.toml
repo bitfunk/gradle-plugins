@@ -16,6 +16,7 @@ plugin-kotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
 plugin-mavenPublish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "pluginMavenPublishPlugin"}
 test-jUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-jUnit5" }
 test-jUnit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "test-jUnit5" }
+test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 test-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk" }
 test-gradleTestUtil = { module = "eu.bitfunk.gradle.plugin.development.test:gradle-test-util", version.ref = "test-gradleTestUtil" }
 

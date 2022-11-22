@@ -108,11 +108,11 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
 
         dependencies {
             testImplementation(gradleTestKit())
-            testImplementation("org.junit.jupiter:junit-jupiter:${libs.versions.jUnit5.getStatic()}")
-            testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${libs.versions.jUnit5.getStatic()}")
-            testImplementation("io.mockk:mockk:${libs.versions.mockk.getStatic()}")
+            testImplementation("org.junit.jupiter:junit-jupiter:${libs.versions.test.jUnit5.getStatic()}")
+            testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${libs.versions.test.jUnit5.getStatic()}")
+            testImplementation("io.mockk:mockk:${libs.versions.test.mockk.getStatic()}")
             testImplementation(
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:${libs.versions.gradleTestUtil.getStatic()}"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:${libs.versions.test.gradleTestUtil.getStatic()}"
             )
         }
     }
@@ -127,7 +127,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
         val libs = LibsPluginConventionVersionCatalogAccessor(project)
 
         jacoco {
-            toolVersion = libs.versions.jacoco.getStatic()
+            toolVersion = libs.versions.test.jacoco.getStatic()
         }
     }
 
