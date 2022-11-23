@@ -80,7 +80,7 @@ public class GitVersionLoader(
             if (description.startsWith("v")) versionDescription = description.substring(1)
             try {
                 val version: SemVer = SemVer.parse(versionDescription)
-                return version.major * 10000 + version.minor * 100 + version.patch
+                return version.major * MAJOR_SHIFT + version.minor * MINOR_SHIFT + version.patch
             } catch (exception: Exception) {
                 return -1
             }
@@ -138,5 +138,7 @@ public class GitVersionLoader(
         private const val COMMIT_DISTANCE_PATTERN = "(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}"
         private const val LAST_TAG_PATTERN = "(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}"
         private const val UNDEFINED = "unspecified"
+        private const val MAJOR_SHIFT = 10000
+        private const val MINOR_SHIFT = 100
     }
 }

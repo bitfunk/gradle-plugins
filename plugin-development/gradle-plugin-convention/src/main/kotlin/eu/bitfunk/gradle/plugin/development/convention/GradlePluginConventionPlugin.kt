@@ -113,7 +113,8 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             testImplementation("org.jetbrains.kotlin:kotlin-test:${libs.versions.kotlin.getStatic()}")
             testImplementation("io.mockk:mockk:${libs.versions.test.mockk.getStatic()}")
             testImplementation(
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:${libs.versions.test.gradleTestUtil.getStatic()}"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:" +
+                    libs.versions.test.gradleTestUtil.getStatic()
             )
         }
     }

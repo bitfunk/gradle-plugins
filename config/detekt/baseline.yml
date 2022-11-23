@@ -7,7 +7,15 @@
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"</ID>
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"scm:git:git://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"</ID>
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"scm:git:ssh://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"</ID>
+    <ID>ReturnCount:GitVersionLoader.kt$GitVersionLoader$private fun lastTag(description: String): String</ID>
+    <ID>ReturnCount:GitVersionLoader.kt$GitVersionLoader$private fun versionCode(description: String): Int</ID>
+    <ID>SwallowedException:GitDescribeTest.kt$GitDescribeTest.Companion$exception: RefNotFoundException</ID>
+    <ID>SwallowedException:GitVersionLoader.kt$GitVersionLoader$exception: Exception</ID>
     <ID>SwallowedException:TestVersionCatalogAccessor.kt$TestVersionCatalogAccessor$error: Throwable</ID>
+    <ID>ThrowsCount:GitLoader.kt$GitLoader$@Throws(ParseException::class, IOException::class) private fun getSubmoduleFolder(dotGitFile: File, parentDir: String): File</ID>
+    <ID>TooGenericExceptionCaught:GitVersionLoader.kt$GitVersionLoader$exception: Exception</ID>
+    <ID>TooManyFunctions:GitVersionLoader.kt$GitVersionLoader : Loader</ID>
     <ID>TooManyFunctions:GradlePluginConventionPlugin.kt$GradlePluginConventionPlugin : PluginPlugin</ID>
+    <ID>UnnecessaryAbstractClass:GitVersionPluginExtension.kt$GitVersionPluginExtension$GitVersionPluginExtension</ID>
   </CurrentIssues>
 </SmellBaseline>
