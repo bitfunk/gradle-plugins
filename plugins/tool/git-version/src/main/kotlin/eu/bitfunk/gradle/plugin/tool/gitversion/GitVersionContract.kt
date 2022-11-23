@@ -18,11 +18,18 @@
 
 package eu.bitfunk.gradle.plugin.tool.gitversion
 
+import org.eclipse.jgit.api.Git
+import org.gradle.api.Project
 import org.gradle.api.provider.Property
 
 public interface GitVersionContract {
 
     public interface Plugin {
+        public fun addExtension(project: Project): Extension
+
+        public fun addExtraProperties(project: Project, extension: Extension, git: Git)
+
+        public fun configureVersionTasks(project: Project)
     }
 
     public interface Extension {
