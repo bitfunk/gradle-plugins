@@ -43,6 +43,7 @@ gradlePlugin {
 
 dependencies {
     implementation(libsVersioning.gradleGitVersionPlugin)
+    implementation(libsVersioning.plugin.gitVersion)
 }
 
 projectConfig {

@@ -36,6 +36,7 @@ repositories {
 
 dependencies {
     implementation("eu.bitfunk.gradle.plugin.tool:composite-delegator")
+    implementation("eu.bitfunk.gradle.plugin.tool:git-version")
     implementation("eu.bitfunk.gradle.plugin.tool:publish")
     implementation("eu.bitfunk.gradle.plugin.tool:versioning")
 }
