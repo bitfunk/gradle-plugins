@@ -25,5 +25,5 @@ public data class GitVersionInfo(
     override val gitHash: String,
     override val lastTag: String,
     override val isCleanTag: Boolean,
-    override val commitDistance: Int,
+    override val commitDistance: Int
 ) : GitVersionContract.Info

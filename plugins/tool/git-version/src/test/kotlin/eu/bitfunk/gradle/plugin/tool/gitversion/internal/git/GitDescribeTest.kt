@@ -101,7 +101,7 @@ internal class GitDescribeTest {
         assertJGitDescribe(result, git)
         assertEquals(
             expected = "1.0.0",
-            actual = result,
+            actual = result
         )
     }
 

@@ -23,7 +23,6 @@ import org.eclipse.jgit.internal.storage.file.FileRepository
 import org.eclipse.jgit.lib.RepositoryBuilder
 import java.io.File
 import java.io.IOException
-import java.nio.file.Files
 import java.text.ParseException
 
 internal object GitLoader : GitContract.Loader {
@@ -79,9 +78,11 @@ internal object GitLoader : GitContract.Loader {
         // stop at the root directory, return non-existing File object;
         return if (currentRoot.parentFile == null) {
             gitDir
-        } else scanForRootGitDir(
-            currentRoot.parentFile
-        )
+        } else {
+            scanForRootGitDir(
+                currentRoot.parentFile
+            )
+        }
     }
 
     private const val GIT_FILE_NAME = ".git"

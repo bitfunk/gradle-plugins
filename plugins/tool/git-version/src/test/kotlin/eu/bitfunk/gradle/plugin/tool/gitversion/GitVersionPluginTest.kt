@@ -18,8 +18,6 @@
 
 package eu.bitfunk.gradle.plugin.tool.gitversion
 
-import eu.bitfunk.gradle.plugin.development.test.util.stubGradleAction
-import eu.bitfunk.gradle.plugin.development.test.util.stubGradleActionWithReturn
 import groovy.lang.Closure
 import io.mockk.confirmVerified
 import io.mockk.every
@@ -36,7 +34,6 @@ import org.gradle.api.Task
 import org.gradle.api.plugins.ExtensionContainer
 import org.gradle.api.plugins.ExtraPropertiesExtension
 import org.gradle.api.tasks.TaskContainer
-import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.invoke
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
@@ -132,7 +129,7 @@ class GitVersionPluginTest {
         confirmVerified(
             extension,
             taskContainer,
-            extraPropertiesExtension,
+            extraPropertiesExtension
         )
     }
 
@@ -188,7 +185,7 @@ class GitVersionPluginTest {
         confirmVerified(
             taskContainer,
             taskPrintGitVersion,
-            taskPrintGitVersionInfo,
+            taskPrintGitVersionInfo
         )
     }
 

@@ -132,7 +132,7 @@ internal class GitVersionLoaderTest {
                 gitHash = "unspecified",
                 lastTag = "unspecified",
                 isCleanTag = true,
-                commitDistance = 0,
+                commitDistance = 0
             ),
             actual = result
         )
@@ -157,7 +157,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "unspecified",
                 isCleanTag = true,
-                commitDistance = 0,
+                commitDistance = 0
             ),
             actual = result
         )
@@ -184,7 +184,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "1.0.0",
                 isCleanTag = true,
-                commitDistance = 0,
+                commitDistance = 0
             ),
             actual = result
         )
@@ -211,7 +211,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "v1.0.0",
                 isCleanTag = true,
-                commitDistance = 0,
+                commitDistance = 0
             ),
             actual = result
         )
@@ -240,7 +240,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = 1,
+                commitDistance = 1
             ),
             actual = result
         )
@@ -274,7 +274,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = depth,
+                commitDistance = depth
             ),
             actual = result
         )
@@ -305,7 +305,7 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = 1,
+                commitDistance = 1
             ),
             actual = result
         )
@@ -387,7 +387,10 @@ internal class GitVersionLoaderTest {
 
     private companion object {
         val PERSON_IDENT = PersonIdent(
-            "name", "email@example.com", Date(1234L), TimeZone.getTimeZone("UTC")
+            "name",
+            "email@example.com",
+            Date(1234L),
+            TimeZone.getTimeZone("UTC")
         )
     }
 }

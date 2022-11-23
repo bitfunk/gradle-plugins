@@ -323,7 +323,7 @@ class GitVersionPluginFunctionalTest {
                     doLast {
                         val gitVersion = gitVersion()
                         val gitLastTag = gitVersionInfo().lastTag
-                    
+
                         println(gitVersion)
                         println(gitLastTag)
                     }
@@ -356,7 +356,7 @@ class GitVersionPluginFunctionalTest {
                 tasks.create("printVersionDetails") {
                     doLast {
                         val gitVersionInfo = gitVersionInfo()
-                    
+
                         println(gitVersionInfo.lastTag)
                         println(gitVersionInfo.commitDistance)
                         println(gitVersionInfo.gitHash)
@@ -426,7 +426,7 @@ class GitVersionPluginFunctionalTest {
                 tasks.create("printVersionDetails") {
                     doLast {
                         val gitVersionInfo = gitVersionInfo()
-                    
+
                         println(gitVersionInfo.lastTag)
                         println(gitVersionInfo.commitDistance)
                         println(gitVersionInfo.gitHash)
@@ -464,11 +464,11 @@ class GitVersionPluginFunctionalTest {
                 gitVersionConfig {
                     prefix.set("my-prefix@")
                 }
-                
+
                 tasks.create("printVersionDetails") {
                     doLast {
                         val gitVersionInfo = gitVersionInfo()
-                    
+
                         println(gitVersionInfo.lastTag)
                     }
                 }
@@ -710,7 +710,7 @@ class GitVersionPluginFunctionalTest {
         val commitSha = latestCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH)
 
         // THEN
-        val pattern = ":printGitVersion\n1.0.0-${depth}-g$commitSha\n"
+        val pattern = ":printGitVersion\n1.0.0-$depth-g$commitSha\n"
         assertTrue(
             actual = result.output.contains(pattern),
             message = "${result.output} does not match $pattern"
@@ -734,18 +734,18 @@ class GitVersionPluginFunctionalTest {
         val BUILD_FILE_DEFAULT = """
                 import eu.bitfunk.gradle.plugin.tool.gitversion.gitVersion
                 import eu.bitfunk.gradle.plugin.tool.gitversion.gitVersionInfo
-                
+
                 plugins {
                     id("eu.bitfunk.gradle.plugin.tool.gitversion")
                 }
-                
+
                 version = gitVersion()
-                
+
         """.trimIndent()
 
         val SETTINGS_FILE_DEFAULT = """
             rootProject.name = "gradle-plugin-tool-gitversion-test"
-            
+
         """.trimIndent()
     }
 }

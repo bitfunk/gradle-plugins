@@ -32,7 +32,7 @@ public class GitVersionLoader(
 
     init {
         assert(prefix.isEmpty() || prefix.matches(PREFIX_REGEX)) {
-            "Specified prefix `$prefix` does not match the allowed format regex `${PREFIX_REGEX}`."
+            "Specified prefix `$prefix` does not match the allowed format regex `$PREFIX_REGEX`."
         }
     }
 
@@ -60,7 +60,7 @@ public class GitVersionLoader(
             gitHash = gitHash(),
             lastTag = lastTag(description),
             isCleanTag = isClean() && isPlainTag(description),
-            commitDistance = commitDistance(description),
+            commitDistance = commitDistance(description)
         )
     }
 
@@ -99,8 +99,11 @@ public class GitVersionLoader(
 
     private fun gitHash(): String {
         val gitHashFull = gitHashFull()
-        return if (gitHashFull == UNDEFINED) UNDEFINED
-        else gitHashFull.substring(0, Constants.OBJECT_ID_ABBREV_STRING_LENGTH)
+        return if (gitHashFull == UNDEFINED) {
+            UNDEFINED
+        } else {
+            gitHashFull.substring(0, Constants.OBJECT_ID_ABBREV_STRING_LENGTH)
+        }
     }
 
     private fun lastTag(description: String): String {
@@ -127,7 +130,7 @@ public class GitVersionLoader(
         if (isPlainTag(description)) return 0
 
         val match = Pattern.compile(COMMIT_DISTANCE_PATTERN).matcher(description)
-        assert(match.matches()) { "Cannot get commit distance for description: '${description}'" }
+        assert(match.matches()) { "Cannot get commit distance for description: '$description'" }
         return match.group(2).toInt()
     }
 

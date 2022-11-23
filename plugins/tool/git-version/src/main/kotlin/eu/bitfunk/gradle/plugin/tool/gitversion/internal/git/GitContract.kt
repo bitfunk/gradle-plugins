@@ -33,5 +33,4 @@ internal interface GitContract {
          */
         fun describe(prefix: String): String
     }
-
 }
