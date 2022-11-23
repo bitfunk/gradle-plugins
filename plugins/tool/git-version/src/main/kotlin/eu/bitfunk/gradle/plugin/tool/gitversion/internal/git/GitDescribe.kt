@@ -15,23 +15,21 @@
  * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
  * PERFORMANCE OF THIS SOFTWARE.
  */
-
 package eu.bitfunk.gradle.plugin.tool.gitversion.internal.git
 
 import org.eclipse.jgit.api.Git
-import java.io.File
 
-internal interface GitContract {
+internal class GitDescribe(
+    private val git: Git
+) : GitContract.Describe {
 
-    interface Loader {
-        fun load(projectDir: File): Git
+    override fun describe(prefix: String): String {
+        val describe = git.describe()
+        if (prefix.isNotEmpty()) {
+            describe.setMatch("$prefix*")
+        }
+        return describe
+            .setAlways(true)
+            .call()
     }
-
-    interface Describe {
-        /**
-         * Mimics behaviour of 'git describe --always --match=${prefix}*'
-         */
-        fun describe(prefix: String): String
-    }
-
 }
