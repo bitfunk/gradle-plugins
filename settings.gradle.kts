@@ -24,9 +24,20 @@ pluginManagement {
     }
 }
 
-includeBuild("plugin-development/gradle-test-util")
-includeBuild("plugin-development/gradle-plugin-convention")
-includeBuild("plugin-development/version-catalog-accessor")
+val includeGradleTestUtils: String by settings
+if (includeGradleTestUtils.toBoolean()) {
+    includeBuild("plugin-development/gradle-test-util")
+}
+
+val includeConventionPlugin: String by settings
+if (includeConventionPlugin.toBoolean()) {
+    includeBuild("plugin-development/gradle-plugin-convention")
+}
+
+val includeVersionCatalogAccessor: String by settings
+if (includeVersionCatalogAccessor.toBoolean()) {
+    includeBuild("plugin-development/version-catalog-accessor")
+}
 
 includeBuild("plugins")
 
