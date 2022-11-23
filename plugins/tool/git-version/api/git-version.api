@@ -21,6 +21,9 @@ public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVers
 }
 
 public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin {
+	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension;
+	public abstract fun addExtraProperties (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension;Lorg/eclipse/jgit/api/Git;)V
+	public abstract fun configureVersionTasks (Lorg/gradle/api/Project;)V
 }
 
 public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info {
@@ -52,13 +55,15 @@ public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionLoader : e
 	public fun <init> (Lorg/eclipse/jgit/api/Git;Ljava/lang/String;)V
 	public synthetic fun loadGitVersionInfo ()Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info;
 	public fun loadGitVersionInfo ()Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPlugin : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin, org/gradle/api/Plugin {
 	public fun <init> ()V
+	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension;
+	public fun addExtraProperties (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension;Lorg/eclipse/jgit/api/Git;)V
 	public synthetic fun apply (Ljava/lang/Object;)V
 	public fun apply (Lorg/gradle/api/Project;)V
+	public fun configureVersionTasks (Lorg/gradle/api/Project;)V
 }
 
 public abstract class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPluginExtension : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Extension {
