@@ -18,11 +18,10 @@
 
 package eu.bitfunk.gradle.plugin.tool.versioning
 
+import eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionInfo
+import eu.bitfunk.gradle.plugin.tool.gitversion.gitVersionInfo
 import eu.bitfunk.gradle.plugin.tool.versioning.VersioningContract.Generator
-import eu.upwolf.gradle.gitversion.VersionDetails
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.invoke
-import org.gradle.kotlin.dsl.provideDelegate
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -32,22 +31,22 @@ internal class VersionNameGenerator(
 ) : Generator {
 
     override fun generateVersionName(): String {
-        val details = loadVersionDetails()
+        val versionInfo = project.gitVersionInfo()
 
         return when {
-            details.branchName == null -> versionNameWithQualifier(details)
-            patternNoQualifierBranch.matches(details.branchName) -> versionNameWithQualifier(details)
-            patternFeatureBranch.matches(details.branchName) -> versionNameFeature(details)
-            patternDependabotBranch.matches(details.branchName) -> versionNameDependabot(details)
-            patternRenovateBranch.matches(details.branchName) -> versionNameRenovate(details)
-            else -> throw UnsupportedOperationException("branch name not supported: ${details.branchName}")
+            versionInfo.branchName == UNDEFINED -> versionNameWithQualifier(versionInfo)
+            patternNoQualifierBranch.matches(versionInfo.branchName) -> versionNameWithQualifier(versionInfo)
+            patternFeatureBranch.matches(versionInfo.branchName) -> versionNameFeature(versionInfo)
+            patternDependabotBranch.matches(versionInfo.branchName) -> versionNameDependabot(versionInfo)
+            patternRenovateBranch.matches(versionInfo.branchName) -> versionNameRenovate(versionInfo)
+            else -> throw UnsupportedOperationException("branch name not supported: ${versionInfo.branchName}")
         }
     }
 
     override fun generateVersionCode(): Int {
-        val details = loadVersionDetails()
+        val versionInfo = project.gitVersionInfo()
 
-        return details.versionCode * VERSION_CODE_SHIFT + details.commitDistance
+        return versionInfo.versionCode * VERSION_CODE_SHIFT + versionInfo.commitDistance
     }
 
     override fun generateFeatureVersionCode(date: Date): Int {
@@ -56,31 +55,26 @@ internal class VersionNameGenerator(
     }
 
     override fun generateVersionDetails(): String {
-        val details = loadVersionDetails()
+        val versionInfo = project.gitVersionInfo()
 
         return """
             VersionDetails(
-               version = ${details.version}
-               versionCode = ${details.versionCode}
-               gitHash = ${details.gitHash}
-               gitHashFull = ${details.gitHashFull}
-               branchName = ${details.branchName}
-               commitDistance = ${details.commitDistance}
-               lastTag = ${details.lastTag}
-               isClean = ${details.isCleanTag}
+               version = ${versionInfo.version}
+               versionCode = ${versionInfo.versionCode}
+               gitHash = ${versionInfo.gitHash}
+               gitHashFull = ${versionInfo.gitHashFull}
+               branchName = ${versionInfo.branchName}
+               commitDistance = ${versionInfo.commitDistance}
+               lastTag = ${versionInfo.lastTag}
+               isClean = ${versionInfo.isCleanTag}
             )
         """.trimIndent()
     }
 
-    private fun loadVersionDetails(): VersionDetails {
-        val versionDetails: groovy.lang.Closure<VersionDetails> by project.extensions.extraProperties
-        return versionDetails()
-    }
-
-    private fun versionNameWithQualifier(details: VersionDetails, name: String = ""): String {
-        val version = if (!details.isCleanTag) {
-            var versionCleaned = details.version.substringBefore(".dirty")
-            if (details.commitDistance > 0) {
+    private fun versionNameWithQualifier(versionInfo: GitVersionInfo, name: String = ""): String {
+        val version = if (!versionInfo.isCleanTag) {
+            var versionCleaned = versionInfo.version.substringBefore(".dirty")
+            if (versionInfo.commitDistance > 0) {
                 versionCleaned = versionCleaned.substringBefore("-")
             }
             if (name.isBlank()) {
@@ -89,7 +83,7 @@ internal class VersionNameGenerator(
                 "$versionCleaned-$name-SNAPSHOT"
             }
         } else {
-            details.version
+            versionInfo.version
         }
 
         return if (version.startsWith("v")) {
@@ -99,28 +93,28 @@ internal class VersionNameGenerator(
         }
     }
 
-    private fun versionNameFeature(details: VersionDetails): String {
-        var featureName = patternFeatureBranch.matchEntire(details.branchName)!!.groups[1]!!.value
+    private fun versionNameFeature(versionInfo: GitVersionInfo): String {
+        var featureName = patternFeatureBranch.matchEntire(versionInfo.branchName)!!.groups[1]!!.value
 
         if (patternIssueNumber.matches(featureName)) {
             featureName = patternIssueNumber.matchEntire(featureName)!!.groups[1]!!.value
         }
 
-        return versionNameWithQualifier(details, featureName)
+        return versionNameWithQualifier(versionInfo, featureName)
     }
 
-    private fun versionNameDependabot(details: VersionDetails): String {
-        var dependabotName = patternDependabotBranch.matchEntire(details.branchName)!!.groups[1]!!.value
+    private fun versionNameDependabot(versionInfo: GitVersionInfo): String {
+        var dependabotName = patternDependabotBranch.matchEntire(versionInfo.branchName)!!.groups[1]!!.value
 
         dependabotName = dependabotName
             .replace("_", "-")
             .replace("/", "-")
 
-        return versionNameWithQualifier(details, "bump-$dependabotName")
+        return versionNameWithQualifier(versionInfo, "bump-$dependabotName")
     }
 
-    private fun versionNameRenovate(details: VersionDetails): String {
-        var renovateName = patternRenovateBranch.matchEntire(details.branchName)!!.groups[1]!!.value
+    private fun versionNameRenovate(versionInfo: GitVersionInfo): String {
+        var renovateName = patternRenovateBranch.matchEntire(versionInfo.branchName)!!.groups[1]!!.value
 
         renovateName = renovateName
             .replace("_", "-")
@@ -132,7 +126,7 @@ internal class VersionNameGenerator(
             renovateName = "renovate-bump-$renovateName"
         }
 
-        return versionNameWithQualifier(details, renovateName)
+        return versionNameWithQualifier(versionInfo, renovateName)
     }
 
     private companion object {
@@ -142,6 +136,7 @@ internal class VersionNameGenerator(
         val patternRenovateBranch = "renovate/(.*)".toRegex()
         val patternIssueNumber = "[A-Z]{2,8}-.*/(.*)".toRegex()
 
+        private const val UNDEFINED = "unspecified"
         const val VERSION_CODE_SHIFT = 100
     }
 }

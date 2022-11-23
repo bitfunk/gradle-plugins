@@ -35,7 +35,7 @@ public class VersioningPlugin : Plugin<Project>, VersioningContract.Plugin {
     }
 
     override fun addPlugins(project: Project): Unit = with(project) {
-        pluginManager.apply("eu.upwolf.git-version")
+        pluginManager.apply("eu.bitfunk.gradle.plugin.tool.gitversion")
     }
 
     override fun configureVersion(project: Project, generator: Generator): Unit = with(project) {

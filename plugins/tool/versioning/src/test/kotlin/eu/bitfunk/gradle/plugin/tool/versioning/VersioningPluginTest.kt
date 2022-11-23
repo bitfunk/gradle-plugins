@@ -69,7 +69,7 @@ class VersioningPluginTest {
 
         // THEN
         verify {
-            pluginManager.apply("eu.upwolf.git-version")
+            pluginManager.apply("eu.bitfunk.gradle.plugin.tool.gitversion")
         }
 
         confirmVerified(pluginManager)
