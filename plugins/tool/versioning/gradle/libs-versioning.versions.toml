@@ -1,6 +1,6 @@
 [versions]
 gitVersion = "0.12.6"
-gradlePluginGitVersion = "0.0.1"
+gradlePluginGitVersion = "0.1.0-SNAPSHOT"
 gradlePluginConvention = "0.0.7"
 
 [libraries]
