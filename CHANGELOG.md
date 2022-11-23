@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
 
+### Bumped
+
+- jacksonToml 2.14.0 -> 2.14.1
+
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
 
 Initial release
