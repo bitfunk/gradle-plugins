@@ -15,35 +15,15 @@
  * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
  * PERFORMANCE OF THIS SOFTWARE.
  */
-
 package eu.bitfunk.gradle.plugin.tool.gitversion
 
-import org.gradle.api.provider.Property
-
-public interface GitVersionContract {
-
-    public interface Plugin {
-    }
-
-    public interface Extension {
-        /**
-         * Tag name prefix
-         */
-        public val prefix: Property<String>
-    }
-
-    public interface Loader {
-        public fun loadGitVersionInfo(): Info
-    }
-
-    public interface Info {
-        public val version: String
-        public val versionCode: Int
-        public val branchName: String
-        public val gitHashFull: String
-        public val gitHash: String
-        public val lastTag: String
-        public val isCleanTag: Boolean
-        public val commitDistance: Int
-    }
-}
+public data class GitVersionInfo(
+    override val version: String,
+    override val versionCode: Int,
+    override val branchName: String,
+    override val gitHashFull: String,
+    override val gitHash: String,
+    override val lastTag: String,
+    override val isCleanTag: Boolean,
+    override val commitDistance: Int,
+) : GitVersionContract.Info

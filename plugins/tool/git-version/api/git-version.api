@@ -16,7 +16,43 @@ public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVers
 	public abstract fun isCleanTag ()Z
 }
 
+public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Loader {
+	public abstract fun loadGitVersionInfo ()Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info;
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin {
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info {
+	public fun <init> (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Z
+	public final fun component8 ()I
+	public final fun copy (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;
+	public static synthetic fun copy$default (Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIILjava/lang/Object;)Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getBranchName ()Ljava/lang/String;
+	public fun getCommitDistance ()I
+	public fun getGitHash ()Ljava/lang/String;
+	public fun getGitHashFull ()Ljava/lang/String;
+	public fun getLastTag ()Ljava/lang/String;
+	public fun getVersion ()Ljava/lang/String;
+	public fun getVersionCode ()I
+	public fun hashCode ()I
+	public fun isCleanTag ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionLoader : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Loader {
+	public fun <init> (Lorg/eclipse/jgit/api/Git;Ljava/lang/String;)V
+	public synthetic fun loadGitVersionInfo ()Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Info;
+	public fun loadGitVersionInfo ()Leu/bitfunk/gradle/plugin/tool/gitversion/GitVersionInfo;
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionPlugin : eu/bitfunk/gradle/plugin/tool/gitversion/GitVersionContract$Plugin, org/gradle/api/Plugin {

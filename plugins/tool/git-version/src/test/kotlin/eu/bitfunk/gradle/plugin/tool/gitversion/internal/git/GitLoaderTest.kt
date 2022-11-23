@@ -19,6 +19,7 @@
 package eu.bitfunk.gradle.plugin.tool.gitversion.internal.git
 
 import org.eclipse.jgit.api.Git
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import java.io.File
@@ -32,6 +33,14 @@ internal class GitLoaderTest {
 
     @TempDir
     private lateinit var tempDir: File
+
+    @Test
+    fun `implements contract`() {
+        Assertions.assertInstanceOf(
+            GitContract.Loader::class.java,
+            GitLoader
+        )
+    }
 
     @Test
     fun `GIVEN project without git WHEN load() THEN fail with exception`() {
