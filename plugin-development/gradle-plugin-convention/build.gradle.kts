@@ -29,6 +29,7 @@ plugins {
     alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
     alias(libsPluginConvention.plugins.mavenPublishPlugin)
     alias(libsPluginConvention.plugins.versionCatalogAccessor)
+    id("jacoco-report-aggregation")
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
