@@ -19,10 +19,10 @@
 package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Node
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class MapperTest {
 
@@ -51,7 +51,7 @@ class MapperTest {
 
         // THEN
         assertEquals(
-            emptyList<Node>(),
+            emptyList(),
             result
         )
     }
