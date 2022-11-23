@@ -21,6 +21,7 @@ package eu.bitfunk.gradle.plugin.tool.gitversion.internal.git
 import io.mockk.mockk
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.MergeCommand
+import org.eclipse.jgit.api.errors.RefNotFoundException
 import org.eclipse.jgit.lib.Constants
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -41,6 +42,24 @@ internal class GitDescribeTest {
         Assertions.assertInstanceOf(
             GitContract.Describe::class.java,
             GitDescribe(mockk())
+        )
+    }
+
+    @Test
+    fun `GIVEN empty repository WHEN describe THEN describe is empty`() {
+        // GIVEN
+        val git = Git.init().setDirectory(tempDir).call()
+
+        // WHEN
+        val gitDescribe = GitDescribe(GitLoader.load(tempDir))
+        val result = gitDescribe.describe("")
+
+        // THEN
+        assertNativeGitDescribe(result, tempDir)
+        assertJGitDescribe(result, git)
+        assertEquals(
+            expected = "",
+            actual = result
         )
     }
 
@@ -240,13 +259,17 @@ internal class GitDescribeTest {
         }
 
         fun runJGitDescribe(git: Git, prefix: String = ""): String {
-            val describe = git.describe()
-            if (prefix.isNotEmpty()) {
-                describe.setMatch("$prefix*")
+            return try {
+                val describe = git.describe()
+                if (prefix.isNotEmpty()) {
+                    describe.setMatch("$prefix*")
+                }
+                describe
+                    .setAlways(true)
+                    .call()
+            } catch (exception: RefNotFoundException) {
+                ""
             }
-            return describe
-                .setAlways(true)
-                .call()
         }
 
         fun assertNativeGitDescribe(actual: String, folder: File, prefix: String = "") {

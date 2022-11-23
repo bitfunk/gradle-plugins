@@ -18,18 +18,30 @@
 package eu.bitfunk.gradle.plugin.tool.gitversion.internal.git
 
 import org.eclipse.jgit.api.Git
+import org.eclipse.jgit.api.errors.RefNotFoundException
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 internal class GitDescribe(
     private val git: Git
 ) : GitContract.Describe {
 
     override fun describe(prefix: String): String {
-        val describe = git.describe()
-        if (prefix.isNotEmpty()) {
-            describe.setMatch("$prefix*")
+        return try {
+            val describe = git.describe()
+            if (prefix.isNotEmpty()) {
+                describe.setMatch("$prefix*")
+            }
+            describe
+                .setAlways(true)
+                .call()
+        } catch (exception: RefNotFoundException) {
+            log.debug("GitDescribe failed", exception)
+            ""
         }
-        return describe
-            .setAlways(true)
-            .call()
+    }
+
+    companion object {
+        private val log: Logger = LoggerFactory.getLogger(GitDescribe::class.java)
     }
 }
