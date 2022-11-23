@@ -104,6 +104,7 @@ public class GitVersionLoader(
     }
 
     private fun lastTag(description: String): String {
+        if (description.isEmpty() || !isTag(description)) return UNDEFINED
         if (isPlainTag(description)) return description
 
         val match = Pattern.compile(LAST_TAG_PATTERN).matcher(description)
@@ -118,6 +119,10 @@ public class GitVersionLoader(
         return !CLEAN_TAG_REGEX.matches(description)
     }
 
+    private fun isTag(description: String): Boolean {
+        return TAG_REGEX.matches(description)
+    }
+
     private fun commitDistance(description: String): Int {
         if (isPlainTag(description)) return 0
 
@@ -126,12 +131,9 @@ public class GitVersionLoader(
         return match.group(2).toInt()
     }
 
-    override fun toString(): String {
-        return loadGitVersionInfo().toString()
-    }
-
     private companion object {
         private val PREFIX_REGEX = "[/@]?([A-Za-z]+[/@-])+".toRegex()
+        private val TAG_REGEX = "(.*)(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(.*)".toRegex()
         private val CLEAN_TAG_REGEX = ".*g.?[0-9a-fA-F]{3,}".toRegex()
         private const val COMMIT_DISTANCE_PATTERN = "(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}"
         private const val LAST_TAG_PATTERN = "(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}"
