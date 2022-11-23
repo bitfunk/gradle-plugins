@@ -1,4 +1,4 @@
-public final class eu/bitfunk/gradle/plugin/tool/versioning/GradleExtensionKt {
+public final class eu/bitfunk/gradle/plugin/tool/versioning/ProjectExtensionKt {
 	public static final fun version (Lorg/gradle/api/Project;)Ljava/lang/String;
 	public static final fun versionCleaned (Lorg/gradle/api/Project;)Ljava/lang/String;
 	public static final fun versionCode (Lorg/gradle/api/Project;)I

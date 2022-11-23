@@ -29,7 +29,7 @@ import org.gradle.kotlin.dsl.extra
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class GradleExtensionKtTest {
+class ProjectExtensionKtTest {
 
     @Test
     fun `GIVEN project WHEN version() THEN version returned`() {
