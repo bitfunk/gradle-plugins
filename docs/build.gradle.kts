@@ -36,24 +36,14 @@ python {
     )
 }
 
-val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "snapshot"
-
 mkdocs {
     sourcesDir = "./"
 
-    publish.docPath = currentDocVersion
-    publish.rootRedirect = project.hasProperty("release")
-    if (project.hasProperty("release")) {
-        publish.rootRedirectTo = "latest"
-        publish.setVersionAliases("latest")
-    }
-    publish.generateVersionsFile = true
+    publish.docPath = ""
 
     strict = true
 
-    extras = mapOf(
-        "version" to currentDocVersion
-    )
+    devPort = 3003
 }
 
 tasks.register<Delete>("clean") {
