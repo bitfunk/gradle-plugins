@@ -21,7 +21,7 @@
 
 <!--plugin-links-->
 
-[quality]: docs/src/plugins/quality/index.md
+[quality all]: docs/src/plugins/quality/index.md
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
@@ -45,7 +45,6 @@
 
 # Bitfunk Gradle Plugins
 
-A Collection of Gradle plugins to simplify and unify project development.
 [![Section quality](docs/src/assets/images/badge-section-quality.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality)
 [![QualityCodeAnalysis](docs/src/assets/images/badge-release-quality-code-analysis.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.code.analysis)
 [![QualityCodeFormatter](docs/src/assets/images/badge-release-quality-code-formatter.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.formatter)
@@ -71,14 +70,13 @@ A Collection of Gradle plugins to simplify and unify project development.
 
 ## About the project
 
-Collection of Gradle plugins used across multiple projects. They add opinionated configuration for other plugins or new functionality.
+A Collection of Gradle plugins to simplify and unify project development used across multiple bitfunk projects. They add opinionated configuration for other plugins or new functionality.
 
 ### Plugins
 
 #### Quality
 
-- [Quality] - a collection of all quality plugins
-
+- [Quality All] - a collection of all quality plugins
 - [Code Analysis] - a source code analysis plugin
 - [Formatter] - a source code formatter plugin applying bitfunk code style
 - [Report] - a quality report plugin using sonarqube
@@ -107,27 +105,13 @@ Check the usage of each Gradle plugin by reading the [plugin documentation][plug
 
 ## Installation
 
-Add to your project root `build.gradle/build.gradle.kts` file to download from [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages=):
+The dependencies are distributed through [Maven Central](https://central.sonatype.dev/) In case you want to use a SNAPSHOT version, add the following to your project root `build.gradle/build.gradle.kts` file:
 
 ```kotlin
 buildscript {
     repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/bitfunk/gradle-plugins")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
-            }
-        }
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
-}
-```
-
-and
-
-```kotlin
-plugins {
-    id("eu.bitfunk.gradle.plugins")
 }
 ```
 
@@ -137,8 +121,7 @@ Apply the plugins of your choice to your project. For details refer to the [plug
 
 ## Roadmap
 
-This project is work in progress. We are working on adding more functionality, guidelines,
-documentation and other improvements.
+This project is work in progress. We are working on adding more functionality, guidelines, documentation and other improvements.
 
 See the open [issues] for a list of proposed improvements and known issues.
 
