@@ -2,7 +2,7 @@
 kotlin = "1.6.21"
 gradle = "7.5.1"
 jUnit5 = "5.9.1"
-mockk = "1.13.2"
+mockk = "1.13.3"
 gradleTestUtil = "0.1.0"
 jacoco = "0.8.8"
 kotlinBinaryCompatibility = "0.12.1"
