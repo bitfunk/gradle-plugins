@@ -16,17 +16,71 @@ curl "link" -s -o badge-filename
 
 ## Badge Links
 
-Latest release:
+### Releases:
+
+#### Quality
 
 ```bash
-curl "https://img.shields.io/badge/Release-0.1.0-blueviolet.svg?style=flat"  -s -o badge-release-latest.svg
+curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../assets/images/badge-section-quality.svg
 ```
 
-License:
+- Code analysis
+  ```bash
+  curl "https://img.shields.io/badge/CodeAnalysis-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg
+  ```
+- Code Formatter
+  ```bash
+  curl "https://img.shields.io/badge/CodeFormatter-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-formatter.svg
+  ```
+- Report
+  ```bash
+  curl "https://img.shields.io/badge/Report-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-report.svg
+  ```
+
+#### Tool
 
 ```bash
-curl "https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat" -s -o badge-license.svg
+curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../assets/images/badge-section-tool.svg
 ```
+
+- Composite Delegator
+  ```bash
+  curl "https://img.shields.io/badge/CompositeDelegator-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-composite-delegator.svg
+  ```
+- Git Version
+  ```bash
+  curl "https://img.shields.io/badge/GitVersion-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg
+  ```
+- Versioning
+  ```bash
+  curl "https://img.shields.io/badge/Versioning-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-versioning.svg
+  ```
+
+#### Plugin-development
+
+```bash
+curl "https://img.shields.io/badge/Plugin_Development-→-orange.svg?style=flat" -s -o ../assets/images/badge-section-plugin-development.svg
+```
+
+- Gradle plugin convention
+  ```bash
+  curl "https://img.shields.io/badge/PluginConvention-v0.0.7-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-plugin-convention.svg
+  ```
+- Gradle test util
+  ```bash
+  curl "https://img.shields.io/badge/TestUtil-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-test-util.svg
+  ```
+- Gradle Version catalog accessor
+  ```bash
+  curl "https://img.shields.io/badge/VersionCatalogAccessor-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-version-catalog-accessor.svg
+  ```
+
+### Other
+
+- License:
+  ```bash
+  curl "https://img.shields.io/badge/License-ISC-lightgrey.svg?style=flat" -s -o badge-license.svg
+  ```
 
 ## License
 

@@ -46,15 +46,28 @@
 # Bitfunk Gradle Plugins
 
 A Collection of Gradle plugins to simplify and unify project development.
+[![Section quality](docs/src/assets/images/badge-section-quality.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality)
+[![QualityCodeAnalysis](docs/src/assets/images/badge-release-quality-code-analysis.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.code.analysis)
+[![QualityCodeFormatter](docs/src/assets/images/badge-release-quality-code-formatter.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.formatter)
+[![QualityReport](docs/src/assets/images/badge-release-quality-report.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.report)
 
-[![Latest release](docs/src/assets/images/badge-release-latest.svg)][releases]
+[![Section tool](docs/src/assets/images/badge-section-tool.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool)
+[![ToolCompositeDelegator](docs/src/assets/images/badge-release-tool-composite-delegator.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.composite.delegator)
+[![ToolGitVersion](docs/src/assets/images/badge-release-tool-git-version.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.gitversion)
+[![ToolVersioning](docs/src/assets/images/badge-release-tool-versioning.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.versioning)
+
+![Section plugin development](docs/src/assets/images/badge-section-plugin-development.svg)
+[![GradlePluginConvention](docs/src/assets/images/badge-release-gradle-plugin-convention.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.convention)
+[![GradleVersionCatalogAccessor](docs/src/assets/images/badge-release-gradle-version-catalog-accessor.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.version.catalog.accessor)
+[![GradleTestUtil](docs/src/assets/images/badge-release-gradle-test-util.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.test)
+
 [![CI - Build Snapshot Version](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml/badge.svg)](https://github.com/bitfunk/gradle-plugins/actions/workflows/ci-build-snapshot-version.yml)
-[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
-
 [![Quality](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=coverage)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
 [![Tech debt](https://sonarcloud.io/api/project_badges/measure?project=bitfunk_gradle-plugins&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=bitfunk_gradle-plugins)
+
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6013/badge)](https://bestpractices.coreinfrastructure.org/projects/6013)
+[![License](docs/src/assets/images/badge-license.svg)](LICENSE)
 
 ## About the project
 
