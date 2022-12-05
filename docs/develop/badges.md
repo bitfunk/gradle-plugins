@@ -72,7 +72,7 @@ curl "https://img.shields.io/badge/Plugin_Development-→-orange.svg?style=flat"
   ```
 - Gradle Version catalog accessor
   ```bash
-  curl "https://img.shields.io/badge/VersionCatalogAccessor-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-version-catalog-accessor.svg
+  curl "https://img.shields.io/badge/VersionCatalogAccessor-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-version-catalog-accessor.svg
   ```
 
 ### Other
