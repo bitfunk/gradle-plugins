@@ -22,8 +22,6 @@ Initial release
 ### Added
 
 - Add initial project
-- Add VersionCatalogAccessor - a version catalog accessor for Gradle plugin development
-- Add Gradle Plugin Convention - for Gradle plugin development
 - Add Formatter Plugin - using Spotless and ktlint
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
@@ -49,3 +47,4 @@ Initial release
 ### Plugin
 
 - [GradlePluginConvention](plugin-development/gradle-plugin-convention/CHANGELOG.md)
+- [VersionCatalogAccessor](./plugin-development/version-catalog-accessor/CHANGELOG.md)

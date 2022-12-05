@@ -8,9 +8,6 @@
 [publish]: docs/src/plugins/tool/publish/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
 
-
-[versioncatalog accessor]: docs/src/pluginDevelopment/versionCatalogAccessor/index.md
-
 <!--github-links-->
 
 [webpage]: https://bitfunk.github.io/gradle-plugins/
@@ -71,6 +68,7 @@ Plugins and tools that support developing Gradle plugins.
 #### Plugin
 
 - [Gradle Plugin Convention](plugin-development/gradle-plugin-convention/README.md) - a convention plugin for Gradle plugin development to ease configuration
+- [VersionCatalogAccessor](plugin-development/version-catalog-accessor/README.md) - a version catalog accessor for Gradle plugin development
 
 ## Getting started
 

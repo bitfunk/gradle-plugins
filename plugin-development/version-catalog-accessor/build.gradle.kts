@@ -22,7 +22,7 @@ plugins {
     id("jacoco-report-aggregation")
 }
 
-group = "eu.bitfunk.gradle.plugin.development"
+group = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor"
 version = "0.1.0"
 
 gradlePlugin {
