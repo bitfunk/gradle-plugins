@@ -7,7 +7,7 @@ gradleTestUtil = "0.1.0"
 jacoco = "0.8.8"
 kotlinBinaryCompatibility = "0.12.1"
 gradleMavenPublishPlugin = "0.22.0"
-gradleVersionCatalogAccessor = "0.1.0"
+gradleVersionCatalogAccessor = "0.1.1"
 
 [libraries]
 gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
