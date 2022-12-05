@@ -31,13 +31,15 @@ python {
         "mkdocs-minify-plugin:0.5.0",
         "mkdocs-redirects:1.2.0",
         "mkdocs-minify-plugin:0.6.1",
+        "mkdocs-same-dir:0.1.2",
+        "mkdocs-exclude:1.0.2",
         "pygments:2.13.0",
         "pymdown-extensions:9.9"
     )
 }
 
 mkdocs {
-    sourcesDir = "./"
+    sourcesDir = "../"
 
     publish.docPath = ""
 

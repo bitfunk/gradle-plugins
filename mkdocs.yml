@@ -5,11 +5,11 @@ site_url: https://bitfunk.github.io/gradle-plugins/
 
 repo_name: bitfunk/gradle-plugins
 repo_url: https://github.com/bitfunk/gradle-plugins
-edit_uri: edit/main/docs/src/
+edit_uri: edit/main/
 
 copyright: Copyright &copy; 2022 Wolf-Martell Montwé
 
-docs_dir: src
+docs_dir: '.'
 
 extra_css:
   - assets/css/extra.css
@@ -18,9 +18,9 @@ theme:
   name: 'material'
   font: false
   language: en
-  logo: assets/images/brand-logo.svg
-  favicon: assets/images/logo.svg
-  custom_dir: theme
+  logo: docs/assets/images/brand-logo.svg
+  favicon: docs/assets/images/logo.svg
+  custom_dir: docs/theme
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -50,6 +50,10 @@ plugins:
   - kroki
   - include-markdown
   - markdownextradata
+  - same-dir
+  - exclude:
+      glob:
+        - build/*
   - minify:
       minify_html: true
       htmlmin_opts:
@@ -93,28 +97,34 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
 
 nav:
-  - Home: index.md
-  - Changelog: changelog.md
-  - Plugins:
-    - Overview: plugins/index.md
-    - Quality:
-      - All: plugins/quality/index.md
-      - Code Analysis: plugins/quality/code-analysis/index.md
-      - Formatter: plugins/quality/formatter/index.md
-      - Report: plugins/quality/report/index.md
-    - Tool:
-        - Composite Delegator: plugins/tool/compositeDelegator/index.md
-        - Publish: plugins/tool/publish/index.md
-        - Version: plugins/tool/versioning/index.md
+  - Home: README.md
+  - Changelog: CHANGELOG.md
+#  - Plugins:
+#    - Overview: plugins/index.md
+#    - Quality:
+#      - All: plugins/quality/index.md
+#      - Code Analysis: plugins/quality/code-analysis/index.md
+#      - Formatter: plugins/quality/formatter/index.md
+#      - Report: plugins/quality/report/index.md
+#    - Tool:
+#        - plugins/tool/index.md
+#        - Composite Delegator: plugins/tool/compositeDelegator/index.md
+#        - Publish: plugins/tool/publish/index.md
+#        - Version: plugins/tool/versioning/index.md
   - Plugin Development:
-    - Overview: pluginDevelopment/index.md
-    - GradlePluginConvention: pluginDevelopment/gradlePluginConvention/index.md
-    - VersionCatalogAccessor: pluginDevelopment/versionCatalogAccessor/index.md
+#    - Overview: pluginDevelopment/index.md
+    - GradlePluginConvention:
+      - plugin-development/gradle-plugin-convention/README.md
+      - Changelog: plugin-development/gradle-plugin-convention/CHANGELOG.md
+#    - VersionCatalogAccessor: pluginDevelopment/versionCatalogAccessor/index.md
   - Develop:
-      - Code of Conduct: develop/codeOfConduct.md
-      - Contributing: develop/contributing.md
-      - Releasing: develop/releasing.md
-      - Badges: develop/badges.md
-  - License: license.md
+      - Code of Conduct: CODE_OF_CONDUCT.md
+      - Contributing: CONTRIBUTING.md
+      - Releasing: docs/develop/RELEASING.md
+      - Badges: docs/develop/badges.md
+  - License: LICENSE.md
