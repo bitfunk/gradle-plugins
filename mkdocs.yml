@@ -117,11 +117,12 @@ nav:
 #        - Publish: plugins/tool/publish/index.md
 #        - Version: plugins/tool/versioning/index.md
   - Plugin Development:
-#    - Overview: pluginDevelopment/index.md
     - GradlePluginConvention:
       - plugin-development/gradle-plugin-convention/README.md
       - Changelog: plugin-development/gradle-plugin-convention/CHANGELOG.md
-#    - VersionCatalogAccessor: pluginDevelopment/versionCatalogAccessor/index.md
+    - VersionCatalogAccessor:
+      - plugin-development/version-catalog-accessor/README.md
+      - Changelog: plugin-development/version-catalog-accessor/CHANGELOG.md
   - Develop:
       - Code of Conduct: CODE_OF_CONDUCT.md
       - Contributing: CONTRIBUTING.md
