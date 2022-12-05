@@ -8,10 +8,8 @@
 [publish]: docs/src/plugins/tool/publish/index.md
 [versioning]: docs/src/plugins/tool/versioning/index.md
 
-<!--plugin-development-links-->
 
 [versioncatalog accessor]: docs/src/pluginDevelopment/versionCatalogAccessor/index.md
-[gradle plugin convention]: docs/src/pluginDevelopment/gradlePluginConvention/index.md
 
 <!--github-links-->
 
@@ -68,8 +66,11 @@ A Collection of Gradle plugins to simplify and unify project development used ac
 
 ### Plugin development
 
-- [Gradle Plugin Convention] - a convention plugin for Gradle plugin development to ease configuration
-- [VersionCatalog Accessor] - a version catalog accessor for Gradle plugin development
+Plugins and tools that support developing Gradle plugins.
+
+#### Plugin
+
+- [Gradle Plugin Convention](plugin-development/gradle-plugin-convention/README.md) - a convention plugin for Gradle plugin development to ease configuration
 
 ## Getting started
 

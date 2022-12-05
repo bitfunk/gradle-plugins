@@ -43,3 +43,9 @@ Initial release
 ### Bumped
 
 - Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
+
+## Gradle plugin development
+
+### Plugin
+
+- [GradlePluginConvention](plugin-development/gradle-plugin-convention/CHANGELOG.md)
