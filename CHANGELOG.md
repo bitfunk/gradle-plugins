@@ -48,3 +48,7 @@ Initial release
 
 - [GradlePluginConvention](plugin-development/gradle-plugin-convention/CHANGELOG.md)
 - [VersionCatalogAccessor](./plugin-development/version-catalog-accessor/CHANGELOG.md)
+
+### Test
+
+- [GradleTestUtil](plugin-development/gradle-test-util/CHANGELOG.md)
