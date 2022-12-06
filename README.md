@@ -1,12 +1,9 @@
-[plugins]: docs/src/plugins/index.md
-
 [quality all]: docs/src/plugins/quality/index.md
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
 [composite delegator]: docs/src/plugins/tool/compositeDelegator/index.md
 [publish]: docs/src/plugins/tool/publish/index.md
-[versioning]: docs/src/plugins/tool/versioning/index.md
 
 <!--github-links-->
 
@@ -48,6 +45,8 @@ A Collection of Gradle plugins to simplify and unify project development used ac
 
 ### Plugins
 
+Plugins and tools that support developing software and add functionality to Gradle.
+
 #### Quality
 
 - [Quality All] - a collection of all quality plugins
@@ -59,7 +58,7 @@ A Collection of Gradle plugins to simplify and unify project development used ac
 
 - [Composite Delegator] - a plugin that delegates gradle tasks execution to included builds
 - [Publish] - a publish plugin for maven publications
-- [Versioning] - a versioning plugin using git tags
+- [Versioning](plugins/tool/versioning/README.md) - a versioning plugin using git tags
 
 ### Plugin development
 
@@ -72,13 +71,13 @@ Plugins and tools that support developing Gradle plugins.
 
 #### Test
 
--[GradleTestUtil](plugin-development/gradle-test-util/README.md) - Test util to ease Gradle plugin testing
+- [GradleTestUtil](plugin-development/gradle-test-util/README.md) - Test util to ease Gradle plugin testing
 
 ## Getting started
 
 You could use individual plugins or the all-plugins collection.
 
-Check the usage of each Gradle plugin by reading the [plugin documentation][plugins].
+Check the usage of each Gradle plugin by reading the [plugin documentation](plugins/README.md).
 
 ### Requirements
 

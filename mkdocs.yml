@@ -104,18 +104,20 @@ markdown_extensions:
 nav:
   - Home: README.md
   - Changelog: CHANGELOG.md
-#  - Plugins:
-#    - Overview: plugins/index.md
+  - Plugins:
+    - plugins/README.md
 #    - Quality:
 #      - All: plugins/quality/index.md
 #      - Code Analysis: plugins/quality/code-analysis/index.md
 #      - Formatter: plugins/quality/formatter/index.md
 #      - Report: plugins/quality/report/index.md
-#    - Tool:
+    - Tool:
 #        - plugins/tool/index.md
 #        - Composite Delegator: plugins/tool/compositeDelegator/index.md
 #        - Publish: plugins/tool/publish/index.md
-#        - Version: plugins/tool/versioning/index.md
+        - Versioning:
+          - plugins/tool/versioning/README.md
+          - Changelog: plugins/tool/versioning/CHANGELOG.md
   - Plugin Development:
     - Plugin:
       - GradlePluginConvention:

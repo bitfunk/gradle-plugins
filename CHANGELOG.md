@@ -26,7 +26,6 @@ Initial release
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add CodeAnalysis Plugin - using Detekt
-- Add Versioning Plugin - a versioning plugin using git tags
 - Add Report Plugin - a quality report plugin using sonarqube
 - Add Quality Plugin - a collection of all quality plugins
 - Add Code of Conduct
@@ -34,13 +33,15 @@ Initial release
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
 - Add maven central publishing to Gradle Plugin Convention
 
-### Fixed
-
-- Versioning: cleaned version wrong for feature versions
-
 ### Bumped
 
 - Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
+
+## Plugin
+
+### Tool
+
+- [Versioning](plugins/tool/versioning/CHANGELOG.md)
 
 ## Gradle plugin development
 
