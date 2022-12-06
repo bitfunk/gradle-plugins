@@ -117,6 +117,9 @@ nav:
         - Publish:
           - plugins/tool/publish/README.md
           - Changelog: plugins/tool/publish/CHANGELOG.md
+        - GitVersion:
+          - plugins/tool/git-version/README.md
+          - Changelog: plugins/tool/git-version/CHANGELOG.md
         - Versioning:
           - plugins/tool/versioning/README.md
           - Changelog: plugins/tool/versioning/CHANGELOG.md

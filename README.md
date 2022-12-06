@@ -58,6 +58,7 @@ Plugins and tools that support developing software and add functionality to Grad
 
 - [Composite Delegator] - a plugin that delegates gradle tasks execution to included builds
 - [Publish](plugins/tool/publish/README.md) - a publish plugin for maven publications
+- [GitVersion](plugins/tool/git-version/README.md) - a plugin to derive version information from git tags
 - [Versioning](plugins/tool/versioning/README.md) - a versioning plugin using git tags
 
 ### Plugin development

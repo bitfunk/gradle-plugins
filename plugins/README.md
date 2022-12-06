@@ -16,4 +16,5 @@ Overview of all Gradle plugins provided by this project.
 
 - [Composite Delegator](../docs/src/plugins/tool/compositeDelegator/index.md) - a plugin that delegates gradle tasks execution to included builds
 - [Publish](tool/publish/README.md) - publish plugin for maven publications
+- [GitVersion](tool/git-version/README.md) - a plugin to derive version information from git tags
 - [Versioning](tool/versioning/README.md) - a versioning plugin using git tags

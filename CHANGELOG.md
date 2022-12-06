@@ -25,7 +25,6 @@ Initial release
 - Add Report Plugin - a quality report plugin using sonarqube
 - Add Quality Plugin - a collection of all quality plugins
 - Add Code of Conduct
-
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
 - Add maven central publishing to Gradle Plugin Convention
 
@@ -38,6 +37,7 @@ Initial release
 ### Tool
 
 - [Publish](plugins/tool/publish/CHANGELOG.md)
+- [GitVersion](plugins/tool/git-version/CHANGELOG.md)
 - [Versioning](plugins/tool/versioning/CHANGELOG.md)
 
 ## Gradle plugin development
