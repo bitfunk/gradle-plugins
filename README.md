@@ -2,7 +2,6 @@
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
-[composite delegator]: docs/src/plugins/tool/compositeDelegator/index.md
 
 <!--github-links-->
 
@@ -56,7 +55,7 @@ Plugins and tools that support developing software and add functionality to Grad
 
 #### Tool
 
-- [Composite Delegator] - a plugin that delegates gradle tasks execution to included builds
+- [CompositeDelegator](plugins/tool/composite-delegator/README.md) - a plugin that delegates gradle tasks execution to included builds
 - [Publish](plugins/tool/publish/README.md) - a publish plugin for maven publications
 - [GitVersion](plugins/tool/git-version/README.md) - a plugin to derive version information from git tags
 - [Versioning](plugins/tool/versioning/README.md) - a versioning plugin using git tags
@@ -67,7 +66,7 @@ Plugins and tools that support developing Gradle plugins.
 
 #### Plugin
 
-- [Gradle Plugin Convention](plugin-development/gradle-plugin-convention/README.md) - a convention plugin for Gradle plugin development to ease configuration
+- [GradlePluginConvention](plugin-development/gradle-plugin-convention/README.md) - a convention plugin for Gradle plugin development to ease configuration
 - [VersionCatalogAccessor](plugin-development/version-catalog-accessor/README.md) - a version catalog accessor for Gradle plugin development
 
 #### Test

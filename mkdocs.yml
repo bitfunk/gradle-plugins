@@ -112,8 +112,9 @@ nav:
 #      - Formatter: plugins/quality/formatter/index.md
 #      - Report: plugins/quality/report/index.md
     - Tool:
-#        - plugins/tool/index.md
-#        - Composite Delegator: plugins/tool/compositeDelegator/index.md
+        - CompositeDelegator:
+          - plugins/tool/composite-delegator/README.md
+          - Changelog: plugins/tool/composite-delegator/CHANGELOG.md
         - Publish:
           - plugins/tool/publish/README.md
           - Changelog: plugins/tool/publish/CHANGELOG.md
