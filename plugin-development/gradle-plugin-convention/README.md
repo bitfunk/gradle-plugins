@@ -1,5 +1,7 @@
 # Gradle Plugin Convention
 
+[![GradlePluginConvention](../../docs/assets/images/badge-release-gradle-plugin-convention.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.convention)
+
 The plugin applies configuration for Gradle plugin development to ease configuration effort. It sets Java 11 support, default dependencies, tests and coverage settings. It also enables [explicit API mode for Kotlin](https://kotlinlang.org/docs/whatsnew14.html#explicit-api-mode-for-library-authors).
 
 ## Requirements

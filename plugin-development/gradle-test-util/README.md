@@ -1,5 +1,7 @@
 # GradleTestUtil
 
+[![GradleTestUtil](../../docs/assets/images/badge-release-gradle-test-util.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.test)
+
 This collection of utils simplifies testing of Gradle plugins.
 
 ## Installation

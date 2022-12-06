@@ -1,5 +1,7 @@
 # VersionCatalogAccessor
 
+[![GradleVersionCatalogAccessor](../../docs/assets/images/badge-release-gradle-version-catalog-accessor.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.development.version.catalog.accessor)
+
 This plugin generates an accessor to expose
 the [version catalog (toml)](https://docs.gradle.org/current/userguide/platforms.html) content to
 Gradle plugins. This allows plugins to reuse an already available version catalog in it's own

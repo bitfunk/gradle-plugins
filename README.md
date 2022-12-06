@@ -70,6 +70,10 @@ Plugins and tools that support developing Gradle plugins.
 - [Gradle Plugin Convention](plugin-development/gradle-plugin-convention/README.md) - a convention plugin for Gradle plugin development to ease configuration
 - [VersionCatalogAccessor](plugin-development/version-catalog-accessor/README.md) - a version catalog accessor for Gradle plugin development
 
+#### Test
+
+-[GradleTestUtil](plugin-development/gradle-test-util/README.md) - Test util to ease Gradle plugin testing
+
 ## Getting started
 
 You could use individual plugins or the all-plugins collection.
