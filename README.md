@@ -3,7 +3,6 @@
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
 [composite delegator]: docs/src/plugins/tool/compositeDelegator/index.md
-[publish]: docs/src/plugins/tool/publish/index.md
 
 <!--github-links-->
 
@@ -23,6 +22,7 @@
 
 [![Section tool](docs/assets/images/badge-section-tool.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool)
 [![ToolCompositeDelegator](docs/assets/images/badge-release-tool-composite-delegator.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.composite.delegator)
+[![ToolPublish](docs/assets/images/badge-release-tool-publish.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.publish)
 [![ToolGitVersion](docs/assets/images/badge-release-tool-git-version.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.gitversion)
 [![ToolVersioning](docs/assets/images/badge-release-tool-versioning.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.versioning)
 
@@ -57,7 +57,7 @@ Plugins and tools that support developing software and add functionality to Grad
 #### Tool
 
 - [Composite Delegator] - a plugin that delegates gradle tasks execution to included builds
-- [Publish] - a publish plugin for maven publications
+- [Publish](plugins/tool/publish/README.md) - a publish plugin for maven publications
 - [Versioning](plugins/tool/versioning/README.md) - a versioning plugin using git tags
 
 ### Plugin development

@@ -11,10 +11,6 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
 
-### Bumped
-
-- jacksonToml 2.14.0 -> 2.14.1
-
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
 
 Initial release
@@ -29,7 +25,7 @@ Initial release
 - Add Report Plugin - a quality report plugin using sonarqube
 - Add Quality Plugin - a collection of all quality plugins
 - Add Code of Conduct
-- Add Publish Plugin - a publish plugin for maven dependencies
+
 - Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
 - Add maven central publishing to Gradle Plugin Convention
 
@@ -41,6 +37,7 @@ Initial release
 
 ### Tool
 
+- [Publish](plugins/tool/publish/CHANGELOG.md)
 - [Versioning](plugins/tool/versioning/CHANGELOG.md)
 
 ## Gradle plugin development

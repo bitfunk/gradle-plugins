@@ -19,6 +19,10 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-ver
 
 - package group name
 
+### Bumped
+
+- jacksonToml 2.14.0 -> 2.14.1
+
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-version-catalog-accessor@v0.1.0)
 
 Initial release of the VersionCatalogAccessor - a version catalog accessor for Gradle plugin development

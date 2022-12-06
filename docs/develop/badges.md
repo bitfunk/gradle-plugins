@@ -47,6 +47,10 @@ curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../asse
   ```bash
   curl "https://img.shields.io/badge/CompositeDelegator-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-composite-delegator.svg
   ```
+- Publish
+  ```bash
+  curl "https://img.shields.io/badge/Publish-TODO-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-publish.svg
+  ```
 - Git Version
   ```bash
   curl "https://img.shields.io/badge/GitVersion-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg

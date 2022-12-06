@@ -114,7 +114,9 @@ nav:
     - Tool:
 #        - plugins/tool/index.md
 #        - Composite Delegator: plugins/tool/compositeDelegator/index.md
-#        - Publish: plugins/tool/publish/index.md
+        - Publish:
+          - plugins/tool/publish/README.md
+          - Changelog: plugins/tool/publish/CHANGELOG.md
         - Versioning:
           - plugins/tool/versioning/README.md
           - Changelog: plugins/tool/versioning/CHANGELOG.md
