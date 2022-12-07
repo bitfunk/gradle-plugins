@@ -1,6 +1,6 @@
 [versions]
 ktlint = "0.47.1"
-spotless = "6.11.0"
+spotless = "6.12.0"
 gradlePluginConvention = "0.0.7"
 
 [libraries]
