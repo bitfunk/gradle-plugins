@@ -118,7 +118,7 @@ class CodeAnalysisPluginTest {
         verifyAll {
             extensionContainer.configure(DetektExtension::class.java, any())
 
-            detektExtension.toolVersion = "1.21.0"
+            detektExtension.toolVersion = "1.22.0"
             detektExtension.parallel = true
 
             detektExtension.source = projectFiles

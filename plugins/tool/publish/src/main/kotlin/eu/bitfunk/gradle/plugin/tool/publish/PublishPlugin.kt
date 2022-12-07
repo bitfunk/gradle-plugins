@@ -125,9 +125,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
     private fun loadProperty(project: Project, propertyName: String, envName: String): String {
         val property = project.findProperty(propertyName) as String? ?: System.getenv(envName)
 
-        if (property.isNullOrBlank()) {
-            throw IllegalArgumentException("Can't find gradle property $propertyName or system env $envName")
-        }
+        require(!property.isNullOrBlank()) { "Can't find gradle property $propertyName or system env $envName" }
 
         return property
     }
