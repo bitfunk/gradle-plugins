@@ -125,23 +125,21 @@ import org.gradle.plugins.signing.SigningExtension
     private fun loadProperty(project: Project, propertyName: String, envName: String): String {
 <span class="fc bfc" id="L126" title="All 2 branches covered.">        val property = project.findProperty(propertyName) as String? ?: System.getenv(envName)</span>
 
-<span class="pc bpc" id="L128" title="1 of 6 branches missed.">        if (property.isNullOrBlank()) {</span>
-<span class="fc" id="L129">            throw IllegalArgumentException(&quot;Can't find gradle property $propertyName or system env $envName&quot;)</span>
-        }
+<span class="pc bpc" id="L128" title="1 of 8 branches missed.">        require(!property.isNullOrBlank()) { &quot;Can't find gradle property $propertyName or system env $envName&quot; }</span>
 
-<span class="fc" id="L132">        return property</span>
+<span class="fc" id="L130">        return property</span>
     }
 
     private fun Project.publishing(action: Action&lt;PublishingExtension&gt;) {
-<span class="fc" id="L136">        extensions.configure(PublishingExtension::class.java, action)</span>
-<span class="fc" id="L137">    }</span>
+<span class="fc" id="L134">        extensions.configure(PublishingExtension::class.java, action)</span>
+<span class="fc" id="L135">    }</span>
 
     private fun Project.signing(action: Action&lt;SigningExtension&gt;) {
-<span class="fc" id="L140">        extensions.configure(SigningExtension::class.java, action)</span>
-<span class="fc" id="L141">    }</span>
+<span class="fc" id="L138">        extensions.configure(SigningExtension::class.java, action)</span>
+<span class="fc" id="L139">    }</span>
 
     private fun Project.publishingExtension(): PublishingExtension {
-<span class="fc" id="L144">        return extensions.getByName&lt;PublishingExtension&gt;(&quot;publishing&quot;)</span>
+<span class="fc" id="L142">        return extensions.getByName&lt;PublishingExtension&gt;(&quot;publishing&quot;)</span>
     }
 
     private companion object {

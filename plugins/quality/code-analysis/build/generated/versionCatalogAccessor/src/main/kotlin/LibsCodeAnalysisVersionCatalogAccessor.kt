@@ -43,7 +43,7 @@ public class LibsCodeAnalysisVersionCatalogAccessor(
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("detekt")
 
-            public override fun getStatic(): String = "1.21.0"
+            public override fun getStatic(): String = "1.22.0"
         }
 
         public override val gradlePluginConvention: VersionCatalogDependency.Leaf = object :
