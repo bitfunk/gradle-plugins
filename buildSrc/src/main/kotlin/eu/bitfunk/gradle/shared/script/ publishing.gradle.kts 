@@ -1,7 +1,0 @@
-package eu.bitfunk.gradle.shared.script
-
-import org.eclipse.jgit.api.Git
-import org.eclipse.jgit.api.ResetCommand
-import org.eclipse.jgit.transport.PushResult
-import org.eclipse.jgit.transport.RemoteRefUpdate
-import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
