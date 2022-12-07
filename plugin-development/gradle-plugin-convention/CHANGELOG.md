@@ -11,6 +11,12 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.7...main)
 
+### Bumped
+
+- Gradle 7.5.1 -> 7.6
+- Kotlin 1.6.21 -> 1.7.10
+- Kotlin DSL 2.3.3 -> 2.4.1
+
 ## [0.0.7](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.0.7)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.6...plugin-dev-convention@v0.0.7)

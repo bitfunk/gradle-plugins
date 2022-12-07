@@ -1,5 +1,5 @@
 [versions]
-gradle = "7.5.1"
+gradle = "7.6"
 mkdocs = "3.0.0"
 gradleQuality = "0.1.1"
 gradleCompositeDelegator = "0.1.0"
