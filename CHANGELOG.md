@@ -44,6 +44,7 @@ Changelogs for every plugin are listed below and for this project could be found
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add Code of Conduct
+- Add test report uploader
 
 ### Changed
 
