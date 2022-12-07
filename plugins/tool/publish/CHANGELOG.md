@@ -11,6 +11,6 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-publish@v0.1.0...main)
 
-[//]: # (## [0.1.0]&#40;https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-publish@v0.1.0&#41;)
+[//]: # "## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-publish@v0.1.0)"
 
 - Add Publish Plugin - a publish plugin for maven dependencies

@@ -21,4 +21,4 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-ve
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-versioning@v0.1.0)
 
-Initial release Gradle Versioning Plugin  - for easy project versioning using Git tags.
+Initial release Gradle Versioning Plugin - for easy project versioning using Git tags.

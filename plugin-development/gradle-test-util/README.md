@@ -16,7 +16,6 @@ dependency {
 
 ## Usage
 
-
 ### Stub Gradle action
 
 For easier mocking of Gradle actions with [MockK](https://mockk.io/) there are two util functions provided: `stubGradleAction` and `stubGradleActionWithReturn`.
