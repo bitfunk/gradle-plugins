@@ -1,0 +1,18 @@
+public abstract interface class eu/bitfunk/gradle/plugin/quality/code/analysis/CodeAnalysisContract {
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/quality/code/analysis/CodeAnalysisContract$Plugin {
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+	public abstract fun configureAnalysis (Lorg/gradle/api/Project;)V
+	public abstract fun configureAnalysisTasks (Lorg/gradle/api/Project;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/quality/code/analysis/CodeAnalysisPlugin : eu/bitfunk/gradle/plugin/quality/code/analysis/CodeAnalysisContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun configureAnalysis (Lorg/gradle/api/Project;)V
+	public fun configureAnalysisTasks (Lorg/gradle/api/Project;)V
+}
+

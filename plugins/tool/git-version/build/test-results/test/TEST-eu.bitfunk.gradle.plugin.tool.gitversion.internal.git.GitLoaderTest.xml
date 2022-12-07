@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-12-07T14:35:41" hostname="fv-az206-560" time="1.905">
+  <properties/>
+  <testcase name="GIVEN project is wrong linebreak git submodule WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.015"/>
+  <testcase name="GIVEN project is no git submodule WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.011"/>
+  <testcase name="GIVEN project is git submodule WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="1.678"/>
+  <testcase name="GIVEN project with git WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.025"/>
+  <testcase name="GIVEN project without git WHEN load() THEN fail with exception()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.004"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.002"/>
+  <testcase name="GIVEN project is absolute git submodule WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.101"/>
+  <testcase name="GIVEN project is wrong spacing git submodule WHEN load THEN return git()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitLoaderTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

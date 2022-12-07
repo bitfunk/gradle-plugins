@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GitVersionLoader.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plugins</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.tool.gitversion</a> &gt; <span class="el_source">GitVersionLoader.kt</span></div><h1>GitVersionLoader.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+package eu.bitfunk.gradle.plugin.tool.gitversion
+
+import eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribe
+import net.swiftzer.semver.SemVer
+import org.eclipse.jgit.api.Git
+import org.eclipse.jgit.lib.Constants
+import org.eclipse.jgit.lib.ObjectId
+import org.eclipse.jgit.lib.Ref
+import java.util.regex.Pattern
+
+<span class="fc" id="L28">public class GitVersionLoader(</span>
+    private val git: Git,
+    private val prefix: String
+) : GitVersionContract.Loader {
+
+<span class="fc" id="L33">    init {</span>
+<span class="pc bpc" id="L34" title="1 of 10 branches missed.">        assert(prefix.isEmpty() || prefix.matches(PREFIX_REGEX)) {</span>
+<span class="fc" id="L35">            &quot;Specified prefix `$prefix` does not match the allowed format regex `$PREFIX_REGEX`.&quot;</span>
+        }
+<span class="fc" id="L37">    }</span>
+
+    @Volatile
+    private var cachedVersionInfo: GitVersionInfo? = null
+
+    override fun loadGitVersionInfo(): GitVersionInfo {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (cachedVersionInfo != null) {</span>
+<span class="fc" id="L44">            return cachedVersionInfo as GitVersionInfo</span>
+        }
+<span class="fc" id="L46">        val gitDescribe = GitDescribe(git).describe(prefix)</span>
+
+<span class="fc" id="L48">        return mapToVersionDetails(gitDescribe).also {</span>
+<span class="fc" id="L49">            cachedVersionInfo = it</span>
+<span class="fc" id="L50">        }</span>
+    }
+
+    private fun mapToVersionDetails(gitDescribe: String): GitVersionInfo {
+<span class="fc" id="L54">        val description = gitDescribe.replaceFirst((&quot;^$prefix&quot;).toRegex(), &quot;&quot;)</span>
+<span class="fc" id="L55">        return GitVersionInfo(</span>
+<span class="fc" id="L56">            version = version(description),</span>
+<span class="fc" id="L57">            versionCode = versionCode(description),</span>
+<span class="fc" id="L58">            branchName = branchName(),</span>
+<span class="fc" id="L59">            gitHashFull = gitHashFull(),</span>
+<span class="fc" id="L60">            gitHash = gitHash(),</span>
+<span class="fc" id="L61">            lastTag = lastTag(description),</span>
+<span class="fc bfc" id="L62" title="All 4 branches covered.">            isCleanTag = isClean() &amp;&amp; isPlainTag(description),</span>
+<span class="fc" id="L63">            commitDistance = commitDistance(description)</span>
+        )
+    }
+
+    private fun version(gitDescribe: String): String {
+<span class="fc bfc" id="L68" title="All 4 branches covered.">        return if (gitDescribe.isEmpty()) {</span>
+<span class="fc" id="L69">            UNDEFINED</span>
+        } else {
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            gitDescribe + if (!isClean()) &quot;.dirty&quot; else &quot;&quot;</span>
+        }
+    }
+
+    private fun versionCode(description: String): Int {
+<span class="fc bfc" id="L76" title="All 4 branches covered.">        return if (description.isEmpty()) {</span>
+<span class="fc" id="L77">            -1</span>
+        } else {
+<span class="fc" id="L79">            var versionDescription = description</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">            if (description.startsWith(&quot;v&quot;)) versionDescription = description.substring(1)</span>
+<span class="fc" id="L81">            try {</span>
+<span class="fc" id="L82">                val version: SemVer = SemVer.parse(versionDescription)</span>
+<span class="fc" id="L83">                return version.major * MAJOR_SHIFT + version.minor * MINOR_SHIFT + version.patch</span>
+<span class="fc" id="L84">            } catch (exception: Exception) {</span>
+<span class="fc" id="L85">                return -1</span>
+            }
+        }
+    }
+
+    private fun branchName(): String {
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        val ref: Ref = git.repository.findRef(git.repository.branch) ?: return UNDEFINED</span>
+<span class="fc" id="L92">        return ref.name.substring(Constants.R_HEADS.length)</span>
+    }
+
+    private fun gitHashFull(): String {
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        val objectId: ObjectId = git.repository.findRef(Constants.HEAD).objectId ?: return UNDEFINED</span>
+<span class="fc" id="L97">        return objectId.name</span>
+    }
+
+    private fun gitHash(): String {
+<span class="fc" id="L101">        val gitHashFull = gitHashFull()</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        return if (gitHashFull == UNDEFINED) {</span>
+<span class="fc" id="L103">            UNDEFINED</span>
+        } else {
+<span class="fc" id="L105">            gitHashFull.substring(0, Constants.OBJECT_ID_ABBREV_STRING_LENGTH)</span>
+        }
+    }
+
+    private fun lastTag(description: String): String {
+<span class="fc bfc" id="L110" title="All 6 branches covered.">        if (description.isEmpty() || !isTag(description)) return UNDEFINED</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        if (isPlainTag(description)) return description</span>
+
+<span class="fc" id="L113">        val match = Pattern.compile(LAST_TAG_PATTERN).matcher(description)</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">        return if (match.matches()) match.group(1) else UNDEFINED</span>
+    }
+
+    private fun isClean(): Boolean {
+<span class="fc" id="L118">        return git.status().call().isClean</span>
+    }
+
+    private fun isPlainTag(description: String): Boolean {
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        return !CLEAN_TAG_REGEX.matches(description)</span>
+    }
+
+    private fun isTag(description: String): Boolean {
+<span class="fc" id="L126">        return TAG_REGEX.matches(description)</span>
+    }
+
+    private fun commitDistance(description: String): Int {
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        if (isPlainTag(description)) return 0</span>
+
+<span class="fc" id="L132">        val match = Pattern.compile(COMMIT_DISTANCE_PATTERN).matcher(description)</span>
+<span class="pc bpc" id="L133" title="2 of 4 branches missed.">        assert(match.matches()) { &quot;Cannot get commit distance for description: '$description'&quot; }</span>
+<span class="fc" id="L134">        return match.group(2).toInt()</span>
+    }
+
+    private companion object {
+<span class="fc" id="L138">        private val PREFIX_REGEX = &quot;[/@]?([A-Za-z]+[/@-])+&quot;.toRegex()</span>
+<span class="fc" id="L139">        private val TAG_REGEX = &quot;(.*)(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(.*)&quot;.toRegex()</span>
+<span class="fc" id="L140">        private val CLEAN_TAG_REGEX = &quot;.*g.?[0-9a-fA-F]{3,}&quot;.toRegex()</span>
+        private const val COMMIT_DISTANCE_PATTERN = &quot;(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}&quot;
+        private const val LAST_TAG_PATTERN = &quot;(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}&quot;
+        private const val UNDEFINED = &quot;unspecified&quot;
+        private const val MAJOR_SHIFT = 10000
+        private const val MINOR_SHIFT = 100
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

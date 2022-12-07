@@ -1,0 +1,14 @@
+public abstract interface class eu/bitfunk/gradle/plugin/quality/QualityContract {
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/quality/QualityContract$Plugin {
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/quality/QualityPlugin : eu/bitfunk/gradle/plugin/quality/QualityContract$Plugin, org/gradle/api/Plugin {
+	public fun <init> ()V
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+

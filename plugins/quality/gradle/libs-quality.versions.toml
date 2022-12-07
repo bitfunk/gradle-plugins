@@ -1,0 +1,16 @@
+[versions]
+gradleCodeAnalysis = "0.1.0"
+gradleFormatter = "0.1.0"
+gradleReport = "0.1.0"
+
+gradlePluginConvention = "0.0.7"
+gradleCompositeDelegator = "0.1.0"
+
+[libraries]
+gradleCodeAnalysis = { module = "eu.bitfunk.gradle.plugin.quality:code-analysis", version.ref = "gradleCodeAnalysis"}
+gradleFormatter = { module = "eu.bitfunk.gradle.plugin.quality:formatter", version.ref = "gradleFormatter"}
+gradleReport = { module = "eu.bitfunk.gradle.plugin.quality:report", version.ref = "gradleReport"}
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
+gradleCompositeDelegator = { id = "eu.bitfunk.gradle.plugin.tool.composite.delegator", version.ref = "gradleCompositeDelegator" }

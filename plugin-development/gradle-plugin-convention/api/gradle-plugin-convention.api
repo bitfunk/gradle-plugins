@@ -1,0 +1,63 @@
+public final class eu/bitfunk/gradle/plugin/development/convention/GradleExtensionsKt {
+	public static final fun implementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
+	public static final fun jacoco (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
+	public static final fun javaPlugin (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
+	public static final fun testImplementation (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
+	public static final fun testRuntimeOnly (Lorg/gradle/api/artifacts/dsl/DependencyHandler;Ljava/lang/Object;)Lorg/gradle/api/artifacts/Dependency;
+}
+
+public final class eu/bitfunk/gradle/plugin/development/convention/GradleKotlinExtensionsKt {
+	public static final fun kotlinJvm (Lorg/gradle/api/Project;Lorg/gradle/api/Action;)V
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract {
+	public static final field Companion Leu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Companion;
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Companion {
+	public static final field EXTENSION_NAME Ljava/lang/String;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension {
+	public abstract fun getPublishDescription ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishGitHubOrganization ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishGitHubRepositoryName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPublishName ()Lorg/gradle/api/provider/Property;
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin {
+	public abstract fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension;
+	public abstract fun addPlugins (Lorg/gradle/api/Project;)V
+	public abstract fun addRepositories (Lorg/gradle/api/Project;)V
+	public abstract fun checkPreconditions (Lorg/gradle/api/Project;)V
+	public abstract fun configureDependencies (Lorg/gradle/api/Project;)V
+	public abstract fun configureGradleWrapper (Lorg/gradle/api/Project;)V
+	public abstract fun configureJavaCompatibility (Lorg/gradle/api/Project;)V
+	public abstract fun configureKotlin (Lorg/gradle/api/Project;)V
+	public abstract fun configureTestCoverage (Lorg/gradle/api/Project;)V
+	public abstract fun configureTestCoverageTasks (Lorg/gradle/api/Project;)V
+	public abstract fun configureTests (Lorg/gradle/api/Project;)V
+}
+
+public final class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionPlugin : eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Plugin, org/gradle/api/Plugin {
+	public static final field COVERAGE_MINIMUM D
+	public fun <init> ()V
+	public fun addExtension (Lorg/gradle/api/Project;)Leu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension;
+	public fun addPlugins (Lorg/gradle/api/Project;)V
+	public fun addRepositories (Lorg/gradle/api/Project;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun checkPreconditions (Lorg/gradle/api/Project;)V
+	public fun configureDependencies (Lorg/gradle/api/Project;)V
+	public fun configureGradleWrapper (Lorg/gradle/api/Project;)V
+	public fun configureJavaCompatibility (Lorg/gradle/api/Project;)V
+	public fun configureKotlin (Lorg/gradle/api/Project;)V
+	public fun configureTestCoverage (Lorg/gradle/api/Project;)V
+	public fun configureTestCoverageTasks (Lorg/gradle/api/Project;)V
+	public fun configureTests (Lorg/gradle/api/Project;)V
+}
+
+public abstract interface class eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionPluginExtension : eu/bitfunk/gradle/plugin/development/convention/GradlePluginConventionContract$Extension {
+}
+

@@ -1,0 +1,9 @@
+[versions]
+gradlePluginGitVersion = "0.1.0-SNAPSHOT"
+gradlePluginConvention = "0.0.7"
+
+[libraries]
+plugin-gitVersion = { module = "eu.bitfunk.gradle.plugin.tool:git-version", version.ref = "gradlePluginGitVersion" }
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-07T14:30:25" hostname="fv-az206-560" time="0.02">
+  <properties/>
+  <testcase name="implements Transformer()" classname="eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformerTest" time="0.003"/>
+  <testcase name="GIVEN one fileName WHEN transform() 3 times THEN -3 added to fileName()" classname="eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformerTest" time="0.003"/>
+  <testcase name="GIVEN one fileName WHEN transform() THEN -1 added to fileName()" classname="eu.bitfunk.gradle.plugin.quality.report.intern.FileNameTransformerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

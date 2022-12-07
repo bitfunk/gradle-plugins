@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VersioningPlugin.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">plugins</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.tool.versioning</a> &gt; <span class="el_source">VersioningPlugin.kt</span></div><h1>VersioningPlugin.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package eu.bitfunk.gradle.plugin.tool.versioning
+
+import eu.bitfunk.gradle.plugin.tool.versioning.VersioningContract.Generator
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.extra
+import java.util.Date
+
+<span class="fc" id="L27">public class VersioningPlugin : Plugin&lt;Project&gt;, VersioningContract.Plugin {</span>
+
+    override fun apply(target: Project) {
+<span class="fc" id="L30">        val generator = VersionNameGenerator(target)</span>
+
+<span class="fc" id="L32">        addPlugins(target)</span>
+<span class="fc" id="L33">        configureVersion(target, generator)</span>
+<span class="fc" id="L34">        configureVersionTasks(target, generator)</span>
+<span class="fc" id="L35">    }</span>
+
+<span class="fc" id="L37">    override fun addPlugins(project: Project): Unit = with(project) {</span>
+<span class="fc" id="L38">        pluginManager.apply(&quot;eu.bitfunk.gradle.plugin.tool.gitversion&quot;)</span>
+<span class="fc" id="L39">    }</span>
+
+<span class="fc" id="L41">    override fun configureVersion(project: Project, generator: Generator): Unit = with(project) {</span>
+<span class="fc" id="L42">        allprojects {</span>
+<span class="fc" id="L43">            version = generator.generateVersionName()</span>
+<span class="fc" id="L44">            extra.set(&quot;versionCode&quot;, generator.generateVersionCode())</span>
+<span class="fc" id="L45">            extra.set(&quot;versionCodeFeature&quot;, generator.generateFeatureVersionCode(Date()))</span>
+<span class="fc" id="L46">        }</span>
+<span class="fc" id="L47">    }</span>
+
+<span class="fc" id="L49">    override fun configureVersionTasks(project: Project, generator: Generator): Unit = with(project) {</span>
+<span class="fc" id="L50">        tasks.register(&quot;versionInfo&quot;) {</span>
+<span class="fc" id="L51">            group = &quot;versioning&quot;</span>
+
+<span class="fc" id="L53">            doLast {</span>
+<span class="fc" id="L54">                println(&quot;VersionName: ${generator.generateVersionName()}&quot;)</span>
+<span class="fc" id="L55">                println(&quot;VersionCode: ${generator.generateVersionCode()}&quot;)</span>
+<span class="fc" id="L56">                println(&quot;VersionCodeFeature: ${generator.generateFeatureVersionCode(Date())}&quot;)</span>
+<span class="fc" id="L57">                println(&quot;VersionDetails: ${generator.generateVersionDetails()}&quot;)</span>
+<span class="fc" id="L58">            }</span>
+<span class="fc" id="L59">        }</span>
+<span class="fc" id="L60">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CompositeDelegatorPlugin.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">composite-delegator</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.tool.composite.delegator</a> &gt; <span class="el_source">CompositeDelegatorPlugin.kt</span></div><h1>CompositeDelegatorPlugin.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package eu.bitfunk.gradle.plugin.tool.composite.delegator
+
+import eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorContract.Companion.EXTENSION_NAME
+import eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorContract.Extension
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.api.internal.ConventionTask
+import org.gradle.api.tasks.Delete
+import org.gradle.api.tasks.testing.Test
+import kotlin.collections.Map.Entry
+
+<span class="fc" id="L30">public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugin&lt;Project&gt; {</span>
+
+    override fun apply(target: Project) {
+<span class="fc" id="L33">        val extension = addExtension(target)</span>
+<span class="fc" id="L34">        configureTasks(target, extension)</span>
+<span class="fc" id="L35">    }</span>
+
+<span class="fc" id="L37">    override fun addExtension(project: Project): Extension = with(project) {</span>
+<span class="fc" id="L38">        val extension = extensions.create(</span>
+<span class="fc" id="L39">            EXTENSION_NAME,</span>
+<span class="fc" id="L40">            CompositeDelegatorPluginExtension::class.java</span>
+        )
+
+<span class="fc" id="L43">        extension.additionalTasks.convention(emptyList())</span>
+
+<span class="fc" id="L45">        return extension</span>
+    }
+
+<span class="fc" id="L48">    override fun configureTasks(project: Project, extension: Extension): Unit = with(project) {</span>
+<span class="fc" id="L49">        DEFAULT_TASKS.map { addTask(project, it) }</span>
+
+<span class="fc" id="L51">        afterEvaluate {</span>
+<span class="fc" id="L52">            extension.additionalTasks.get().associateWith { null }.map { addTask(project, it) }</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+
+<span class="fc" id="L56">    private fun addTask(project: Project, item: Entry&lt;String, Class&lt;out ConventionTask&gt;?&gt;): Unit = with(project) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        val task = if (item.value != null) {</span>
+<span class="fc" id="L58">            tasks.maybeCreate(item.key, item.value!!)</span>
+        } else {
+<span class="fc" id="L60">            tasks.maybeCreate(item.key)</span>
+        }
+<span class="fc" id="L62">        task.dependsOn(gradle.includedBuilds.map { it.task(&quot;:${item.key}&quot;) })</span>
+<span class="fc" id="L63">    }</span>
+
+    private companion object {
+<span class="fc" id="L66">        private val DEFAULT_TASKS = mapOf(</span>
+<span class="fc" id="L67">            &quot;assemble&quot; to null,</span>
+<span class="fc" id="L68">            &quot;build&quot; to null,</span>
+<span class="fc" id="L69">            &quot;check&quot; to null,</span>
+<span class="fc" id="L70">            &quot;clean&quot; to Delete::class.java,</span>
+<span class="fc" id="L71">            &quot;jacocoTestReport&quot; to null,</span>
+<span class="fc" id="L72">            &quot;test&quot; to Test::class.java,</span>
+<span class="fc" id="L73">            &quot;wrapper&quot; to null,</span>
+<span class="fc" id="L74">            &quot;dependencyUpdates&quot; to null,</span>
+<span class="fc" id="L75">            &quot;versionCatalogUpdate&quot; to null</span>
+        )
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

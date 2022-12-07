@@ -1,0 +1,11 @@
+[versions]
+ktlint = "0.47.1"
+spotless = "6.11.0"
+gradlePluginConvention = "0.0.7"
+
+[libraries]
+gradleKtlintPlugin = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
+gradleSpotlessPlugin = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
+
+[plugins]
+gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }

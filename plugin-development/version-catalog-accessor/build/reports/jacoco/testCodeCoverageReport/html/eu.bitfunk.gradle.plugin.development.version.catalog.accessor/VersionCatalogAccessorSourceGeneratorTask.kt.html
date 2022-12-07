@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VersionCatalogAccessorSourceGeneratorTask.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">version-catalog-accessor</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.development.version.catalog.accessor</a> &gt; <span class="el_source">VersionCatalogAccessorSourceGeneratorTask.kt</span></div><h1>VersionCatalogAccessorSourceGeneratorTask.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor
+
+import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTask
+import org.gradle.api.DefaultTask
+import org.gradle.api.provider.ListProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.TaskAction
+
+<span class="fc" id="L28">public abstract class VersionCatalogAccessorSourceGeneratorTask :</span>
+<span class="fc" id="L29">    DefaultTask(), VersionCatalogAccessorContract.Task.Generator {</span>
+
+<span class="fc" id="L31">    private val generatorTask = GeneratorTask(project.rootDir, project.buildDir)</span>
+
+    @get:Input
+    public abstract val catalogSourceFolder: Property&lt;String&gt;
+
+    @get:Input
+    public abstract val packageName: Property&lt;String&gt;
+
+    @get:Input
+    public abstract val catalogNames: ListProperty&lt;String&gt;
+
+    @TaskAction
+    override fun generate() {
+<span class="fc" id="L44">        generatorTask.generate(catalogSourceFolder.get(), packageName.get(), catalogNames.get())</span>
+<span class="fc" id="L45">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

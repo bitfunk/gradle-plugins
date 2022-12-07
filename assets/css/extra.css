@@ -1,0 +1,40 @@
+:root > * {
+    --md-accent-fg-color: hsl(27, 82%, 66%);
+}
+
+.md-header {
+    background-color: hsl(216, 39%, 34%);
+    color: hsl(44, 85%, 66%);
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.md-header__topic:first-child {
+    font-weight: 500;
+}
+
+.md-search__input + .md-search__icon {
+    color: hsl(44, 85%, 66%);
+}
+
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title[for="__drawer"] {
+        background-color: hsl(216, 39%, 34%);
+        color: hsl(44, 85%, 66%);
+    }
+
+    .md-nav__source {
+        background-color: hsl(208, 100%, 15%);
+        color: hsl(44, 85%, 66%);
+    }
+
+    .md-nav--primary .md-nav__title {
+        background-color: hsl(216, 39%, 34%);
+        color: hsl(44, 85%, 66%);
+    }
+}
+
+.md-footer {
+    color: hsl(44, 85%, 66%);
+}

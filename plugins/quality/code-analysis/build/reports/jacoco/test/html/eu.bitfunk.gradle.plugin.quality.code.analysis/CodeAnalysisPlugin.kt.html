@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CodeAnalysisPlugin.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">code-analysis</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.quality.code.analysis</a> &gt; <span class="el_source">CodeAnalysisPlugin.kt</span></div><h1>CodeAnalysisPlugin.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package eu.bitfunk.gradle.plugin.quality.code.analysis
+
+import eu.bitfunk.gradle.plugin.quality.code.analysis.libs.generated.LibsCodeAnalysisVersionCatalogAccessor
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import org.gradle.api.Action
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.withType
+
+<span class="fc" id="L30">public class CodeAnalysisPlugin : Plugin&lt;Project&gt;, CodeAnalysisContract.Plugin {</span>
+
+    override fun apply(target: Project) {
+<span class="fc" id="L33">        addPlugins(target)</span>
+<span class="fc" id="L34">        configureAnalysis(target)</span>
+<span class="fc" id="L35">        configureAnalysisTasks(target)</span>
+<span class="fc" id="L36">    }</span>
+
+<span class="fc" id="L38">    override fun addPlugins(project: Project): Unit = with(project) {</span>
+<span class="fc" id="L39">        pluginManager.apply(&quot;io.gitlab.arturbosch.detekt&quot;)</span>
+<span class="fc" id="L40">    }</span>
+
+<span class="fc" id="L42">    override fun configureAnalysis(project: Project): Unit = with(project) {</span>
+<span class="fc" id="L43">        val libs = LibsCodeAnalysisVersionCatalogAccessor(project)</span>
+
+<span class="fc" id="L45">        detekt {</span>
+<span class="fc" id="L46">            toolVersion = libs.versions.detekt.getStatic()</span>
+<span class="fc" id="L47">            parallel = true</span>
+
+<span class="fc" id="L49">            source = project.files(</span>
+<span class="fc" id="L50">                project.file(project.rootDir)</span>
+            )
+
+<span class="fc" id="L53">            config = project.rootProject.files(&quot;config/detekt/detekt.yml&quot;)</span>
+<span class="fc" id="L54">            baseline = project.rootProject.file(&quot;config/detekt/baseline.yml&quot;)</span>
+<span class="fc" id="L55">        }</span>
+<span class="fc" id="L56">    }</span>
+
+<span class="fc" id="L58">    override fun configureAnalysisTasks(project: Project): Unit = with(project) {</span>
+<span class="fc" id="L59">        tasks.withType&lt;Detekt&gt;().configureEach {</span>
+<span class="fc" id="L60">            jvmTarget = &quot;11&quot;</span>
+
+<span class="fc" id="L62">            exclude(</span>
+<span class="fc" id="L63">                &quot;**/.gradle/**&quot;,</span>
+<span class="fc" id="L64">                &quot;**/.idea/**&quot;,</span>
+<span class="fc" id="L65">                &quot;**/build/**&quot;,</span>
+<span class="fc" id="L66">                &quot;.github/**&quot;,</span>
+<span class="fc" id="L67">                &quot;gradle/**&quot;</span>
+            )
+<span class="fc" id="L69">            reports {</span>
+<span class="fc" id="L70">                xml.required.set(true)</span>
+<span class="fc" id="L71">                html.required.set(true)</span>
+<span class="fc" id="L72">            }</span>
+<span class="fc" id="L73">        }</span>
+
+<span class="fc" id="L75">        tasks.withType&lt;DetektCreateBaselineTask&gt;().configureEach {</span>
+<span class="fc" id="L76">            exclude(</span>
+<span class="fc" id="L77">                &quot;**/.gradle/**&quot;,</span>
+<span class="fc" id="L78">                &quot;**/.idea/**&quot;,</span>
+<span class="fc" id="L79">                &quot;**/build/**&quot;,</span>
+<span class="fc" id="L80">                &quot;**/gradle/wrapper/**&quot;,</span>
+<span class="fc" id="L81">                &quot;.github/**&quot;,</span>
+<span class="fc" id="L82">                &quot;assets/**&quot;,</span>
+<span class="fc" id="L83">                &quot;app-ios/**&quot;,</span>
+<span class="fc" id="L84">                &quot;docs/**&quot;,</span>
+<span class="fc" id="L85">                &quot;gradle/**&quot;,</span>
+<span class="fc" id="L86">                &quot;**/*.adoc&quot;,</span>
+<span class="fc" id="L87">                &quot;**/gradlew&quot;,</span>
+<span class="fc" id="L88">                &quot;**/LICENSE&quot;,</span>
+<span class="fc" id="L89">                &quot;**/.java-version&quot;,</span>
+<span class="fc" id="L90">                &quot;**/gradlew.bat&quot;,</span>
+<span class="fc" id="L91">                &quot;**/*.png&quot;,</span>
+<span class="fc" id="L92">                &quot;**/*.properties&quot;,</span>
+<span class="fc" id="L93">                &quot;**/*.pro&quot;,</span>
+<span class="fc" id="L94">                &quot;**/*.sq&quot;,</span>
+<span class="fc" id="L95">                &quot;**/*.xml&quot;,</span>
+<span class="fc" id="L96">                &quot;**/*.yml&quot;</span>
+            )
+<span class="fc" id="L98">        }</span>
+<span class="fc" id="L99">    }</span>
+
+    private fun Project.detekt(action: Action&lt;DetektExtension&gt;) {
+<span class="fc" id="L102">        extensions.configure(DetektExtension::class.java, action)</span>
+<span class="fc" id="L103">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

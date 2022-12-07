@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-07T14:38:31" hostname="fv-az206-560" time="0.026">
+  <properties/>
+  <testcase name="GIVEN library definitions WHEN parse() THEN return list of libraries()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.01"/>
+  <testcase name="GIVEN version definitions WHEN parse() THEN return list of versions()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.004"/>
+  <testcase name="GIVEN bundle definitions WHEN parse() THEN return list of bundles()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.005"/>
+  <testcase name="parser implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.0"/>
+  <testcase name="GIVEN plugin definitions WHEN parse() THEN return list of plugins()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
