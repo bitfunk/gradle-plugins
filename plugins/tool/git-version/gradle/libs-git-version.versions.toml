@@ -1,6 +1,6 @@
 [versions]
 jGit = "6.3.0.202209071007-r"
-semVer = "1.1.1"
+semVer = "1.1.2"
 plugin-gradlePluginConvention = "0.0.7"
 
 [libraries]
