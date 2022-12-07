@@ -112,7 +112,9 @@ nav:
         - Changelog: plugins/quality/CHANGELOG.md
 #      - Code Analysis: plugins/quality/code-analysis/index.md
 #      - Formatter: plugins/quality/formatter/index.md
-#      - Report: plugins/quality/report/index.md
+      - Report:
+        - plugins/quality/report/README.md
+        - Changelog: plugins/quality/report/CHANGELOG.md
     - Tool:
         - CompositeDelegator:
           - plugins/tool/composite-delegator/README.md

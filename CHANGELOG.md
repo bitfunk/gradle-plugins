@@ -22,19 +22,15 @@ Initial release
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add CodeAnalysis Plugin - using Detekt
-- Add Report Plugin - a quality report plugin using sonarqube
 - Add Code of Conduct
 - Add maven central publishing to Gradle Plugin Convention
-
-### Bumped
-
-- Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
 
 ## Plugin
 
 ### Quality
 
 - [QualityCollection](plugins/quality/CHANGELOG.md)
+- [Report](plugins/quality/report/CHANGELOG.md)
 
 ### Tool
 

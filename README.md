@@ -1,6 +1,5 @@
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
-[report]: docs/src/plugins/quality/report/index.md
 
 <!--github-links-->
 
@@ -51,7 +50,7 @@ Plugins and tools that support developing software and add functionality to Grad
 - [Quality Collection](/plugins/quality/README.md) - a collection of all quality plugins
 - [Code Analysis] - a source code analysis plugin
 - [Formatter] - a source code formatter plugin applying bitfunk code style
-- [Report] - a quality report plugin using sonarqube
+- [Report](plugins/quality/report/README.md) - a quality report plugin using sonarqube
 
 #### Tool
 
