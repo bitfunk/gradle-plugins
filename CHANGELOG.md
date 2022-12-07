@@ -16,7 +16,7 @@ Changelogs for every plugin are listed below and for this project could be found
 - [QualityCollection](plugins/quality/CHANGELOG.md)
 - [CodeAnalysis](plugins/quality/code-analysis/CHANGELOG.md)
 - [Report](plugins/quality/report/CHANGELOG.md)
-- [Formatter](plugins/quality/formatter/README.md)
+- [Formatter](plugins/quality/formatter/CHANGELOG.md)
 
 ### Tool
 
@@ -44,3 +44,7 @@ Changelogs for every plugin are listed below and for this project could be found
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add Code of Conduct
+
+### Changed
+
+- Change documentation from multi version to single version

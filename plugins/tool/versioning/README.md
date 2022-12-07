@@ -2,7 +2,7 @@
 
 [![ToolVersioning](../../../docs/assets/images/badge-release-tool-versioning.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.tool.versioning)
 
-A plugin to generate semantic version information and apply it to the project based on git tags. It makes use of the [git-version plugin](https://github.com/bitfunk/gradle-plugins).
+A plugin to generate semantic version information and apply it to the project based on git tags. It makes use of the [git-version plugin](../git-version/README.md).
 
 ## Features
 

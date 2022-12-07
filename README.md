@@ -80,7 +80,7 @@ Check the usage of each Gradle plugin by reading the [plugin documentation](plug
 
 ## Installation
 
-The dependencies are distributed through [Maven Central](https://central.sonatype.dev/) In case you want to use a SNAPSHOT version, add the following to your project root `build.gradle/build.gradle.kts` file:
+The dependencies are distributed through [Maven Central](https://central.sonatype.dev/). In case you want to use a SNAPSHOT version, add the following to your project root `build.gradle/build.gradle.kts` file:
 
 ```kotlin
 buildscript {
@@ -122,4 +122,4 @@ See [releasing](docs/develop/RELEASING.md).
 
 Copyright (c) 2022 Wolf-Martell Montwé.
 
-Please refer to the [ISC License][license] for more information.
+Please refer to the [ISC License](LICENSE.md) for more information.
