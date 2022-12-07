@@ -14,7 +14,6 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-con
 ### Bumped
 
 - Gradle 7.5.1 -> 7.6
-- Kotlin 1.6.21 -> 1.7.10
 - Kotlin DSL 2.3.3 -> 2.4.1
 
 ## [0.0.7](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.0.7)

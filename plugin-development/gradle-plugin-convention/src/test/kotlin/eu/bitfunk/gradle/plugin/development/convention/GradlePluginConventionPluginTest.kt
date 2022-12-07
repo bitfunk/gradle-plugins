@@ -245,7 +245,7 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", gradleTestKitDependency)
             dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
             dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
-            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.7.10")
+            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.6.21")
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.2")
             dependencyHandlerScope.add(
                 "testImplementation",
