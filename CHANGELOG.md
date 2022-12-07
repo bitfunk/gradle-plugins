@@ -38,6 +38,22 @@ Changelogs for every plugin are listed below and for this project could be found
 
 ## Project
 
+All project changes below.
+
+## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
+
+### Changed
+
+- Change documentation from multi version to single version
+
+### Bumped
+
+- Bitfunk Quality 0.1.0 -> 0.1.1
+
+## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
+
 ### Added
 
 - Add initial project
@@ -45,7 +61,3 @@ Changelogs for every plugin are listed below and for this project could be found
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add Code of Conduct
 - Add test report uploader
-
-### Changed
-
-- Change documentation from multi version to single version

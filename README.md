@@ -92,7 +92,7 @@ buildscript {
 
 ## Usage
 
-Apply the plugins of your choice to your project. For details refer to the [plugins overview][plugins].
+Apply the plugins of your choice to your project. For details refer to the [plugins overview](plugins/README.md).
 
 ## Roadmap
 
@@ -116,7 +116,7 @@ You want to fix or change code? Read the [Code of Conduct](CODE_OF_CONDUCT.md) a
 
 ## Releasing
 
-See [releasing](docs/develop/RELEASING.md).
+See [release guide](docs/develop/RELEASING.md).
 
 ## Copyright and license
 
