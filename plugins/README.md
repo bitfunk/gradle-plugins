@@ -8,7 +8,7 @@ Overview of all Gradle plugins provided by this project.
 
 - [Quality Collection](/quality/README.md) - a collection of all quality plugins
 - [Code Analysis](../docs/src/plugins/quality/code-analysis/index.md) - a source code analysis
-- [Formatter](../docs/src/plugins/quality/formatter/index.md) - a source code formatter applying bitfunk code style
+- [Formatter](quality/formatter/README.md) - a source code formatter applying bitfunk code style
 - [Report](quality/report/README.md) - a quality report plugin using sonarqube
 
 ### Tool

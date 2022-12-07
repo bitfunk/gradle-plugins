@@ -18,7 +18,6 @@ Initial release
 ### Added
 
 - Add initial project
-- Add Formatter Plugin - using Spotless and ktlint
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
 - Add CodeAnalysis Plugin - using Detekt
@@ -31,6 +30,7 @@ Initial release
 
 - [QualityCollection](plugins/quality/CHANGELOG.md)
 - [Report](plugins/quality/report/CHANGELOG.md)
+- [Formatter](plugins/quality/formatter/README.md)
 
 ### Tool
 

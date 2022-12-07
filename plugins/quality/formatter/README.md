@@ -1,5 +1,7 @@
 # Formatter Plugin
 
+[![QualityCodeFormatter](../../../docs/assets/images/badge-release-quality-code-formatter.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.formatter)
+
 The plugin helps to format source code of your project and warns about issues. It makes use of the [spotless plugin](https://github.com/diffplug/spotless) and applies bitfunk flavoured default configuration.
 
 ## Features
@@ -14,23 +16,7 @@ Supported source files:
 
 ## Installation
 
-Add to your project root `build.gradle/build.gradle.kts` file to download from GitHub packages:
-
-```kotlin
-buildscript {
-    repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/bitfunk/gradle-plugins")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("PACKAGE_REGISTRY_USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("PACKAGE_REGISTRY_TOKEN")
-            }
-        }
-    }
-}
-```
-
-and
+Add the following to your project root `build.gradle/build.gradle.kts` file:
 
 ```kotlin
 plugins {

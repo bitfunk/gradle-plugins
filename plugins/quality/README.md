@@ -9,7 +9,7 @@ This plugin is a collection of all quality plugins.
 Quick access to all quality plugins in one:
 
 - [Code Analysis](../../docs/src/plugins/quality/code-analysis/index.md) - source code analysis
-- [Formatter](../../docs/src/plugins/quality/formatter/index.md) - source code formatter applying bitfunk code style
+- [Formatter](formatter/README.md) - source code formatter applying bitfunk code style
 - [Report](report/README.md) - quality report plugin using sonarqube
 
 ## Installation
