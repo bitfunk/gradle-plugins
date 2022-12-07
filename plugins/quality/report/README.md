@@ -1,5 +1,7 @@
 # Report Plugin
 
+[![QualityReport](../../../docs/assets/images/badge-release-quality-report.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.report)
+
 The plugin configures sonarqube scanner to report code metrics to [sonarcloud.io](https://sonarcloud.io). It makes use of the [SonarScanner for Gradle](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/) and applies default configuration.
 
 ## Features

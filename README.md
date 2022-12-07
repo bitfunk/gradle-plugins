@@ -1,7 +1,3 @@
-[code analysis]: docs/src/plugins/quality/code-analysis/index.md
-
-<!--github-links-->
-
 [webpage]: https://bitfunk.github.io/gradle-plugins/
 [repository]: https://github.com/bitfunk/gradle-plugins
 [issues]: https://github.com/bitfunk/gradle-plugins/issues
@@ -47,7 +43,7 @@ Plugins and tools that support developing software and add functionality to Grad
 #### Quality
 
 - [Quality Collection](/plugins/quality/README.md) - a collection of all quality plugins
-- [Code Analysis] - a source code analysis plugin
+- [Code Analysis](plugins/quality/code-analysis/README.md) - a source code analysis plugin
 - [Formatter](plugins/quality/formatter/README.md) - a source code formatter plugin applying bitfunk code style
 - [Report](plugins/quality/report/README.md) - a quality report plugin using sonarqube
 

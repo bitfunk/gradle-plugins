@@ -7,28 +7,14 @@ types of changes: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Securit
 
 This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
-
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
-
-## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
-
-Initial release
-
-### Added
-
-- Add initial project
-- Add GradleWrapper validation GitHub Action
-- Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
-- Add CodeAnalysis Plugin - using Detekt
-- Add Code of Conduct
-- Add maven central publishing to Gradle Plugin Convention
+Changelogs for every plugin are listed below and for this project could be found in the [project](#project) section at the end.
 
 ## Plugin
 
 ### Quality
 
 - [QualityCollection](plugins/quality/CHANGELOG.md)
+- [CodeAnalysis](plugins/quality/code-analysis/CHANGELOG.md)
 - [Report](plugins/quality/report/CHANGELOG.md)
 - [Formatter](plugins/quality/formatter/README.md)
 
@@ -49,3 +35,12 @@ Initial release
 ### Test
 
 - [GradleTestUtil](plugin-development/gradle-test-util/CHANGELOG.md)
+
+## Project
+
+### Added
+
+- Add initial project
+- Add GradleWrapper validation GitHub Action
+- Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
+- Add Code of Conduct

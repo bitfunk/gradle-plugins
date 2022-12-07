@@ -15,6 +15,10 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-con
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.6...plugin-dev-convention@v0.0.7)
 
+### Added
+
+- maven central publishing
+
 ### Fixed
 
 - missing test dependency
