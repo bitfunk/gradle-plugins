@@ -1,5 +1,7 @@
+[repo]: https://github.com/bitfunk/gradle-plugins
 [issues]: https://github.com/bitfunk/gradle-plugins/issues
 [pull-request]: https://github.com/bitfunk/gradle-plugins/pulls
+[fork]: https://github.com/bitfunk/gradle-plugins/fork
 
 # Contributing
 
@@ -24,9 +26,14 @@ Ideally, that includes a description or small example how to reproduce the probl
 
 ### Develop
 
-Create a branch according to the following rules, work on your changes and create a pull-request.
+Create a branch according to the following rules, work on your changes and create a pull-request. `main` must be always in releasable state.
 
-`main` must be always in releasable state.
+1. Create a [fork][fork]
+2. Install git hooks `git config core.hooksPath .githooks`
+3. Create a feature [branch](#branch) following naming rules below
+4. Commit your changes as small atomic changesets with focus on readability
+5. Push your feature branch
+6. Create a pull-request against this [repo][repo]
 
 #### Branch
 
