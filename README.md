@@ -1,4 +1,3 @@
-[quality all]: docs/src/plugins/quality/index.md
 [code analysis]: docs/src/plugins/quality/code-analysis/index.md
 [formatter]: docs/src/plugins/quality/formatter/index.md
 [report]: docs/src/plugins/quality/report/index.md
@@ -15,6 +14,7 @@
 # Bitfunk Gradle Plugins
 
 [![Section quality](docs/assets/images/badge-section-quality.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality)
+[![QualityCollection](docs/assets/images/badge-release-quality-collection.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality)
 [![QualityCodeAnalysis](docs/assets/images/badge-release-quality-code-analysis.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.code.analysis)
 [![QualityCodeFormatter](docs/assets/images/badge-release-quality-code-formatter.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.formatter)
 [![QualityReport](docs/assets/images/badge-release-quality-report.svg)](https://central.sonatype.dev/namespace/eu.bitfunk.gradle.plugin.quality.report)
@@ -48,7 +48,7 @@ Plugins and tools that support developing software and add functionality to Grad
 
 #### Quality
 
-- [Quality All] - a collection of all quality plugins
+- [Quality Collection](/plugins/quality/README.md) - a collection of all quality plugins
 - [Code Analysis] - a source code analysis plugin
 - [Formatter] - a source code formatter plugin applying bitfunk code style
 - [Report] - a quality report plugin using sonarqube
@@ -129,5 +129,3 @@ See [releasing](docs/develop/RELEASING.md).
 Copyright (c) 2022 Wolf-Martell Montwé.
 
 Please refer to the [ISC License][license] for more information.
-
-<!--readme-end-->

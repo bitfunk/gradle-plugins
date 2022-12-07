@@ -24,6 +24,10 @@ curl "link" -s -o badge-filename
 curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../assets/images/badge-section-quality.svg
 ```
 
+- Quality collection
+  ```bash
+  curl "https://img.shields.io/badge/QualityCollection-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-collection.svg
+  ```
 - Code analysis
   ```bash
   curl "https://img.shields.io/badge/CodeAnalysis-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg

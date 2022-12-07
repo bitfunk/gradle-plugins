@@ -106,8 +106,10 @@ nav:
   - Changelog: CHANGELOG.md
   - Plugins:
     - plugins/README.md
-#    - Quality:
-#      - All: plugins/quality/index.md
+    - Quality:
+      - Collection:
+        - plugins/quality/README.md
+        - Changelog: plugins/quality/CHANGELOG.md
 #      - Code Analysis: plugins/quality/code-analysis/index.md
 #      - Formatter: plugins/quality/formatter/index.md
 #      - Report: plugins/quality/report/index.md
