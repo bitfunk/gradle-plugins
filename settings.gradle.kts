@@ -16,7 +16,29 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-includeBuild("plugin-development")
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        gradlePluginPortal()
+    }
+}
+
+val includeGradleTestUtils: String by settings
+if (includeGradleTestUtils.toBoolean()) {
+    includeBuild("plugin-development/gradle-test-util")
+}
+
+val includeConventionPlugin: String by settings
+if (includeConventionPlugin.toBoolean()) {
+    includeBuild("plugin-development/gradle-plugin-convention")
+}
+
+val includeVersionCatalogAccessor: String by settings
+if (includeVersionCatalogAccessor.toBoolean()) {
+    includeBuild("plugin-development/version-catalog-accessor")
+}
+
 includeBuild("plugins")
 
 include("docs")

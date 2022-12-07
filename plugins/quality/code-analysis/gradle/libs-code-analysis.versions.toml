@@ -1,6 +1,6 @@
 [versions]
 detekt = "1.21.0"
-gradlePluginConvention = "0.0.5"
+gradlePluginConvention = "0.0.7"
 gradleVersionCatalogAccessor = "0.1.0"
 
 [libraries]

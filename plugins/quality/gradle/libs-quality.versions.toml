@@ -3,7 +3,7 @@ gradleCodeAnalysis = "0.1.0"
 gradleFormatter = "0.1.0"
 gradleReport = "0.1.0"
 
-gradlePluginConvention = "0.0.5"
+gradlePluginConvention = "0.0.7"
 gradleCompositeDelegator = "0.1.0"
 
 [libraries]

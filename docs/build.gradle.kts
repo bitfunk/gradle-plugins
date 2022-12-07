@@ -23,37 +23,29 @@ plugins {
 
 python {
     pip(
-        "mkdocs:1.3.1",
-        "mkdocs-include-markdown-plugin:3.8.1",
+        "mkdocs:1.4.2",
+        "mkdocs-include-markdown-plugin:3.9.1",
         "mkdocs-kroki-plugin:0.3.0",
         "mkdocs-markdownextradata-plugin:0.2.5",
-        "mkdocs-material:8.5.3",
+        "mkdocs-material:8.5.10",
         "mkdocs-minify-plugin:0.5.0",
         "mkdocs-redirects:1.2.0",
-        "mkdocs-minify-plugin:0.5.0",
+        "mkdocs-minify-plugin:0.6.1",
+        "mkdocs-same-dir:0.1.2",
+        "mkdocs-exclude:1.0.2",
         "pygments:2.13.0",
-        "pymdown-extensions:9.5"
+        "pymdown-extensions:9.9"
     )
 }
 
-val currentDocVersion = if (project.hasProperty("release")) "0.1.0" else "snapshot"
-
 mkdocs {
-    sourcesDir = "./"
+    sourcesDir = "../"
 
-    publish.docPath = currentDocVersion
-    publish.rootRedirect = project.hasProperty("release")
-    if (project.hasProperty("release")) {
-        publish.rootRedirectTo = "latest"
-        publish.setVersionAliases("latest")
-    }
-    publish.generateVersionsFile = true
+    publish.docPath = ""
 
     strict = true
 
-    extras = mapOf(
-        "version" to currentDocVersion
-    )
+    devPort = 3003
 }
 
 tasks.register<Delete>("clean") {

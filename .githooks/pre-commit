@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Run detekt and code formatting before every commit
+#
+
+git stash -q --keep-index
+
+echo "🚀 Run code analysis and formatting"
+
+./gradlew detekt
+
+./gradlew spotlessApply
+
+status=$?
+
+echo "✅ code analysis and formatting finished"
+
+git stash pop -q
+
+exit $status

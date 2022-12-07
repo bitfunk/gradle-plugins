@@ -27,6 +27,7 @@ plugins {
     jacoco
     alias(libsGradleTestUtil.plugins.binaryCompatibilityValidator)
     alias(libsGradleTestUtil.plugins.gradleMavenPublishPlugin)
+    id("jacoco-report-aggregation")
 }
 
 group = "eu.bitfunk.gradle.plugin.development.test"
