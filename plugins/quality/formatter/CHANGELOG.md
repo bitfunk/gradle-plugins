@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.0...main)
 
+### Fixed
+
+- Fix Kotlin Gradle files falsely included from build folder
+
 ### Bumped
 
 - Spotless 6.11.0 -> 6.12.0
