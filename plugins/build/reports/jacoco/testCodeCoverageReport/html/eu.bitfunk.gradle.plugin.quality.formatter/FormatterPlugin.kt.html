@@ -54,28 +54,29 @@ import org.gradle.kotlin.dsl.repositories
 <span class="fc" id="L54">            }</span>
 <span class="fc" id="L55">            kotlinGradle {</span>
 <span class="fc" id="L56">                target(&quot;**/*.gradle.kts&quot;, &quot;**/*.df.kts&quot;)</span>
-<span class="fc" id="L57">                trimTrailingWhitespace()</span>
-<span class="fc" id="L58">                indentWithSpaces()</span>
-<span class="fc" id="L59">                endWithNewline()</span>
-<span class="fc" id="L60">            }</span>
-<span class="fc" id="L61">            format(&quot;markdown&quot;) {</span>
-<span class="fc" id="L62">                prettier()</span>
-<span class="fc" id="L63">                target(&quot;**/*.md&quot;)</span>
-<span class="fc" id="L64">                trimTrailingWhitespace()</span>
-<span class="fc" id="L65">                indentWithSpaces()</span>
-<span class="fc" id="L66">                endWithNewline()</span>
-<span class="fc" id="L67">            }</span>
-<span class="fc" id="L68">            format(&quot;misc&quot;) {</span>
-<span class="fc" id="L69">                target(&quot;**/.gitignore&quot;, &quot;**/.gitattributes&quot;, &quot;.java-version&quot;)</span>
-<span class="fc" id="L70">                trimTrailingWhitespace()</span>
-<span class="fc" id="L71">                indentWithSpaces()</span>
-<span class="fc" id="L72">                endWithNewline()</span>
-<span class="fc" id="L73">            }</span>
-<span class="fc" id="L74">        }</span>
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L57">                targetExclude(&quot;**/build/&quot;)</span>
+<span class="fc" id="L58">                trimTrailingWhitespace()</span>
+<span class="fc" id="L59">                indentWithSpaces()</span>
+<span class="fc" id="L60">                endWithNewline()</span>
+<span class="fc" id="L61">            }</span>
+<span class="fc" id="L62">            format(&quot;markdown&quot;) {</span>
+<span class="fc" id="L63">                prettier()</span>
+<span class="fc" id="L64">                target(&quot;**/*.md&quot;)</span>
+<span class="fc" id="L65">                trimTrailingWhitespace()</span>
+<span class="fc" id="L66">                indentWithSpaces()</span>
+<span class="fc" id="L67">                endWithNewline()</span>
+<span class="fc" id="L68">            }</span>
+<span class="fc" id="L69">            format(&quot;misc&quot;) {</span>
+<span class="fc" id="L70">                target(&quot;**/.gitignore&quot;, &quot;**/.gitattributes&quot;, &quot;.java-version&quot;)</span>
+<span class="fc" id="L71">                trimTrailingWhitespace()</span>
+<span class="fc" id="L72">                indentWithSpaces()</span>
+<span class="fc" id="L73">                endWithNewline()</span>
+<span class="fc" id="L74">            }</span>
+<span class="fc" id="L75">        }</span>
+<span class="fc" id="L76">    }</span>
 
     private fun Project.spotless(action: Action&lt;SpotlessExtension&gt;) {
-<span class="fc" id="L78">        extensions.configure(SpotlessExtension::class.java, action)</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L79">        extensions.configure(SpotlessExtension::class.java, action)</span>
+<span class="fc" id="L80">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

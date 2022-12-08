@@ -2,157 +2,157 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/CODE_OF_CONDUCT/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/CONTRIBUTING/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/LICENSE/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/SECURITY/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/docs/develop/RELEASING/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/docs/develop/badges/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/gradle-plugin-convention/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/gradle-plugin-convention/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/gradle-test-util/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/gradle-test-util/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/version-catalog-accessor/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugin-development/version-catalog-accessor/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/code-analysis/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/code-analysis/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/formatter/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/formatter/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/report/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/quality/report/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/composite-delegator/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/composite-delegator/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/git-version/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/git-version/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/publish/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/publish/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/versioning/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://bitfunk.github.io/gradle-plugins/plugins/tool/versioning/CHANGELOG/</loc>
-         <lastmod>2022-12-07</lastmod>
+         <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
