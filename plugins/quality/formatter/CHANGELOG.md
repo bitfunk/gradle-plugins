@@ -11,6 +11,14 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.0...main)
 
+### Fixed
+
+- Fix Kotlin Gradle files falsely included from build folder
+
+### Bumped
+
+- Spotless 6.11.0 -> 6.12.0
+
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.0)
 
 Initial release Quality Formatter Plugin - a source code formatter using Spotless and ktlint.

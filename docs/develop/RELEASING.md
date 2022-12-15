@@ -1,4 +1,4 @@
-# Releasing
+# Release guide
 
 Releases are automatically created from added tags using GitHub Actions.
 
