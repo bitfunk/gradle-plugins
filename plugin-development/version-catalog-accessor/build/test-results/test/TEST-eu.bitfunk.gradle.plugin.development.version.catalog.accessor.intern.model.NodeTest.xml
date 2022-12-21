@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:59:02" hostname="fv-az298-875" time="0.007">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:16:02" hostname="fv-az988-330" time="0.009">
   <properties/>
   <testcase name="GIVEN name WHEN path and child added THEN isLeaf is correct()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.002"/>
   <testcase name="GIVEN name and path WHEN initialized THEN is leaf()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.0"/>
