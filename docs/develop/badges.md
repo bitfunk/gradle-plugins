@@ -72,7 +72,7 @@ curl "https://img.shields.io/badge/Plugin_Development-→-orange.svg?style=flat"
 
 - Gradle plugin convention
   ```bash
-  curl "https://img.shields.io/badge/PluginConvention-v0.0.7-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-plugin-convention.svg
+  curl "https://img.shields.io/badge/PluginConvention-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-plugin-convention.svg
   ```
 - Gradle test util
   ```bash
