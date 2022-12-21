@@ -5,6 +5,7 @@
     <ID>ComplexCondition:Dangerfile.df.kts$!isFeatureBranch &amp;&amp; !isReleaseBranch &amp;&amp; !isDependabotBranch &amp;&amp; !isRenovateBranch</ID>
     <ID>LongMethod:FormatterPluginTest.kt$FormatterPluginTest$@Test fun `GIVEN project WHEN configureFormatter() THEN formatter configured`()</ID>
     <ID>LongMethod:PublishingConfigTest.kt$PublishingConfigTest$@Test fun `GIVEN project WHEN configurePublishing() THEN publishing pom configured`()</ID>
+    <ID>MaxLineLength:GitVersionLoader.kt$GitVersionLoader.Companion$"(v)?(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?".toRegex()</ID>
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"</ID>
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"scm:git:git://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"</ID>
     <ID>MaxLineLength:PublishingConfig.kt$PublishingConfig$"scm:git:ssh://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"</ID>

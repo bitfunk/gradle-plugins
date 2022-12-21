@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-12-08T23:02:28" hostname="fv-az338-964" time="0.006">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-12-21T15:50:43" hostname="fv-az189-385" time="0.014">
   <properties/>
   <testcase name="GIVEN empty list WHEN map() THEN return empty list()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.001"/>
-  <testcase name="GIVEN list with group item WHEN map() THEN return list with nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.001"/>
+  <testcase name="GIVEN list with group item WHEN map() THEN return list with nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.006"/>
   <testcase name="GIVEN list with top level item WHEN map() THEN return top level list()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.0"/>
-  <testcase name="GIVEN list with mixed items WHEN map() THEN return list with all nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.0"/>
-  <testcase name="mapper implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.0"/>
-  <testcase name="GIVEN list with multiple group items WHEN map() THEN return list with all nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.001"/>
+  <testcase name="GIVEN list with mixed items WHEN map() THEN return list with all nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.001"/>
+  <testcase name="mapper implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.001"/>
+  <testcase name="GIVEN list with multiple group items WHEN map() THEN return list with all nested items()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.MapperTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -73,7 +73,7 @@ import java.util.regex.Pattern
     }
 
     private fun versionCode(description: String): Int {
-<span class="fc bfc" id="L76" title="All 4 branches covered.">        return if (description.isEmpty()) {</span>
+<span class="fc bfc" id="L76" title="All 6 branches covered.">        return if (description.isEmpty() || !SEMANTIC_VERSION_REGEX.matches(description)) {</span>
 <span class="fc" id="L77">            -1</span>
         } else {
 <span class="fc" id="L79">            var versionDescription = description</span>
@@ -81,8 +81,8 @@ import java.util.regex.Pattern
 <span class="fc" id="L81">            try {</span>
 <span class="fc" id="L82">                val version: SemVer = SemVer.parse(versionDescription)</span>
 <span class="fc" id="L83">                return version.major * MAJOR_SHIFT + version.minor * MINOR_SHIFT + version.patch</span>
-<span class="fc" id="L84">            } catch (exception: Exception) {</span>
-<span class="fc" id="L85">                return -1</span>
+<span class="nc" id="L84">            } catch (exception: Exception) {</span>
+<span class="pc" id="L85">                return -1</span>
             }
         }
     }
@@ -135,9 +135,11 @@ import java.util.regex.Pattern
     }
 
     private companion object {
-<span class="fc" id="L138">        private val PREFIX_REGEX = &quot;[/@]?([A-Za-z]+[/@-])+&quot;.toRegex()</span>
-<span class="fc" id="L139">        private val TAG_REGEX = &quot;(.*)(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(.*)&quot;.toRegex()</span>
-<span class="fc" id="L140">        private val CLEAN_TAG_REGEX = &quot;.*g.?[0-9a-fA-F]{3,}&quot;.toRegex()</span>
+        private val SEMANTIC_VERSION_REGEX =
+<span class="fc" id="L139">            &quot;(v)?(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?&quot;.toRegex()</span>
+<span class="fc" id="L140">        private val PREFIX_REGEX = &quot;[/@]?([A-Za-z]+[/@-])+&quot;.toRegex()</span>
+<span class="fc" id="L141">        private val TAG_REGEX = &quot;(.*)(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(.*)&quot;.toRegex()</span>
+<span class="fc" id="L142">        private val CLEAN_TAG_REGEX = &quot;.*g.?[0-9a-fA-F]{3,}&quot;.toRegex()</span>
         private const val COMMIT_DISTANCE_PATTERN = &quot;(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}&quot;
         private const val LAST_TAG_PATTERN = &quot;(.*)-([0-9]+)-g.?[0-9a-fA-F]{3,}&quot;
         private const val UNDEFINED = &quot;unspecified&quot;
