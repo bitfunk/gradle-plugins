@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.7...main)
 
+## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.1.0)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.7...plugin-dev-convention@v0.1.0)
+
 ### Bumped
 
 - Mockk 1.13.2 -> 1.13.3
