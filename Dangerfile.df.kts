@@ -48,7 +48,7 @@ danger(args) {
     val pullRequestBodyMinLines = 20
 
     val allSourceFiles = git.modifiedFiles + git.createdFiles
-    val isChangelogUpdated = allSourceFiles.contains("CHANGELOG.md")
+    val isChangelogUpdated = allSourceFiles.contains("CHANGELOG.md") || allSourceFiles.contains("**/CHANGELOG.md")
 
     onGitHub {
         val branchName = pullRequest.head.label.substringAfter(":")
