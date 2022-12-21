@@ -1,5 +1,5 @@
 [versions]
-gradlePluginConvention = "0.0.7"
+gradlePluginConvention = "0.1.0"
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
