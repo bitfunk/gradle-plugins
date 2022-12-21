@@ -57,7 +57,7 @@ curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../asse
   ```
 - Git Version
   ```bash
-  curl "https://img.shields.io/badge/GitVersion-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg
+  curl "https://img.shields.io/badge/GitVersion-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg
   ```
 - Versioning
   ```bash
