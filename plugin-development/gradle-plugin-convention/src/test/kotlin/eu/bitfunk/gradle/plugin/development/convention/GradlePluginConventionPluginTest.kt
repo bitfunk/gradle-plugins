@@ -249,7 +249,7 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.3")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.0"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.1"
             )
         }
 
