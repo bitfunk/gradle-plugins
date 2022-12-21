@@ -22,11 +22,11 @@ import com.vanniktech.maven.publish.SonatypeHost
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libsGradleTestUtil.plugins.kotlinJvm)
+    alias(libsGradleTestUtil.plugins.kotlin.jvm)
     `kotlin-dsl`
     jacoco
-    alias(libsGradleTestUtil.plugins.binaryCompatibilityValidator)
-    alias(libsGradleTestUtil.plugins.gradleMavenPublishPlugin)
+    alias(libsGradleTestUtil.plugins.kotlin.binaryCompatibilityValidator)
+    alias(libsGradleTestUtil.plugins.mavenPublishPlugin)
     id("jacoco-report-aggregation")
 }
 
@@ -49,12 +49,12 @@ kotlin {
 }
 
 dependencies {
-    implementation(libsGradleTestUtil.gradleKotlinDsl)
-    implementation(libsGradleTestUtil.testMockk)
+    implementation(libsGradleTestUtil.plugin.kotlin.gradleDsl)
+    implementation(libsGradleTestUtil.test.mockk)
 
-    testImplementation(libsGradleTestUtil.testJUnit5)
-    testRuntimeOnly(libsGradleTestUtil.testJUnit5Engine)
-    testImplementation(libsGradleTestUtil.testMockk)
+    testImplementation(libsGradleTestUtil.test.jUnit5)
+    testRuntimeOnly(libsGradleTestUtil.test.jUnit5.engine)
+    testImplementation(libsGradleTestUtil.test.mockk)
 }
 
 mavenPublishing {
