@@ -1,19 +1,20 @@
 [versions]
-kotlin = "1.6.21"
 gradle = "7.5.1"
+kotlin = "1.6.21"
 test-jUnit5 = "5.9.1"
-test-mockk = "1.13.2"
+test-mockk = "1.13.3"
 test-jacoco = "0.8.8"
 test-gradleTestUtil = "0.1.0"
-pluginKotlinBinaryCompatibility = "0.12.1"
-pluginMavenPublishPlugin = "0.22.0"
-pluginVersionCatalogAccessor = "0.1.0"
+plugin-kotlin-gradleDsl = "2.3.3"
+plugin-kotlin-binaryCompatibility = "0.12.1"
+plugin-mavenPublish = "0.22.0"
+plugin-versionCatalogAccessor = "0.1.0"
 
 [libraries]
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-plugin-kotlinBinaryCompatibility = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "pluginKotlinBinaryCompatibility" }
-plugin-kotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
-plugin-mavenPublish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "pluginMavenPublishPlugin"}
+plugin-kotlinBinaryCompatibility = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "plugin-kotlin-binaryCompatibility" }
+plugin-kotlinDsl = { module = "org.gradle.kotlin:gradle-kotlin-dsl-plugins", version.ref = "plugin-kotlin-gradleDsl" }
+plugin-mavenPublish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "plugin-mavenPublish"}
 test-jUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-jUnit5" }
 test-jUnit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "test-jUnit5" }
 test-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -21,6 +22,6 @@ test-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk" }
 test-gradleTestUtil = { module = "eu.bitfunk.gradle.plugin.development.test:gradle-test-util", version.ref = "test-gradleTestUtil" }
 
 [plugins]
-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "pluginKotlinBinaryCompatibility" }
-mavenPublishPlugin = { id = "com.vanniktech.maven.publish.base", version.ref = "pluginMavenPublishPlugin"}
-versionCatalogAccessor = { id = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor", version.ref = "pluginVersionCatalogAccessor" }
+kotlin-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "plugin-kotlin-binaryCompatibility" }
+mavenPublishPlugin = { id = "com.vanniktech.maven.publish.base", version.ref = "plugin-mavenPublish"}
+versionCatalogAccessor = { id = "eu.bitfunk.gradle.plugin.development.version.catalog.accessor", version.ref = "plugin-versionCatalogAccessor" }

@@ -26,7 +26,7 @@ plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
     jacoco
-    alias(libsPluginConvention.plugins.binaryCompatibilityValidator)
+    alias(libsPluginConvention.plugins.kotlin.binaryCompatibilityValidator)
     alias(libsPluginConvention.plugins.mavenPublishPlugin)
     alias(libsPluginConvention.plugins.versionCatalogAccessor)
     id("jacoco-report-aggregation")
