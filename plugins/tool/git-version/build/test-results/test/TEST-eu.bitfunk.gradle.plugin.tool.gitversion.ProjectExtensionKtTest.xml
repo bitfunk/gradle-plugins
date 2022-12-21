@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-21T15:48:21" hostname="fv-az189-385" time="0.052">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:07:13" hostname="fv-az174-309" time="0.052">
   <properties/>
-  <testcase name="GIVEN project WHEN gitVersion() THEN gitVersion returned()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" time="0.029"/>
-  <testcase name="GIVEN project WHEN gitVersionInfo() THEN gitVersionInfo returned()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" time="0.02"/>
+  <testcase name="GIVEN project WHEN gitVersion() THEN gitVersion returned()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" time="0.03"/>
+  <testcase name="GIVEN project WHEN gitVersionInfo() THEN gitVersionInfo returned()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.ProjectExtensionKtTest" time="0.018"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

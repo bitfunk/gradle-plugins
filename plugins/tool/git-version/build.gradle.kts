@@ -22,7 +22,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.tool"
-version = "0.1.0-SNAPSHOT"
+version = "0.1.1"
 
 gradlePlugin {
     plugins.create("toolGitVersion") {

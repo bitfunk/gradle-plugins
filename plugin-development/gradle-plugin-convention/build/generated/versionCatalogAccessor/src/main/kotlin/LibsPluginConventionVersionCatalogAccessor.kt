@@ -11,17 +11,13 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 
 public interface LibsPluginConventionVersionCatalogAccessorContract {
     public interface Versions {
-        public val kotlin: VersionCatalogDependency.Leaf
-
         public val gradle: VersionCatalogDependency.Leaf
+
+        public val kotlin: VersionCatalogDependency.Leaf
 
         public val test: Test
 
-        public val pluginKotlinBinaryCompatibility: VersionCatalogDependency.Leaf
-
-        public val pluginMavenPublishPlugin: VersionCatalogDependency.Leaf
-
-        public val pluginVersionCatalogAccessor: VersionCatalogDependency.Leaf
+        public val plugin: Plugin
 
         public interface Test : VersionCatalogDependency.Group {
             public val jUnit5: VersionCatalogDependency.Leaf
@@ -31,6 +27,20 @@ public interface LibsPluginConventionVersionCatalogAccessorContract {
             public val jacoco: VersionCatalogDependency.Leaf
 
             public val gradleTestUtil: VersionCatalogDependency.Leaf
+        }
+
+        public interface Plugin : VersionCatalogDependency.Group {
+            public val kotlin: Kotlin
+
+            public val mavenPublish: VersionCatalogDependency.Leaf
+
+            public val versionCatalogAccessor: VersionCatalogDependency.Leaf
+
+            public interface Kotlin : VersionCatalogDependency.Group {
+                public val gradleDsl: VersionCatalogDependency.Leaf
+
+                public val binaryCompatibility: VersionCatalogDependency.Leaf
+            }
         }
     }
 
@@ -67,11 +77,15 @@ public interface LibsPluginConventionVersionCatalogAccessorContract {
     public interface Bundles
 
     public interface Plugins {
-        public val binaryCompatibilityValidator: VersionCatalogDependency.Leaf
+        public val kotlin: Kotlin
 
         public val mavenPublishPlugin: VersionCatalogDependency.Leaf
 
         public val versionCatalogAccessor: VersionCatalogDependency.Leaf
+
+        public interface Kotlin : VersionCatalogDependency.Group {
+            public val binaryCompatibilityValidator: VersionCatalogDependency.Leaf
+        }
     }
 }
 
@@ -83,18 +97,18 @@ public class LibsPluginConventionVersionCatalogAccessor(
             .named("libs-plugin-convention")
 
     public val versions: Versions = object : Versions {
-        public override val kotlin: VersionCatalogDependency.Leaf = object :
-                VersionCatalogDependency.Leaf {
-            public override fun `get`(): String = findVersion("kotlin")
-
-            public override fun getStatic(): String = "1.6.21"
-        }
-
         public override val gradle: VersionCatalogDependency.Leaf = object :
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("gradle")
 
             public override fun getStatic(): String = "7.5.1"
+        }
+
+        public override val kotlin: VersionCatalogDependency.Leaf = object :
+                VersionCatalogDependency.Leaf {
+            public override fun `get`(): String = findVersion("kotlin")
+
+            public override fun getStatic(): String = "1.6.21"
         }
 
         public override val test: Versions.Test = object : Versions.Test {
@@ -109,7 +123,7 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("test-mockk")
 
-                public override fun getStatic(): String = "1.13.2"
+                public override fun getStatic(): String = "1.13.3"
             }
 
             public override val jacoco: VersionCatalogDependency.Leaf = object :
@@ -123,29 +137,41 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("test-gradleTestUtil")
 
-                public override fun getStatic(): String = "0.1.0"
+                public override fun getStatic(): String = "0.1.1"
             }
         }
 
-        public override val pluginKotlinBinaryCompatibility: VersionCatalogDependency.Leaf = object
-                : VersionCatalogDependency.Leaf {
-            public override fun `get`(): String = findVersion("pluginKotlinBinaryCompatibility")
+        public override val plugin: Versions.Plugin = object : Versions.Plugin {
+            public override val kotlin: Versions.Plugin.Kotlin = object : Versions.Plugin.Kotlin {
+                public override val gradleDsl: VersionCatalogDependency.Leaf = object :
+                        VersionCatalogDependency.Leaf {
+                    public override fun `get`(): String = findVersion("plugin-kotlin-gradleDsl")
 
-            public override fun getStatic(): String = "0.12.1"
-        }
+                    public override fun getStatic(): String = "2.3.3"
+                }
 
-        public override val pluginMavenPublishPlugin: VersionCatalogDependency.Leaf = object :
-                VersionCatalogDependency.Leaf {
-            public override fun `get`(): String = findVersion("pluginMavenPublishPlugin")
+                public override val binaryCompatibility: VersionCatalogDependency.Leaf = object :
+                        VersionCatalogDependency.Leaf {
+                    public override fun `get`(): String =
+                            findVersion("plugin-kotlin-binaryCompatibility")
 
-            public override fun getStatic(): String = "0.22.0"
-        }
+                    public override fun getStatic(): String = "0.12.1"
+                }
+            }
 
-        public override val pluginVersionCatalogAccessor: VersionCatalogDependency.Leaf = object :
-                VersionCatalogDependency.Leaf {
-            public override fun `get`(): String = findVersion("pluginVersionCatalogAccessor")
+            public override val mavenPublish: VersionCatalogDependency.Leaf = object :
+                    VersionCatalogDependency.Leaf {
+                public override fun `get`(): String = findVersion("plugin-mavenPublish")
 
-            public override fun getStatic(): String = "0.1.0"
+                public override fun getStatic(): String = "0.22.0"
+            }
+
+            public override val versionCatalogAccessor: VersionCatalogDependency.Leaf = object :
+                    VersionCatalogDependency.Leaf {
+                public override fun `get`(): String = findVersion("plugin-versionCatalogAccessor")
+
+                public override fun getStatic(): String = "0.1.1"
+            }
         }
     }
 
@@ -153,13 +179,16 @@ public class LibsPluginConventionVersionCatalogAccessor(
     }
 
     public val plugins: Plugins = object : Plugins {
-        public override val binaryCompatibilityValidator: VersionCatalogDependency.Leaf = object :
-                VersionCatalogDependency.Leaf {
-            public override fun `get`(): String = findPlugin("binaryCompatibilityValidator")
+        public override val kotlin: Plugins.Kotlin = object : Plugins.Kotlin {
+            public override val binaryCompatibilityValidator: VersionCatalogDependency.Leaf = object
+                    : VersionCatalogDependency.Leaf {
+                public override fun `get`(): String =
+                        findPlugin("kotlin-binaryCompatibilityValidator")
 
-            public override fun getStatic(): String = throw UnsupportedOperationException(
-                "not yet implemented"
-            )
+                public override fun getStatic(): String = throw UnsupportedOperationException(
+                    "not yet implemented"
+                )
+            }
         }
 
         public override val mavenPublishPlugin: VersionCatalogDependency.Leaf = object :

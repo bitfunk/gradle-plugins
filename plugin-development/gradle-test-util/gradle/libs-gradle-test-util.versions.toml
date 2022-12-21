@@ -1,19 +1,21 @@
 [versions]
-kotlin = "1.6.21"
 gradle = "7.5.1"
-jUnit5 = "5.9.1"
-kotlinBinaryCompatibility = "0.12.1"
-gradleMavenPublishPlugin = "0.22.0"
+kotlin = "1.6.21"
+test-jUnit5 = "5.9.1"
+test-mockk = "1.13.3"
+plugin-kotlin-gradleDsl = "2.3.3"
+plugin-kotlin-binaryCompatibility = "0.12.1"
+plugin-mavenPublish = "0.22.0"
 
 [libraries]
-gradleKotlinPlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-gradleKotlinBinaryCompatibilityPlugin = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
-gradleKotlinDsl = "org.gradle.kotlin:gradle-kotlin-dsl-plugins:2.3.3"
-testJUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jUnit5" }
-testJUnit5Engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "jUnit5" }
-testMockk = "io.mockk:mockk:1.13.2"
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-kotlin-binaryCompatibility = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "plugin-kotlin-binaryCompatibility" }
+plugin-kotlin-gradleDsl = { module = "org.gradle.kotlin:gradle-kotlin-dsl-plugins", version.ref = "plugin-kotlin-gradleDsl" }
+test-jUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-jUnit5" }
+test-jUnit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "test-jUnit5" }
+test-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk" }
 
 [plugins]
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinBinaryCompatibility" }
-gradleMavenPublishPlugin = { id = "com.vanniktech.maven.publish.base", version.ref = "gradleMavenPublishPlugin"}
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
+kotlin-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "plugin-kotlin-binaryCompatibility" }
+mavenPublishPlugin = { id = "com.vanniktech.maven.publish.base", version.ref = "plugin-mavenPublish"}
