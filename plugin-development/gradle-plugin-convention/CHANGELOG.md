@@ -15,6 +15,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-con
 
 - Mockk 1.13.2 -> 1.13.3
 - Gradle Test Util 0.1.0 -> 0.1.1
+- Version Catalog Accessor 0.1.0 -> 0.1.1
 
 ## [0.0.7](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.0.7)
 

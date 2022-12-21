@@ -8,7 +8,7 @@ test-gradleTestUtil = "0.1.1"
 plugin-kotlin-gradleDsl = "2.3.3"
 plugin-kotlin-binaryCompatibility = "0.12.1"
 plugin-mavenPublish = "0.22.0"
-plugin-versionCatalogAccessor = "0.1.0"
+plugin-versionCatalogAccessor = "0.1.1"
 
 [libraries]
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
