@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:54:26" hostname="fv-az366-879" time="6.648">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:52:32" hostname="fv-az298-875" time="6.051">
   <properties/>
-  <testcase name="GIVEN repository WHEN loadGitVersionInfo twice THEN cached version present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="2.184"/>
-  <testcase name="GIVEN no tags and dirty content WHEN loadGitVersionInfo THEN version is hash with dirty flag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.754"/>
-  <testcase name="GIVEN with tag and additional commit WHEN describe THEN describe is tag and count up by one()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.227"/>
-  <testcase name="GIVEN prefix not matching pattern WHEN created THEN fail()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.051"/>
-  <testcase name="GIVEN symlinks WHEN loadGitVersionInfo THEN clean version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.317"/>
-  <testcase name="GIVEN with tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.153"/>
-  <testcase name="GIVEN prefix matching pattern WHEN created THEN new instance()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.049"/>
-  <testcase name="GIVEN with v tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.131"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.043"/>
-  <testcase name="GIVEN multiple tags with some having prefix WHEN describe() THEN prefixed tag is shown without prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.176"/>
-  <testcase name="GIVEN tag set on deep commit WHEN describe() THEN return description()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="2.209"/>
-  <testcase name="GIVEN empty repository WHEN loadGitVersionInfo THEN unspecified version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.048"/>
-  <testcase name="GIVEN no tags WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.078"/>
-  <testcase name="GIVEN no tag WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.076"/>
-  <testcase name="GIVEN empty prefix WHEN created THEN new instance()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.013"/>
+  <testcase name="GIVEN repository WHEN loadGitVersionInfo twice THEN cached version present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="2.061"/>
+  <testcase name="GIVEN no tags and dirty content WHEN loadGitVersionInfo THEN version is hash with dirty flag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.874"/>
+  <testcase name="GIVEN with tag and additional commit WHEN describe THEN describe is tag and count up by one()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.287"/>
+  <testcase name="GIVEN prefix not matching pattern WHEN created THEN fail()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.052"/>
+  <testcase name="GIVEN symlinks WHEN loadGitVersionInfo THEN clean version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.308"/>
+  <testcase name="GIVEN with tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.13"/>
+  <testcase name="GIVEN prefix matching pattern WHEN created THEN new instance()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.044"/>
+  <testcase name="GIVEN with v tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.075"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.02"/>
+  <testcase name="GIVEN multiple tags with some having prefix WHEN describe() THEN prefixed tag is shown without prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.126"/>
+  <testcase name="GIVEN tag set on deep commit WHEN describe() THEN return description()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="1.782"/>
+  <testcase name="GIVEN empty repository WHEN loadGitVersionInfo THEN unspecified version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.021"/>
+  <testcase name="GIVEN no tags WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.076"/>
+  <testcase name="GIVEN no tag WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.05"/>
+  <testcase name="GIVEN empty prefix WHEN created THEN new instance()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderTest" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

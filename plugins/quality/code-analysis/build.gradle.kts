@@ -23,7 +23,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.quality"
-version = "0.1.0"
+version = "0.1.1"
 
 gradlePlugin {
     plugins.create("qualityCodeAnalysis") {

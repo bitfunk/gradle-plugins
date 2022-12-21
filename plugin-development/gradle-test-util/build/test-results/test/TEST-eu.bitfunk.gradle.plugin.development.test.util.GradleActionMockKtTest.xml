@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:51:34" hostname="fv-az366-879" time="29.569">
+<testsuite name="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:53:27" hostname="fv-az298-875" time="29.334">
   <properties/>
-  <testcase name="GIVEN project WHEN stubGradleActionWithReturn THEN action executed and returns()" classname="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" time="28.413"/>
-  <testcase name="GIVEN project WHEN stubGradleAction THEN action executed()" classname="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" time="1.126"/>
+  <testcase name="GIVEN project WHEN stubGradleActionWithReturn THEN action executed and returns()" classname="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" time="28.415"/>
+  <testcase name="GIVEN project WHEN stubGradleAction THEN action executed()" classname="eu.bitfunk.gradle.plugin.development.test.util.GradleActionMockKtTest" time="0.913"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

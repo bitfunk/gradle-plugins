@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:53:22" hostname="fv-az366-879" time="35.007">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:52:52" hostname="fv-az298-875" time="29.066">
   <properties/>
-  <testcase name="GIVEN project WHEN apply() THEN everything configured()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="33.388"/>
-  <testcase name="GIVEN project and extension WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="1.399"/>
-  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.036"/>
-  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.127"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.008"/>
+  <testcase name="GIVEN project WHEN apply() THEN everything configured()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="27.51"/>
+  <testcase name="GIVEN project and extension WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="1.35"/>
+  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.032"/>
+  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.126"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.composite.delegator.CompositeDelegatorPluginTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:52:54" hostname="fv-az366-879" time="7.414">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:52:51" hostname="fv-az298-875" time="9.154">
   <properties/>
-  <testcase name="GIVEN null branch WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="6.598"/>
-  <testcase name="GIVEN renovate configure branch WHEN generateVersionName() THEN ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.076"/>
-  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.015"/>
-  <testcase name="GIVEN main branch and dirty version WHEN generateVersionName() THEN semver snapshot version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.061"/>
+  <testcase name="GIVEN null branch WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="8.275"/>
+  <testcase name="GIVEN renovate configure branch WHEN generateVersionName() THEN ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.064"/>
+  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.008"/>
+  <testcase name="GIVEN main branch and dirty version WHEN generateVersionName() THEN semver snapshot version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.078"/>
   <testcase name="GIVEN feature branch, dirty version, zero commits WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.064"/>
-  <testcase name="GIVEN dependabot branch and clean version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.056"/>
-  <testcase name="GIVEN date WHEN generateFeatureVersionCode() THEN timestamp()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.009"/>
-  <testcase name="GIVEN release branch and clean version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.051"/>
-  <testcase name="GIVEN versionCode, commitDistance WHEN generateVersionCode() THEN versionCode shifted ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.033"/>
-  <testcase name="GIVEN versionDetails WHEN generateVersionDetails() THEN all details printed()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.086"/>
-  <testcase name="GIVEN main branch and tag version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.045"/>
-  <testcase name="GIVEN feature branch and dirty version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.054"/>
-  <testcase name="GIVEN feature branch with ticket and dirty version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.04"/>
-  <testcase name="GIVEN unsupported branch name WHEN generateVersionName() THEN throw exception()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.047"/>
-  <testcase name="GIVEN versionCode, no commitDistance WHEN generateVersionCode() THEN versionCode shifted ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.025"/>
-  <testcase name="GIVEN main branch and tag version with starting v WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.06"/>
+  <testcase name="GIVEN dependabot branch and clean version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.079"/>
+  <testcase name="GIVEN date WHEN generateFeatureVersionCode() THEN timestamp()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.002"/>
+  <testcase name="GIVEN release branch and clean version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.063"/>
+  <testcase name="GIVEN versionCode, commitDistance WHEN generateVersionCode() THEN versionCode shifted ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.044"/>
+  <testcase name="GIVEN versionDetails WHEN generateVersionDetails() THEN all details printed()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.1"/>
+  <testcase name="GIVEN main branch and tag version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.051"/>
+  <testcase name="GIVEN feature branch and dirty version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.047"/>
+  <testcase name="GIVEN feature branch with ticket and dirty version WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.051"/>
+  <testcase name="GIVEN unsupported branch name WHEN generateVersionName() THEN throw exception()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.044"/>
+  <testcase name="GIVEN versionCode, no commitDistance WHEN generateVersionCode() THEN versionCode shifted ()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.035"/>
+  <testcase name="GIVEN main branch and tag version with starting v WHEN generateVersionName() THEN semver version()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersionNameGeneratorTest" time="0.043"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

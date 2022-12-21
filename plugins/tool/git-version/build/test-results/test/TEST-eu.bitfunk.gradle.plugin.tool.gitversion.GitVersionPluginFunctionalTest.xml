@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:54:33" hostname="fv-az366-879" time="155.092">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:52:38" hostname="fv-az298-875" time="173.405">
   <properties/>
-  <testcase name="git describe works when git repo is multiple levels up()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="123.948"/>
-  <testcase name="GIVEN multiple unannotated tags on same commit WHEN describe THEN not tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="4.185"/>
-  <testcase name="version filters out tags not matching prefix and strips prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.905"/>
-  <testcase name="GIVEN lightweight tag WHEN describe THEN tag is ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.497"/>
-  <testcase name="test tag set on deep commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.279"/>
-  <testcase name="git describe and dirty when annotated tag is present and dirty content()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.394"/>
-  <testcase name="test multiple tags on same commit - annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.446"/>
-  <testcase name="version details can be accessed using extra properties method()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.8"/>
-  <testcase name="git describe when annotated tag is present after merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.993"/>
-  <testcase name="git describe when annotated tag is present with merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.515"/>
-  <testcase name="test multiple tags on same commit - most recent annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.778"/>
-  <testcase name="version details when detached HEAD mode()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.727"/>
-  <testcase name="git version can be applied on sub modules()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.031"/>
-  <testcase name="isCleanTag should be false when repo dirty on a tag checkout()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.282"/>
-  <testcase name="git describe when annotated tag is present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.426"/>
-  <testcase name="GIVEN project without git folder WHEN plugin applied THEN fail with exception()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.871"/>
-  <testcase name="unspecified when no tags are present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.321"/>
-  <testcase name="git describe with commit after annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.504"/>
-  <testcase name="GIVEN commit after lightweight tag WHEN describe THEN tag ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.406"/>
-  <testcase name="version details when commit distance to tag is greater 0()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.409"/>
-  <testcase name="version details on commit with a tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.334"/>
-  <testcase name="test subproject version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.977"/>
+  <testcase name="git describe works when git repo is multiple levels up()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="137.724"/>
+  <testcase name="GIVEN multiple unannotated tags on same commit WHEN describe THEN not tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="5.977"/>
+  <testcase name="version filters out tags not matching prefix and strips prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.888"/>
+  <testcase name="GIVEN lightweight tag WHEN describe THEN tag is ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.414"/>
+  <testcase name="test tag set on deep commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.241"/>
+  <testcase name="git describe and dirty when annotated tag is present and dirty content()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.395"/>
+  <testcase name="test multiple tags on same commit - annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.418"/>
+  <testcase name="version details can be accessed using extra properties method()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.382"/>
+  <testcase name="git describe when annotated tag is present after merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.0"/>
+  <testcase name="git describe when annotated tag is present with merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.495"/>
+  <testcase name="test multiple tags on same commit - most recent annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.823"/>
+  <testcase name="version details when detached HEAD mode()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.405"/>
+  <testcase name="git version can be applied on sub modules()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.843"/>
+  <testcase name="isCleanTag should be false when repo dirty on a tag checkout()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.152"/>
+  <testcase name="git describe when annotated tag is present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.51"/>
+  <testcase name="GIVEN project without git folder WHEN plugin applied THEN fail with exception()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.876"/>
+  <testcase name="unspecified when no tags are present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.277"/>
+  <testcase name="git describe with commit after annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.328"/>
+  <testcase name="GIVEN commit after lightweight tag WHEN describe THEN tag ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.374"/>
+  <testcase name="version details when commit distance to tag is greater 0()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.72"/>
+  <testcase name="version details on commit with a tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.405"/>
+  <testcase name="test subproject version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.711"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

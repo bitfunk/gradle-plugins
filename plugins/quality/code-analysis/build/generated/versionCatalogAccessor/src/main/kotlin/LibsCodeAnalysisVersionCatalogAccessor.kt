@@ -50,7 +50,7 @@ public class LibsCodeAnalysisVersionCatalogAccessor(
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("gradlePluginConvention")
 
-            public override fun getStatic(): String = "0.0.7"
+            public override fun getStatic(): String = "0.1.0"
         }
 
         public override val gradleVersionCatalogAccessor: VersionCatalogDependency.Leaf = object :

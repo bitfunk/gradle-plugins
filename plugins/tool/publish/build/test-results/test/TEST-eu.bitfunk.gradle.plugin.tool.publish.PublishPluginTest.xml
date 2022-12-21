@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:51:27" hostname="fv-az366-879" time="22.311">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:54:21" hostname="fv-az298-875" time="18.173">
   <properties/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="6.91"/>
-  <testcase name="GIVEN project and signing is disabled WHEN configureSigning() THEN nothing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="1.375"/>
-  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.014"/>
-  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="2.393"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.001"/>
-  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="7.914"/>
-  <testcase name="GIVEN project WHEN configureSigning() THEN signing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="2.483"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="1.05"/>
-  <testcase name="GIVEN project without properties WHEN configureSigning() THEN throw exception()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.085"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="5.793"/>
+  <testcase name="GIVEN project and signing is disabled WHEN configureSigning() THEN nothing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.704"/>
+  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.002"/>
+  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="2.089"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.015"/>
+  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="6.584"/>
+  <testcase name="GIVEN project WHEN configureSigning() THEN signing configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="2.04"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.827"/>
+  <testcase name="GIVEN project without properties WHEN configureSigning() THEN throw exception()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginTest" time="0.053"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

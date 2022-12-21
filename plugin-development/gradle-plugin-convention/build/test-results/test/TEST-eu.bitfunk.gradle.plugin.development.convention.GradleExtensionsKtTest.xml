@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:52:18" hostname="fv-az366-879" time="25.122">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T18:53:15" hostname="fv-az298-875" time="25.253">
   <properties/>
-  <testcase name="GIVEN dependencyHandler WHEN testImplementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="20.858"/>
-  <testcase name="GIVEN project WHEN javaPlugin() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="4.103"/>
-  <testcase name="GIVEN dependencyHandler WHEN testRuntimeOnly() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.032"/>
-  <testcase name="GIVEN project WHEN jacoco() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.047"/>
+  <testcase name="GIVEN dependencyHandler WHEN testImplementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="21.18"/>
+  <testcase name="GIVEN project WHEN javaPlugin() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="3.889"/>
+  <testcase name="GIVEN dependencyHandler WHEN testRuntimeOnly() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.034"/>
+  <testcase name="GIVEN project WHEN jacoco() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.053"/>
   <testcase name="GIVEN dependencyHandler WHEN implementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.037"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
