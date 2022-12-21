@@ -38,7 +38,7 @@ curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../a
   ```
 - Report
   ```bash
-  curl "https://img.shields.io/badge/Report-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-report.svg
+  curl "https://img.shields.io/badge/Report-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-report.svg
   ```
 
 #### Tool
