@@ -18,6 +18,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 ### Bumped
 
 - Spotless 6.11.0 -> 6.12.0
+- ktlint 0.47.1 -> 0.48.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.0)
 
