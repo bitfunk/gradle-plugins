@@ -1,5 +1,5 @@
 [versions]
-gradleCodeAnalysis = "0.1.0"
+gradleCodeAnalysis = "0.1.1"
 gradleFormatter = "0.1.0"
 gradleReport = "0.1.0"
 
