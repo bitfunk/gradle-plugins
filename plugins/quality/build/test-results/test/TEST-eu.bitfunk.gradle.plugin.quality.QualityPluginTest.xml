@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:25:04" hostname="fv-az589-969" time="12.471">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:38:41" hostname="fv-az796-98" time="21.529">
   <properties/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN all plugins added()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="11.99"/>
-  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.038"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.001"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.423"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN all plugins added()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="20.719"/>
+  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.064"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.008"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.QualityPluginTest" time="0.683"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

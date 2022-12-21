@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:24:32" hostname="fv-az589-969" time="18.663">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:39:00" hostname="fv-az796-98" time="19.157">
   <properties/>
-  <testcase name="GIVEN project WHEN configureVersionTasks() THEN version tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="15.201"/>
-  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="1.624"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="0.003"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="1.656"/>
-  <testcase name="GIVEN project WHEN addExtraProperties() THEN properties available()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="0.14"/>
+  <testcase name="GIVEN project WHEN configureVersionTasks() THEN version tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="15.343"/>
+  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="1.805"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="0.001"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="1.845"/>
+  <testcase name="GIVEN project WHEN addExtraProperties() THEN properties available()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginTest" time="0.145"/>
   <system-out><![CDATA[gitVersion
 
 0

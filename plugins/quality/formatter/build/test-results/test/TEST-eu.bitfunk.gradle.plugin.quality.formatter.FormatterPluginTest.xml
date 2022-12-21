@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:24:25" hostname="fv-az589-969" time="28.553">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:36:50" hostname="fv-az796-98" time="33.347">
   <properties/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="16.328"/>
-  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="0.105"/>
-  <testcase name="GIVEN project WHEN addRepository() THEN mavenCentral available()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="6.886"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="1.316"/>
-  <testcase name="GIVEN project WHEN configureFormatter() THEN formatter configured()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="3.879"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="17.548"/>
+  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="0.096"/>
+  <testcase name="GIVEN project WHEN addRepository() THEN mavenCentral available()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="8.126"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="1.996"/>
+  <testcase name="GIVEN project WHEN configureFormatter() THEN formatter configured()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginTest" time="5.517"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

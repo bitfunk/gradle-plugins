@@ -1,9 +1,9 @@
 [versions]
-gradleCodeAnalysis = "0.1.0"
-gradleFormatter = "0.1.0"
-gradleReport = "0.1.0"
+gradleCodeAnalysis = "0.1.1"
+gradleFormatter = "0.1.1"
+gradleReport = "0.1.1"
 
-gradlePluginConvention = "0.0.7"
+gradlePluginConvention = "0.1.0"
 gradleCompositeDelegator = "0.1.0"
 
 [libraries]
