@@ -11,6 +11,15 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.0...main)
 
+### Fixed
+
+- Fix issue that SemVer interprets some git hashes as semantic version
+
+### Bumped
+
+- SemVer 1.1.1 -> 1.2.0
+- jGit 6.3.0.202209071007-r -> 6.4.0.202211300538-r
+
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-git-version@v0.1.0)
 
 Initial release Git Version Plugin - for easy project versioning using Git tags.
