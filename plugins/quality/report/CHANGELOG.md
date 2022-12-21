@@ -14,6 +14,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 ### Bumped
 
 - Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
+- Gradle Plugin Convention 0.7.0 -> 1.0.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-report@v0.1.0)
 
