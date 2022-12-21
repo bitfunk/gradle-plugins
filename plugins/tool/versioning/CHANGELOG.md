@@ -9,7 +9,16 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-versioning@v0.1.1...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-versioning@v0.1.2...main)
+
+## [0.1.2](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-versioning@v0.1.2)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-versioning@v0.1.1...plugin-tool-versioning@v0.1.2)
+
+### Bumped
+
+- Git Version 0.1.0-SNAPSHOT -> 0.1.1
+- Gradle Plugin Convention 0.0.7 -> 0.1.0
 
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-versioning@v0.1.1)
 
