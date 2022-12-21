@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:09:53" hostname="fv-az174-309" time="1.509">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-12-21T17:57:48" hostname="fv-az366-879" time="1.678">
   <properties/>
-  <testcase name="GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.027"/>
-  <testcase name="GIVEN project with catalogSourceFolder WHEN generate() THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.03"/>
-  <testcase name="GIVEN project without properties WHEN generate() THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.035"/>
-  <testcase name="GIVEN project configured WHEN generate() THEN generated present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="1.415"/>
+  <testcase name="GIVEN project with catalogSourceFolder, packageName WHEN generate() THEN no output generated()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.029"/>
+  <testcase name="GIVEN project with catalogSourceFolder WHEN generate() THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.071"/>
+  <testcase name="GIVEN project without properties WHEN generate() THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="0.026"/>
+  <testcase name="GIVEN project configured WHEN generate() THEN generated present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorSourceGeneratorTaskTest" time="1.548"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
