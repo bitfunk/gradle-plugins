@@ -26,7 +26,7 @@ curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../a
 
 - Quality collection
   ```bash
-  curl "https://img.shields.io/badge/QualityCollection-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-collection.svg
+  curl "https://img.shields.io/badge/QualityCollection-v0.1.2-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-collection.svg
   ```
 - Code analysis
   ```bash
