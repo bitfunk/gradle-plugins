@@ -34,7 +34,7 @@ curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../a
   ```
 - Code Formatter
   ```bash
-  curl "https://img.shields.io/badge/CodeFormatter-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-formatter.svg
+  curl "https://img.shields.io/badge/CodeFormatter-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-formatter.svg
   ```
 - Report
   ```bash
