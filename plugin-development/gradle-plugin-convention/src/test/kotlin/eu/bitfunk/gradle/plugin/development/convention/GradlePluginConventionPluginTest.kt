@@ -246,10 +246,10 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
             dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
             dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.6.21")
-            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.2")
+            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.3")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.0"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.1"
             )
         }
 

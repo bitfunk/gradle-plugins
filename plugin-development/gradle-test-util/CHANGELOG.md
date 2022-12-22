@@ -9,12 +9,20 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/gradle-dev-test-util@v0.1.0...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/gradle-dev-test-util@v0.1.1...main)
 
 ### Bumped
 
 - Gradle 7.5.1 -> 7.6
 - Kotlin DSL 2.3.3 -> 2.4.1
+
+## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/gradle-dev-test-util@v0.1.1)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/gradle-dev-test-util@v0.1.0...gradle-dev-test-util@v0.1.1)
+
+### Bumped
+
+- Mockk 1.13.2 -> 1.13.3
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/gradle-dev-test-util@v0.1.0)
 

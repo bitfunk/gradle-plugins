@@ -73,7 +73,7 @@ public class GitVersionLoader(
     }
 
     private fun versionCode(description: String): Int {
-        return if (description.isEmpty()) {
+        return if (description.isEmpty() || !SEMANTIC_VERSION_REGEX.matches(description)) {
             -1
         } else {
             var versionDescription = description
@@ -135,6 +135,8 @@ public class GitVersionLoader(
     }
 
     private companion object {
+        private val SEMANTIC_VERSION_REGEX =
+            "(v)?(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?".toRegex()
         private val PREFIX_REGEX = "[/@]?([A-Za-z]+[/@-])+".toRegex()
         private val TAG_REGEX = "(.*)(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(.*)".toRegex()
         private val CLEAN_TAG_REGEX = ".*g.?[0-9a-fA-F]{3,}".toRegex()

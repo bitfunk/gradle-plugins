@@ -26,19 +26,19 @@ curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../a
 
 - Quality collection
   ```bash
-  curl "https://img.shields.io/badge/QualityCollection-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-collection.svg
+  curl "https://img.shields.io/badge/QualityCollection-v0.1.2-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-collection.svg
   ```
 - Code analysis
   ```bash
-  curl "https://img.shields.io/badge/CodeAnalysis-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg
+  curl "https://img.shields.io/badge/CodeAnalysis-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg
   ```
 - Code Formatter
   ```bash
-  curl "https://img.shields.io/badge/CodeFormatter-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-formatter.svg
+  curl "https://img.shields.io/badge/CodeFormatter-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-formatter.svg
   ```
 - Report
   ```bash
-  curl "https://img.shields.io/badge/Report-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-report.svg
+  curl "https://img.shields.io/badge/Report-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-report.svg
   ```
 
 #### Tool
@@ -57,11 +57,11 @@ curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../asse
   ```
 - Git Version
   ```bash
-  curl "https://img.shields.io/badge/GitVersion-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg
+  curl "https://img.shields.io/badge/GitVersion-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-git-version.svg
   ```
 - Versioning
   ```bash
-  curl "https://img.shields.io/badge/Versioning-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-versioning.svg
+  curl "https://img.shields.io/badge/Versioning-v0.1.2-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-versioning.svg
   ```
 
 #### Plugin-development
@@ -72,11 +72,11 @@ curl "https://img.shields.io/badge/Plugin_Development-→-orange.svg?style=flat"
 
 - Gradle plugin convention
   ```bash
-  curl "https://img.shields.io/badge/PluginConvention-v0.0.7-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-plugin-convention.svg
+  curl "https://img.shields.io/badge/PluginConvention-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-plugin-convention.svg
   ```
 - Gradle test util
   ```bash
-  curl "https://img.shields.io/badge/TestUtil-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-test-util.svg
+  curl "https://img.shields.io/badge/TestUtil-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-gradle-test-util.svg
   ```
 - Gradle Version catalog accessor
   ```bash

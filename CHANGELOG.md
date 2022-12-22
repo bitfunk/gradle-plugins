@@ -50,7 +50,8 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
 
 ### Bumped
 
-- Bitfunk Quality 0.1.0 -> 0.1.1
+- Bitfunk Quality 0.1.0 -> 0.1.2
+- Bitfunk Versioning 0.1.1 -> 0.1.2
 - Gradle 7.5.1 -> 7.6
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
