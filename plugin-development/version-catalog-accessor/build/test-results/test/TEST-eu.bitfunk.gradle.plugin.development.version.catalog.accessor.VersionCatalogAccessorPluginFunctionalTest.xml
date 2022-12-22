@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-12-21T19:35:10" hostname="fv-az796-98" time="304.457">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-12-22T18:11:20" hostname="fv-az343-418" time="478.69">
   <properties/>
-  <testcase name="GIVEN inner module with plugin WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="144.17"/>
-  <testcase name="GIVEN setup without kotlin-dsl WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="4.493"/>
-  <testcase name="GIVEN setup without java-gradle-plugin WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="0.372"/>
-  <testcase name="GIVEN Gradle version 7_1 WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="115.919"/>
-  <testcase name="GIVEN custom configuration WHEN generateVersionCatalogAccessor THEN catalogs are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="34.585"/>
-  <testcase name="GIVEN custom configuration WHEN all run THEN all files are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="1.473"/>
-  <testcase name="GIVEN default configuration WHEN generateVersionCatalogAccessor THEN catalog is present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="2.186"/>
-  <testcase name="GIVEN default configuration WHEN all run THEN all files are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="1.232"/>
+  <testcase name="GIVEN inner module with plugin WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="178.73"/>
+  <testcase name="GIVEN setup without kotlin-dsl WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="4.412"/>
+  <testcase name="GIVEN setup without java-gradle-plugin WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="0.477"/>
+  <testcase name="GIVEN Gradle version 7_1 WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="159.873"/>
+  <testcase name="GIVEN custom configuration WHEN generateVersionCatalogAccessor THEN catalogs are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="125.725"/>
+  <testcase name="GIVEN custom configuration WHEN all run THEN all files are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="3.065"/>
+  <testcase name="GIVEN default configuration WHEN generateVersionCatalogAccessor THEN catalog is present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="4.249"/>
+  <testcase name="GIVEN default configuration WHEN all run THEN all files are present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginFunctionalTest" time="2.138"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
