@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-code-analysis@v0.1.1...main)
 
+### Bumped
+
+- Version Catalog Accessor 0.1.0 -> 0.1.1
+
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.1.1)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-code-analysis@v0.1.0...plugin-quality-code-analysis@v0.1.1)
