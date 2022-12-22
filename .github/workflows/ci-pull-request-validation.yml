@@ -19,11 +19,9 @@ jobs:
       group: validation-${{ github.head_ref }}
       cancel-in-progress: true
 
-    env:
-      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ github.actor }}
-      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_PACKAGE_UPLOAD_USER: ${{ github.actor }}
-      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      checks: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v3
@@ -44,10 +42,10 @@ jobs:
         run: ./gradlew --no-daemon --stacktrace build
 
       - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v3
-        if: failure()
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
+          junit_files: "**/build/test-results/test/**/*.xml"
 
       - name: Analyze
         env:

@@ -11,12 +11,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      GITHUB_PACKAGE_DOWNLOAD_USER: ${{ github.actor }}
-      GITHUB_PACKAGE_DOWNLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
-      GITHUB_PACKAGE_UPLOAD_USER: ${{ github.actor }}
-      GITHUB_PACKAGE_UPLOAD_KEY: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - uses: actions/checkout@v3
         with:
@@ -38,6 +32,12 @@ jobs:
 
       - name: Build project
         run: ./gradlew --no-daemon --stacktrace build
+
+      - name: Publish Test Report
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: "**/build/test-results/test/**/*.xml"
 
       - name: Publish documentation
         env:
