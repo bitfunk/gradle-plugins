@@ -1,7 +1,7 @@
 [versions]
 detekt = "1.22.0"
 gradlePluginConvention = "0.1.0"
-gradleVersionCatalogAccessor = "0.1.0"
+gradleVersionCatalogAccessor = "0.1.1"
 
 [libraries]
 gradleDetektPlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }

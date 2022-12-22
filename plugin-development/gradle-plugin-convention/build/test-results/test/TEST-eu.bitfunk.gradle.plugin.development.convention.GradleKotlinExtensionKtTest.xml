@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleKotlinExtensionKtTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-22T18:26:47" hostname="fv-az301-732" time="0.048">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleKotlinExtensionKtTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-22T18:38:36" hostname="fv-az555-909" time="0.034">
   <properties/>
-  <testcase name="GIVEN project WHEN kotlinJvm() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleKotlinExtensionKtTest" time="0.048"/>
+  <testcase name="GIVEN project WHEN kotlinJvm() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleKotlinExtensionKtTest" time="0.034"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
