@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.0...main)
 
+### Fixed
+
+- Fix flaky git-version merge test
+
 ### Bumped
 
 - Gradle Plugin Convention 0.0.7 -> 0.1.0
