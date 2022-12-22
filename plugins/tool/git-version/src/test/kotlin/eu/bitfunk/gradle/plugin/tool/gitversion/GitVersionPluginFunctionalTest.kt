@@ -227,6 +227,12 @@ class GitVersionPluginFunctionalTest {
 
         // THEN
         val pattern = ":printGitVersion\n1.0.0-2-g$commitSha\n".toRegex()
+
+        println("Log:")
+        git.log().call().iterator().forEach {
+            println("id: ${it.id} message: ${it.shortMessage}")
+        }
+
         assertTrue(
             actual = result.output.contains(pattern),
             message = "${result.output} does not match $pattern"
