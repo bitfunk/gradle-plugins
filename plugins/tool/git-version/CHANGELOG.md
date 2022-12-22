@@ -15,6 +15,10 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-gi
 
 - Fix flaky git-version merge test
 
+### Bumped
+
+- Gradle Plugin Convention 0.0.7 -> 0.1.0
+
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-git-version@v0.1.1)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.0...plugin-tool-git-version@v0.1.1)
