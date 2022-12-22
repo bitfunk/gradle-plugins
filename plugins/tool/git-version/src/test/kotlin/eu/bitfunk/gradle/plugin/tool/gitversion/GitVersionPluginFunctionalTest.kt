@@ -219,11 +219,14 @@ class GitVersionPluginFunctionalTest {
             .setMessage("merge commit")
             .call()
 
+        val latestCommit = git.log().setMaxCount(1).call().iterator().next()
+
         // WHEN
         val result = withRunner(projectDir, "printGitVersion").build()
+        val commitSha = latestCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH)
 
         // THEN
-        val pattern = ":printGitVersion\n1.0.0-2-g[a-z0-9]{7}\n".toRegex()
+        val pattern = ":printGitVersion\n1.0.0-2-g$commitSha\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
             message = "${result.output} does not match $pattern"

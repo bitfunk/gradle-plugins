@@ -34,6 +34,12 @@ jobs:
       - name: Build
         run: ./gradlew --no-daemon --stacktrace build
 
+      - name: Publish Test Report
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          junit_files: "**/build/test-results/test/TEST-*.xml"
+
       - name: Analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
