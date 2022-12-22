@@ -37,3 +37,4 @@ dependencyResolutionManagement {
 includeBuild("composite-delegator")
 includeBuild("publish")
 includeBuild("versioning")
+includeBuild("git-version")

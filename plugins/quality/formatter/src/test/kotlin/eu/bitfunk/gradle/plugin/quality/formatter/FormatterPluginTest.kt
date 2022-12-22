@@ -138,6 +138,7 @@ class FormatterPluginTest {
             kotlinExtension.endWithNewline()
 
             kotlinGradleExtension.target("**/*.gradle.kts", "**/*.df.kts")
+            kotlinGradleExtension.targetExclude("**/build/")
             kotlinGradleExtension.trimTrailingWhitespace()
             kotlinGradleExtension.indentWithSpaces()
             kotlinGradleExtension.endWithNewline()

@@ -55,13 +55,13 @@ import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRule
 import org.gradle.testing.jacoco.tasks.rules.JacocoViolationRulesContainer
 import org.gradle.util.GradleVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertInstanceOf
 import org.junit.jupiter.api.Assertions.assertThrowsExactly
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
 import java.math.BigDecimal
+import kotlin.test.assertEquals
 import org.gradle.api.tasks.testing.Test as TestTask
 
 class GradlePluginConventionPluginTest {
@@ -170,7 +170,7 @@ class GradlePluginConventionPluginTest {
         val result = testSubject.addExtension(project)
 
         // THEN
-        Assertions.assertEquals(
+        assertEquals(
             extension,
             result
         )
@@ -245,10 +245,11 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.add("testImplementation", gradleTestKitDependency)
             dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
             dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
-            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.2")
+            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.6.21")
+            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.3")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.0"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.1"
             )
         }
 

@@ -1,0 +1,152 @@
+site_name: Gradle Plugins
+site_description: Collection of Gradle plugins used across multiple projects.
+site_author: Wolf-Martell Montwé
+site_url: https://bitfunk.github.io/gradle-plugins/
+
+repo_name: bitfunk/gradle-plugins
+repo_url: https://github.com/bitfunk/gradle-plugins
+edit_uri: edit/main/
+
+copyright: Copyright &copy; 2022 Wolf-Martell Montwé
+
+docs_dir: '.'
+
+extra_css:
+  - assets/css/extra.css
+
+theme:
+  name: 'material'
+  font: false
+  language: en
+  logo: docs/assets/images/brand-logo.svg
+  favicon: docs/assets/images/logo.svg
+  custom_dir: docs/theme
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: red
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  social:
+    - type: 'github'
+      link: 'https://github.com/bitfunk/gradle-plugins'
+  features:
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+
+plugins:
+  - search
+  - redirects
+  - kroki
+  - include-markdown
+  - markdownextradata
+  - same-dir
+  - exclude:
+      glob:
+        - build/*
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bitfunk
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.magiclink
+  - pymdownx.snippets:
+      check_paths: true
+
+nav:
+  - Home: README.md
+  - Changelog: CHANGELOG.md
+  - Plugins:
+    - plugins/README.md
+    - Quality:
+      - Collection:
+        - plugins/quality/README.md
+        - Changelog: plugins/quality/CHANGELOG.md
+      - Code Analysis:
+        - plugins/quality/code-analysis/README.md
+        - Changelog: plugins/quality/code-analysis/CHANGELOG.md
+      - Formatter:
+        - plugins/quality/formatter/README.md
+        - Changelog: plugins/quality/formatter/CHANGELOG.md
+      - Report:
+        - plugins/quality/report/README.md
+        - Changelog: plugins/quality/report/CHANGELOG.md
+    - Tool:
+        - CompositeDelegator:
+          - plugins/tool/composite-delegator/README.md
+          - Changelog: plugins/tool/composite-delegator/CHANGELOG.md
+        - Publish:
+          - plugins/tool/publish/README.md
+          - Changelog: plugins/tool/publish/CHANGELOG.md
+        - GitVersion:
+          - plugins/tool/git-version/README.md
+          - Changelog: plugins/tool/git-version/CHANGELOG.md
+        - Versioning:
+          - plugins/tool/versioning/README.md
+          - Changelog: plugins/tool/versioning/CHANGELOG.md
+  - Plugin Development:
+    - Plugin:
+      - GradlePluginConvention:
+        - plugin-development/gradle-plugin-convention/README.md
+        - Changelog: plugin-development/gradle-plugin-convention/CHANGELOG.md
+      - VersionCatalogAccessor:
+        - plugin-development/version-catalog-accessor/README.md
+        - Changelog: plugin-development/version-catalog-accessor/CHANGELOG.md
+    - Test:
+        - GradleTestUtil:
+            - plugin-development/gradle-test-util/README.md
+            - Changelog: plugin-development/gradle-test-util/CHANGELOG.md
+  - Develop:
+      - Code of Conduct: CODE_OF_CONDUCT.md
+      - Contributing: CONTRIBUTING.md
+      - Releasing: docs/develop/RELEASING.md
+      - Badges: docs/develop/badges.md
+  - License: LICENSE.md

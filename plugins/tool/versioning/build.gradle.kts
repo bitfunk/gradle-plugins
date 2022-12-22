@@ -21,18 +21,8 @@ plugins {
     alias(libsVersioning.plugins.gradlePluginConvention)
 }
 
-repositories {
-    maven {
-        url = uri("https://maven.pkg.github.com/bitfunk/gradle-git-version")
-        credentials {
-            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_USER")
-            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_KEY")
-        }
-    }
-}
-
 group = "eu.bitfunk.gradle.plugin.tool"
-version = "0.1.1"
+version = "0.1.2"
 
 gradlePlugin {
     plugins.create("toolVersioning") {
@@ -42,7 +32,7 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(libsVersioning.gradleGitVersionPlugin)
+    implementation(libsVersioning.plugin.gitVersion)
 }
 
 projectConfig {

@@ -54,6 +54,7 @@ public class FormatterPlugin : Plugin<Project>, FormatterContract.Plugin {
             }
             kotlinGradle {
                 target("**/*.gradle.kts", "**/*.df.kts")
+                targetExclude("**/build/")
                 trimTrailingWhitespace()
                 indentWithSpaces()
                 endWithNewline()

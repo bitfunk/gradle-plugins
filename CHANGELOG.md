@@ -7,39 +7,58 @@ types of changes: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Securit
 
 This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
+Changelogs for every plugin are listed below and for this project could be found in the [project](#project) section at the end.
+
+## Plugin
+
+### Quality
+
+- [QualityCollection](plugins/quality/CHANGELOG.md)
+- [CodeAnalysis](plugins/quality/code-analysis/CHANGELOG.md)
+- [Report](plugins/quality/report/CHANGELOG.md)
+- [Formatter](plugins/quality/formatter/CHANGELOG.md)
+
+### Tool
+
+- [CompositeDelegator](plugins/tool/composite-delegator/CHANGELOG.md)
+- [Publish](plugins/tool/publish/CHANGELOG.md)
+- [GitVersion](plugins/tool/git-version/CHANGELOG.md)
+- [Versioning](plugins/tool/versioning/CHANGELOG.md)
+
+## Gradle plugin development
+
+### Plugin
+
+- [GradlePluginConvention](plugin-development/gradle-plugin-convention/CHANGELOG.md)
+- [VersionCatalogAccessor](./plugin-development/version-catalog-accessor/CHANGELOG.md)
+
+### Test
+
+- [GradleTestUtil](plugin-development/gradle-test-util/CHANGELOG.md)
+
+## Project
+
+All project changes below.
+
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
 
+### Changed
+
+- Change documentation from multi version to single version
+
 ### Bumped
 
-- jacksonToml 2.14.0 -> 2.14.1
+- Bitfunk Quality 0.1.0 -> 0.1.1
+- Bitfunk Versioning 0.1.1 -> 0.1.2
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.1.0)
-
-Initial release
 
 ### Added
 
 - Add initial project
-- Add VersionCatalogAccessor - a version catalog accessor for Gradle plugin development
-- Add Gradle Plugin Convention - for Gradle plugin development
-- Add Formatter Plugin - using Spotless and ktlint
 - Add GradleWrapper validation GitHub Action
 - Add Sonarcloud analysis as part of the pull-request validation to enable coverage reports
-- Add CodeAnalysis Plugin - using Detekt
-- Add Versioning Plugin - a versioning plugin using git tags
-- Add Report Plugin - a quality report plugin using sonarqube
-- Add Quality Plugin - a collection of all quality plugins
 - Add Code of Conduct
-- Add Publish Plugin - a publish plugin for maven dependencies
-- Add Composite Delegator Plugin - a plugin that delegates gradle tasks execution to included builds
-- Add maven central publishing to Gradle Plugin Convention
-
-### Fixed
-
-- Versioning: cleaned version wrong for feature versions
-
-### Bumped
-
-- Sonarqube Gradle plugin 3.4.0.2513 -> 3.5.0.2730
+- Add test report uploader

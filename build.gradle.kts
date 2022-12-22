@@ -16,21 +16,6 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenCentral()
-        google()
-        maven {
-            url = uri("https://maven.pkg.github.com/bitfunk/gradle-git-version")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_USER")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_PACKAGE_DOWNLOAD_KEY")
-            }
-        }
-    }
-}
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.gradleQuality)
@@ -43,7 +28,9 @@ reportConfig {
     sonarOrganization.set("bitfunk")
     coverageReportSourceDirs.set(
         listOf(
-            "$projectDir/plugin-development/build/reports/jacoco/testCodeCoverageReport",
+            "$projectDir/plugin-development/gradle-test-util/build/reports/jacoco/testCodeCoverageReport",
+            "$projectDir/plugin-development/gradle-plugin-convention/build/reports/jacoco/testCodeCoverageReport",
+            "$projectDir/plugin-development/version-catalog-accessor/build/reports/jacoco/testCodeCoverageReport",
             "$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport"
         )
     )
