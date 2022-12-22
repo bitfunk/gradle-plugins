@@ -9,7 +9,11 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.0...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.1...main)
+
+## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.1)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.0...plugin-quality-formatter@v0.1.1)
 
 ### Fixed
 
@@ -18,6 +22,8 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 ### Bumped
 
 - Spotless 6.11.0 -> 6.12.0
+- ktlint 0.47.1 -> 0.48.0
+- Gradle Plugin Convention 0.7.0 -> 1.0.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.0)
 
