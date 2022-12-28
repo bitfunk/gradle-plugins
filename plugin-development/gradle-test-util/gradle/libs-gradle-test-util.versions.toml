@@ -1,6 +1,6 @@
 [versions]
 gradle = "7.5.1"
-kotlin = "1.6.21"
+kotlin = "1.8.0"
 test-jUnit5 = "5.9.1"
 test-mockk = "1.13.3"
 plugin-kotlin-gradleDsl = "2.3.3"
