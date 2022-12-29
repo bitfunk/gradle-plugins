@@ -7,7 +7,7 @@ test-jacoco = "0.8.8"
 test-gradleTestUtil = "0.1.1"
 plugin-kotlin-gradleDsl = "2.3.3"
 plugin-kotlin-binaryCompatibility = "0.12.1"
-plugin-mavenPublish = "0.22.0"
+plugin-mavenPublish = "0.23.0"
 plugin-versionCatalogAccessor = "0.1.1"
 
 [libraries]

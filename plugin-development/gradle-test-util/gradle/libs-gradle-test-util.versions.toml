@@ -5,7 +5,7 @@ test-jUnit5 = "5.9.1"
 test-mockk = "1.13.3"
 plugin-kotlin-gradleDsl = "2.3.3"
 plugin-kotlin-binaryCompatibility = "0.12.1"
-plugin-mavenPublish = "0.22.0"
+plugin-mavenPublish = "0.23.0"
 
 [libraries]
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
