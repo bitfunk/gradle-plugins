@@ -2,7 +2,7 @@
 gradle = "7.5.1"
 kotlin = "1.6.21"
 test-jUnit5 = "5.9.1"
-test-mockk = "1.13.3"
+test-mockk = "1.13.4"
 test-jacoco = "0.8.8"
 test-gradleTestUtil = "0.1.1"
 plugin-kotlin-gradleDsl = "2.3.3"
