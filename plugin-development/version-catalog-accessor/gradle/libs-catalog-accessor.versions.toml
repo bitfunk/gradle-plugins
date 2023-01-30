@@ -3,7 +3,7 @@ gradlePluginConvention = "0.1.0"
 
 [libraries]
 kotlinPoet = "com.squareup:kotlinpoet:1.12.0"
-jacksonToml = "com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.14.1"
+jacksonToml = "com.fasterxml.jackson.dataformat:jackson-dataformat-toml:2.14.2"
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
