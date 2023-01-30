@@ -14,6 +14,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-ver
 ### Bumped
 
 - Gradle Plugin Convention 0.0.7 -> 0.1.0
+- Jackson Dataformat Toml 2.14.1 -> 2.14.2
 
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-version-catalog-accessor@v0.1.1)
 
