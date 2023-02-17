@@ -243,13 +243,13 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.gradleTestKit()
 
             dependencyHandlerScope.add("testImplementation", gradleTestKitDependency)
-            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
-            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
-            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.6.21")
-            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.3")
+            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.2")
+            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.2")
+            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.8.10")
+            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.4")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.1"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.2.0"
             )
         }
 
@@ -461,7 +461,7 @@ class GradlePluginConventionPluginTest {
         verifyAll {
             taskContainer.named("wrapper", Wrapper::class.java, any())
 
-            wrapperTask.gradleVersion = "7.5.1"
+            wrapperTask.gradleVersion = "8.0"
             wrapperTask.distributionType = Wrapper.DistributionType.ALL
         }
 
