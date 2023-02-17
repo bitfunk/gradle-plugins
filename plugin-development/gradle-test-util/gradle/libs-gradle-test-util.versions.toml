@@ -1,16 +1,12 @@
 [versions]
-gradle = "7.5.1"
-kotlin = "1.6.21"
-test-jUnit5 = "5.9.1"
-test-mockk = "1.13.3"
-plugin-kotlin-gradleDsl = "2.3.3"
+gradle = "8.0"
+kotlin = "1.8.10"
+test-jUnit5 = "5.9.2"
+test-mockk = "1.13.4"
 plugin-kotlin-binaryCompatibility = "0.12.1"
-plugin-mavenPublish = "0.22.0"
+plugin-mavenPublish = "0.24.0"
 
 [libraries]
-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-plugin-kotlin-binaryCompatibility = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "plugin-kotlin-binaryCompatibility" }
-plugin-kotlin-gradleDsl = { module = "org.gradle.kotlin:gradle-kotlin-dsl-plugins", version.ref = "plugin-kotlin-gradleDsl" }
 test-jUnit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "test-jUnit5" }
 test-jUnit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "test-jUnit5" }
 test-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk" }

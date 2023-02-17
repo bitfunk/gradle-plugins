@@ -31,7 +31,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.development.test"
-version = "0.1.1"
+version = "0.2.0"
 
 repositories {
     gradlePluginPortal()
@@ -49,7 +49,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(libsGradleTestUtil.plugin.kotlin.gradleDsl)
     implementation(libsGradleTestUtil.test.mockk)
 
     testImplementation(libsGradleTestUtil.test.jUnit5)
