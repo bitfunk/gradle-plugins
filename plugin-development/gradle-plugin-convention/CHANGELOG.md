@@ -20,6 +20,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-con
 - MavenPublish 0.22.0 -> 0.24.0
 - Kotlin BinaryCompatibility 0.12.1 -> 0.13.0
 - Kotlin Gradle DSL 2.3.3 -> 4.0.6
+- Gradle Test Util 0.1.1 -> 0.2.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.1.0)
 
