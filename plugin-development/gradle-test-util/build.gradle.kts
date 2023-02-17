@@ -49,7 +49,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(libsGradleTestUtil.plugin.kotlin.gradleDsl)
     implementation(libsGradleTestUtil.test.mockk)
 
     testImplementation(libsGradleTestUtil.test.jUnit5)
