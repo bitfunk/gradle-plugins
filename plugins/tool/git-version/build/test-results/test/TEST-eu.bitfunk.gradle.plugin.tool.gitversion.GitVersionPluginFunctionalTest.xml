@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2023-01-30T18:11:15" hostname="fv-az548-493" time="172.098">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2023-02-17T23:23:59" hostname="fv-az173-156" time="196.843">
   <properties/>
-  <testcase name="git describe works when git repo is multiple levels up()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="137.65"/>
-  <testcase name="GIVEN multiple unannotated tags on same commit WHEN describe THEN not tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="4.494"/>
-  <testcase name="version filters out tags not matching prefix and strips prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.273"/>
-  <testcase name="GIVEN lightweight tag WHEN describe THEN tag is ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.48"/>
-  <testcase name="test tag set on deep commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.304"/>
-  <testcase name="git describe and dirty when annotated tag is present and dirty content()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.541"/>
-  <testcase name="test multiple tags on same commit - annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.554"/>
-  <testcase name="version details can be accessed using extra properties method()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.927"/>
-  <testcase name="git describe when annotated tag is present after merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.108"/>
-  <testcase name="git describe when annotated tag is present with merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.632"/>
-  <testcase name="test multiple tags on same commit - most recent annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.965"/>
-  <testcase name="version details when detached HEAD mode()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.779"/>
-  <testcase name="git version can be applied on sub modules()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.308"/>
-  <testcase name="isCleanTag should be false when repo dirty on a tag checkout()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.603"/>
-  <testcase name="git describe when annotated tag is present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.478"/>
-  <testcase name="GIVEN project without git folder WHEN plugin applied THEN fail with exception()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.012"/>
-  <testcase name="unspecified when no tags are present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.439"/>
-  <testcase name="git describe with commit after annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.567"/>
-  <testcase name="GIVEN commit after lightweight tag WHEN describe THEN tag ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.387"/>
-  <testcase name="version details when commit distance to tag is greater 0()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.907"/>
-  <testcase name="version details on commit with a tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.458"/>
-  <testcase name="test subproject version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.176"/>
+  <testcase name="git describe works when git repo is multiple levels up()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="162.483"/>
+  <testcase name="GIVEN multiple unannotated tags on same commit WHEN describe THEN not tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="4.591"/>
+  <testcase name="version filters out tags not matching prefix and strips prefix()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.205"/>
+  <testcase name="GIVEN lightweight tag WHEN describe THEN tag is ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.518"/>
+  <testcase name="test tag set on deep commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.352"/>
+  <testcase name="git describe and dirty when annotated tag is present and dirty content()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.542"/>
+  <testcase name="test multiple tags on same commit - annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.501"/>
+  <testcase name="version details can be accessed using extra properties method()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.459"/>
+  <testcase name="git describe when annotated tag is present after merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.995"/>
+  <testcase name="git describe when annotated tag is present with merge commit()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.52"/>
+  <testcase name="test multiple tags on same commit - most recent annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.756"/>
+  <testcase name="version details when detached HEAD mode()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.508"/>
+  <testcase name="git version can be applied on sub modules()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="3.265"/>
+  <testcase name="isCleanTag should be false when repo dirty on a tag checkout()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.385"/>
+  <testcase name="git describe when annotated tag is present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.542"/>
+  <testcase name="GIVEN project without git folder WHEN plugin applied THEN fail with exception()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.968"/>
+  <testcase name="unspecified when no tags are present()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.325"/>
+  <testcase name="git describe with commit after annotated tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.351"/>
+  <testcase name="GIVEN commit after lightweight tag WHEN describe THEN tag ignored()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.361"/>
+  <testcase name="version details when commit distance to tag is greater 0()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="2.994"/>
+  <testcase name="version details on commit with a tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="0.46"/>
+  <testcase name="test subproject version()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionPluginFunctionalTest" time="1.692"/>
   <system-out><![CDATA[Log:
-id: commit 97728ff21f90eb2dfb86a58dde8eb6862523b66e 1675102429 -----sp message: merge commit
-id: commit 5dad4626c80682840c63f0c52a0a0ce0c58f96ce 1675102428 -----sp message: initial commit
-id: commit 12c1cadda53a4f0a0a009de470959c50c29f2c9a 1675102428 -----sp message: hot fix for issue
+id: commit d4a369e6305ac9ba6ea90e9fd881a9673f6ec865 1676676418 -----sp message: merge commit
+id: commit e785b57e52ef12163d15f3f2504865fc2f2bc2ba 1676676418 -----sp message: initial commit
+id: commit 0d849c0801c85a79fc323ca3ae8657334fb353a1 1676676418 -----sp message: hot fix for issue
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

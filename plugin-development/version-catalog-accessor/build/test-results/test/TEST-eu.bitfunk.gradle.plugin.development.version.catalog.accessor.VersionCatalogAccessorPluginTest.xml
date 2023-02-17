@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2023-01-30T18:16:09" hostname="fv-az548-493" time="43.385">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2023-02-17T23:27:08" hostname="fv-az173-156" time="39.365">
   <properties/>
-  <testcase name="GIVEN all required WHEN checkPreconditions() THEN success()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="12.57"/>
-  <testcase name="GIVEN project WHEN configureSourceSet() THEN sourceSet configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="18.564"/>
-  <testcase name="GIVEN project without jacoco WHEN configureCodeCoverage() THEN coverage not configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.047"/>
-  <testcase name="GIVEN kotlin-dsl missing WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.021"/>
-  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="2.039"/>
-  <testcase name="GIVEN java-gradle-plugin missing WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.022"/>
-  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.002"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.002"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="3.112"/>
-  <testcase name="GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.497"/>
-  <testcase name="GIVEN project with jacoco WHEN configureCodeCoverage() THEN coverage configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="5.419"/>
-  <testcase name="GIVEN project WHEN addGeneratorTask() THEN task is registered and configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.322"/>
-  <testcase name="GIVEN project and extension WHEN addSourceGeneratorTask() THEN task is registered and configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.701"/>
-  <testcase name="GIVEN rootProject different to project WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.007"/>
+  <testcase name="GIVEN all required WHEN checkPreconditions() THEN success()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="11.524"/>
+  <testcase name="GIVEN project WHEN configureSourceSet() THEN sourceSet configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="19.728"/>
+  <testcase name="GIVEN project without jacoco WHEN configureCodeCoverage() THEN coverage not configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.022"/>
+  <testcase name="GIVEN kotlin-dsl missing WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.015"/>
+  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="1.279"/>
+  <testcase name="GIVEN java-gradle-plugin missing WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.015"/>
+  <testcase name="implements plugin()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.004"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.004"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="1.908"/>
+  <testcase name="GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.352"/>
+  <testcase name="GIVEN project with jacoco WHEN configureCodeCoverage() THEN coverage configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="3.715"/>
+  <testcase name="GIVEN project WHEN addGeneratorTask() THEN task is registered and configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.225"/>
+  <testcase name="GIVEN project and extension WHEN addSourceGeneratorTask() THEN task is registered and configured()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.523"/>
+  <testcase name="GIVEN rootProject different to project WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.VersionCatalogAccessorPluginTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
