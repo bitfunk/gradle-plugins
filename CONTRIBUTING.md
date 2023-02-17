@@ -29,11 +29,10 @@ Ideally, that includes a description or small example how to reproduce the probl
 Create a branch according to the following rules, work on your changes and create a pull-request. `main` must be always in releasable state.
 
 1. Create a [fork][fork]
-2. Install git hooks `git config core.hooksPath .githooks`
-3. Create a feature [branch](#branch) following naming rules below
-4. Commit your changes as small atomic changesets with focus on readability
-5. Push your feature branch
-6. Create a pull-request against this [repo][repo]
+2. Create a feature [branch](#branch) following naming rules below
+3. Commit your changes as small atomic changesets with focus on readability
+4. Push your feature branch
+5. Create a pull-request against this [repo][repo]
 
 #### Branch
 
