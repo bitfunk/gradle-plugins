@@ -9,7 +9,11 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.0.7...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.2.0...main)
+
+## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.2.0)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.1.0...plugin-dev-convention@v0.2.0)
 
 ### Bumped
 
