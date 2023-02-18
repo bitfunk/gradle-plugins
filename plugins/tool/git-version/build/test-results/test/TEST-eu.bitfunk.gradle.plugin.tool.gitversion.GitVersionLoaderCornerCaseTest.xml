@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderCornerCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:07:35" hostname="fv-az422-278" time="20.903">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderCornerCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:24:29" hostname="fv-az454-654" time="25.49">
   <properties/>
-  <testcase name="GIVEN no tag and special commit number WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderCornerCaseTest" time="20.903"/>
+  <testcase name="GIVEN no tag and special commit number WHEN loadGitVersionInfo THEN version is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.GitVersionLoaderCornerCaseTest" time="25.49"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

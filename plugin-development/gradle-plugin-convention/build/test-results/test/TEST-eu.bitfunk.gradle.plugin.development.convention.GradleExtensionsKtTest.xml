@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:09:52" hostname="fv-az422-278" time="23.102">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:25:04" hostname="fv-az454-654" time="28.028">
   <properties/>
-  <testcase name="GIVEN dependencyHandler WHEN testImplementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="18.569"/>
-  <testcase name="GIVEN project WHEN javaPlugin() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="4.376"/>
-  <testcase name="GIVEN dependencyHandler WHEN testRuntimeOnly() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.026"/>
-  <testcase name="GIVEN project WHEN jacoco() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.038"/>
-  <testcase name="GIVEN dependencyHandler WHEN implementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.036"/>
+  <testcase name="GIVEN dependencyHandler WHEN testImplementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="22.673"/>
+  <testcase name="GIVEN project WHEN javaPlugin() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="5.15"/>
+  <testcase name="GIVEN dependencyHandler WHEN testRuntimeOnly() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.04"/>
+  <testcase name="GIVEN project WHEN jacoco() THEN extension configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.058"/>
+  <testcase name="GIVEN dependencyHandler WHEN implementation() THEN added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradleExtensionsKtTest" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

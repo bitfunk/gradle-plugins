@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginExtensionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:07:02" hostname="fv-az422-278" time="11.438">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginExtensionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-02-18T21:23:34" hostname="fv-az454-654" time="15.312">
   <properties/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginExtensionTest" time="11.438"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.publish.PublishPluginExtensionTest" time="15.312"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
