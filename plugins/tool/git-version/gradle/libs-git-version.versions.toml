@@ -1,7 +1,7 @@
 [versions]
 jGit = "6.4.0.202211300538-r"
 semVer = "1.2.0"
-plugin-gradlePluginConvention = "0.1.0"
+plugin-gradlePluginConvention = "0.2.0"
 
 [libraries]
 jGit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "jGit" }
