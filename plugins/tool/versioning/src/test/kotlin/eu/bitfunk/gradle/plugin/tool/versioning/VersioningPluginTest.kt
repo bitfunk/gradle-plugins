@@ -54,7 +54,7 @@ class VersioningPluginTest {
     fun plugin_implements_contract() {
         assertInstanceOf(
             VersioningContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -110,7 +110,7 @@ class VersioningPluginTest {
         confirmVerified(
             project,
             generator,
-            allProject
+            allProject,
         )
     }
 
@@ -150,7 +150,7 @@ class VersioningPluginTest {
         confirmVerified(
             generator,
             taskContainer,
-            task
+            task,
         )
     }
 
@@ -172,7 +172,7 @@ class VersioningPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

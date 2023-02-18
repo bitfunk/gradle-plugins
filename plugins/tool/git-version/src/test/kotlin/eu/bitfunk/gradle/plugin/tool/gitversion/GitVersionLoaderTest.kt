@@ -50,7 +50,7 @@ internal class GitVersionLoaderTest {
     fun `implements contract`() {
         Assertions.assertInstanceOf(
             GitVersionContract.Loader::class.java,
-            GitVersionLoader(git, "")
+            GitVersionLoader(git, ""),
         )
     }
 
@@ -67,11 +67,11 @@ internal class GitVersionLoaderTest {
         // THEN
         assertEquals(
             expected = AssertionError::class,
-            actual = result::class
+            actual = result::class,
         )
         assertEquals(
             expected = "Specified prefix `$prefix` does not match the allowed format regex `[/@]?([A-Za-z]+[/@-])+`.",
-            actual = result.message
+            actual = result.message,
         )
     }
 
@@ -111,7 +111,7 @@ internal class GitVersionLoaderTest {
         // THEN
         assertSame(
             expected = result1,
-            actual = result2
+            actual = result2,
         )
     }
 
@@ -132,9 +132,9 @@ internal class GitVersionLoaderTest {
                 gitHash = "unspecified",
                 lastTag = "unspecified",
                 isCleanTag = true,
-                commitDistance = 0
+                commitDistance = 0,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -157,9 +157,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "unspecified",
                 isCleanTag = true,
-                commitDistance = 0
+                commitDistance = 0,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -184,9 +184,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "1.0.0",
                 isCleanTag = true,
-                commitDistance = 0
+                commitDistance = 0,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -211,9 +211,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH),
                 lastTag = "v1.0.0",
                 isCleanTag = true,
-                commitDistance = 0
+                commitDistance = 0,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -240,9 +240,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = 1
+                commitDistance = 1,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -274,9 +274,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = depth
+                commitDistance = depth,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -305,9 +305,9 @@ internal class GitVersionLoaderTest {
                 gitHash = lastCommitShort,
                 lastTag = "1.0.0",
                 isCleanTag = false,
-                commitDistance = 1
+                commitDistance = 1,
             ),
-            actual = result
+            actual = result,
         )
     }
 
@@ -318,7 +318,7 @@ internal class GitVersionLoaderTest {
         fileToLinkTo.writeText("content")
         Files.createSymbolicLink(
             tempDir.toPath().resolve("fileLink"),
-            fileToLinkTo.toPath()
+            fileToLinkTo.toPath(),
         )
 
         val folderToLinkTo = File(tempDir, "folderToLinkTo")
@@ -326,7 +326,7 @@ internal class GitVersionLoaderTest {
         File(folderToLinkTo, "dummyFile").writeText("content")
         Files.createSymbolicLink(
             tempDir.toPath().resolve("folderLink"),
-            folderToLinkTo.toPath()
+            folderToLinkTo.toPath(),
         )
 
         git.add().addFilepattern(".").call()
@@ -339,7 +339,7 @@ internal class GitVersionLoaderTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result.version
+            result.version,
         )
     }
 
@@ -359,7 +359,7 @@ internal class GitVersionLoaderTest {
         // THEN
         assertEquals(
             "44c4231",
-            result.version
+            result.version,
         )
     }
 
@@ -381,7 +381,7 @@ internal class GitVersionLoaderTest {
         // THEN
         assertEquals(
             "44c4231.dirty",
-            result.version
+            result.version,
         )
     }
 
@@ -390,7 +390,7 @@ internal class GitVersionLoaderTest {
             "name",
             "email@example.com",
             Date(1234L),
-            TimeZone.getTimeZone("UTC")
+            TimeZone.getTimeZone("UTC"),
         )
     }
 }

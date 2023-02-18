@@ -27,7 +27,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 internal class Generator(
     private val packageName: String = "",
     private val baseName: String = "",
-    private val mapper: Mapper
+    private val mapper: Mapper,
 ) : Generator {
 
     override fun generate(catalog: Catalog): String {
@@ -42,13 +42,13 @@ internal class Generator(
 
         val file = FileSpec.builder(classPackageName, className + CLASS_NAME)
             .indent("    ")
-            .addImport(classPackageName, "${accessorInterface.name}.${NAME_BUNDLES.capitalize()}")
-            .addImport(classPackageName, "${accessorInterface.name}.${NAME_LIBRARIES.capitalize()}")
-            .addImport(classPackageName, "${accessorInterface.name}.${NAME_PLUGINS.capitalize()}")
-            .addImport(classPackageName, "${accessorInterface.name}.${NAME_VERSIONS.capitalize()}")
+            .addImport(classPackageName, "${accessorInterface.name}.${NAME_BUNDLES.titleCase()}")
+            .addImport(classPackageName, "${accessorInterface.name}.${NAME_LIBRARIES.titleCase()}")
+            .addImport(classPackageName, "${accessorInterface.name}.${NAME_PLUGINS.titleCase()}")
+            .addImport(classPackageName, "${accessorInterface.name}.${NAME_VERSIONS.titleCase()}")
             .addImport(
                 VersionCatalogsExtension::class.java.packageName,
-                VersionCatalogsExtension::class.java.simpleName
+                VersionCatalogsExtension::class.java.simpleName,
             )
             .addType(accessorInterface)
             .addType(accessorClass)
@@ -63,7 +63,7 @@ internal class Generator(
 
     private fun generateClassName(): String {
         return baseName.split("-")
-            .map { it.capitalize() }
+            .map { it.titleCase() }
             .joinToString(separator = "") { it }
     }
 

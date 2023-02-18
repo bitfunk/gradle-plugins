@@ -34,7 +34,6 @@ dependencyResolutionManagement {
     }
 }
 
-
 includeBuild("code-analysis")
 includeBuild("formatter")
 includeBuild("report")

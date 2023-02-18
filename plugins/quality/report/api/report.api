@@ -39,6 +39,11 @@ public final class eu/bitfunk/gradle/plugin/quality/report/ReportPlugin : eu/bit
 	public fun configureTasks (Lorg/gradle/api/Project;Leu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension;)V
 }
 
+public final class eu/bitfunk/gradle/plugin/quality/report/ReportPlugin$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/quality/report/ReportPluginExtension : eu/bitfunk/gradle/plugin/quality/report/ReportContract$Extension {
 }
 

@@ -106,7 +106,7 @@ public class PublishPlugin : PublishContract.Plugin, Plugin<Project> {
                 isRequired = true
                 useInMemoryPgpKeys(
                     loadSigningKey(project),
-                    loadSigningPassword(project)
+                    loadSigningPassword(project),
                 )
 
                 sign(publications)

@@ -27,11 +27,11 @@ internal data class Catalog(
     val versions: Versions,
     val libraries: Libraries,
     val bundles: Bundles,
-    val plugins: Plugins
+    val plugins: Plugins,
 )
 
 internal sealed class CatalogEntry(
-    val items: Map<String, String?>
+    val items: Map<String, String?>,
 ) {
     class Versions(items: Map<String, String>) : CatalogEntry(items)
     class Libraries(items: List<String>) : CatalogEntry(items.associateWith { null })

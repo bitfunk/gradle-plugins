@@ -48,35 +48,27 @@ import org.gradle.kotlin.dsl.repositories
 <span class="fc" id="L48">                ktlint()</span>
 <span class="fc" id="L49">                target(&quot;**/*.kt&quot;)</span>
 <span class="fc" id="L50">                targetExclude(&quot;**/build/&quot;, &quot;**/resources/&quot;)</span>
-<span class="fc" id="L51">                trimTrailingWhitespace()</span>
-<span class="fc" id="L52">                indentWithSpaces()</span>
-<span class="fc" id="L53">                endWithNewline()</span>
-<span class="fc" id="L54">            }</span>
-<span class="fc" id="L55">            kotlinGradle {</span>
-<span class="fc" id="L56">                target(&quot;**/*.gradle.kts&quot;, &quot;**/*.df.kts&quot;)</span>
-<span class="fc" id="L57">                targetExclude(&quot;**/build/&quot;)</span>
-<span class="fc" id="L58">                trimTrailingWhitespace()</span>
-<span class="fc" id="L59">                indentWithSpaces()</span>
-<span class="fc" id="L60">                endWithNewline()</span>
-<span class="fc" id="L61">            }</span>
-<span class="fc" id="L62">            format(&quot;markdown&quot;) {</span>
-<span class="fc" id="L63">                prettier()</span>
-<span class="fc" id="L64">                target(&quot;**/*.md&quot;)</span>
-<span class="fc" id="L65">                trimTrailingWhitespace()</span>
-<span class="fc" id="L66">                indentWithSpaces()</span>
-<span class="fc" id="L67">                endWithNewline()</span>
-<span class="fc" id="L68">            }</span>
-<span class="fc" id="L69">            format(&quot;misc&quot;) {</span>
-<span class="fc" id="L70">                target(&quot;**/.gitignore&quot;, &quot;**/.gitattributes&quot;, &quot;.java-version&quot;)</span>
-<span class="fc" id="L71">                trimTrailingWhitespace()</span>
-<span class="fc" id="L72">                indentWithSpaces()</span>
-<span class="fc" id="L73">                endWithNewline()</span>
-<span class="fc" id="L74">            }</span>
-<span class="fc" id="L75">        }</span>
-<span class="fc" id="L76">    }</span>
+<span class="fc" id="L51">            }</span>
+<span class="fc" id="L52">            kotlinGradle {</span>
+<span class="fc" id="L53">                ktlint()</span>
+<span class="fc" id="L54">                target(&quot;**/*.gradle.kts&quot;, &quot;**/*.df.kts&quot;)</span>
+<span class="fc" id="L55">                targetExclude(&quot;**/build/&quot;)</span>
+<span class="fc" id="L56">            }</span>
+<span class="fc" id="L57">            format(&quot;markdown&quot;) {</span>
+<span class="fc" id="L58">                prettier()</span>
+<span class="fc" id="L59">                target(&quot;**/*.md&quot;)</span>
+<span class="fc" id="L60">            }</span>
+<span class="fc" id="L61">            format(&quot;misc&quot;) {</span>
+<span class="fc" id="L62">                target(&quot;**/.gitignore&quot;, &quot;**/.gitattributes&quot;, &quot;.java-version&quot;)</span>
+<span class="fc" id="L63">                trimTrailingWhitespace()</span>
+<span class="fc" id="L64">                indentWithSpaces()</span>
+<span class="fc" id="L65">                endWithNewline()</span>
+<span class="fc" id="L66">            }</span>
+<span class="fc" id="L67">        }</span>
+<span class="fc" id="L68">    }</span>
 
     private fun Project.spotless(action: Action&lt;SpotlessExtension&gt;) {
-<span class="fc" id="L79">        extensions.configure(SpotlessExtension::class.java, action)</span>
-<span class="fc" id="L80">    }</span>
+<span class="fc" id="L71">        extensions.configure(SpotlessExtension::class.java, action)</span>
+<span class="fc" id="L72">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

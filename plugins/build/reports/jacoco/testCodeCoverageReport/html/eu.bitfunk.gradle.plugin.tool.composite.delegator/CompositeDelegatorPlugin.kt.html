@@ -37,7 +37,7 @@ import kotlin.collections.Map.Entry
 <span class="fc" id="L37">    override fun addExtension(project: Project): Extension = with(project) {</span>
 <span class="fc" id="L38">        val extension = extensions.create(</span>
 <span class="fc" id="L39">            EXTENSION_NAME,</span>
-<span class="fc" id="L40">            CompositeDelegatorPluginExtension::class.java</span>
+            CompositeDelegatorPluginExtension::class.java,
         )
 
 <span class="fc" id="L43">        extension.additionalTasks.convention(emptyList())</span>
@@ -72,7 +72,7 @@ import kotlin.collections.Map.Entry
 <span class="fc" id="L72">            &quot;test&quot; to Test::class.java,</span>
 <span class="fc" id="L73">            &quot;wrapper&quot; to null,</span>
 <span class="fc" id="L74">            &quot;dependencyUpdates&quot; to null,</span>
-<span class="fc" id="L75">            &quot;versionCatalogUpdate&quot; to null</span>
+<span class="fc" id="L75">            &quot;versionCatalogUpdate&quot; to null,</span>
         )
     }
 }

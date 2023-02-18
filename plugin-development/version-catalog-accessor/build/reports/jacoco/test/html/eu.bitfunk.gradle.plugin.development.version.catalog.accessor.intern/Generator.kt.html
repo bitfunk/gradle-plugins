@@ -24,10 +24,10 @@ import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.Inte
 import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.Catalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 
-<span class="fc" id="L27">internal class Generator(</span>
-<span class="nc" id="L28">    private val packageName: String = &quot;&quot;,</span>
-<span class="nc" id="L29">    private val baseName: String = &quot;&quot;,</span>
-    private val mapper: Mapper
+<span class="pc" id="L27">internal class Generator(</span>
+<span class="pc" id="L28">    private val packageName: String = &quot;&quot;,</span>
+<span class="pc" id="L29">    private val baseName: String = &quot;&quot;,</span>
+<span class="fc" id="L30">    private val mapper: Mapper,</span>
 ) : Generator {
 
     override fun generate(catalog: Catalog): String {
@@ -42,13 +42,13 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 
 <span class="fc" id="L43">        val file = FileSpec.builder(classPackageName, className + CLASS_NAME)</span>
 <span class="fc" id="L44">            .indent(&quot;    &quot;)</span>
-<span class="fc" id="L45">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_BUNDLES.capitalize()}&quot;)</span>
-<span class="fc" id="L46">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_LIBRARIES.capitalize()}&quot;)</span>
-<span class="fc" id="L47">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_PLUGINS.capitalize()}&quot;)</span>
-<span class="fc" id="L48">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_VERSIONS.capitalize()}&quot;)</span>
+<span class="fc" id="L45">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_BUNDLES.titleCase()}&quot;)</span>
+<span class="fc" id="L46">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_LIBRARIES.titleCase()}&quot;)</span>
+<span class="fc" id="L47">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_PLUGINS.titleCase()}&quot;)</span>
+<span class="fc" id="L48">            .addImport(classPackageName, &quot;${accessorInterface.name}.${NAME_VERSIONS.titleCase()}&quot;)</span>
 <span class="fc" id="L49">            .addImport(</span>
 <span class="fc" id="L50">                VersionCatalogsExtension::class.java.packageName,</span>
-<span class="fc" id="L51">                VersionCatalogsExtension::class.java.simpleName</span>
+<span class="fc" id="L51">                VersionCatalogsExtension::class.java.simpleName,</span>
             )
 <span class="fc" id="L53">            .addType(accessorInterface)</span>
 <span class="fc" id="L54">            .addType(accessorClass)</span>
@@ -63,7 +63,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 
     private fun generateClassName(): String {
 <span class="fc" id="L65">        return baseName.split(&quot;-&quot;)</span>
-<span class="fc" id="L66">            .map { it.capitalize() }</span>
+<span class="fc" id="L66">            .map { it.titleCase() }</span>
 <span class="fc" id="L67">            .joinToString(separator = &quot;&quot;) { it }</span>
     }
 
@@ -77,5 +77,5 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 
         const val CLASS_NAME = &quot;VersionCatalogAccessor&quot;
     }
-}
+<span class="nc" id="L80">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

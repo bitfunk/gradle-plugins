@@ -23,10 +23,10 @@ import org.gradle.configurationcache.extensions.capitalized
 import java.io.File
 
 <span class="fc" id="L25">internal class GeneratorTask(</span>
-    private val projectRootPath: File,
-    private val projectBuildPath: File,
+<span class="fc" id="L26">    private val projectRootPath: File,</span>
+<span class="fc" id="L27">    private val projectBuildPath: File,</span>
 <span class="fc" id="L28">    private val mapper: InternalContract.Mapper = Mapper(),</span>
-<span class="fc" id="L29">    private val parser: InternalContract.Parser = Parser()</span>
+<span class="fc" id="L29">    private val parser: InternalContract.Parser = Parser(),</span>
 ) : GeneratorTask {
 
     override fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List&lt;String&gt;) {
@@ -37,7 +37,7 @@ import java.io.File
 <span class="fc" id="L37">        val catalogFiles: List&lt;Pair&lt;String, File&gt;&gt; = catalogNames.map {</span>
 <span class="fc" id="L38">            Pair(</span>
 <span class="fc" id="L39">                it,</span>
-<span class="fc" id="L40">                File(&quot;$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION&quot;)</span>
+<span class="fc" id="L40">                File(&quot;$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION&quot;),</span>
             )
         }
 
@@ -69,12 +69,12 @@ import java.io.File
 <span class="fc" id="L69">    private fun setupGenerator(packageName: String, name: String): InternalContract.Generator = Generator(</span>
 <span class="fc" id="L70">        packageName = packageName,</span>
 <span class="fc" id="L71">        baseName = name,</span>
-<span class="fc" id="L72">        mapper</span>
+<span class="fc" id="L72">        mapper,</span>
 <span class="fc" id="L73">    )</span>
 
     private fun generateFileName(name: String): String {
 <span class="fc" id="L76">        return name.split(&quot;-&quot;)</span>
-<span class="fc" id="L77">            .map { it.capitalize() }</span>
+<span class="fc" id="L77">            .map { it.titleCase() }</span>
 <span class="fc" id="L78">            .joinToString(separator = &quot;&quot;) { it }</span>
     }
 
@@ -85,5 +85,5 @@ import java.io.File
         private const val OUTPUT_FILE_NAME = &quot;VersionCatalogAccessor.kt&quot;
         private const val OUTPUT_PATH = &quot;generated/versionCatalogAccessor/src/main/kotlin&quot;
     }
-}
+<span class="fc" id="L88">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

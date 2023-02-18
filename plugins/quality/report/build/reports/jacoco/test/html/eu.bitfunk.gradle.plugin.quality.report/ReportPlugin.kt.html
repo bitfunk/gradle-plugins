@@ -46,7 +46,7 @@ import org.sonarqube.gradle.SonarExtension
 <span class="fc" id="L46">    override fun addExtension(project: Project): Extension = with(project) {</span>
 <span class="fc" id="L47">        val extension = extensions.create(</span>
 <span class="fc" id="L48">            EXTENSION_NAME,</span>
-<span class="fc" id="L49">            ReportPluginExtension::class.java</span>
+            ReportPluginExtension::class.java,
         )
 
 <span class="fc" id="L52">        extension.sonarProjectKey.convention(&quot;&quot;)</span>
@@ -59,7 +59,7 @@ import org.sonarqube.gradle.SonarExtension
     override fun configureReport(
         project: Project,
         extension: Extension,
-        collector: Collector
+        collector: Collector,
 <span class="fc" id="L63">    ): Unit = with(project) {</span>
 <span class="fc" id="L64">        val projectsWithSrc = collector.collectProjects(projectDir, &quot;src/main/kotlin&quot;)</span>
 <span class="fc" id="L65">        val projectsWithTests = collector.collectProjects(projectDir, &quot;src/test/kotlin&quot;)</span>

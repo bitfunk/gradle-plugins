@@ -46,7 +46,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     override fun addExtension(project: Project): Extension = with(project) {
         val extension = extensions.create(
             EXTENSION_NAME,
-            ReportPluginExtension::class.java
+            ReportPluginExtension::class.java,
         )
 
         extension.sonarProjectKey.convention("")
@@ -59,7 +59,7 @@ public class ReportPlugin : ReportContract.Plugin, Plugin<Project> {
     override fun configureReport(
         project: Project,
         extension: Extension,
-        collector: Collector
+        collector: Collector,
     ): Unit = with(project) {
         val projectsWithSrc = collector.collectProjects(projectDir, "src/main/kotlin")
         val projectsWithTests = collector.collectProjects(projectDir, "src/test/kotlin")

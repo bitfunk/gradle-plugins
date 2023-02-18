@@ -81,7 +81,7 @@ class GradlePluginConventionPluginTest {
     fun `plugin implements contract`() {
         assertInstanceOf(
             GradlePluginConventionContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -95,7 +95,7 @@ class GradlePluginConventionPluginTest {
         assertThrowsExactly(
             GradleException::class.java,
             { testSubject.checkPreconditions(project) },
-            "This plugin requires Gradle 7.2 or later"
+            "This plugin requires Gradle 7.2 or later",
         )
 
         unmockkAll() // mockStatic!!
@@ -172,7 +172,7 @@ class GradlePluginConventionPluginTest {
         // THEN
         assertEquals(
             extension,
-            result
+            result,
         )
 
         verify { extensions.create("projectConfig", GradlePluginConventionPluginExtension::class.java) }
@@ -243,13 +243,13 @@ class GradlePluginConventionPluginTest {
             dependencyHandlerScope.gradleTestKit()
 
             dependencyHandlerScope.add("testImplementation", gradleTestKitDependency)
-            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.1")
-            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.1")
-            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.6.21")
-            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.3")
+            dependencyHandlerScope.add("testImplementation", "org.junit.jupiter:junit-jupiter:5.9.2")
+            dependencyHandlerScope.add("testRuntimeOnly", "org.junit.jupiter:junit-jupiter-engine:5.9.2")
+            dependencyHandlerScope.add("testImplementation", "org.jetbrains.kotlin:kotlin-test:1.8.10")
+            dependencyHandlerScope.add("testImplementation", "io.mockk:mockk:1.13.4")
             dependencyHandlerScope.add(
                 "testImplementation",
-                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.1.1"
+                "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:0.2.0",
             )
         }
 
@@ -322,7 +322,7 @@ class GradlePluginConventionPluginTest {
             jacocoReportsContainer,
             taskDependencyProvider,
             htmlBooleanProperty,
-            xmlBooleanProperty
+            xmlBooleanProperty,
         )
 
         val jacocoCoverageVerification: JacocoCoverageVerification = mockk(relaxed = true)
@@ -335,7 +335,7 @@ class GradlePluginConventionPluginTest {
             jacocoViolationRulesContainer,
             jacocoViolationRule,
             jacocoLimit,
-            taskDependencyProvider
+            taskDependencyProvider,
         )
 
         val checkTask: Task = mockk(relaxed = true)
@@ -373,7 +373,7 @@ class GradlePluginConventionPluginTest {
             taskDependencyProvider,
             jacocoReport, jacocoReportsContainer, htmlBooleanProperty, xmlBooleanProperty,
             jacocoCoverageVerification, jacocoViolationRulesContainer, jacocoViolationRule, jacocoLimit,
-            checkTask
+            checkTask,
         )
     }
 
@@ -383,7 +383,7 @@ class GradlePluginConventionPluginTest {
         jacocoReportsContainer: JacocoReportsContainer,
         taskDependencyProvider: TaskProvider<Task>,
         htmlBooleanProperty: Property<Boolean>,
-        xmlBooleanProperty: Property<Boolean>
+        xmlBooleanProperty: Property<Boolean>,
     ) {
         stubGradleActionWithReturn(jacocoReport, mockk()) {
             taskContainer.named("jacocoTestReport", JacocoReport::class.java, it)
@@ -403,13 +403,13 @@ class GradlePluginConventionPluginTest {
         jacocoViolationRulesContainer: JacocoViolationRulesContainer,
         jacocoViolationRule: JacocoViolationRule,
         jacocoLimit: JacocoLimit,
-        taskDependencyProvider: TaskProvider<Task>
+        taskDependencyProvider: TaskProvider<Task>,
     ) {
         every {
             taskContainer.named(
                 "jacocoTestCoverageVerification",
                 JacocoCoverageVerification::class.java,
-                any()
+                any(),
             )
         } answers {
             thirdArg<Action<JacocoCoverageVerification>>().execute(jacocoCoverageVerification)
@@ -433,7 +433,7 @@ class GradlePluginConventionPluginTest {
     private fun configureGivenCheckTask(
         taskContainer: TaskContainer,
         checkTask: Task,
-        taskDependencyProvider: TaskProvider<Task>
+        taskDependencyProvider: TaskProvider<Task>,
     ) {
         every { taskContainer.named("check", any()) } answers {
             secondArg<Action<Task>>().execute(checkTask)
@@ -461,7 +461,7 @@ class GradlePluginConventionPluginTest {
         verifyAll {
             taskContainer.named("wrapper", Wrapper::class.java, any())
 
-            wrapperTask.gradleVersion = "7.5.1"
+            wrapperTask.gradleVersion = "8.0"
             wrapperTask.distributionType = Wrapper.DistributionType.ALL
         }
 
@@ -505,7 +505,7 @@ class GradlePluginConventionPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

@@ -41,7 +41,7 @@ class ProjectCollectorTest {
     fun `implements contract`() {
         assertInstanceOf(
             ReportContract.Collector::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -56,7 +56,7 @@ class ProjectCollectorTest {
         // THEN
         assertEquals(
             emptyList<String>(),
-            result
+            result,
         )
     }
 
@@ -72,7 +72,7 @@ class ProjectCollectorTest {
         // THEN
         assertEquals(
             listOf("${rootProjectSourceDir.relativeTo(tempDir)}"),
-            result
+            result,
         )
     }
 
@@ -107,9 +107,9 @@ class ProjectCollectorTest {
                 "${rootProjectSourceDir.relativeTo(tempDir)}",
                 "${subProject1SourceDir.relativeTo(tempDir)}",
                 "${subProject2SourceDir.relativeTo(tempDir)}",
-                "${nestedProjectSourceDir.relativeTo(tempDir)}"
+                "${nestedProjectSourceDir.relativeTo(tempDir)}",
             ).sorted(),
-            result
+            result,
         )
     }
 }

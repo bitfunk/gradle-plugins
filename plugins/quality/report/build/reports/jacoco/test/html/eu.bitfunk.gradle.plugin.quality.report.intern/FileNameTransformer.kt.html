@@ -21,7 +21,7 @@ package eu.bitfunk.gradle.plugin.quality.report.intern
 import org.gradle.api.Transformer
 
 <span class="fc" id="L23">internal class FileNameTransformer(</span>
-<span class="fc" id="L24">    private var count: Int = 0</span>
+<span class="fc" id="L24">    private var count: Int = 0,</span>
 ) : Transformer&lt;String, String&gt; {
 
     override fun transform(fileName: String): String {
@@ -29,5 +29,5 @@ import org.gradle.api.Transformer
 
 <span class="fc" id="L30">        return fileName.replace(&quot;.xml&quot;, &quot;-$count.xml&quot;)</span>
     }
-}
+<span class="fc" id="L32">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

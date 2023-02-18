@@ -42,7 +42,7 @@ import com.squareup.kotlinpoet.TypeSpec
 <span class="fc" id="L42">            .addType(</span>
 <span class="fc" id="L43">                TypeSpec.interfaceBuilder(&quot;Group&quot;)</span>
 <span class="fc" id="L44">                    .addSuperinterface(ClassName(packageName, INTERFACE_NAME))</span>
-<span class="fc" id="L45">                    .build()</span>
+<span class="fc" id="L45">                    .build(),</span>
             )
 <span class="fc" id="L47">            .addType(</span>
 <span class="fc" id="L48">                TypeSpec.interfaceBuilder(&quot;GroupLeaf&quot;)</span>
@@ -51,15 +51,15 @@ import com.squareup.kotlinpoet.TypeSpec
 <span class="fc" id="L51">                        FunSpec.builder(&quot;get&quot;)</span>
 <span class="fc" id="L52">                            .returns(String::class)</span>
 <span class="fc" id="L53">                            .addModifiers(ABSTRACT)</span>
-<span class="fc" id="L54">                            .build()</span>
+<span class="fc" id="L54">                            .build(),</span>
                     )
 <span class="fc" id="L56">                    .addFunction(</span>
 <span class="fc" id="L57">                        FunSpec.builder(&quot;getStatic&quot;)</span>
 <span class="fc" id="L58">                            .returns(String::class)</span>
 <span class="fc" id="L59">                            .addModifiers(ABSTRACT)</span>
-<span class="fc" id="L60">                            .build()</span>
+<span class="fc" id="L60">                            .build(),</span>
                     )
-<span class="fc" id="L62">                    .build()</span>
+<span class="fc" id="L62">                    .build(),</span>
             )
 <span class="fc" id="L64">            .addType(</span>
 <span class="fc" id="L65">                TypeSpec.interfaceBuilder(&quot;Leaf&quot;)</span>
@@ -68,15 +68,15 @@ import com.squareup.kotlinpoet.TypeSpec
 <span class="fc" id="L68">                        FunSpec.builder(&quot;get&quot;)</span>
 <span class="fc" id="L69">                            .returns(String::class)</span>
 <span class="fc" id="L70">                            .addModifiers(ABSTRACT)</span>
-<span class="fc" id="L71">                            .build()</span>
+<span class="fc" id="L71">                            .build(),</span>
                     )
 <span class="fc" id="L73">                    .addFunction(</span>
 <span class="fc" id="L74">                        FunSpec.builder(&quot;getStatic&quot;)</span>
 <span class="fc" id="L75">                            .returns(String::class)</span>
 <span class="fc" id="L76">                            .addModifiers(ABSTRACT)</span>
-<span class="fc" id="L77">                            .build()</span>
+<span class="fc" id="L77">                            .build(),</span>
                     )
-<span class="fc" id="L79">                    .build()</span>
+<span class="fc" id="L79">                    .build(),</span>
             )
 <span class="fc" id="L81">            .build()</span>
     }

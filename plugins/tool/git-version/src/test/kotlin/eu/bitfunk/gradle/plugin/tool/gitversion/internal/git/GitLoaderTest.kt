@@ -38,7 +38,7 @@ internal class GitLoaderTest {
     fun `implements contract`() {
         Assertions.assertInstanceOf(
             GitContract.Loader::class.java,
-            GitLoader
+            GitLoader,
         )
     }
 
@@ -55,11 +55,11 @@ internal class GitLoaderTest {
         // THEN
         assertEquals(
             IllegalArgumentException::class,
-            result::class
+            result::class,
         )
         assertEquals(
             "Cannot find '.git' directory",
-            result.message
+            result.message,
         )
     }
 
@@ -143,11 +143,11 @@ internal class GitLoaderTest {
         // THEN
         assertEquals(
             ParseException::class,
-            result::class
+            result::class,
         )
         assertEquals(
             "$projectDir/.git",
-            result.message
+            result.message,
         )
     }
 
@@ -170,11 +170,11 @@ internal class GitLoaderTest {
         // THEN
         assertEquals(
             ParseException::class,
-            result::class
+            result::class,
         )
         assertEquals(
             "abc",
-            result.message
+            result.message,
         )
     }
 
@@ -197,11 +197,11 @@ internal class GitLoaderTest {
         // THEN
         assertEquals(
             ParseException::class,
-            result::class
+            result::class,
         )
         assertEquals(
             "abc\ndef",
-            result.message
+            result.message,
         )
     }
 }

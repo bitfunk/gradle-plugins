@@ -47,7 +47,7 @@ import org.gradle.kotlin.dsl.withType
 <span class="fc" id="L47">            parallel = true</span>
 
 <span class="fc" id="L49">            source = project.files(</span>
-<span class="fc" id="L50">                project.file(project.rootDir)</span>
+<span class="fc" id="L50">                project.file(project.rootDir),</span>
             )
 
 <span class="fc" id="L53">            config = project.rootProject.files(&quot;config/detekt/detekt.yml&quot;)</span>
@@ -64,7 +64,7 @@ import org.gradle.kotlin.dsl.withType
 <span class="fc" id="L64">                &quot;**/.idea/**&quot;,</span>
 <span class="fc" id="L65">                &quot;**/build/**&quot;,</span>
 <span class="fc" id="L66">                &quot;.github/**&quot;,</span>
-<span class="fc" id="L67">                &quot;gradle/**&quot;</span>
+<span class="fc" id="L67">                &quot;gradle/**&quot;,</span>
             )
 <span class="fc" id="L69">            reports {</span>
 <span class="fc" id="L70">                xml.required.set(true)</span>
@@ -93,7 +93,7 @@ import org.gradle.kotlin.dsl.withType
 <span class="fc" id="L93">                &quot;**/*.pro&quot;,</span>
 <span class="fc" id="L94">                &quot;**/*.sq&quot;,</span>
 <span class="fc" id="L95">                &quot;**/*.xml&quot;,</span>
-<span class="fc" id="L96">                &quot;**/*.yml&quot;</span>
+<span class="fc" id="L96">                &quot;**/*.yml&quot;,</span>
             )
 <span class="fc" id="L98">        }</span>
 <span class="fc" id="L99">    }</span>

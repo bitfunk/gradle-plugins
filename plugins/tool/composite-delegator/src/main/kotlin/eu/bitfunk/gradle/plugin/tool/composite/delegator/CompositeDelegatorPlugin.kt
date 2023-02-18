@@ -37,7 +37,7 @@ public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugi
     override fun addExtension(project: Project): Extension = with(project) {
         val extension = extensions.create(
             EXTENSION_NAME,
-            CompositeDelegatorPluginExtension::class.java
+            CompositeDelegatorPluginExtension::class.java,
         )
 
         extension.additionalTasks.convention(emptyList())
@@ -72,7 +72,7 @@ public class CompositeDelegatorPlugin : CompositeDelegatorContract.Plugin, Plugi
             "test" to Test::class.java,
             "wrapper" to null,
             "dependencyUpdates" to null,
-            "versionCatalogUpdate" to null
+            "versionCatalogUpdate" to null,
         )
     }
 }

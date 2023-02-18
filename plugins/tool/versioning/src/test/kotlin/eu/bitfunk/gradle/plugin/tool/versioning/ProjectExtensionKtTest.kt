@@ -44,7 +44,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             version,
-            result
+            result,
         )
 
         verify {
@@ -67,7 +67,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
 
         verify { project.version }
@@ -88,7 +88,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
 
         verify { project.version }
@@ -109,7 +109,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
 
         verify { project.version }
@@ -131,7 +131,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             1234,
-            result
+            result,
         )
 
         verifyAll {
@@ -156,7 +156,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             1234,
-            result
+            result,
         )
 
         verifyAll {

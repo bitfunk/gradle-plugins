@@ -33,7 +33,7 @@ plugins {
 }
 
 group = "eu.bitfunk.gradle.plugin.development.convention"
-version = "0.1.0"
+version = "0.2.1"
 
 repositories {
     gradlePluginPortal()
@@ -117,8 +117,8 @@ afterEvaluate {
         configure(
             GradlePlugin(
                 javadocJar = JavadocJar.Javadoc(),
-                sourcesJar = true
-            )
+                sourcesJar = true,
+            ),
         )
     }
 }

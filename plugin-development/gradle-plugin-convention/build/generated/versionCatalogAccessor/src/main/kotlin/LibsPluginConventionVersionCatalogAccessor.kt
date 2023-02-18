@@ -101,14 +101,14 @@ public class LibsPluginConventionVersionCatalogAccessor(
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("gradle")
 
-            public override fun getStatic(): String = "7.5.1"
+            public override fun getStatic(): String = "8.0"
         }
 
         public override val kotlin: VersionCatalogDependency.Leaf = object :
                 VersionCatalogDependency.Leaf {
             public override fun `get`(): String = findVersion("kotlin")
 
-            public override fun getStatic(): String = "1.6.21"
+            public override fun getStatic(): String = "1.8.10"
         }
 
         public override val test: Versions.Test = object : Versions.Test {
@@ -116,14 +116,14 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("test-jUnit5")
 
-                public override fun getStatic(): String = "5.9.1"
+                public override fun getStatic(): String = "5.9.2"
             }
 
             public override val mockk: VersionCatalogDependency.Leaf = object :
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("test-mockk")
 
-                public override fun getStatic(): String = "1.13.3"
+                public override fun getStatic(): String = "1.13.4"
             }
 
             public override val jacoco: VersionCatalogDependency.Leaf = object :
@@ -137,7 +137,7 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("test-gradleTestUtil")
 
-                public override fun getStatic(): String = "0.1.1"
+                public override fun getStatic(): String = "0.2.0"
             }
         }
 
@@ -147,7 +147,7 @@ public class LibsPluginConventionVersionCatalogAccessor(
                         VersionCatalogDependency.Leaf {
                     public override fun `get`(): String = findVersion("plugin-kotlin-gradleDsl")
 
-                    public override fun getStatic(): String = "2.3.3"
+                    public override fun getStatic(): String = "4.0.6"
                 }
 
                 public override val binaryCompatibility: VersionCatalogDependency.Leaf = object :
@@ -155,7 +155,7 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     public override fun `get`(): String =
                             findVersion("plugin-kotlin-binaryCompatibility")
 
-                    public override fun getStatic(): String = "0.12.1"
+                    public override fun getStatic(): String = "0.13.0"
                 }
             }
 
@@ -163,14 +163,14 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("plugin-mavenPublish")
 
-                public override fun getStatic(): String = "0.22.0"
+                public override fun getStatic(): String = "0.24.0"
             }
 
             public override val versionCatalogAccessor: VersionCatalogDependency.Leaf = object :
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("plugin-versionCatalogAccessor")
 
-                public override fun getStatic(): String = "0.1.1"
+                public override fun getStatic(): String = "0.2.0"
             }
         }
     }

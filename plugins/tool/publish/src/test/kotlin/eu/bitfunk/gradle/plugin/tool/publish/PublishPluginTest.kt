@@ -59,7 +59,7 @@ class PublishPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             PublishContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -67,7 +67,7 @@ class PublishPluginTest {
     fun `implements plugin`() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -160,7 +160,7 @@ class PublishPluginTest {
             publishingExtension,
             publicationContainer,
             domainObjectCollection,
-            mavenPublication
+            mavenPublication,
         )
     }
 
@@ -271,7 +271,7 @@ class PublishPluginTest {
                 mavenPomDeveloperSpec,
                 mavenPomDeveloper,
                 mavenPomScm,
-                mavenPomIssueManagement
+                mavenPomIssueManagement,
             )
         }
 
@@ -309,18 +309,18 @@ class PublishPluginTest {
             null,
             null,
             "signingKey",
-            null
+            null,
         )
 
         // WHEN//THEN
         Assertions.assertThrowsExactly(
-            IllegalArgumentException::class.java
+            IllegalArgumentException::class.java,
         ) {
             testSubject.configureSigning(project, extension)
         }
 
         Assertions.assertThrowsExactly(
-            IllegalArgumentException::class.java
+            IllegalArgumentException::class.java,
         ) {
             testSubject.configureSigning(project, extension)
         }
@@ -340,7 +340,7 @@ class PublishPluginTest {
         stubGradleAction(signingExtension) { project.extensions.configure(SigningExtension::class.java, it) }
         every { project.findProperty(any()) } returnsMany listOf(
             "signingKey",
-            "signingPassword"
+            "signingPassword",
         )
 
         // WHEN

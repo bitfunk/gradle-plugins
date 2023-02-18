@@ -31,7 +31,7 @@ public interface VersionCatalogAccessorContract {
 
         public fun addSourceGeneratorTask(
             project: Project,
-            extension: Extension
+            extension: Extension,
         ): VersionCatalogAccessorSourceGeneratorTask
 
         public fun addGeneratorTask(project: Project)

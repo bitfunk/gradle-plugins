@@ -24,7 +24,7 @@ import org.gradle.api.plugins.PluginManager
 @Suppress("UsePropertyAccessSyntax")
 class FakeProject(
     private val delegateProject: Project,
-    private val pluginManager: PluginManager
+    private val pluginManager: PluginManager,
 ) : Project by delegateProject {
 
     override fun getRootProject(): Project = this

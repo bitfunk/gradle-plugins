@@ -27,11 +27,11 @@ import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.mode
 <span class="fc" id="L27">    val versions: Versions,</span>
 <span class="fc" id="L28">    val libraries: Libraries,</span>
 <span class="fc" id="L29">    val bundles: Bundles,</span>
-<span class="fc" id="L30">    val plugins: Plugins</span>
+<span class="fc" id="L30">    val plugins: Plugins,</span>
 )
 
 <span class="fc" id="L33">internal sealed class CatalogEntry(</span>
-<span class="fc" id="L34">    val items: Map&lt;String, String?&gt;</span>
+<span class="fc" id="L34">    val items: Map&lt;String, String?&gt;,</span>
 ) {
 <span class="fc" id="L36">    class Versions(items: Map&lt;String, String&gt;) : CatalogEntry(items)</span>
 <span class="fc" id="L37">    class Libraries(items: List&lt;String&gt;) : CatalogEntry(items.associateWith { null })</span>

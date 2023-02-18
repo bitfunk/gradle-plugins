@@ -26,8 +26,8 @@ import org.eclipse.jgit.lib.Ref
 import java.util.regex.Pattern
 
 <span class="fc" id="L28">public class GitVersionLoader(</span>
-    private val git: Git,
-    private val prefix: String
+<span class="fc" id="L29">    private val git: Git,</span>
+<span class="fc" id="L30">    private val prefix: String,</span>
 ) : GitVersionContract.Loader {
 
 <span class="fc" id="L33">    init {</span>
@@ -60,7 +60,7 @@ import java.util.regex.Pattern
 <span class="fc" id="L60">            gitHash = gitHash(),</span>
 <span class="fc" id="L61">            lastTag = lastTag(description),</span>
 <span class="fc bfc" id="L62" title="All 4 branches covered.">            isCleanTag = isClean() &amp;&amp; isPlainTag(description),</span>
-<span class="fc" id="L63">            commitDistance = commitDistance(description)</span>
+<span class="fc" id="L63">            commitDistance = commitDistance(description),</span>
         )
     }
 
@@ -82,7 +82,7 @@ import java.util.regex.Pattern
 <span class="fc" id="L82">                val version: SemVer = SemVer.parse(versionDescription)</span>
 <span class="fc" id="L83">                return version.major * MAJOR_SHIFT + version.minor * MINOR_SHIFT + version.patch</span>
 <span class="nc" id="L84">            } catch (exception: Exception) {</span>
-<span class="pc" id="L85">                return -1</span>
+<span class="nc" id="L85">                return -1</span>
             }
         }
     }

@@ -55,7 +55,7 @@ class FormatterPluginTest {
     fun plugin_implements_contract() {
         assertInstanceOf(
             FormatterContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -133,21 +133,13 @@ class FormatterPluginTest {
             kotlinExtension.ktlint()
             kotlinExtension.target("**/*.kt")
             kotlinExtension.targetExclude("**/build/", "**/resources/")
-            kotlinExtension.trimTrailingWhitespace()
-            kotlinExtension.indentWithSpaces()
-            kotlinExtension.endWithNewline()
 
+            kotlinGradleExtension.ktlint()
             kotlinGradleExtension.target("**/*.gradle.kts", "**/*.df.kts")
             kotlinGradleExtension.targetExclude("**/build/")
-            kotlinGradleExtension.trimTrailingWhitespace()
-            kotlinGradleExtension.indentWithSpaces()
-            kotlinGradleExtension.endWithNewline()
 
             markdownFormatExtension.prettier()
             markdownFormatExtension.target("**/*.md")
-            markdownFormatExtension.trimTrailingWhitespace()
-            markdownFormatExtension.indentWithSpaces()
-            markdownFormatExtension.endWithNewline()
 
             miscFormatExtension.target("**/.gitignore", "**/.gitattributes", ".java-version")
             miscFormatExtension.trimTrailingWhitespace()
@@ -161,7 +153,7 @@ class FormatterPluginTest {
             kotlinExtension,
             kotlinGradleExtension,
             markdownFormatExtension,
-            miscFormatExtension
+            miscFormatExtension,
         )
     }
 
@@ -183,7 +175,7 @@ class FormatterPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

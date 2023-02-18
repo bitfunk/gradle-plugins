@@ -62,7 +62,7 @@ class GitVersionPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             GitVersionContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -83,7 +83,7 @@ class GitVersionPluginTest {
         // THEN
         Assertions.assertEquals(
             extension,
-            result
+            result,
         )
 
         verify { extensions.create("gitVersionConfig", GitVersionPluginExtension::class.java) }
@@ -106,7 +106,7 @@ class GitVersionPluginTest {
         every {
             extraPropertiesExtension.set(
                 "gitVersion",
-                capture(gitVersionSlot)
+                capture(gitVersionSlot),
             )
         } returns Unit
         every { extraPropertiesExtension.set("gitVersionInfo", capture(gitVersionInfoSlot)) } returns Unit
@@ -129,7 +129,7 @@ class GitVersionPluginTest {
         confirmVerified(
             extension,
             taskContainer,
-            extraPropertiesExtension
+            extraPropertiesExtension,
         )
     }
 
@@ -185,7 +185,7 @@ class GitVersionPluginTest {
         confirmVerified(
             taskContainer,
             taskPrintGitVersion,
-            taskPrintGitVersionInfo
+            taskPrintGitVersionInfo,
         )
     }
 
@@ -218,7 +218,7 @@ class GitVersionPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

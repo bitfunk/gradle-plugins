@@ -39,7 +39,7 @@ import kotlin.collections.Map.Entry
 <span class="fc" id="L39">                    nodes[currentNodeIndex] = updatedNode</span>
                 } else {
 <span class="fc" id="L41">                    nodes.add(newNode)</span>
-<span class="fc" id="L42">                }</span>
+                }
             } else {
 <span class="fc" id="L44">                nodes.add(Node(name = item.key, path = item.key, value = item.value))</span>
             }
@@ -68,12 +68,12 @@ import kotlin.collections.Map.Entry
 <span class="fc" id="L68">                node = nodes[i]</span>
             } else {
 <span class="fc" id="L70">                val tmpNode = nodes[i]</span>
-<span class="fc" id="L71">                tmpNode.children.add(node)</span>
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">                tmpNode.children.add(node)</span>
 <span class="fc" id="L72">                node = tmpNode</span>
             }
         }
 
-<span class="fc" id="L76">        return node</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        return node</span>
     }
 
     private fun updateNode(currentNode: Node, newNode: Node): Node {

@@ -39,7 +39,7 @@ internal class GradleActionMockKtTest {
 
         // WHEN
         stubGradleAction(
-            evaluatedProject
+            evaluatedProject,
         ) { project.afterEvaluate(it) }
 
         project.afterEvaluate {
@@ -66,7 +66,7 @@ internal class GradleActionMockKtTest {
         // WHEN
         stubGradleActionWithReturn(
             testTask,
-            testTaskProvider
+            testTaskProvider,
         ) { project.tasks.named("test", TestTask::class.java, it) }
 
         project.tasks.named("test", TestTask::class.java) {

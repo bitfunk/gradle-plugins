@@ -22,10 +22,10 @@ package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.mod
 <span class="fc" id="L22">    val name: String,</span>
 <span class="fc" id="L23">    var path: String = &quot;&quot;,</span>
 <span class="fc" id="L24">    val value: String? = null,</span>
-<span class="fc" id="L25">    val children: MutableList&lt;Node&gt; = mutableListOf()</span>
+<span class="fc" id="L25">    val children: MutableList&lt;Node&gt; = mutableListOf(),</span>
 ) {
 <span class="fc bfc" id="L27" title="All 2 branches covered.">    fun isLeaf(): Boolean = path.isNotBlank()</span>
 
 <span class="fc bfc" id="L29" title="All 2 branches covered.">    fun isGroup(): Boolean = children.isNotEmpty()</span>
-}
+<span class="fc" id="L30">}</span>
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
