@@ -9,7 +9,11 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.0...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.2.0...main)
+
+## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-git-version@v0.2.0)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.1...plugin-tool-git-version@v0.2.0)
 
 ### Fixed
 
