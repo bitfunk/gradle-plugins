@@ -1,6 +1,6 @@
 [versions]
-gradlePluginConvention = "0.1.0"
-gradleCompositeDelegator = "0.1.0"
+gradlePluginConvention = "0.2.1"
+gradleCompositeDelegator = "0.2.0"
 
 [plugins]
 gradlePluginConvention = { id = "eu.bitfunk.gradle.plugin.development.convention", version.ref = "gradlePluginConvention" }
