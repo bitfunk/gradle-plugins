@@ -18,7 +18,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-ve
 ### Bumped
 
 - Git Version 0.1.1 -> 0.2.0
-- Gradle Plugin Convention 0.1.0 -> 0.2.0
+- Gradle Plugin Convention 0.1.0 -> 0.2.1
 
 ## [0.1.2](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-versioning@v0.1.2)
 
