@@ -36,12 +36,6 @@ reportConfig {
     )
 }
 
-project(":docs") {
-    sonarqube {
-        isSkipProject = true
-    }
-}
-
 compositeDelegator {
     additionalTasks.set(listOf("testCodeCoverageReport"))
 }
