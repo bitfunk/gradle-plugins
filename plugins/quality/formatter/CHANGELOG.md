@@ -9,7 +9,21 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.1...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.2.0...main)
+
+## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.2.0)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.1...plugin-quality-formatter@v0.2.0)
+
+### Removed
+
+- Remove unnecessary rules for `.kt`, `.kts` and `.md` files as ktlint and prettier apply them already
+
+### Bumped
+
+- Gradle Plugin Convention 0.1.0 -> 0.2.0
+- ktlint 0.48.0 -> 0.48.2
+- Spotless 6.12.0 -> 6.15.0
 
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.1)
 
@@ -23,7 +37,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 
 - Spotless 6.11.0 -> 6.12.0
 - ktlint 0.47.1 -> 0.48.0
-- Gradle Plugin Convention 0.7.0 -> 1.0.0
+- Gradle Plugin Convention 0.0.7 -> 0.1.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.1.0)
 

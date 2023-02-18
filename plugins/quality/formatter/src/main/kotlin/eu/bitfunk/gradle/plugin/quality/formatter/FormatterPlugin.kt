@@ -48,23 +48,15 @@ public class FormatterPlugin : Plugin<Project>, FormatterContract.Plugin {
                 ktlint()
                 target("**/*.kt")
                 targetExclude("**/build/", "**/resources/")
-                trimTrailingWhitespace()
-                indentWithSpaces()
-                endWithNewline()
             }
             kotlinGradle {
+                ktlint()
                 target("**/*.gradle.kts", "**/*.df.kts")
                 targetExclude("**/build/")
-                trimTrailingWhitespace()
-                indentWithSpaces()
-                endWithNewline()
             }
             format("markdown") {
                 prettier()
                 target("**/*.md")
-                trimTrailingWhitespace()
-                indentWithSpaces()
-                endWithNewline()
             }
             format("misc") {
                 target("**/.gitignore", "**/.gitattributes", ".java-version")
