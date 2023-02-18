@@ -74,9 +74,9 @@ internal class GitVersionLoaderCornerCaseTest {
                 gitHash = "7324508",
                 lastTag = "unspecified",
                 isCleanTag = true,
-                commitDistance = 0
+                commitDistance = 0,
             ),
-            actual = result
+            actual = result,
         )
     }
 }

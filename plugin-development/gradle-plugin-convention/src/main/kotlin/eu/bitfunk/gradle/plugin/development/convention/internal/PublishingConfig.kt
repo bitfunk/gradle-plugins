@@ -36,7 +36,7 @@ internal object PublishingConfig {
     @Suppress("UnstableApiUsage")
     internal fun configure(
         project: Project,
-        extension: GradlePluginConventionContract.Extension
+        extension: GradlePluginConventionContract.Extension,
     ): Unit = with(project) {
         pluginManager.apply("com.vanniktech.maven.publish.base")
 
@@ -47,8 +47,8 @@ internal object PublishingConfig {
                 configure(
                     GradlePlugin(
                         javadocJar = Javadoc(),
-                        sourcesJar = true
-                    )
+                        sourcesJar = true,
+                    ),
                 )
 
                 pom {
@@ -56,7 +56,7 @@ internal object PublishingConfig {
                     description.set(extension.publishDescription)
                     inceptionYear.set("${Year.now().value}")
                     url.set(
-                        "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"
+                        "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/",
                     )
 
                     licenses {
@@ -77,13 +77,13 @@ internal object PublishingConfig {
 
                     scm {
                         url.set(
-                            "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/"
+                            "https://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}/",
                         )
                         connection.set(
-                            "scm:git:git://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"
+                            "scm:git:git://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git",
                         )
                         developerConnection.set(
-                            "scm:git:ssh://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git"
+                            "scm:git:ssh://github.com/${extension.publishGitHubOrganization.get()}/${extension.publishGitHubRepositoryName.get()}.git",
                         )
                     }
                 }

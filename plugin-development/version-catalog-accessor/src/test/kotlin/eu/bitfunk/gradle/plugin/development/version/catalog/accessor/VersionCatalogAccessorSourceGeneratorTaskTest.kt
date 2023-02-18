@@ -43,7 +43,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
             MissingValueException::class.java,
             { task.generate() },
             "Cannot query the value of task ':testTask' property 'catalogSourceFolder'" +
-                " because it has no value available."
+                " because it has no value available.",
         )
     }
 
@@ -58,7 +58,7 @@ class VersionCatalogAccessorSourceGeneratorTaskTest {
         assertThrowsExactly(
             MissingValueException::class.java,
             { task.generate() },
-            "Cannot query the value of task ':testTask' property 'packageName' because it has no value available."
+            "Cannot query the value of task ':testTask' property 'packageName' because it has no value available.",
         )
     }
 

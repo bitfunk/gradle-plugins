@@ -37,7 +37,7 @@ internal class FileNameTransformerTest {
     fun `implements Transformer`() {
         assertInstanceOf(
             Transformer::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -52,7 +52,7 @@ internal class FileNameTransformerTest {
         // THEN
         assertEquals(
             "filename-1.xml",
-            result
+            result,
         )
     }
 
@@ -68,7 +68,7 @@ internal class FileNameTransformerTest {
         // THEN
         assertEquals(
             "filename-3.xml",
-            result
+            result,
         )
     }
 }

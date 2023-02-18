@@ -42,7 +42,7 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
             .addType(
                 TypeSpec.interfaceBuilder("Group")
                     .addSuperinterface(ClassName(packageName, INTERFACE_NAME))
-                    .build()
+                    .build(),
             )
             .addType(
                 TypeSpec.interfaceBuilder("GroupLeaf")
@@ -51,15 +51,15 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                         FunSpec.builder("get")
                             .returns(String::class)
                             .addModifiers(ABSTRACT)
-                            .build()
+                            .build(),
                     )
                     .addFunction(
                         FunSpec.builder("getStatic")
                             .returns(String::class)
                             .addModifiers(ABSTRACT)
-                            .build()
+                            .build(),
                     )
-                    .build()
+                    .build(),
             )
             .addType(
                 TypeSpec.interfaceBuilder("Leaf")
@@ -68,15 +68,15 @@ internal class VersionInterfaceGenerator : InternalContract.VersionInterfaceGene
                         FunSpec.builder("get")
                             .returns(String::class)
                             .addModifiers(ABSTRACT)
-                            .build()
+                            .build(),
                     )
                     .addFunction(
                         FunSpec.builder("getStatic")
                             .returns(String::class)
                             .addModifiers(ABSTRACT)
-                            .build()
+                            .build(),
                     )
-                    .build()
+                    .build(),
             )
             .build()
     }

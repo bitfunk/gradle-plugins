@@ -20,7 +20,7 @@ public interface TestVersionCatalogAccessorContract {
 }
 
 public class TestVersionCatalogAccessor(
-    project: Project
+    project: Project,
 ) : Libraries {
     private val versionCatalog: VersionCatalog =
         project.extensions.getByType(VersionCatalogsExtension::class.java).named("libs")

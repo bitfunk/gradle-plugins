@@ -49,7 +49,7 @@ class CompositeDelegatorPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             CompositeDelegatorContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -57,7 +57,7 @@ class CompositeDelegatorPluginTest {
     fun `implements plugin`() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -70,7 +70,7 @@ class CompositeDelegatorPluginTest {
         every {
             project.extensions.create(
                 any(),
-                CompositeDelegatorPluginExtension::class.java
+                CompositeDelegatorPluginExtension::class.java,
             )
         } returns extension
 
@@ -80,7 +80,7 @@ class CompositeDelegatorPluginTest {
         // THEN
         assertEquals(
             extension,
-            result
+            result,
         )
 
         verifyAll {
@@ -156,7 +156,7 @@ class CompositeDelegatorPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 
@@ -174,7 +174,7 @@ class CompositeDelegatorPluginTest {
 
             // Custom
             "task1" to null,
-            "task2" to null
+            "task2" to null,
         )
     }
 }

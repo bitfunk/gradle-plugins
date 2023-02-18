@@ -23,7 +23,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 internal class GitDescribe(
-    private val git: Git
+    private val git: Git,
 ) : GitContract.Describe {
 
     override fun describe(prefix: String): String {

@@ -80,7 +80,7 @@ internal object GitLoader : GitContract.Loader {
             gitDir
         } else {
             scanForRootGitDir(
-                currentRoot.parentFile
+                currentRoot.parentFile,
             )
         }
     }

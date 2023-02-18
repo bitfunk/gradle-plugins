@@ -47,7 +47,7 @@ internal class VersionNameGeneratorTest {
     fun plugin_implements_contract() {
         assertInstanceOf(
             VersioningContract.Generator::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -77,7 +77,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
     }
 
@@ -95,7 +95,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
     }
 
@@ -113,7 +113,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
     }
 
@@ -132,7 +132,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -151,7 +151,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -170,7 +170,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-add-some-code-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -189,7 +189,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-add-some-code-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -208,7 +208,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-add-some-numbers-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -227,7 +227,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-bump-library-1.0.0-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -246,7 +246,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             "1.0.0-renovate-configure-SNAPSHOT",
-            result
+            result,
         )
     }
 
@@ -263,7 +263,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             10101000,
-            result
+            result,
         )
     }
 
@@ -280,7 +280,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             141523,
-            result
+            result,
         )
     }
 
@@ -297,7 +297,7 @@ internal class VersionNameGeneratorTest {
         // THEN
         assertEquals(
             6101253,
-            result
+            result,
         )
     }
 
@@ -331,7 +331,7 @@ internal class VersionNameGeneratorTest {
                isClean = false
             )
             """.trimIndent(),
-            result
+            result,
         )
     }
 

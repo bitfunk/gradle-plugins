@@ -21,7 +21,7 @@ package eu.bitfunk.gradle.plugin.quality.report.intern
 import org.gradle.api.Transformer
 
 internal class FileNameTransformer(
-    private var count: Int = 0
+    private var count: Int = 0,
 ) : Transformer<String, String> {
 
     override fun transform(fileName: String): String {

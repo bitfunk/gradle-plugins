@@ -40,7 +40,7 @@ internal class VersionCatalogAccessorClassGenerator(
     private val packageName: String = "",
     private val baseName: String = "",
     private val classBaseName: String = "",
-    private val mapper: Mapper
+    private val mapper: Mapper,
 ) : InternalContract.Generator.VersionCatalogAccessorClass {
 
     override fun generate(catalog: Catalog): TypeSpec {
@@ -50,12 +50,12 @@ internal class VersionCatalogAccessorClassGenerator(
             .primaryConstructor(
                 FunSpec.constructorBuilder()
                     .addParameter(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
-                    .build()
+                    .build(),
             ).addProperty(
                 PropertySpec.builder(Generator.ACCESSOR_PROPERTY_NAME_PROJECT, Project::class)
                     .initializer(Generator.ACCESSOR_PROPERTY_NAME_PROJECT)
                     .addModifiers(PRIVATE)
-                    .build()
+                    .build(),
             )
             .addSuperinterface(ClassName(packageName, Generator.NAME_LIBRARIES.titleCase()))
             .addProperty(
@@ -65,12 +65,12 @@ internal class VersionCatalogAccessorClassGenerator(
                             .addStatement(
                                 "return %L",
                                 "project.extensions.getByType(VersionCatalogsExtension::class.java)\n" +
-                                    "    .named(\"${baseName.titleUncase()}\")"
+                                    "    .named(\"${baseName.titleUncase()}\")",
                             )
-                            .build()
+                            .build(),
                     )
                     .addModifiers(PRIVATE)
-                    .build()
+                    .build(),
             )
             .addProperty(generateRootProperty(Generator.NAME_VERSIONS, catalog.versions))
             .addProperty(generateRootProperty(Generator.NAME_BUNDLES, catalog.bundles))
@@ -79,8 +79,8 @@ internal class VersionCatalogAccessorClassGenerator(
                 generateProperties(
                     catalog.libraries::class,
                     libraryNodes,
-                    Generator.NAME_LIBRARIES.titleCase()
-                )
+                    Generator.NAME_LIBRARIES.titleCase(),
+                ),
             )
             .addFunction(generateCatalogFindFunction("findVersion"))
             .addFunction(generateCatalogFindFunction("findLibrary"))
@@ -109,7 +109,7 @@ internal class VersionCatalogAccessorClassGenerator(
     private fun generateProperties(
         catalogType: KClass<*>,
         nodes: List<Node>,
-        parentName: String
+        parentName: String,
     ): Iterable<PropertySpec> {
         val properties = mutableListOf<PropertySpec>()
 
@@ -121,7 +121,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     node,
                     ClassName(packageName, name),
                     ClassName(packageName, "GroupLeaf"),
-                    name
+                    name,
                 )
             } else if (node.isLeaf()) {
                 generateNodeProperty(
@@ -129,7 +129,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     node,
                     ClassName(packageName, "VersionCatalogDependency.Leaf"),
                     ClassName(packageName, "Leaf"),
-                    parentName
+                    parentName,
                 )
             } else {
                 val name = "$parentName.${node.name.titleCase()}"
@@ -138,7 +138,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     node,
                     ClassName(packageName, name),
                     ClassName(packageName, "Group"),
-                    name
+                    name,
                 )
             }
 
@@ -153,7 +153,7 @@ internal class VersionCatalogAccessorClassGenerator(
         node: Node,
         className: ClassName,
         kClass: ClassName,
-        parentName: String
+        parentName: String,
     ): PropertySpec {
         return PropertySpec.builder(node.name, className)
             .addModifiers(OVERRIDE)
@@ -166,7 +166,7 @@ internal class VersionCatalogAccessorClassGenerator(
         node: Node,
         className: ClassName,
         kClass: ClassName,
-        parentName: String
+        parentName: String,
     ): TypeSpec {
         val nodeImplementation = TypeSpec.anonymousClassBuilder()
             .addSuperinterface(className)

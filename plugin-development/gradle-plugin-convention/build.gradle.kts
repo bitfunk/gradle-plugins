@@ -117,8 +117,8 @@ afterEvaluate {
         configure(
             GradlePlugin(
                 javadocJar = JavadocJar.Javadoc(),
-                sourcesJar = true
-            )
+                sourcesJar = true,
+            ),
         )
     }
 }

@@ -55,7 +55,7 @@ class FormatterPluginTest {
     fun plugin_implements_contract() {
         assertInstanceOf(
             FormatterContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -153,7 +153,7 @@ class FormatterPluginTest {
             kotlinExtension,
             kotlinGradleExtension,
             markdownFormatExtension,
-            miscFormatExtension
+            miscFormatExtension,
         )
     }
 
@@ -175,7 +175,7 @@ class FormatterPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

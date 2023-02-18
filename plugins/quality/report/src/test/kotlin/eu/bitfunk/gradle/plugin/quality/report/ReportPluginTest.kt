@@ -54,7 +54,7 @@ class ReportPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             ReportContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -62,7 +62,7 @@ class ReportPluginTest {
     fun `implements Gradle Plugin`() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -124,7 +124,7 @@ class ReportPluginTest {
         every { extension.sonarOrganization.get() } returns "sonarOrganization"
         every { extension.coverageReportSourceDirs.get() } returns listOf(
             "coverageReportSourceDirs1",
-            "coverageReportSourceDirs2"
+            "coverageReportSourceDirs2",
         )
         val projectDir: File = mockk()
         every { project.projectDir } returns projectDir
@@ -161,7 +161,7 @@ class ReportPluginTest {
             sonarProperties.property("sonar.sourceEncoding", "UTF-8")
             sonarProperties.property(
                 "sonar.coverage.jacoco.xmlReportPaths",
-                "build/reports/jacoco/testCodeCoverageReport-1.xml,build/reports/jacoco/testCodeCoverageReport-2.xml"
+                "build/reports/jacoco/testCodeCoverageReport-1.xml,build/reports/jacoco/testCodeCoverageReport-2.xml",
             )
         }
 

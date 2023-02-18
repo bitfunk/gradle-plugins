@@ -114,8 +114,8 @@ class PublishingConfigTest {
             mavenPublishBaseExtension.configure(
                 GradlePlugin(
                     javadocJar = JavadocJar.Javadoc(),
-                    sourcesJar = true
-                )
+                    sourcesJar = true,
+                ),
             )
 
             mavenPublishBaseExtension.pom(any())
@@ -202,7 +202,7 @@ class PublishingConfigTest {
             pomLicense,
             pomDeveloperSpec,
             pomDeveloper,
-            pomScm
+            pomScm,
         )
     }
 }

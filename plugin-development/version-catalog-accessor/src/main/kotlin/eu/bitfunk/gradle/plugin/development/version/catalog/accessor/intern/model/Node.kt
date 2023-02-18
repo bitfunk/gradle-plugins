@@ -22,7 +22,7 @@ internal data class Node(
     val name: String,
     var path: String = "",
     val value: String? = null,
-    val children: MutableList<Node> = mutableListOf()
+    val children: MutableList<Node> = mutableListOf(),
 ) {
     fun isLeaf(): Boolean = path.isNotBlank()
 

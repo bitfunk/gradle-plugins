@@ -26,7 +26,7 @@ internal class GeneratorTask(
     private val projectRootPath: File,
     private val projectBuildPath: File,
     private val mapper: InternalContract.Mapper = Mapper(),
-    private val parser: InternalContract.Parser = Parser()
+    private val parser: InternalContract.Parser = Parser(),
 ) : GeneratorTask {
 
     override fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List<String>) {
@@ -37,7 +37,7 @@ internal class GeneratorTask(
         val catalogFiles: List<Pair<String, File>> = catalogNames.map {
             Pair(
                 it,
-                File("$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION")
+                File("$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION"),
             )
         }
 
@@ -69,7 +69,7 @@ internal class GeneratorTask(
     private fun setupGenerator(packageName: String, name: String): InternalContract.Generator = Generator(
         packageName = packageName,
         baseName = name,
-        mapper
+        mapper,
     )
 
     private fun generateFileName(name: String): String {
