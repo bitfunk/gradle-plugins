@@ -49,7 +49,7 @@ curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../asse
 
 - Composite Delegator
   ```bash
-  curl "https://img.shields.io/badge/CompositeDelegator-v0.1.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-composite-delegator.svg
+  curl "https://img.shields.io/badge/CompositeDelegator-v0.2.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-composite-delegator.svg
   ```
 - Publish
   ```bash
