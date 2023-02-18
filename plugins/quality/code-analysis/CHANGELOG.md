@@ -9,11 +9,16 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-code-analysis@v0.1.1...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-code-analysis@v0.2.0...main)
+
+## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.2.ß)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-code-analysis@v0.1.1...plugin-quality-code-analysis@v0.2.0)
 
 ### Bumped
 
-- Version Catalog Accessor 0.1.0 -> 0.1.1
+- Version Catalog Accessor 0.1.0 -> 0.2.0
+- Gradle Plugin Convention 0.1.0 -> 0.2.1
 
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.1.1)
 
@@ -22,7 +27,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 ### Bumped
 
 - Detekt 1.21.0 -> 1.22.0
-- Gradle Plugin Convention 0.7.0 -> 1.0.0
+- Gradle Plugin Convention 0.0.7 -> 0.1.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.1.0)
 
