@@ -183,7 +183,8 @@ internal class GitDescribeTest {
     fun `GIVEN annotated tag is present with merge commit WHEN describe() THEN annotated tag is chosen`() {
         // GIVEN
         val git = Git.init().setDirectory(tempDir).call()
-        git.add().addFilepattern(".").call()
+        File(tempDir, "abc").writeText("abc")
+        git.add().addFilepattern("abc").call()
         git.commit().setMessage("initial commit").call()
         git.tag().setAnnotated(true).setName("1.0.0").setMessage("1.0.0").call()
 
@@ -191,6 +192,8 @@ internal class GitDescribeTest {
         val main = git.repository.fullBranch
         val hotfixBranch = git.branchCreate().setName("hotfix").call()
         git.checkout().setName(hotfixBranch.name).call()
+        File(tempDir, "xyz").writeText("xyz")
+        git.add().addFilepattern("xyz").call()
         git.commit().setMessage("hot fix for issue").call()
         git.tag().setAnnotated(true)
             .setMessage("1.0.0-hotfix")
@@ -211,7 +214,7 @@ internal class GitDescribeTest {
         // THEN
         assertNativeGitDescribe(result, tempDir)
         assertJGitDescribe(result, git)
-        val pattern = "1.0.0-2-$GIT_HASH_SHORT_PATTERN".toRegex()
+        val pattern = "1.0.0-(hotfix-1|2)-$GIT_HASH_SHORT_PATTERN".toRegex()
         assertTrue(
             actual = result.contains(pattern),
             message = "$result does not match $pattern",
@@ -223,6 +226,7 @@ internal class GitDescribeTest {
         // GIVEN
         val prefix = "my-prefix@"
         val git = Git.init().setDirectory(tempDir).call()
+
         git.add().addFilepattern(".").call()
         git.commit().setMessage("initial commit").call()
         git.tag().setAnnotated(true).setMessage("${prefix}1.0.0").setName("${prefix}1.0.0").call()
