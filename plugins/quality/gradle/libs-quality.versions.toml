@@ -1,10 +1,10 @@
 [versions]
-gradleCodeAnalysis = "0.1.1"
-gradleFormatter = "0.1.1"
-gradleReport = "0.1.1"
+gradleCodeAnalysis = "0.2.0"
+gradleFormatter = "0.2.0"
+gradleReport = "0.2.0"
 
-gradlePluginConvention = "0.1.0"
-gradleCompositeDelegator = "0.1.0"
+gradlePluginConvention = "0.2.1"
+gradleCompositeDelegator = "0.2.0"
 
 [libraries]
 gradleCodeAnalysis = { module = "eu.bitfunk.gradle.plugin.quality:code-analysis", version.ref = "gradleCodeAnalysis"}
