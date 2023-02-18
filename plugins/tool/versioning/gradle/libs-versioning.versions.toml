@@ -1,6 +1,6 @@
 [versions]
-gradlePluginGitVersion = "0.1.1"
-gradlePluginConvention = "0.1.0"
+gradlePluginGitVersion = "0.2.0"
+gradlePluginConvention = "0.2.1"
 
 [libraries]
 plugin-gitVersion = { module = "eu.bitfunk.gradle.plugin.tool:git-version", version.ref = "gradlePluginGitVersion" }
