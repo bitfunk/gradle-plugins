@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GeneratorTask.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">version-catalog-accessor</a> &gt; <a href="index.source.html" class="el_package">eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern</a> &gt; <span class="el_source">GeneratorTask.kt</span></div><h1>GeneratorTask.kt</h1><pre class="source lang-java linenums">/*
+ * ISC License
+ *
+ * Copyright (c) 2022. Wolf-Martell Montwé (bitfunk)
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+
+package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
+
+import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.InternalContract.GeneratorTask
+import org.gradle.configurationcache.extensions.capitalized
+import java.io.File
+
+<span class="fc" id="L25">internal class GeneratorTask(</span>
+<span class="fc" id="L26">    private val projectRootPath: File,</span>
+<span class="fc" id="L27">    private val projectBuildPath: File,</span>
+<span class="fc" id="L28">    private val mapper: InternalContract.Mapper = Mapper(),</span>
+<span class="fc" id="L29">    private val parser: InternalContract.Parser = Parser(),</span>
+) : GeneratorTask {
+
+    override fun generate(catalogSourceFolder: String, packageName: String, catalogNames: List&lt;String&gt;) {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (catalogNames.isEmpty()) return</span>
+
+<span class="fc" id="L35">        val versionInterface = generateVersionInterface(packageName)</span>
+
+<span class="fc" id="L37">        val catalogFiles: List&lt;Pair&lt;String, File&gt;&gt; = catalogNames.map {</span>
+<span class="fc" id="L38">            Pair(</span>
+<span class="fc" id="L39">                it,</span>
+<span class="fc" id="L40">                File(&quot;$projectRootPath/$catalogSourceFolder/$it$VERSION_CATALOG_EXTENSION&quot;),</span>
+            )
+        }
+
+<span class="fc" id="L44">        val generatedAccessors: List&lt;Pair&lt;String, String&gt;&gt; = catalogFiles</span>
+<span class="fc" id="L45">            .map { Pair(it.first, generateVersionCatalogAccessor(packageName, it.first, it.second)) }</span>
+
+<span class="fc" id="L47">        val outputDir = File(&quot;$projectBuildPath/$OUTPUT_PATH&quot;)</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">        if (!outputDir.exists()) outputDir.mkdirs()</span>
+
+<span class="fc" id="L50">        File(&quot;$outputDir/$OUTPUT_INTERFACE_FILE_NAME&quot;).writeText(versionInterface)</span>
+<span class="fc" id="L51">        generatedAccessors.map {</span>
+<span class="fc" id="L52">            File(&quot;$outputDir/${generateFileName(it.first)}$OUTPUT_FILE_NAME&quot;).writeText(it.second)</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+
+    private fun generateVersionInterface(packageName: String): String {
+<span class="fc" id="L57">        val generator = VersionInterfaceGenerator()</span>
+<span class="fc" id="L58">        return generator.generate(packageName)</span>
+    }
+
+    private fun generateVersionCatalogAccessor(packageName: String, name: String, file: File): String {
+<span class="fc" id="L62">        val generator = setupGenerator(packageName, name.capitalized())</span>
+
+<span class="fc" id="L64">        val catalog = parser.parse(file.inputStream())</span>
+
+<span class="fc" id="L66">        return generator.generate(catalog)</span>
+    }
+
+<span class="fc" id="L69">    private fun setupGenerator(packageName: String, name: String): InternalContract.Generator = Generator(</span>
+<span class="fc" id="L70">        packageName = packageName,</span>
+<span class="fc" id="L71">        baseName = name,</span>
+<span class="fc" id="L72">        mapper,</span>
+<span class="fc" id="L73">    )</span>
+
+    private fun generateFileName(name: String): String {
+<span class="fc" id="L76">        return name.split(&quot;-&quot;)</span>
+<span class="fc" id="L77">            .map { it.titleCase() }</span>
+<span class="fc" id="L78">            .joinToString(separator = &quot;&quot;) { it }</span>
+    }
+
+    private companion object {
+        private const val VERSION_CATALOG_EXTENSION = &quot;.versions.toml&quot;
+
+        private const val OUTPUT_INTERFACE_FILE_NAME = &quot;VersionCatalogDependency.kt&quot;
+        private const val OUTPUT_FILE_NAME = &quot;VersionCatalogAccessor.kt&quot;
+        private const val OUTPUT_PATH = &quot;generated/versionCatalogAccessor/src/main/kotlin&quot;
+    }
+<span class="fc" id="L88">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
