@@ -60,7 +60,7 @@ class CodeAnalysisPluginTest {
     fun plugin_implements_contract() {
         assertInstanceOf(
             CodeAnalysisContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -68,7 +68,7 @@ class CodeAnalysisPluginTest {
     fun plugin_is_gradle_plugin() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -173,7 +173,7 @@ class CodeAnalysisPluginTest {
             taskContainer,
             detektTask,
             detektReports,
-            detektCreateBaselineTask
+            detektCreateBaselineTask,
         )
     }
 
@@ -198,7 +198,7 @@ class CodeAnalysisPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 
@@ -208,7 +208,7 @@ class CodeAnalysisPluginTest {
             "**/.idea/**",
             "**/build/**",
             ".github/**",
-            "gradle/**"
+            "gradle/**",
         )
 
         val DETEKT_BASELINE_EXCLUDED = arrayOf(
@@ -231,7 +231,7 @@ class CodeAnalysisPluginTest {
             "**/*.pro",
             "**/*.sq",
             "**/*.xml",
-            "**/*.yml"
+            "**/*.yml",
         )
     }
 }

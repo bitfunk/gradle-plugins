@@ -27,7 +27,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 internal class Generator(
     private val packageName: String = "",
     private val baseName: String = "",
-    private val mapper: Mapper
+    private val mapper: Mapper,
 ) : Generator {
 
     override fun generate(catalog: Catalog): String {
@@ -48,7 +48,7 @@ internal class Generator(
             .addImport(classPackageName, "${accessorInterface.name}.${NAME_VERSIONS.titleCase()}")
             .addImport(
                 VersionCatalogsExtension::class.java.packageName,
-                VersionCatalogsExtension::class.java.simpleName
+                VersionCatalogsExtension::class.java.simpleName,
             )
             .addType(accessorInterface)
             .addType(accessorClass)

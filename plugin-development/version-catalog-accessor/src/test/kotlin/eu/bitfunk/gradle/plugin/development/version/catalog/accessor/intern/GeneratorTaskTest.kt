@@ -58,7 +58,7 @@ class GeneratorTaskTest {
             projectRootDir,
             projectBuildDir,
             mapper,
-            parser
+            parser,
         )
     }
 
@@ -66,7 +66,7 @@ class GeneratorTaskTest {
     fun `generatorTask implements contract`() {
         assertInstanceOf(
             InternalContract.GeneratorTask::class.java,
-            generatorTask
+            generatorTask,
         )
     }
 
@@ -207,7 +207,7 @@ class GeneratorTaskTest {
             Versions(emptyMap()),
             Libraries(emptyList()),
             Bundles(emptyList()),
-            Plugins(emptyList())
+            Plugins(emptyList()),
         )
     }
 }

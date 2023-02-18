@@ -71,7 +71,7 @@ class GitVersionPluginFunctionalTest {
 
         // THEN
         assertTrue(
-            actual = runner.output.contains("Cannot find '.git' directory")
+            actual = runner.output.contains("Cannot find '.git' directory"),
         )
     }
 
@@ -97,7 +97,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -112,7 +112,7 @@ class GitVersionPluginFunctionalTest {
         settingsFile.appendText(
             """
             include("submodule")
-            """.trimIndent()
+            """.trimIndent(),
         )
 
         val git = Git.init().setDirectory(projectDir).call()
@@ -127,7 +127,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -144,7 +144,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\nunspecified\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -165,7 +165,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -186,7 +186,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n$HASH_SHORT_PATTERN\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -235,7 +235,7 @@ class GitVersionPluginFunctionalTest {
 
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -273,7 +273,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n2.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -295,7 +295,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0.dirty\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -318,7 +318,7 @@ class GitVersionPluginFunctionalTest {
             ":printGitVersionInfo\n1.0.0\n10000\nmaster\n[a-z0-9]{40}\n$HASH_SHORT_PATTERN\n1.0.0\ntrue\n0\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -337,7 +337,7 @@ class GitVersionPluginFunctionalTest {
                         println(gitLastTag)
                     }
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -352,7 +352,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printVersionDetails\n${sha}\nunspecified\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -373,7 +373,7 @@ class GitVersionPluginFunctionalTest {
                         println(gitVersionInfo.isCleanTag)
                     }
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -390,7 +390,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printVersionDetails\n1.0.0\n1\n$HASH_SHORT_PATTERN\nmaster\nfalse\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -406,7 +406,7 @@ class GitVersionPluginFunctionalTest {
                     println(gitVersionInfo.isCleanTag)
                 }
             }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -422,7 +422,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printVersionDetails\nfalse\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -442,7 +442,7 @@ class GitVersionPluginFunctionalTest {
                         println(gitVersionInfo.branchName)
                     }
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -460,7 +460,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printVersionDetails\n1.0.0\n0\n$HASH_SHORT_PATTERN\nunspecified\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -481,7 +481,7 @@ class GitVersionPluginFunctionalTest {
                         println(gitVersionInfo.lastTag)
                     }
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -499,7 +499,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printVersionDetails\n1.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -525,7 +525,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0-1-g$commitSha\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -551,7 +551,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n$commitSha\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -565,7 +565,7 @@ class GitVersionPluginFunctionalTest {
                     apply(plugin = "eu.bitfunk.gradle.plugin.tool.gitversion")
                     version = gitVersion()
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
 
         settingsFile.appendText("include(\"sub\")")
@@ -591,10 +591,10 @@ class GitVersionPluginFunctionalTest {
 
         // THEN
         assertTrue(
-            result.output.contains(":printGitVersion\n1.0.0\n")
+            result.output.contains(":printGitVersion\n1.0.0\n"),
         )
         assertTrue(
-            result.output.contains(":sub:printGitVersion\n8.8.8\n")
+            result.output.contains(":sub:printGitVersion\n8.8.8\n"),
         )
     }
 
@@ -608,7 +608,7 @@ class GitVersionPluginFunctionalTest {
                     apply(plugin = "eu.bitfunk.gradle.plugin.tool.gitversion")
                     version = gitVersion()
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -626,7 +626,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n2.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -640,7 +640,7 @@ class GitVersionPluginFunctionalTest {
                     apply(plugin = "eu.bitfunk.gradle.plugin.tool.gitversion")
                     version = gitVersion()
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -661,7 +661,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n2.0.0\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -675,7 +675,7 @@ class GitVersionPluginFunctionalTest {
                     apply(plugin = "eu.bitfunk.gradle.plugin.tool.gitversion")
                     version = gitVersion()
                 }
-            """.trimIndent()
+            """.trimIndent(),
         )
         gitIgnoreFile.appendText("build")
 
@@ -693,7 +693,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n$HASH_SHORT_PATTERN\n".toRegex()
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 
@@ -722,7 +722,7 @@ class GitVersionPluginFunctionalTest {
         val pattern = ":printGitVersion\n1.0.0-$depth-g$commitSha\n"
         assertTrue(
             actual = result.output.contains(pattern),
-            message = "${result.output} does not match $pattern"
+            message = "${result.output} does not match $pattern",
         )
     }
 

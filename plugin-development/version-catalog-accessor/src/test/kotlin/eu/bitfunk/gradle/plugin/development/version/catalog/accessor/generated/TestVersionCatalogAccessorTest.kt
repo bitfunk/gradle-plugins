@@ -63,7 +63,7 @@ class TestVersionCatalogAccessorTest {
 
         // WHEN/THEN
         assertThrowsExactly(
-            NoSuchElementException::class.java
+            NoSuchElementException::class.java,
         ) { accessor.testFindVersion(version) }
     }
 
@@ -84,7 +84,7 @@ class TestVersionCatalogAccessorTest {
         // THEN
         assertEquals(
             "1.0.0",
-            result
+            result,
         )
     }
 
@@ -95,7 +95,7 @@ class TestVersionCatalogAccessorTest {
 
         // WHEN/THEN
         assertThrowsExactly(
-            NoSuchElementException::class.java
+            NoSuchElementException::class.java,
         ) { accessor.testFindLibrary(library) }
     }
 
@@ -118,7 +118,7 @@ class TestVersionCatalogAccessorTest {
         // THEN
         assertEquals(
             "com.example:library:1.0.0",
-            result
+            result,
         )
     }
 
@@ -129,7 +129,7 @@ class TestVersionCatalogAccessorTest {
 
         // WHEN/THEN
         assertThrowsExactly(
-            NoSuchElementException::class.java
+            NoSuchElementException::class.java,
         ) { accessor.testFindBundle(bundle) }
     }
 
@@ -152,7 +152,7 @@ class TestVersionCatalogAccessorTest {
         // THEN
         assertEquals(
             "bundle",
-            result
+            result,
         )
     }
 
@@ -163,7 +163,7 @@ class TestVersionCatalogAccessorTest {
 
         // WHEN/THEN
         assertThrowsExactly(
-            NoSuchElementException::class.java
+            NoSuchElementException::class.java,
         ) { accessor.testFindPlugin(plugin) }
     }
 
@@ -186,7 +186,7 @@ class TestVersionCatalogAccessorTest {
         // THEN
         assertEquals(
             "plugin",
-            result
+            result,
         )
     }
 }

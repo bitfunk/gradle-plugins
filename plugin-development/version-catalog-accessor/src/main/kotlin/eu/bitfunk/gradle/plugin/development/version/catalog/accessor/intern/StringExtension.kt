@@ -18,6 +18,12 @@
 
 package eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern
 
-internal fun String.titleCase(): String = replaceFirstChar { char: Char -> if (char.isLowerCase()) char.titlecase() else char.toString() }
+internal fun String.titleCase(): String = replaceFirstChar {
+        char: Char ->
+    if (char.isLowerCase()) char.titlecase() else char.toString()
+}
 
-internal fun String.titleUncase(): String = replaceFirstChar { char: Char -> if (char.isLowerCase()) char.toString() else char.lowercase() }
+internal fun String.titleUncase(): String = replaceFirstChar {
+        char: Char ->
+    if (char.isLowerCase()) char.toString() else char.lowercase()
+}

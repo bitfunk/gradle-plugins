@@ -27,7 +27,7 @@ import java.util.regex.Pattern
 
 public class GitVersionLoader(
     private val git: Git,
-    private val prefix: String
+    private val prefix: String,
 ) : GitVersionContract.Loader {
 
     init {
@@ -60,7 +60,7 @@ public class GitVersionLoader(
             gitHash = gitHash(),
             lastTag = lastTag(description),
             isCleanTag = isClean() && isPlainTag(description),
-            commitDistance = commitDistance(description)
+            commitDistance = commitDistance(description),
         )
     }
 

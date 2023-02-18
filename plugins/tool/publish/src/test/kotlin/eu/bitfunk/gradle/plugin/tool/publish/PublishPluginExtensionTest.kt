@@ -43,13 +43,13 @@ internal class PublishPluginExtensionTest {
     fun `implements contract`() {
         assertInstanceOf(
             PublishContract.Extension::class.java,
-            testSubject
+            testSubject,
         )
     }
 
     internal class TestPublishPluginExtension(
         private val stringProperty: Property<String>,
-        private val booleanProperty: Property<Boolean>
+        private val booleanProperty: Property<Boolean>,
     ) : PublishPluginExtension {
 
         override val projectName: Property<String>

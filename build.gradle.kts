@@ -31,8 +31,8 @@ reportConfig {
             "$projectDir/plugin-development/gradle-test-util/build/reports/jacoco/testCodeCoverageReport",
             "$projectDir/plugin-development/gradle-plugin-convention/build/reports/jacoco/testCodeCoverageReport",
             "$projectDir/plugin-development/version-catalog-accessor/build/reports/jacoco/testCodeCoverageReport",
-            "$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport"
-        )
+            "$projectDir/plugins/build/reports/jacoco/testCodeCoverageReport",
+        ),
     )
 }
 

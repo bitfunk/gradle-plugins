@@ -69,7 +69,7 @@ class VersionCatalogAccessorPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             VersionCatalogAccessorContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -77,7 +77,7 @@ class VersionCatalogAccessorPluginTest {
     fun `implements plugin`() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -91,7 +91,7 @@ class VersionCatalogAccessorPluginTest {
         assertThrowsExactly(
             GradleException::class.java,
             { testSubject.checkPreconditions(project) },
-            "This plugin requires Gradle 7.2 or later"
+            "This plugin requires Gradle 7.2 or later",
         )
 
         unmockkAll() // mockStatic!!
@@ -107,7 +107,7 @@ class VersionCatalogAccessorPluginTest {
         assertThrowsExactly(
             GradleException::class.java,
             { testSubject.checkPreconditions(project) },
-            "This plugin should be applied to root project only"
+            "This plugin should be applied to root project only",
         )
     }
 
@@ -123,7 +123,7 @@ class VersionCatalogAccessorPluginTest {
         assertThrowsExactly(
             GradleException::class.java,
             { testSubject.checkPreconditions(project) },
-            "The VersionCatalogAccessorPlugin requires `java-gradle-plugin` to work."
+            "The VersionCatalogAccessorPlugin requires `java-gradle-plugin` to work.",
         )
     }
 
@@ -140,7 +140,7 @@ class VersionCatalogAccessorPluginTest {
         assertThrowsExactly(
             GradleException::class.java,
             { testSubject.checkPreconditions(project) },
-            "The VersionCatalogAccessorPlugin requires `kotlin-dsl` to work."
+            "The VersionCatalogAccessorPlugin requires `kotlin-dsl` to work.",
         )
     }
 
@@ -174,7 +174,7 @@ class VersionCatalogAccessorPluginTest {
         // THEN
         assertEquals(
             extension,
-            result
+            result,
         )
 
         verify { extensions.create("versionCatalogAccessor", VersionCatalogAccessorPluginExtension::class.java) }
@@ -215,7 +215,7 @@ class VersionCatalogAccessorPluginTest {
             taskContainer.register(
                 "generateVersionCatalogAccessor",
                 Task::class.java,
-                any()
+                any(),
             )
         } answers {
             thirdArg<Action<Task>>().execute(generatorTask)
@@ -243,7 +243,7 @@ class VersionCatalogAccessorPluginTest {
             generatorTaskProvider,
             generatorTask,
             compileKotlinTaskProvider,
-            compileKotlinTask
+            compileKotlinTask,
         )
     }
 
@@ -262,7 +262,7 @@ class VersionCatalogAccessorPluginTest {
         assertEquals(2, srcDirs.size)
         assertEquals(
             "${project.buildDir}/generated/versionCatalogAccessor/src/main/kotlin",
-            "${srcDirs.toList()[1]}"
+            "${srcDirs.toList()[1]}",
         )
     }
 
@@ -329,7 +329,7 @@ class VersionCatalogAccessorPluginTest {
             jacocoReportTaskProvider,
             jacocoReport,
             jacocoCoverageVerificationTaskProvider,
-            jacocoCoverageVerification
+            jacocoCoverageVerification,
         )
     }
 
@@ -378,7 +378,7 @@ class VersionCatalogAccessorPluginTest {
         }
 
         confirmVerified(
-            spyTestSubject
+            spyTestSubject,
         )
     }
 }

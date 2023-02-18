@@ -37,7 +37,7 @@ class VersionInterfaceGeneratorTest {
     fun `generator implements contract`() {
         assertInstanceOf(
             InternalContract.VersionInterfaceGenerator::class.java,
-            testSubject
+            testSubject,
         )
     }
 

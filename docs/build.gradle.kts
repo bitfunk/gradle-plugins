@@ -34,7 +34,7 @@ python {
         "mkdocs-same-dir:0.1.2",
         "mkdocs-exclude:1.0.2",
         "pygments:2.13.0",
-        "pymdown-extensions:9.9"
+        "pymdown-extensions:9.9",
     )
 }
 

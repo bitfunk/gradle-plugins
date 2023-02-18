@@ -43,7 +43,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             gitVersion,
-            result
+            result,
         )
     }
 
@@ -62,7 +62,7 @@ class ProjectExtensionKtTest {
         // THEN
         assertEquals(
             gitVersionInfo,
-            result
+            result,
         )
     }
 }

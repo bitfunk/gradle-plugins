@@ -69,7 +69,7 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
     override fun addExtension(project: Project): Extension = with(project) {
         val extension = extensions.create(
             EXTENSION_NAME,
-            VersionCatalogAccessorPluginExtension::class.java
+            VersionCatalogAccessorPluginExtension::class.java,
         )
 
         extension.catalogSourceFolder.convention("gradle/")
@@ -81,7 +81,7 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
 
     override fun addSourceGeneratorTask(
         project: Project,
-        extension: Extension
+        extension: Extension,
     ): VersionCatalogAccessorSourceGeneratorTask = with(project) {
         val taskProvider = tasks.register<VersionCatalogAccessorSourceGeneratorTask>(TASK_NAME_GENERATE_SOURCE) {
             catalogSourceFolder.set(extension.catalogSourceFolder)
@@ -134,8 +134,8 @@ public class VersionCatalogAccessorPlugin : Plugin<Project>, VersionCatalogAcces
                     project.fileTree(it) {
                         exclude(coverageExcludes)
                     }
-                }
-            )
+                },
+            ),
         )
     }
 

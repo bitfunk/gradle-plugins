@@ -37,7 +37,7 @@ class MapperTest {
     fun `mapper implements contract`() {
         assertInstanceOf(
             InternalContract.Mapper::class.java,
-            mapper
+            mapper,
         )
     }
 
@@ -52,7 +52,7 @@ class MapperTest {
         // THEN
         assertEquals(
             emptyList(),
-            result
+            result,
         )
     }
 
@@ -61,7 +61,7 @@ class MapperTest {
         // GIVEN
         val input = mapOf(
             "example" to null,
-            "squad" to "1.0.0"
+            "squad" to "1.0.0",
         )
 
         // WHEN
@@ -71,9 +71,9 @@ class MapperTest {
         assertEquals(
             listOf(
                 Node("example", "example"),
-                Node("squad", "squad", "1.0.0")
+                Node("squad", "squad", "1.0.0"),
             ),
-            result
+            result,
         )
     }
 
@@ -82,7 +82,7 @@ class MapperTest {
         // GIVEN
         val input = mapOf(
             "group-example" to null,
-            "squad-example" to "1.0.0"
+            "squad-example" to "1.0.0",
         )
 
         // WHEN
@@ -94,17 +94,17 @@ class MapperTest {
                 Node(
                     name = "group",
                     children = mutableListOf(
-                        Node("example", "group-example")
-                    )
+                        Node("example", "group-example"),
+                    ),
                 ),
                 Node(
                     name = "squad",
                     children = mutableListOf(
-                        Node("example", "squad-example", "1.0.0")
-                    )
-                )
+                        Node("example", "squad-example", "1.0.0"),
+                    ),
+                ),
             ),
-            result
+            result,
         )
     }
 
@@ -115,7 +115,7 @@ class MapperTest {
             "group-example-one" to null,
             "group-example-two" to null,
             "squad-example-one" to "1.0.0",
-            "squad-example-two" to "2.0.0"
+            "squad-example-two" to "2.0.0",
         )
 
         // WHEN
@@ -131,10 +131,10 @@ class MapperTest {
                             name = "example",
                             children = mutableListOf(
                                 Node("one", "group-example-one"),
-                                Node("two", "group-example-two")
-                            )
-                        )
-                    )
+                                Node("two", "group-example-two"),
+                            ),
+                        ),
+                    ),
                 ),
                 Node(
                     name = "squad",
@@ -143,13 +143,13 @@ class MapperTest {
                             name = "example",
                             children = mutableListOf(
                                 Node("one", "squad-example-one", "1.0.0"),
-                                Node("two", "squad-example-two", "2.0.0")
-                            )
-                        )
-                    )
-                )
+                                Node("two", "squad-example-two", "2.0.0"),
+                            ),
+                        ),
+                    ),
+                ),
             ),
-            result
+            result,
         )
     }
 
@@ -164,7 +164,7 @@ class MapperTest {
             "squad" to "3.0.0",
             "squad-example" to "4.0.0",
             "squad-example-one" to "1.0.0",
-            "squad-example-two" to "2.0.0"
+            "squad-example-two" to "2.0.0",
         )
 
         // WHEN
@@ -182,10 +182,10 @@ class MapperTest {
                             path = "group-example",
                             children = mutableListOf(
                                 Node("one", "group-example-one"),
-                                Node("two", "group-example-two")
-                            )
-                        )
-                    )
+                                Node("two", "group-example-two"),
+                            ),
+                        ),
+                    ),
                 ),
                 Node(
                     name = "squad",
@@ -198,13 +198,13 @@ class MapperTest {
                             value = "4.0.0",
                             children = mutableListOf(
                                 Node("one", "squad-example-one", "1.0.0"),
-                                Node("two", "squad-example-two", "2.0.0")
-                            )
-                        )
-                    )
-                )
+                                Node("two", "squad-example-two", "2.0.0"),
+                            ),
+                        ),
+                    ),
+                ),
             ),
-            result
+            result,
         )
     }
 }

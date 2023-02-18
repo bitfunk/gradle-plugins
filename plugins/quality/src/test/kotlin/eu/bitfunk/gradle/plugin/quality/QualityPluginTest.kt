@@ -41,7 +41,7 @@ class QualityPluginTest {
     fun `implements contract`() {
         assertInstanceOf(
             QualityContract.Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 
@@ -49,7 +49,7 @@ class QualityPluginTest {
     fun `implements plugin`() {
         assertInstanceOf(
             Plugin::class.java,
-            testSubject
+            testSubject,
         )
     }
 

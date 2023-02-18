@@ -28,7 +28,7 @@ import eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.mode
 internal class VersionCatalogAccessorInterfaceGenerator(
     private val packageName: String = "",
     private val classBaseName: String = "",
-    private val mapper: Mapper
+    private val mapper: Mapper,
 ) : InternalContract.Generator.VersionCatalogAccessorInterface {
 
     override fun generate(catalog: Catalog): TypeSpec {
@@ -56,7 +56,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
                         ClassName(packageName, "VersionCatalogDependency.GroupLeaf")
                     } else {
                         ClassName(packageName, "VersionCatalogDependency.Group")
-                    }
+                    },
                 )
             }
 
@@ -68,7 +68,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
     }
 
     private fun generateInterfaceProperties(
-        nodes: List<Node>
+        nodes: List<Node>,
     ): Iterable<PropertySpec> {
         val properties = mutableListOf<PropertySpec>()
 
@@ -76,12 +76,12 @@ internal class VersionCatalogAccessorInterfaceGenerator(
             val property = if (!node.isGroup() && node.isLeaf()) {
                 generateInterfaceNodeProperty(
                     node,
-                    ClassName("", "VersionCatalogDependency.Leaf")
+                    ClassName("", "VersionCatalogDependency.Leaf"),
                 )
             } else {
                 generateInterfaceNodeProperty(
                     node,
-                    ClassName("", node.name.titleCase())
+                    ClassName("", node.name.titleCase()),
                 )
             }
 
@@ -93,7 +93,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
 
     private fun generateInterfaceNodeProperty(
         node: Node,
-        className: ClassName
+        className: ClassName,
     ): PropertySpec {
         return PropertySpec.builder(node.name, className)
             .build()

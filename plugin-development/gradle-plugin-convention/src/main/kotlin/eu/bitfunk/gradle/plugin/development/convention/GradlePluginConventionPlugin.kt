@@ -79,7 +79,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
     override fun addExtension(project: Project): Extension = with(project) {
         val extension = extensions.create(
             GradlePluginConventionContract.EXTENSION_NAME,
-            GradlePluginConventionPluginExtension::class.java
+            GradlePluginConventionPluginExtension::class.java,
         )
 
         extension.publishName.convention("")
@@ -114,7 +114,7 @@ public class GradlePluginConventionPlugin : Plugin<Project>, GradlePluginConvent
             testImplementation("io.mockk:mockk:${libs.versions.test.mockk.getStatic()}")
             testImplementation(
                 "eu.bitfunk.gradle.plugin.development.test:gradle-test-util:" +
-                    libs.versions.test.gradleTestUtil.getStatic()
+                    libs.versions.test.gradleTestUtil.getStatic(),
             )
         }
     }

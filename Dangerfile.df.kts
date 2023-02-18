@@ -66,7 +66,7 @@ danger(args) {
                     "\nrelease/1.2(.3)(/prepare-1.2.3)\n" +
                     "\nfeature/(ISSUE-123)/add|change|remove|fix|bump|security-feature-title\n" +
                     "\n\n" +
-                    "\n Current name: $branchName"
+                    "\n Current name: $branchName",
             )
         }
 
@@ -74,7 +74,7 @@ danger(args) {
             if (!isFeatureTitle) {
                 fail(
                     "Title is not following our pattern:\n" +
-                        "\n[issue_id](optional) Add|Change|Remove|Fix|Bump|Security {Feature title}"
+                        "\n[issue_id](optional) Add|Change|Remove|Fix|Bump|Security {Feature title}",
                 )
             }
         }
@@ -82,7 +82,7 @@ danger(args) {
         if (isReleaseBranch) {
             if (!isReleaseTitle) {
                 fail(
-                    "Title is not following our pattern: Prepare Release major.minor.patch (1.2.0)"
+                    "Title is not following our pattern: Prepare Release major.minor.patch (1.2.0)",
                 )
             }
         }

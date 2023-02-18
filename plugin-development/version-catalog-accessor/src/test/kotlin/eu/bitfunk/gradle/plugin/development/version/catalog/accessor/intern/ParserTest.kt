@@ -40,7 +40,7 @@ class ParserTest {
     fun `parser implements contract`() {
         assertInstanceOf(
             InternalContract.Parser::class.java,
-            parser
+            parser,
         )
     }
 
@@ -61,9 +61,9 @@ class ParserTest {
         assertEquals(
             mapOf(
                 "version" to "1.0.0",
-                "group-version" to "2.0.0"
+                "group-version" to "2.0.0",
             ),
-            result.versions.items
+            result.versions.items,
         )
     }
 
@@ -86,9 +86,9 @@ class ParserTest {
             mapOf(
                 "library" to null,
                 "group-library" to null,
-                "library-complex" to null
+                "library-complex" to null,
             ),
-            result.libraries.items
+            result.libraries.items,
         )
     }
 
@@ -107,9 +107,9 @@ class ParserTest {
         assertInstanceOf(Bundles::class.java, result.bundles)
         assertEquals(
             mapOf(
-                "bundle" to null
+                "bundle" to null,
             ),
-            result.bundles.items
+            result.bundles.items,
         )
     }
 
@@ -130,9 +130,9 @@ class ParserTest {
         assertEquals(
             mapOf(
                 "plugin" to null,
-                "pluginComplex" to null
+                "pluginComplex" to null,
             ),
-            result.plugins.items
+            result.plugins.items,
         )
     }
 }

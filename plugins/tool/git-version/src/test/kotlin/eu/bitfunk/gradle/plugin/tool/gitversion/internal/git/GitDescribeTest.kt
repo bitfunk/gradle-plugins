@@ -41,7 +41,7 @@ internal class GitDescribeTest {
     fun `implements contract`() {
         Assertions.assertInstanceOf(
             GitContract.Describe::class.java,
-            GitDescribe(mockk())
+            GitDescribe(mockk()),
         )
     }
 
@@ -59,7 +59,7 @@ internal class GitDescribeTest {
         assertJGitDescribe(result, git)
         assertEquals(
             expected = "",
-            actual = result
+            actual = result,
         )
     }
 
@@ -80,7 +80,7 @@ internal class GitDescribeTest {
 
         assertTrue(
             actual = result.contains(HASH_SHORT_PATTERN.toRegex()),
-            message = "$result does not match pattern: $HASH_SHORT_PATTERN"
+            message = "$result does not match pattern: $HASH_SHORT_PATTERN",
         )
     }
 
@@ -101,7 +101,7 @@ internal class GitDescribeTest {
         assertJGitDescribe(result, git)
         assertEquals(
             expected = "1.0.0",
-            actual = result
+            actual = result,
         )
     }
 
@@ -124,7 +124,7 @@ internal class GitDescribeTest {
         val pattern = "1.0.0-1-$GIT_HASH_SHORT_PATTERN".toRegex()
         assertTrue(
             actual = result.contains(pattern),
-            message = "$result does not match $pattern"
+            message = "$result does not match $pattern",
         )
     }
 
@@ -152,7 +152,7 @@ internal class GitDescribeTest {
         val pattern = "1.0.0-$depth-g${latestCommit.name.take(Constants.OBJECT_ID_ABBREV_STRING_LENGTH)}".toRegex()
         assertTrue(
             actual = result.contains(pattern),
-            message = "$result does not match $pattern"
+            message = "$result does not match $pattern",
         )
     }
 
@@ -175,7 +175,7 @@ internal class GitDescribeTest {
         assertJGitDescribe(result, git)
         assertEquals(
             expected = "2.0.0",
-            actual = result
+            actual = result,
         )
     }
 
@@ -214,7 +214,7 @@ internal class GitDescribeTest {
         val pattern = "1.0.0-2-$GIT_HASH_SHORT_PATTERN".toRegex()
         assertTrue(
             actual = result.contains(pattern),
-            message = "$result does not match $pattern"
+            message = "$result does not match $pattern",
         )
     }
 
@@ -239,7 +239,7 @@ internal class GitDescribeTest {
         val pattern = "my-prefix@1.0.0-1-$GIT_HASH_SHORT_PATTERN".toRegex()
         assertTrue(
             actual = result.contains(pattern),
-            message = "$result does not match $pattern"
+            message = "$result does not match $pattern",
         )
     }
 
@@ -277,7 +277,7 @@ internal class GitDescribeTest {
             assertEquals(
                 expected = nativeGitDescribe,
                 actual = actual,
-                message = "Failed against nativeGitDescribe: $nativeGitDescribe vs actual: $actual"
+                message = "Failed against nativeGitDescribe: $nativeGitDescribe vs actual: $actual",
             )
         }
 
@@ -286,7 +286,7 @@ internal class GitDescribeTest {
             assertEquals(
                 expected = jGitDescribe,
                 actual = actual,
-                message = "Failed against jGitDescribe: $jGitDescribe vs actual: $actual"
+                message = "Failed against jGitDescribe: $jGitDescribe vs actual: $actual",
             )
         }
 

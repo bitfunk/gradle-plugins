@@ -47,7 +47,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
             parallel = true
 
             source = project.files(
-                project.file(project.rootDir)
+                project.file(project.rootDir),
             )
 
             config = project.rootProject.files("config/detekt/detekt.yml")
@@ -64,7 +64,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
                 "**/.idea/**",
                 "**/build/**",
                 ".github/**",
-                "gradle/**"
+                "gradle/**",
             )
             reports {
                 xml.required.set(true)
@@ -93,7 +93,7 @@ public class CodeAnalysisPlugin : Plugin<Project>, CodeAnalysisContract.Plugin {
                 "**/*.pro",
                 "**/*.sq",
                 "**/*.xml",
-                "**/*.yml"
+                "**/*.yml",
             )
         }
     }

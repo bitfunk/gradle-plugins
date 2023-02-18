@@ -65,8 +65,8 @@ mavenPublishing {
     configure(
         KotlinJvm(
             javadocJar = JavadocJar.Javadoc(),
-            sourcesJar = true
-        )
+            sourcesJar = true,
+        ),
     )
     pom {
         name.set("Test utils for Gradle plugin development")

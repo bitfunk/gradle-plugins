@@ -27,7 +27,7 @@ import java.util.Date
 import java.util.Locale
 
 internal class VersionNameGenerator(
-    private val project: Project
+    private val project: Project,
 ) : Generator {
 
     override fun generateVersionName(): String {
