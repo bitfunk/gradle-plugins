@@ -60,7 +60,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
                 )
             }
 
-        return TypeSpec.interfaceBuilder(name.capitalize())
+        return TypeSpec.interfaceBuilder(name.titleCase())
             .also { if (kClass != null) it.addSuperinterface(kClass) }
             .addProperties(generateInterfaceProperties(nodes))
             .addTypes(interfaces)
@@ -81,7 +81,7 @@ internal class VersionCatalogAccessorInterfaceGenerator(
             } else {
                 generateInterfaceNodeProperty(
                     node,
-                    ClassName("", node.name.capitalize())
+                    ClassName("", node.name.titleCase())
                 )
             }
 
