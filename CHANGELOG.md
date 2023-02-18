@@ -42,7 +42,11 @@ All project changes below.
 
 ## [Unreleased](https://github.com/bitfunk/gradle-plugins/releases/latest)
 
-See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...main)
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.2.0...main)
+
+## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.2.0)
+
+See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...v0.2.0)
 
 ### Changed
 
