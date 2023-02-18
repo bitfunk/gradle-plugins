@@ -61,7 +61,7 @@ curl "https://img.shields.io/badge/Tool-→-orange.svg?style=flat" -s -o ../asse
   ```
 - Versioning
   ```bash
-  curl "https://img.shields.io/badge/Versioning-v0.1.2-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-versioning.svg
+  curl "https://img.shields.io/badge/Versioning-v0.2.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-tool-versioning.svg
   ```
 
 #### Plugin-development
