@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.1...main)
 
+### Removed
+
+- Remove unnecessary rules for `.kt`, `.kts` and `.md` files as ktlint and prettier apply them already
+
 ### Bumped
 
 - Gradle Plugin Convention 0.1.0 -> 0.2.0

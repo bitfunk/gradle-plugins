@@ -133,21 +133,13 @@ class FormatterPluginTest {
             kotlinExtension.ktlint()
             kotlinExtension.target("**/*.kt")
             kotlinExtension.targetExclude("**/build/", "**/resources/")
-            kotlinExtension.trimTrailingWhitespace()
-            kotlinExtension.indentWithSpaces()
-            kotlinExtension.endWithNewline()
 
+            kotlinGradleExtension.ktlint()
             kotlinGradleExtension.target("**/*.gradle.kts", "**/*.df.kts")
             kotlinGradleExtension.targetExclude("**/build/")
-            kotlinGradleExtension.trimTrailingWhitespace()
-            kotlinGradleExtension.indentWithSpaces()
-            kotlinGradleExtension.endWithNewline()
 
             markdownFormatExtension.prettier()
             markdownFormatExtension.target("**/*.md")
-            markdownFormatExtension.trimTrailingWhitespace()
-            markdownFormatExtension.indentWithSpaces()
-            markdownFormatExtension.endWithNewline()
 
             miscFormatExtension.target("**/.gitignore", "**/.gitattributes", ".java-version")
             miscFormatExtension.trimTrailingWhitespace()
