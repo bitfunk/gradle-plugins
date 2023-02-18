@@ -30,7 +30,7 @@ curl "https://img.shields.io/badge/Quality-→-orange.svg?style=flat" -s -o ../a
   ```
 - Code analysis
   ```bash
-  curl "https://img.shields.io/badge/CodeAnalysis-v0.1.1-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg
+  curl "https://img.shields.io/badge/CodeAnalysis-v0.2.0-orange.svg?style=flat" -s -o ../assets/images/badge-release-quality-code-analysis.svg
   ```
 - Code Formatter
   ```bash
