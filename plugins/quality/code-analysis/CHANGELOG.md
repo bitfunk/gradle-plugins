@@ -13,7 +13,8 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 
 ### Bumped
 
-- Version Catalog Accessor 0.1.0 -> 0.1.1
+- Version Catalog Accessor 0.1.0 -> 0.2.0
+- Gradle Plugin Convention 0.1.0 -> 0.2.1
 
 ## [0.1.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.1.1)
 
@@ -22,7 +23,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality
 ### Bumped
 
 - Detekt 1.21.0 -> 1.22.0
-- Gradle Plugin Convention 0.7.0 -> 1.0.0
+- Gradle Plugin Convention 0.0.7 -> 0.1.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-code-analysis@v0.1.0)
 
