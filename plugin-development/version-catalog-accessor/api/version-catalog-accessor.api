@@ -45,6 +45,11 @@ public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor
 	public fun configureSourceSet (Lorg/gradle/api/Project;)V
 }
 
+public final class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorPlugin$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
 public abstract interface class eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorPluginExtension : eu/bitfunk/gradle/plugin/development/version/catalog/accessor/VersionCatalogAccessorContract$Extension {
 }
 

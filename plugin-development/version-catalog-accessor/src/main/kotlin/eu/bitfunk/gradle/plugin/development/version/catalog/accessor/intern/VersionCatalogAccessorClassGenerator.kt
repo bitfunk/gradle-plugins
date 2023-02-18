@@ -57,7 +57,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     .addModifiers(PRIVATE)
                     .build()
             )
-            .addSuperinterface(ClassName(packageName, Generator.NAME_LIBRARIES.capitalize()))
+            .addSuperinterface(ClassName(packageName, Generator.NAME_LIBRARIES.titleCase()))
             .addProperty(
                 PropertySpec.builder("versionCatalog", VersionCatalog::class.java)
                     .getter(
@@ -65,7 +65,7 @@ internal class VersionCatalogAccessorClassGenerator(
                             .addStatement(
                                 "return %L",
                                 "project.extensions.getByType(VersionCatalogsExtension::class.java)\n" +
-                                    "    .named(\"${baseName.decapitalize()}\")"
+                                    "    .named(\"${baseName.titleUncase()}\")"
                             )
                             .build()
                     )
@@ -79,7 +79,7 @@ internal class VersionCatalogAccessorClassGenerator(
                 generateProperties(
                     catalog.libraries::class,
                     libraryNodes,
-                    Generator.NAME_LIBRARIES.capitalize()
+                    Generator.NAME_LIBRARIES.titleCase()
                 )
             )
             .addFunction(generateCatalogFindFunction("findVersion"))
@@ -90,7 +90,7 @@ internal class VersionCatalogAccessorClassGenerator(
     }
 
     private fun generateRootProperty(name: String, catalogEntry: CatalogEntry): PropertySpec {
-        val className = ClassName(packageName, name.capitalize())
+        val className = ClassName(packageName, name.titleCase())
         return PropertySpec.builder(name, className)
             .initializer("%L", generateRootImplementation(className, catalogEntry))
             .build()
@@ -115,7 +115,7 @@ internal class VersionCatalogAccessorClassGenerator(
 
         for (node in nodes) {
             val property = if (node.isGroup() && node.isLeaf()) {
-                val name = "$parentName.${node.name.capitalize()}"
+                val name = "$parentName.${node.name.titleCase()}"
                 generateNodeProperty(
                     catalogType,
                     node,
@@ -132,7 +132,7 @@ internal class VersionCatalogAccessorClassGenerator(
                     parentName
                 )
             } else {
-                val name = "$parentName.${node.name.capitalize()}"
+                val name = "$parentName.${node.name.titleCase()}"
                 generateNodeProperty(
                     catalogType,
                     node,

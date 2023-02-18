@@ -74,7 +74,7 @@ internal class GeneratorTask(
 
     private fun generateFileName(name: String): String {
         return name.split("-")
-            .map { it.capitalize() }
+            .map { it.titleCase() }
             .joinToString(separator = "") { it }
     }
 
