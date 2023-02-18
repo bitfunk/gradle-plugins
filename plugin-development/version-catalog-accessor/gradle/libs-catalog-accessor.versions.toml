@@ -1,5 +1,5 @@
 [versions]
-gradlePluginConvention = "0.1.0"
+gradlePluginConvention = "0.2.0"
 
 [libraries]
 kotlinPoet = "com.squareup:kotlinpoet:1.12.0"
