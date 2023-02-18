@@ -13,7 +13,7 @@ See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-co
 
 ### Bumped
 
-- Gradle Plugin Convention 0.0.7 -> 0.1.0
+- Gradle Plugin Convention 0.0.7 -> 0.2.0
 
 ## [0.1.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-composite-delegator@v0.1.0)
 
