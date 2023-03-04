@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.2.0...main)
 
+### Bumped
+
+- Spotless 6.15.0 -> 6.16.0
+
 ## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-quality-formatter@v0.2.0)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-quality-formatter@v0.1.1...plugin-quality-formatter@v0.2.0)
