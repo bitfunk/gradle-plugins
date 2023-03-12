@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.2.0...main)
 
+### Bumped
+
+- jGit 6.4.0.202211300538-r -> 6.5.0.202303070854-r
+
 ## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-tool-git-version@v0.2.0)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-tool-git-version@v0.1.1...plugin-tool-git-version@v0.2.0)
