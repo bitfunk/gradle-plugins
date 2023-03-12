@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.VersionInterfaceGeneratorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-04T15:08:08" hostname="fv-az574-470" time="0.018">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.VersionInterfaceGeneratorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-12T10:41:26" hostname="fv-az449-12" time="0.005">
   <properties/>
-  <testcase name="generator implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.VersionInterfaceGeneratorTest" time="0.012"/>
+  <testcase name="generator implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.VersionInterfaceGeneratorTest" time="0.0"/>
   <testcase name="GIVEN packageName WHEN generate() THEN()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.VersionInterfaceGeneratorTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-03-04T15:08:01" hostname="fv-az574-470" time="4.114">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-03-12T10:41:22" hostname="fv-az449-12" time="1.956">
   <properties/>
-  <testcase name="GIVEN pluginName WHEN findPlugin() THEN return plugin()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="1.772"/>
-  <testcase name="GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.059"/>
-  <testcase name="GIVEN versionName WHEN findVersion() THEN return version()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.587"/>
-  <testcase name="GIVEN bundleName WHEN findBundle() THEN return bundle()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.55"/>
-  <testcase name="GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.031"/>
-  <testcase name="GIVEN libraryName WHEN findLibrary() THEN return library()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="1.046"/>
-  <testcase name="GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.022"/>
-  <testcase name="GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.014"/>
+  <testcase name="GIVEN pluginName WHEN findPlugin() THEN return plugin()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.773"/>
+  <testcase name="GIVEN invalid library WHEN findLibrary() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.01"/>
+  <testcase name="GIVEN versionName WHEN findVersion() THEN return version()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.225"/>
+  <testcase name="GIVEN bundleName WHEN findBundle() THEN return bundle()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.291"/>
+  <testcase name="GIVEN invalid bundle WHEN findBundle() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.01"/>
+  <testcase name="GIVEN libraryName WHEN findLibrary() THEN return library()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.617"/>
+  <testcase name="GIVEN invalid version WHEN findVersion() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.005"/>
+  <testcase name="GIVEN invalid plugin WHEN findPlugin() THEN throw NoSuchElementException()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.generated.TestVersionCatalogAccessorTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
