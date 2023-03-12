@@ -1,5 +1,5 @@
 [versions]
-jGit = "6.4.0.202211300538-r"
+jGit = "6.5.0.202303070854-r"
 semVer = "1.2.0"
 plugin-gradlePluginConvention = "0.2.1"
 
