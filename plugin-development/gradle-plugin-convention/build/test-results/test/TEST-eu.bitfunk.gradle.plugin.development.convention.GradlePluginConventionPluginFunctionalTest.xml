@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-12T10:33:45" hostname="fv-az449-12" time="422.845">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:18:05" hostname="fv-az339-230" time="325.243">
   <properties/>
-  <testcase name="GIVEN Gradle version 7_1 WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" time="226.456"/>
-  <testcase name="GIVEN minimal project WHEN plugin applied THEN success()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" time="196.375"/>
+  <testcase name="GIVEN Gradle version 7_1 WHEN run THEN fail()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" time="177.682"/>
+  <testcase name="GIVEN minimal project WHEN plugin applied THEN success()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginFunctionalTest" time="147.56"/>
   <system-out><![CDATA[Downloading https://services.gradle.org/distributions/gradle-7.1-bin.zip
 ...........................................................................................................
 ]]></system-out>

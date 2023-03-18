@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-03-12T10:41:25" hostname="fv-az449-12" time="0.377">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:29" hostname="fv-az339-230" time="0.716">
   <properties/>
-  <testcase name="GIVEN catalog with libraries WHEN generate() THEN return accessor with libraries()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.272"/>
-  <testcase name="GIVEN catalog with bundles WHEN generate() THEN return accessor with bundles()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.029"/>
-  <testcase name="GIVEN catalog with plugins WHEN generate() THEN return accessor with plugins()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.024"/>
-  <testcase name="generator implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.002"/>
-  <testcase name="GIVEN empty catalog WHEN generate() THEN return empty accessor()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.024"/>
-  <testcase name="GIVEN catalog with versions WHEN generate() THEN return accessor with versions()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.017"/>
+  <testcase name="GIVEN catalog with libraries WHEN generate() THEN return accessor with libraries()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.493"/>
+  <testcase name="GIVEN catalog with bundles WHEN generate() THEN return accessor with bundles()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.06"/>
+  <testcase name="GIVEN catalog with plugins WHEN generate() THEN return accessor with plugins()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.045"/>
+  <testcase name="generator implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.007"/>
+  <testcase name="GIVEN empty catalog WHEN generate() THEN return empty accessor()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.041"/>
+  <testcase name="GIVEN catalog with versions WHEN generate() THEN return accessor with versions()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTest" time="0.047"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
