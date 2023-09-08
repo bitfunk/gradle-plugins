@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:28:27" hostname="fv-az349-360" time="1.604">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-09-08T19:29:25" hostname="fv-az627-722" time="1.262">
   <properties/>
-  <testcase name="GIVEN project with nested projects WHEN collectProjects() THEN return all projects()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="1.53"/>
-  <testcase name="GIVEN folder without nested projects WHEN collectProjects() THEN return empty list()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.009"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.011"/>
-  <testcase name="GIVEN folder with filterPath WHEN collectProjects() THEN return root folder()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.016"/>
+  <testcase name="GIVEN project with nested projects WHEN collectProjects() THEN return all projects()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="1.216"/>
+  <testcase name="GIVEN folder without nested projects WHEN collectProjects() THEN return empty list()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.017"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.015"/>
+  <testcase name="GIVEN folder with filterPath WHEN collectProjects() THEN return root folder()" classname="eu.bitfunk.gradle.plugin.quality.report.ProjectCollectorTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
