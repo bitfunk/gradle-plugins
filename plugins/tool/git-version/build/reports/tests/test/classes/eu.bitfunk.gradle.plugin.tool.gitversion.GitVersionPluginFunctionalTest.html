@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3m35.10s</div>
+<div class="counter">3m23.89s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,112 +79,112 @@
 </thead>
 <tr>
 <td class="success">GIVEN commit after lightweight tag WHEN describe THEN tag ignored()</td>
-<td class="success">0.428s</td>
+<td class="success">0.467s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GIVEN lightweight tag WHEN describe THEN tag is ignored()</td>
-<td class="success">0.581s</td>
+<td class="success">0.592s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GIVEN multiple unannotated tags on same commit WHEN describe THEN not tag is chosen()</td>
-<td class="success">6.389s</td>
+<td class="success">6.442s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">GIVEN project without git folder WHEN plugin applied THEN fail with exception()</td>
-<td class="success">1.331s</td>
+<td class="success">1.280s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe and dirty when annotated tag is present and dirty content()</td>
-<td class="success">0.555s</td>
+<td class="success">0.664s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe when annotated tag is present after merge commit()</td>
-<td class="success">1.135s</td>
+<td class="success">1.137s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe when annotated tag is present with merge commit()</td>
-<td class="success">0.628s</td>
+<td class="success">0.657s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe when annotated tag is present()</td>
-<td class="success">0.536s</td>
+<td class="success">0.604s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe with commit after annotated tag()</td>
-<td class="success">0.584s</td>
+<td class="success">0.457s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git describe works when git repo is multiple levels up()</td>
-<td class="success">2m53.28s</td>
+<td class="success">2m42.36s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">git version can be applied on sub modules()</td>
-<td class="success">4.963s</td>
+<td class="success">4.715s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">isCleanTag should be false when repo dirty on a tag checkout()</td>
-<td class="success">3.507s</td>
+<td class="success">3.672s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test multiple tags on same commit - annotated tag is chosen()</td>
-<td class="success">0.506s</td>
+<td class="success">0.547s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test multiple tags on same commit - most recent annotated tag()</td>
-<td class="success">0.924s</td>
+<td class="success">1.032s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test subproject version()</td>
-<td class="success">3.036s</td>
+<td class="success">2.636s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">test tag set on deep commit()</td>
-<td class="success">2.640s</td>
+<td class="success">2.350s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">unspecified when no tags are present()</td>
-<td class="success">0.549s</td>
+<td class="success">0.472s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">version details can be accessed using extra properties method()</td>
-<td class="success">2.740s</td>
+<td class="success">3.504s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">version details on commit with a tag()</td>
-<td class="success">0.475s</td>
+<td class="success">0.438s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">version details when commit distance to tag is greater 0()</td>
-<td class="success">3.269s</td>
+<td class="success">3.188s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">version details when detached HEAD mode()</td>
-<td class="success">3.553s</td>
+<td class="success">2.861s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">version filters out tags not matching prefix and strips prefix()</td>
-<td class="success">3.490s</td>
+<td class="success">3.813s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -193,9 +193,9 @@
 <h2>Standard output</h2>
 <span class="code">
 <pre>Log:
-id: commit fdb32bc740d4da6d68361d327c10f757f9a45f15 1694201251 -----sp message: merge commit
-id: commit 32253544610fe3e11298d4e95429da614c2759d6 1694201251 -----sp message: initial commit
-id: commit 276271df5af73ba7ce815b0011150b1dde2520e7 1694201251 -----sp message: hot fix for issue
+id: commit f57ded66451db805bdef06bcfa12798b2d6bc021 1694214792 -----sp message: merge commit
+id: commit d51f293d4c6a3d13ab1fb26d3d49ea55962ceeb4 1694214792 -----sp message: initial commit
+id: commit 577106b6b157cd477602708d5d99b458346da887 1694214792 -----sp message: hot fix for issue
 </pre>
 </span>
 </div>
@@ -207,7 +207,7 @@ id: commit 276271df5af73ba7ce815b0011150b1dde2520e7 1694201251 -----sp message: 
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.0</a> at Sep 8, 2023, 7:28:26 PM</p>
+<a href="http://www.gradle.org">Gradle 8.0</a> at Sep 8, 2023, 11:14:04 PM</p>
 </div>
 </div>
 </body>
