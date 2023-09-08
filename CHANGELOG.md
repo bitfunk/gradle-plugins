@@ -44,6 +44,10 @@ All project changes below.
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.2.0...main)
 
+### Added
+
+- Gradle Build Action to improve build performance
+
 ## [0.2.0](https://github.com/bitfunk/gradle-plugins/releases/tag/v0.2.0)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/v0.1.0...v0.2.0)
