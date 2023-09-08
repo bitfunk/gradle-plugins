@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:20:10" hostname="fv-az339-230" time="159.892">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:21:24" hostname="fv-az349-360" time="276.75">
   <properties/>
-  <testcase name="GIVEN incorrect kotlin files in special folder WHEN spotlessCheck THEN success()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="156.239"/>
-  <testcase name="GIVEN incorrect kotlin gradle file WHEN spotlessCheck THEN failure ()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="1.6"/>
-  <testcase name="GIVEN correct kotlin gradle file WHEN spotlessCheck THEN success ()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="0.752"/>
-  <testcase name="GIVEN incorrect kotlin file WHEN spotlessCheck THEN failure()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="0.712"/>
-  <testcase name="GIVEN correct kotlin file WHEN spotlessCheck THEN success()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="0.578"/>
+  <testcase name="GIVEN incorrect kotlin files in special folder WHEN spotlessCheck THEN success()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="271.04"/>
+  <testcase name="GIVEN incorrect kotlin gradle file WHEN spotlessCheck THEN failure ()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="2.212"/>
+  <testcase name="GIVEN correct kotlin gradle file WHEN spotlessCheck THEN success ()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="1.186"/>
+  <testcase name="GIVEN incorrect kotlin file WHEN spotlessCheck THEN failure()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="1.075"/>
+  <testcase name="GIVEN correct kotlin file WHEN spotlessCheck THEN success()" classname="eu.bitfunk.gradle.plugin.quality.formatter.FormatterPluginFunctionalTest" time="1.212"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

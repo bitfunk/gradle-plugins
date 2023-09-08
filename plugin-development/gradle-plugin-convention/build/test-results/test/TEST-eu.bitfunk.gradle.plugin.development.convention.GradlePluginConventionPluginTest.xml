@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:30" hostname="fv-az339-230" time="11.6">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:30:01" hostname="fv-az349-360" time="20.411">
   <properties/>
-  <testcase name="GIVEN project WHEN configureTestCoverage() THEN test coverage configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="1.198"/>
-  <testcase name="GIVEN project WHEN configureJavaCompatibility() THEN java configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.281"/>
-  <testcase name="GIVEN project WHEN configureTests() THEN tests configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="4.283"/>
-  <testcase name="GIVEN project WHEN configureGradleWrapper() THEN wrapper configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.632"/>
-  <testcase name="GIVEN project WHEN checkPreconditions() THEN conditions are met()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.318"/>
-  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.434"/>
-  <testcase name="GIVEN project WHEN configureKotlin() THEN kotlin configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.528"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="1.425"/>
-  <testcase name="GIVEN project WHEN configureDependencies() THEN dependencies added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.258"/>
-  <testcase name="GIVEN project WHEN configureTestCoverageTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="2.003"/>
-  <testcase name="GIVEN project WHEN addRepositories() THEN mavenCentral available()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.005"/>
-  <testcase name="GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.191"/>
-  <testcase name="plugin implements contract()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.004"/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN all plugins present()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.009"/>
+  <testcase name="GIVEN project WHEN configureTestCoverage() THEN test coverage configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.711"/>
+  <testcase name="GIVEN project WHEN configureJavaCompatibility() THEN java configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.312"/>
+  <testcase name="GIVEN project WHEN configureTests() THEN tests configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="6.807"/>
+  <testcase name="GIVEN project WHEN configureGradleWrapper() THEN wrapper configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="1.316"/>
+  <testcase name="GIVEN project WHEN checkPreconditions() THEN conditions are met()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.803"/>
+  <testcase name="GIVEN project with plugin WHEN addExtension() THEN extension is added to project with defaults()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.873"/>
+  <testcase name="GIVEN project WHEN configureKotlin() THEN kotlin configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="1.278"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="2.81"/>
+  <testcase name="GIVEN project WHEN configureDependencies() THEN dependencies added()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.66"/>
+  <testcase name="GIVEN project WHEN configureTestCoverageTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="4.37"/>
+  <testcase name="GIVEN project WHEN addRepositories() THEN mavenCentral available()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.011"/>
+  <testcase name="GIVEN Gradle version 7_1 WHEN checkPreconditions() THEN throw GradleException()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.344"/>
+  <testcase name="plugin implements contract()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.005"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN all plugins present()" classname="eu.bitfunk.gradle.plugin.development.convention.GradlePluginConventionPluginTest" time="0.035"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:41" hostname="fv-az339-230" time="1.153">
+<testsuite name="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:30:21" hostname="fv-az349-360" time="2.119">
   <properties/>
-  <testcase name="GIVEN project WHEN configurePublishing() THEN all plugins present()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="0.219"/>
-  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing configured()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="0.28"/>
-  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing pom configured()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="0.65"/>
+  <testcase name="GIVEN project WHEN configurePublishing() THEN all plugins present()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="0.404"/>
+  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing configured()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="0.483"/>
+  <testcase name="GIVEN project WHEN configurePublishing() THEN publishing pom configured()" classname="eu.bitfunk.gradle.plugin.development.convention.internal.PublishingConfigTest" time="1.225"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

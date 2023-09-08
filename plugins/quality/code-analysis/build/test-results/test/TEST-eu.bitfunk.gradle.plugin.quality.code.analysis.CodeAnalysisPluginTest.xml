@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:16:22" hostname="fv-az339-230" time="36.399">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:26:51" hostname="fv-az349-360" time="49.925">
   <properties/>
-  <testcase name="GIVEN project WHEN appPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="12.52"/>
-  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="0.091"/>
-  <testcase name="plugin_is_gradle_plugin()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="0.009"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="11.115"/>
-  <testcase name="GIVEN project WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="10.092"/>
-  <testcase name="GIVEN project WHEN configureAnalysis() THEN analysis configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="2.521"/>
+  <testcase name="GIVEN project WHEN appPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="20.571"/>
+  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="0.129"/>
+  <testcase name="plugin_is_gradle_plugin()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="0.006"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="11.994"/>
+  <testcase name="GIVEN project WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="13.838"/>
+  <testcase name="GIVEN project WHEN configureAnalysis() THEN analysis configured()" classname="eu.bitfunk.gradle.plugin.quality.code.analysis.CodeAnalysisPluginTest" time="3.318"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

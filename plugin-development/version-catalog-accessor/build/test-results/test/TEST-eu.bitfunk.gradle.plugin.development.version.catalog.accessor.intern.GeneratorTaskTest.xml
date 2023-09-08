@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:28" hostname="fv-az339-230" time="1.716">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:30:27" hostname="fv-az349-360" time="0.677">
   <properties/>
-  <testcase name="GIVEN catalogNames WHEN generate() THEN accessor present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="1.508"/>
-  <testcase name="GIVEN empty catalogNames WHEN generate() THEN do nothing()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.008"/>
-  <testcase name="GIVEN catalogNames and sourceFolder WHEN generate() THEN accessor present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.065"/>
-  <testcase name="GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.117"/>
-  <testcase name="generatorTask implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.007"/>
+  <testcase name="GIVEN catalogNames WHEN generate() THEN accessor present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.567"/>
+  <testcase name="GIVEN empty catalogNames WHEN generate() THEN do nothing()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.002"/>
+  <testcase name="GIVEN catalogNames and sourceFolder WHEN generate() THEN accessor present in output folder()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.044"/>
+  <testcase name="GIVEN catalogNames, sourceFolder, packageName WHEN generate() THEN all present in output()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.051"/>
+  <testcase name="generatorTask implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.GeneratorTaskTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

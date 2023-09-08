@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:30" hostname="fv-az339-230" time="0.063">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:30:28" hostname="fv-az349-360" time="0.034">
   <properties/>
-  <testcase name="GIVEN library definitions WHEN parse() THEN return list of libraries()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.013"/>
-  <testcase name="GIVEN version definitions WHEN parse() THEN return list of versions()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.006"/>
-  <testcase name="GIVEN bundle definitions WHEN parse() THEN return list of bundles()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.015"/>
+  <testcase name="GIVEN library definitions WHEN parse() THEN return list of libraries()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.009"/>
+  <testcase name="GIVEN version definitions WHEN parse() THEN return list of versions()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.005"/>
+  <testcase name="GIVEN bundle definitions WHEN parse() THEN return list of bundles()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.005"/>
   <testcase name="parser implements contract()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.001"/>
-  <testcase name="GIVEN plugin definitions WHEN parse() THEN return list of plugins()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.021"/>
+  <testcase name="GIVEN plugin definitions WHEN parse() THEN return list of plugins()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.ParserTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

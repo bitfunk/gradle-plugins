@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-03-18T15:23:30" hostname="fv-az339-230" time="0.02">
+<testsuite name="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-09-08T18:30:28" hostname="fv-az349-360" time="0.022">
   <properties/>
   <testcase name="GIVEN name WHEN path and child added THEN isLeaf is correct()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.004"/>
-  <testcase name="GIVEN name and path WHEN initialized THEN is leaf()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.002"/>
+  <testcase name="GIVEN name and path WHEN initialized THEN is leaf()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.0"/>
   <testcase name="GIVEN name, path and children WHEN initialized THEN all values present()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.001"/>
-  <testcase name="GIVEN name WHEN initialized THEN defaults set()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.001"/>
-  <testcase name="GIVEN name WHEN child added THEN is group()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.001"/>
-  <testcase name="GIVEN name, path and children WHEN initialized THEN is lead and group()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.002"/>
+  <testcase name="GIVEN name WHEN initialized THEN defaults set()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.0"/>
+  <testcase name="GIVEN name WHEN child added THEN is group()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.0"/>
+  <testcase name="GIVEN name, path and children WHEN initialized THEN is lead and group()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.001"/>
   <testcase name="GIVEN name and children WHEN initialized THEN is group()" classname="eu.bitfunk.gradle.plugin.development.version.catalog.accessor.intern.model.NodeTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
