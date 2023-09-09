@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-09-08T23:10:47" hostname="fv-az465-852" time="8.614">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-09-09T09:09:40" hostname="fv-az1030-831" time="8.108">
   <properties/>
-  <testcase name="GIVEN project WHEN configureVersion() THEN version configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.974"/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.432"/>
-  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.01"/>
-  <testcase name="GIVEN project WHEN configureVersionTasks() THEN version tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="6.388"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.779"/>
+  <testcase name="GIVEN project WHEN configureVersion() THEN version configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.78"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.367"/>
+  <testcase name="plugin_implements_contract()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.006"/>
+  <testcase name="GIVEN project WHEN configureVersionTasks() THEN version tasks configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="6.215"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.tool.versioning.VersioningPluginTest" time="0.716"/>
   <system-out><![CDATA[VersionName: 
 VersionCode: 0
 VersionCodeFeature: 0

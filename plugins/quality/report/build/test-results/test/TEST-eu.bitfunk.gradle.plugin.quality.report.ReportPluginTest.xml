@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-09-08T23:09:28" hostname="fv-az465-852" time="41.4">
+<testsuite name="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-09-09T09:07:01" hostname="fv-az1030-831" time="37.365">
   <properties/>
-  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="16.169"/>
-  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="5.728"/>
-  <testcase name="GIVEN project WHEN configureReport() THEN report configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="2.664"/>
+  <testcase name="GIVEN project WHEN addPlugins() THEN plugins added()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="14.954"/>
+  <testcase name="GIVEN project WHEN addExtension() THEN extension added()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="6.53"/>
+  <testcase name="GIVEN project WHEN configureReport() THEN report configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="2.618"/>
   <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="0.003"/>
-  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="6.672"/>
-  <testcase name="GIVEN project WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="10.075"/>
-  <testcase name="implements Gradle Plugin()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="0.004"/>
+  <testcase name="GIVEN project WHEN apply() THEN all configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="5.589"/>
+  <testcase name="GIVEN project WHEN configureTasks() THEN tasks configured()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="7.584"/>
+  <testcase name="implements Gradle Plugin()" classname="eu.bitfunk.gradle.plugin.quality.report.ReportPluginTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

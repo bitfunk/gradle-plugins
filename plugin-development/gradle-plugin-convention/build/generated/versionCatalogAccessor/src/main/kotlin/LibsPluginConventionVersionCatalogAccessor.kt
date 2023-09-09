@@ -163,7 +163,7 @@ public class LibsPluginConventionVersionCatalogAccessor(
                     VersionCatalogDependency.Leaf {
                 public override fun `get`(): String = findVersion("plugin-mavenPublish")
 
-                public override fun getStatic(): String = "0.24.0"
+                public override fun getStatic(): String = "0.25.3"
             }
 
             public override val versionCatalogAccessor: VersionCatalogDependency.Leaf = object :

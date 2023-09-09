@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-09-08T23:10:15" hostname="fv-az465-852" time="20.529">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-09-09T09:09:13" hostname="fv-az1030-831" time="18.383">
   <properties/>
-  <testcase name="GIVEN project WHEN versionCode() THEN versionCode returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="20.28"/>
-  <testcase name="GIVEN project WHEN versionCodeFeature() THEN versionCode returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.053"/>
-  <testcase name="GIVEN project, snapshot version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.056"/>
-  <testcase name="GIVEN project, feature snapshot version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.013"/>
-  <testcase name="GIVEN project WHEN version() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.02"/>
-  <testcase name="GIVEN project, final version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.017"/>
+  <testcase name="GIVEN project WHEN versionCode() THEN versionCode returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="18.185"/>
+  <testcase name="GIVEN project WHEN versionCodeFeature() THEN versionCode returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.025"/>
+  <testcase name="GIVEN project, snapshot version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.033"/>
+  <testcase name="GIVEN project, feature snapshot version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.034"/>
+  <testcase name="GIVEN project WHEN version() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.035"/>
+  <testcase name="GIVEN project, final version WHEN versionCleaned() THEN version returned()" classname="eu.bitfunk.gradle.plugin.tool.versioning.ProjectExtensionKtTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

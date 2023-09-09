@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-09-08T23:13:54" hostname="fv-az465-852" time="2.087">
+<testsuite name="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-09-09T09:11:00" hostname="fv-az1030-831" time="2.072">
   <properties/>
-  <testcase name="GIVEN multiple tags with some having prefix WHEN describe() THEN only tag with prefix is shown()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.208"/>
-  <testcase name="GIVEN no tag WHEN describe THEN describe is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.068"/>
-  <testcase name="GIVEN annotated tag is present with merge commit WHEN describe() THEN annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.209"/>
-  <testcase name="GIVEN with tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.069"/>
-  <testcase name="GIVEN with tag and additional commit WHEN describe() THEN count up by one()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.099"/>
-  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.003"/>
-  <testcase name="GIVEN multiple tags on same commit WHEN describe() THEN annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.093"/>
-  <testcase name="GIVEN tag set on deep commit WHEN describe() THEN return description()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="1.264"/>
-  <testcase name="GIVEN empty repository WHEN describe THEN describe is empty()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.037"/>
+  <testcase name="GIVEN multiple tags with some having prefix WHEN describe() THEN only tag with prefix is shown()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.156"/>
+  <testcase name="GIVEN no tag WHEN describe THEN describe is hash()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.064"/>
+  <testcase name="GIVEN annotated tag is present with merge commit WHEN describe() THEN annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.194"/>
+  <testcase name="GIVEN with tag and no additional commit WHEN describe THEN describe is tag()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.076"/>
+  <testcase name="GIVEN with tag and additional commit WHEN describe() THEN count up by one()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.105"/>
+  <testcase name="implements contract()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.01"/>
+  <testcase name="GIVEN multiple tags on same commit WHEN describe() THEN annotated tag is chosen()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.087"/>
+  <testcase name="GIVEN tag set on deep commit WHEN describe() THEN return description()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="1.279"/>
+  <testcase name="GIVEN empty repository WHEN describe THEN describe is empty()" classname="eu.bitfunk.gradle.plugin.tool.gitversion.internal.git.GitDescribeTest" time="0.073"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
