@@ -11,6 +11,10 @@ This project adheres to [semantic versioning](http://semver.org/spec/v2.0.0.html
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.2.1...main)
 
+### Bumped
+
+- MavenPublish 0.24.0 -> 0.25.3
+
 ## [0.2.1](https://github.com/bitfunk/gradle-plugins/releases/tag/plugin-dev-convention@v0.2.1)
 
 See [changeset](https://github.com/bitfunk/gradle-plugins/compare/plugin-dev-convention@v0.2.0...plugin-dev-convention@v0.2.1)
