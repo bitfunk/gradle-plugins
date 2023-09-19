@@ -1,5 +1,5 @@
 [versions]
-ktlint = "0.49.0"
+ktlint = "0.49.1"
 spotless = "6.17.0"
 gradlePluginConvention = "0.2.1"
 
