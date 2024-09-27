@@ -5,7 +5,7 @@
 
 ![Logo](docs/assets/images/logo.png)
 
-# Bitfunk Gradle Plugins
+# Bitfunk Gradle Plugins - Discontinued
 
 [![Section quality](docs/assets/images/badge-section-quality.svg)](https://central.sonatype.com/namespace/eu.bitfunk.gradle.plugin.quality)
 [![QualityCollection](docs/assets/images/badge-release-quality-collection.svg)](https://central.sonatype.com/namespace/eu.bitfunk.gradle.plugin.quality)
