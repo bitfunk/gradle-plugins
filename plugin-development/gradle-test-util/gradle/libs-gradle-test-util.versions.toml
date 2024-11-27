@@ -1,7 +1,7 @@
 [versions]
 gradle = "8.0"
 kotlin = "1.8.10"
-test-jUnit5 = "5.9.2"
+test-jUnit5 = "5.9.3"
 test-mockk = "1.13.4"
 plugin-kotlin-binaryCompatibility = "0.13.0"
 plugin-mavenPublish = "0.25.3"
